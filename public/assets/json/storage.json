@@ -1,11 +1,13 @@
 [
 	{
 		"name": "2048",
+		"id": "2048",
 		"path": "/html/2048/",
 		"img": "/2048.png"
 	},
 	{
 		"name": "A Dark Room",
+		"id": "adr",
 		"path": "/html/adr/",
 		"img": "/adr.png"
 	}

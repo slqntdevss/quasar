@@ -8,6 +8,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	for (const game of data) {
 		console.log(game);
 		const card = document.createElement("div");
+		card.id = game.id;
 		card.classList.add("card");
 		const img = document.createElement("img");
 		img.src = `/assets/img${game.img}`;
