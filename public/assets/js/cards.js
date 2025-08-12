@@ -2,7 +2,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 	const response = await fetch("/assets/json/storage.json");
 	const data = await response.json();
 
-	data.sort();
+	data.sort((a, b) => a.id.localeCompare(b.id));
 
 	console.log(data);
 	for (const game of data) {
