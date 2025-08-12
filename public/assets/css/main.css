@@ -1,0 +1,74 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+
+* {
+	font-family: "Inter", sans-serif;
+	color: white;
+}
+html {
+	height: 100%;
+	width: 100%;
+	cursor: none;
+}
+body {
+	background: linear-gradient(
+		135deg,
+		rgb(26, 0, 51),
+		rgb(85, 32, 122),
+		rgb(242, 198, 133)
+	);
+}
+.nav {
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 20px;
+	padding: 6px;
+	width: 95vw;
+	height: 5vh;
+	min-height: 45px;
+	border-radius: 6px;
+	border: 1px solid rgba(29, 29, 29, 0.658);
+	background: rgba(58, 58, 58, 0.404);
+	backdrop-filter: blur(12px) saturate(140%);
+	display: flex;
+	align-items: center;
+}
+.nav h1 {
+	margin: 0;
+	line-height: 1;
+}
+.container {
+	position: fixed;
+	left: 50%;
+	transform: translateX(-50%);
+	top: 20%;
+	display: grid;
+	gap: 7.5px;
+	width: 90%;
+	grid-template-columns: repeat(auto-fill, minmax(150px, max-content));
+	justify-content: center;
+}
+.card {
+	width: 150px;
+	height: 200px;
+	border: 1px solid rgba(29, 29, 29, 0.658);
+	background: rgba(58, 58, 58, 0.404);
+	border-radius: 12px;
+	text-align: center;
+	transition: 0.3s ease-in-out;
+}
+.card:hover {
+	scale: 1.05;
+}
+.card img {
+	width: 100%;
+	border-top-left-radius: 12px;
+	border-top-right-radius: 12px;
+}
+.cursor {
+	position: absolute;
+	filter: hue-rotate(90deg);
+	pointer-events: none;
+	filter: invert(1);
+	mix-blend-mode: difference;
+}
