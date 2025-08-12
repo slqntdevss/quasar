@@ -3,11 +3,11 @@
 * {
 	font-family: "Inter", sans-serif;
 	color: white;
+	cursor: none;
 }
 html {
 	height: 100%;
 	width: 100%;
-	cursor: none;
 }
 body {
 	background: linear-gradient(
@@ -16,6 +16,7 @@ body {
 		rgb(85, 32, 122),
 		rgb(242, 198, 133)
 	);
+	overflow-x: hidden;
 }
 .nav {
 	position: fixed;
@@ -71,4 +72,23 @@ body {
 	pointer-events: none;
 	filter: invert(1);
 	mix-blend-mode: difference;
+}
+.not-found {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	transform: translate(-50%, -50%);
+	border: 2px solid rgb(185, 185, 185);
+	padding: 6px;
+	border-radius: 6px;
+	height: 200px;
+	background: rgba(49, 49, 49, 0.322);
+	text-align: center;
+}
+.not-found button {
+	background: transparent;
+	border: 1px solid white;
+	font-size: 2rem;
+	border-radius: 6px;
+	margin-top: 20px;
 }
