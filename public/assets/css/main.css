@@ -37,6 +37,27 @@ body {
 .nav h1 {
 	margin: 0;
 	line-height: 1;
+	user-select: none;
+}
+.nav .buttons {
+	margin-left: auto;
+	display: flex;
+	gap: 6px;
+}
+.nav .buttons button {
+	height: 4.5vh;
+	width: 4.5vh;
+	background: transparent;
+	border: 1px solid white;
+	border-radius: 6px;
+	transition: 0.4s ease-in-out;
+}
+.nav .buttons button:hover {
+	height: 4.5vh;
+	width: 4.5vh;
+	background: rgba(255, 255, 255, 0.3);
+	border: 1px solid white;
+	border-radius: 6px;
 }
 .container {
 	position: fixed;
