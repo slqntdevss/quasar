@@ -11,7 +11,7 @@
 			tabindex="-1"
 			style="width: 100%; height: 100%; background: #1f1f20"
 		></canvas>
-		<script src="https://cdn.statically.io/gh/slqntdevss/CustomerSupportPort/main/Build/CustomerSupportPort.loader.js"></script>
+		<script src="Build/CustomerSupportPort.loader.js"></script>
 		<script>
 			if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
 				var meta = document.createElement("meta");
@@ -30,12 +30,9 @@
 
 			createUnityInstance(document.querySelector("#unity-canvas"), {
 				arguments: [],
-				dataUrl:
-					"https://cdn.statically.io/gh/slqntdevss/CustomerSupportPort/main/Build/CustomerSupportPort.data",
-				frameworkUrl:
-					"https://cdn.statically.io/gh/slqntdevss/CustomerSupportPort/main/Build/CustomerSupportPort.framework.js",
-				codeUrl:
-					"https://cdn.statically.io/gh/slqntdevss/CustomerSupportPort/main/Build/CustomerSupportPort.wasm",
+				dataUrl: "Build/CustomerSupportPort.data",
+				frameworkUrl: "Build/CustomerSupportPort.framework.js",
+				codeUrl: "Build/CustomerSupportPort.wasm",
 				streamingAssetsUrl: "StreamingAssets",
 				companyName: "DefaultCompany",
 				productName: "ExportedProject",
