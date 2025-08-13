@@ -24,5 +24,12 @@ function animate() {
 
 	requestAnimationFrame(animate);
 }
+// morph effect im too lazy to make it better
+setTimeout(() => {
+	document.querySelectorAll(".card").forEach((elem) => {
+		elem.addEventListener("mouseenter", () => (cursor.style.opacity = 0));
+		elem.addEventListener("mouseleave", () => (cursor.style.opacity = 1));
+	});
+}, 500);
 
 animate();
