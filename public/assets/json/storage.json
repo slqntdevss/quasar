@@ -16,5 +16,17 @@
 		"id": "customersupport",
 		"path": "/webgl/customersupport/",
 		"img": "/customersupport.png"
+	},
+	{
+		"name": "Backrooms",
+		"id": "br",
+		"path": "/html/br/",
+		"img": "/backrooms.png"
+	},
+	{
+		"name": "Alien Hominid",
+		"id": "ah",
+		"path": "/html/alien/",
+		"img": "/alien.png"
 	}
 ]
