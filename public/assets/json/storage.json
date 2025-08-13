@@ -10,5 +10,11 @@
 		"id": "adr",
 		"path": "/html/adr/",
 		"img": "/adr.png"
+	},
+	{
+		"name": "Customer Support",
+		"id": "customersupport",
+		"path": "/webgl/customersupport/",
+		"img": "/customersupport.png"
 	}
 ]
