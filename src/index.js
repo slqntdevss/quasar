@@ -17,7 +17,7 @@ app.use((req, res, next) => {
 		);
 });
 
-app.listen(process.env.PORT, () => {
-	console.log(`Listening on port ${process.env.PORT}`);
-	console.log(`http://localhost:${process.env.PORT}`);
+app.listen(4141, () => {
+  console.log("running on port 4141 (41 songs 🤣🤣🤣🤣🤣)");
+  console.log("http://localhost:4141");
 });

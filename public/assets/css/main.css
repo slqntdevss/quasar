@@ -113,3 +113,8 @@ body {
 	border-radius: 6px;
 	margin-top: 20px;
 }
+
+#cdn-switcher {
+	background:black;
+	margin-top:150px;
+}
