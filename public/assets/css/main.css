@@ -77,10 +77,16 @@ body {
 	background: rgba(58, 58, 58, 0.404);
 	border-radius: 12px;
 	text-align: center;
+	box-sizing: border-box;
 	transition: 0.3s ease-in-out;
 }
 .card:hover {
-	scale: 1.05;
+	padding: 4px;
+	border: 4px solid rgb(255, 255, 255);
+}
+
+.card:hover .cursor {
+	opacity: 1;
 }
 .card img {
 	width: 100%;
@@ -93,6 +99,7 @@ body {
 	pointer-events: none;
 	filter: invert(1);
 	mix-blend-mode: difference;
+	transition: opacity 0.3s ease-in-out;
 }
 .not-found {
 	position: fixed;
@@ -115,6 +122,6 @@ body {
 }
 
 #cdn-switcher {
-	background:black;
-	margin-top:150px;
+	background: black;
+	margin-top: 150px;
 }
