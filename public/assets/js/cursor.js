@@ -24,12 +24,5 @@ function animate() {
 
 	requestAnimationFrame(animate);
 }
-document.querySelectorAll(".card").forEach((card) => {
-	card.addEventListener("mouseenter", () => {
-		console.log("enter");
-		cursor.style.opacity = "0";
-	});
-	card.addEventListener("mouseleave", () => (cursor.style.opacity = "1"));
-});
 
 animate();
