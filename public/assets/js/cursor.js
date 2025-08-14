@@ -30,6 +30,10 @@ setTimeout(() => {
 		elem.addEventListener("mouseenter", () => (cursor.style.opacity = 0));
 		elem.addEventListener("mouseleave", () => (cursor.style.opacity = 1));
 	});
+	document.querySelectorAll("select").forEach((elem) => {
+		elem.addEventListener("mouseenter", () => (cursor.style.opacity = 0));
+		elem.addEventListener("mouseleave", () => (cursor.style.opacity = 1));
+	});
 }, 500);
 
 animate();
