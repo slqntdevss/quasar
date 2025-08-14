@@ -10,8 +10,8 @@ if (localStorage.getItem("cursorSpeed") == null) {
 }
 
 window.addEventListener("mousemove", (e) => {
-	mouseX = e.clientX - 22;
-	mouseY = e.clientY - 22;
+	mouseX = e.clientX + window.scrollX - 24;
+	mouseY = e.clientY + window.scrollY - 32;
 });
 
 function animate() {
@@ -24,16 +24,5 @@ function animate() {
 
 	requestAnimationFrame(animate);
 }
-// morph effect im too lazy to make it better
-setTimeout(() => {
-	document.querySelectorAll(".card").forEach((elem) => {
-		elem.addEventListener("mouseenter", () => (cursor.style.opacity = 0));
-		elem.addEventListener("mouseleave", () => (cursor.style.opacity = 1));
-	});
-	document.querySelectorAll("select").forEach((elem) => {
-		elem.addEventListener("mouseenter", () => (cursor.style.opacity = 0));
-		elem.addEventListener("mouseleave", () => (cursor.style.opacity = 1));
-	});
-}, 500);
 
 animate();
