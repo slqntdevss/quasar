@@ -28,5 +28,11 @@
 		"id": "ah",
 		"path": "/html/alien/",
 		"img": "/alien.png"
+	},
+	{
+		"name": "F2F: Home Alone",
+		"id": "f2fha",
+		"path": "/webgl/f2fha/",
+		"img": "/f2fha.png"
 	}
 ]

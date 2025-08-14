@@ -118,7 +118,7 @@ body {
 	margin-top: 20px;
 }
 
-#cdn-switcher {
+select {
 	margin-top: 150px;
 	background: transparent;
 	border: 1px solid white;
@@ -129,7 +129,7 @@ body {
 	box-sizing: border-box;
 	transition: 0.3s ease-in-out;
 }
-#cdn-switcher:hover {
+select:hover {
 	padding: 5px;
 	width: 130px;
 	height: 35px;
@@ -137,4 +137,5 @@ body {
 }
 option {
 	background: transparent;
+	color: black;
 }
