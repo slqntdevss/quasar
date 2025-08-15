@@ -15,8 +15,8 @@ window.addEventListener("mousemove", (e) => {
 });
 
 function animate() {
-	cursorX += (mouseX - cursorX) * localStorage.getItem("cursorSpeed") || 0.1;
-	cursorY += (mouseY - cursorY) * localStorage.getItem("cursorSpeed") || 0.1;
+	cursorX += (mouseX - cursorX) * localStorage.getItem("cursorSpeed") || 0.08;
+	cursorY += (mouseY - cursorY) * localStorage.getItem("cursorSpeed") || 0.08;
 
 	if (cursor) {
 		cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;

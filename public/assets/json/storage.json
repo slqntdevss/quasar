@@ -34,5 +34,11 @@
 		"id": "f2fha",
 		"path": "/webgl/f2fha/",
 		"img": "/f2fha.png"
+	},
+	{
+		"name": "RE:RUN",
+		"id": "rerun",
+		"path": "/webgl/rerun/",
+		"img": "/rerun.png"
 	}
 ]
