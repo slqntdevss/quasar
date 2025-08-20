@@ -11,10 +11,9 @@ html {
 }
 body {
 	background: linear-gradient(
-		135deg,
-		rgb(26, 0, 51),
-		rgb(85, 32, 122),
-		rgb(242, 198, 133)
+		90deg,
+		hsla(254, 100%, 73%, 1) 0%,
+		hsla(226, 100%, 64%, 1) 100%
 	);
 	min-height: 100%;
 	width: 100%;
@@ -139,7 +138,7 @@ option {
 	color: black;
 }
 .settings-container {
-	margin-top: 200px;
+	margin-top: 10px;
 	display: flex;
 	flex-direction: column;
 	position: fixed;
@@ -160,7 +159,7 @@ option {
 	padding: 6px;
 	height: 300px;
 	background: rgba(58, 58, 58, 0.404);
-	border: 1px solid rgba(199, 199, 199, 0.534);
+	border: 1px solid rgba(29, 29, 29, 0.658);
 }
 .settings-category h2 {
 	text-align: left;

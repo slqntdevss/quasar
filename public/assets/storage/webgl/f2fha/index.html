@@ -87,6 +87,9 @@
 							})
 							.then((data) => {
 								buffers.push(data);
+								document.getElementById(
+									"loading-text"
+								).textContent = `Parts downloaded ${index + 1}/39`;
 								fetchPart(index + 1);
 							})
 							.catch(reject);
@@ -155,7 +158,7 @@
 					margin-top: 20px;
 				"
 			>
-				This game is very big, it can take a while to load.
+				Parts downloaded (N/A)
 			</div>
 			<div id="unityContainer"></div>
 		</div>

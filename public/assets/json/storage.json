@@ -40,5 +40,35 @@
 		"id": "rerun",
 		"path": "/webgl/rerun/",
 		"img": "/rerun.png"
+	},
+	{
+		"name": "Go To Bed",
+		"id": "gtb",
+		"path": "/webgl/gtb/",
+		"img": "/gotobed.png"
+	},
+	{
+		"name": "Grindcraft",
+		"id": "grindcraft",
+		"path": "/html/grindcraft/",
+		"img": "/grindcraft.png"
+	},
+	{
+		"name": "The Deadseat",
+		"id": "deadseat",
+		"path": "/webgl/deadseat/",
+		"img": "/deadseat.png"
+	},
+	{
+		"name": "Kindergarten",
+		"id": "kg",
+		"path": "/webgl/kindergarten/1/",
+		"img": "/kg.png"
+	},
+	{
+		"name": "Kindergarten 2",
+		"id": "kg2",
+		"path": "/webgl/kindergarten/2/",
+		"img": "/kg2.png"
 	}
 ]
