@@ -70,5 +70,17 @@
 		"id": "kg2",
 		"path": "/webgl/kindergarten/2/",
 		"img": "/kg2.png"
+	},
+	{
+		"name": "Eat the Rich",
+		"id": "etr",
+		"path": "/webgl/eattherich/",
+		"img": "/eattherich.png"
+	},
+	{
+		"name": "Raft",
+		"id": "raft",
+		"path": "/webgl/raft/",
+		"img": "/raft.png"
 	}
 ]

@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Triturar</label>
+<label id="craftLabel">Artesanía</label>
+<label id="invLabel">Inventario</label>
+<label id="achLabel">Logros</label>
+<!--<label id="sInfo">Versión 0.9.6.9</label>-->
+<label id="sInfo">Versión ddf1639</label>
+<label id="sSfx">Volumen SFX</label>
+<label id="sMusic">Volumen de música</label>
+<label id="partículasL">Partículas</label>
+<label id="layoutL1">Ocultar trituraciones cuando están automatizadas</label>
+<label id="layoutL2">Combinar inventario</label>
+<label id="sErrors">Mostrar errores.</label>
+
+<label id="map_lbl">Mapa</label>
+
+
+<alerts>
+     <label id="startL">GrindCraft</label>
+     <label id="pauseL">GrindCraft está en pausa.</label>
+     <label id="game_win">¡Ha vencido a GrindCraft!{NL}{NL}El mapa está abierto.</label>
+     <label id="beat_msg">¡Ha vencido a {LBL}!</label>
+     <label id="check_map">¡Revise el mapa!{NL}Puede ir a {LBL}</label>
+     <label id="map_open">¡El mapa está abierto!</label>
+     <label id="tp_build">Construyó el Puesto Comercial.{NL}Intercambie esmeraldas por artículos.</label>
+     <label id="goto">¿Va a {LBL}?</label>
+     <label id="purchase">Inicie sesión en Kongregate para comprar artículos.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+     <button id="currículum">Reanudar</button>
+     <button id="ok">Ok</button>
+     <button id="deleteGame">¡Eliminar juego!</button>
+     <button id="reproducir">Reproducir</button>
+     <button id="cómo">Cómo</button>
+     <button id="siguiente">Siguiente</button>
+     <button id="cargar">Cargar</button>
+     <button id="guardar">Guardar</button>
+     <button id="ir">Ir</button>
+     <button id="no">No</button>
+     <button id="configuración">Configuración</button>
+     <button id="save_game">Guardar juego</button>
+     <button id="load_game">Cargar juego</button>
+</buttons>
+
+<messages>
+     <msg>¡Ha vencido a GrindCraft!{NL}{NL}El mapa está abierto.</msg>
+     <msg id="save_game_msg">Guardando el juego...</msg>
+     <msg id="save_game_ok">Guardando el juego...</msg>
+     <msg id="loaded_game_msg">Cargar datos del juego...</msg>
+     <msg id="loaded_game_ok">Juego correctamente{NL}cargado.</msg>
+</messages>
+
+<tutorial>
+     <item id="tut1">De clic aquí</item>
+     <item id="tut2">¡Obtuvo un logro!</item>
+     <item id="tut3">¡Y un trozo de madera!{NL}¡Aquí está!</item>
+     <item id="tut4">Convierta esa madera en tablones.{NL}¡De clic aquí!</item>
+     <item id="tut5">¡Hizo tablones!</item>
+     <item id="tut6">¡Aquí están todas las cosas que puede hacer!</item>
+     <item id="tut7">GrindCraft!</item>
+</tutorial>
+</data>	 

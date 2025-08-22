@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+	<grinders>
+		<item name="overworld" generates="wood" occurance="100" img="overworld.png"></item>
+	</grinders>	
+	
+	<grinds>
+		<item name="hand" img="hand.png" drops="hand=1" dependency="none" timeToBreak="" achievement=""></item>
+		<item name="wood" img="wood.png" drops="wood=1" dependency="hand,wood axe,stone axe,woodsman iron axe,gold axe,diamond axe" timeToBreak="3,1.5,0.75,0.74,0.5,0.375,0.1875" achievement="Puuta lyöty!"></item>
+	</grinds>
+	
+	<crafters>
+		<item ingrediens="nothing=0" requiredItem="wood axe,stone axe,iron axe,gold axe,diamond axe" craftedItems="wood=1" image="wood.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="Käytetään lautojen valmistukseen."></item>
+		<item ingrediens="wood=1" requiredItem="nothing" craftedItems="planks=4" image="planks.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Käytetään puutyökalujen ja -tavaroiden valmistamiseen."></item>
+		<item ingrediens="planks=4" requiredItem="nothing" craftedItems="crafting table=1" image="craftingTable.png" soundPrefix="wood" type="wood" achievement="Valmistuspöytä valmistettu !" onComplete="nothing" tooltip="Tarvitaan asioiden valmistamiseen."></item>
+		<item ingrediens="planks=2" requiredItem="nothing" craftedItems="stick=4" image="stick.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Käytetään puutyökalujen ja -tavaroiden valmistamiseen."></item>
+		<item ingrediens="stick=2,planks=3" requiredItem="crafting table" craftedItems="wood axe=1" image="woodAxe.png" soundPrefix="wood" type="" achievement="Puutyökalu valmistettu !" onComplete="nothing" tooltip="Halkoo puuta."></item>
+		<item ingrediens="wood=7" requiredItem="nothing" craftedItems="big log=1" image="bigLog.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Käytetään kauppapaikan rakentamiseen."></item>
+		<item ingrediens="big log=3" requiredItem="nothing" craftedItems="log tier=1" image="logTier.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Käytetään hirsitornin rakentamiseen."></item>
+		<item ingrediens="log tier=8" requiredItem="nothing" craftedItems="log tower=1" image="logTower.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Vaaditaan kauppapaikan rakentamiseen."></item>
+		<item ingrediens="big log=4" requiredItem="nothing" craftedItems="lodge tier=1" image="lodgeTier.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Käytetään mökin perustusten rakentamiseen."></item>
+		<item ingrediens="lodge tier=3" requiredItem="nothing" craftedItems="lodge base=1" image="lodgeBase.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Käytetään mökin rakentamiseen."></item>
+		<item ingrediens="big log=2" requiredItem="nothing" craftedItems="beam=1" image="beam.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Käytetään mökin katon rakentamiseen."></item>
+		<item ingrediens="beam=5,big log=2" requiredItem="nothing" craftedItems="lodge roof=1" image="lodgeRoof.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Käytetään mökin rakentamiseen."></item>
+		<item ingrediens="lodge base=1,lodge roof=1" requiredItem="nothing" craftedItems="lodge=1" image="lodge.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Vaaditaan kauppapaikan rakentamiseen."></item>
+		<item ingrediens="lodge=1,log tower=1" requiredItem="nothing" craftedItems="trading post=1" image="tradingPost.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="markMap Chasm Mine-441-537,beatLocation" tooltip="Tarvitaan kaupankäyntiä varten."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="10 emeralds=0" image="emeralds10.png" soundPrefix="metal" type="button" achievement="Smaragdeja saatu !" onComplete="purchase 10emeralds" tooltip="Avaa Kongregate-kaupan."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="30 emeralds=0" image="emeralds30.png" soundPrefix="metal" type="button" achievement="Smaragdeja saatu !" onComplete="purchase 30emeralds" tooltip="Avaa Kongregate-kaupan."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="100 emeralds=0" image="emeralds100.png" soundPrefix="metal" type="button" achievement="Smaragdeja saatu !" onComplete="purchase 100emeralds" tooltip="Avaa Kongregate-kaupan."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="emerald=0" image="emerald.png" soundPrefix="metal" type="" achievement="Smaragdeja saatu !" onComplete="nothing" tooltip="Voidaan vaihtaa tavaroihin."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min jukebox=1" image="jukebox.png" soundPrefix="metal" type="button" achievement="Jukeboksi !" onComplete="purchase jukebox5min-0-5 mins" tooltip="Soittaa musiikkia. Kestää 5 min{NL}per päivä."></item>
+		<item ingrediens="emerald=5" requiredItem="trading post" craftedItems="24 hr jukebox=1" image="jukebox.png" soundPrefix="metal" type="trade" achievement="Jukeboksi !" onComplete="purchase jukebox24hr-5-24 mins" tooltip="Kestää 24 t. Soittaa musiikkia."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min autoclicker=1" image="autoclicker.png" soundPrefix="metal" type="button" achievement="Autoklikkeri !" onComplete="purchase autoclicker5min-0-5 mins" tooltip="Valmistaa jatkuvasti tavaroita Caps Lock-klikkauksella. Kestää 5 min. 1 per päivä."></item>		
+		<item ingrediens="emerald=10" requiredItem="trading post" craftedItems="24 hr autoclicker=1" image="autoclicker.png" soundPrefix="metal" type="trade" achievement="Autoklikkeri !" onComplete="purchase autoclicker24hr-10-24 hrs" tooltip="Kestää 24 tuntia. Valmistaa tavaroita jatkuvasti Caps Lock-klikkauksella."></item> 
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min x5 multiplier=1" image="x5Multiplier.png" soundPrefix="metal" type="button" achievement="x5 kertoja !" onComplete="purchase x5multiplier5min-0-5 mins" tooltip="Valmistaa 5 kertaa enemmän Shift-klikkauksella. Kestää 5 min per päivä."></item> 
+		<item ingrediens="emerald=50" requiredItem="trading post" craftedItems="24 hr x5 multiplier=1" image="x5Multiplier.png" soundPrefix="metal" type="trade" achievement="x5 kertoja !" onComplete="purchase x5multiplier24hr-50-24 hrs" tooltip="Valmistaa 5 kertaa enemmän Shift-klikkauksella. Kestää 5 min per päivä."></item> 
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min x10 multiplier=1" image="x10Multiplier.png" soundPrefix="metal" type="button" achievement="x10 kertoja !" onComplete="purchase x10multiplier5min-0-5 min" tooltip="Valmistaa 10 kertaa enemmän Ctrl-klikkauksella. Kestää 5 min per päivä."></item> 
+		<item ingrediens="emerald=100" requiredItem="trading post" craftedItems="24 hr x10 multiplier=1" image="x10Multiplier.png" soundPrefix="metal" type="trade" achievement="x10 kertoja !" onComplete="purchase x5multiplier24hr-100-24 hrs" tooltip="Kestää 24 t. Valmistaa 5 kertaa enemmän Shift-klikkauksella."></item> 
+	</crafters>
+	
+	
+</data>

@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+<label id="grindLabel">طاحون</label>
+<label id="craftLabel">منجم</label>
+<label id="invLabel">مستودع</label>
+<label id="achLabel">الإنجازات</label>
+<!--<label id="sInfo"النسخة 0.9.6.9</label>-->
+<label id="sInfo">ddf1639</label>
+<label id="sSfx">صوت SFX</label>
+<label id="sMusic">صوت الموسيقى</label>
+<label id="particlesL">أجزاء</label>
+<label id="layoutL1">إخفاء الطواحين عند أتمتتها</label>
+<label id="layoutL2">دمج المستودعات</label>
+<label id="sErrors">إظهار الأخطاء.</label>
+
+<label id="map_lbl">الخريطة</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft متوقفة.</label>
+    <label id="game_win">لقد أنهيت GrindCraft!{NL}{NL}الخريطة مفتوحة.</label>
+    <label id="beat_msg">لقد انتصرت{LBL} !</label>
+    <label id="check_map">تحقق من الخريطة!{NL}يمكنك الانتقال إل {LBL}</label>
+    <label id="map_open">الخريطة مفتوحة!</label>
+    <label id="tp_build">لقد بنيت منصة المتاجرة.{NL}متاجرة الزمرد مقابل العناصر.</label>
+    <label id="goto">الانتقال إلى {LBL}?</label>
+    <label id="purchase">تسجيل الدخول إلى كونغريكيت لشراء المواد.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">استئناف</button>
+    <button id="ok">تمام</button>
+    <button id="deleteGame">حذف اللعبة!</button>
+    <button id="play">اللعب</button>
+    <button id="how">كيف</button>
+    <button id="next">التالي</button>
+    <button id="load">تحميل</button>
+    <button id="save">حفظ</button>
+    <button id="go">انتقال إلى</button>
+    <button id="no">لا</button>
+    <button id="settings">الإعدادات</button>
+    <button id="save_game">حفظ اللعبة</button>
+    <button id="load_game">تحميل اللعبة</button>
+</buttons>
+
+<messages>
+    <msg>لقد اجتزت اللعبة!{NL}{NL}الخريطة مفتوحة.</msg>
+    <msg id="save_game_msg">يتم تحفيظ اللعبة...</msg>
+    <msg id="save_game_ok">يتم حفظ اللعبة...</msg>
+    <msg id="loaded_game_msg">تحميل بيانات اللعبة...</msg>
+    <msg id="loaded_game_ok">تم تحميل اللعبة بنجاح.{NL}.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">انقر هنا</item>
+    <item id="tut2">لقد حققت إنجازاً!</item>
+    <item id="tut3">وقطعة خشبية!{NL}ها هي!</item>
+    <item id="tut4">تحويل تلك الخشبة إلى لوح.{NL}انقر على هذه!</item>
+    <item id="tut5">لقد صنعت ألواحاً!</item>
+    <item id="tut6">هذه جميع المواد التي يمكنك صناعتها!</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>
+</data>	

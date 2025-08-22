@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">我的世界</label>
+<label id="craftLabel">放置</label>
+<label id="invLabel">库存</label>
+<label id="achLabel">成就</label>
+<!--<label id="sInfo">版本 0.9.6.9</label>-->
+<label id="sInfo">版本 ddf1639</label>
+<label id="sSfx">SFX音量</label>
+<label id="sMusic">音乐音量</label>
+<label id="particlesL">颗粒</label>
+<label id="layoutL1">自动化时隐藏研磨</label>
+<label id="layoutL2">合并库存</label>
+<label id="sErrors">显示错误。</label>
+
+<label id="map_lbl">地图</label>
+
+
+<alerts>
+    <label id="startL">我的世界放置</label>
+    <label id="pauseL">我的世界放置暂停。</label>
+    <label id="game_win">你打败了我的世界放置!{NL}{NL}地图已开启。</label>
+    <label id="beat_msg">你打败了 {LBL} !</label>
+    <label id="check_map">查看地图 !{NL}你可以前往 {LBL}</label>
+    <label id="map_open">地图已开启 !</label>
+    <label id="tp_build">你建立了交易站。{NL}用绿宝石换取物品。</label>
+    <label id="goto">前往 {LBL}?</label>
+    <label id="purchase">登入Kongregate购买物品。</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">重新开始</button>
+    <button id="ok">好</button>
+    <button id="deleteGame">删除游戏 !</button>
+    <button id="play">开始</button>
+    <button id="how">如何</button>
+    <button id="next">下一个</button>
+    <button id="load">加载</button>
+    <button id="save">保存</button>
+    <button id="go">前往</button>
+    <button id="no">不了</button>
+    <button id="settings">设置</button>
+    <button id="save_game">保存游戏</button>
+    <button id="load_game">加载游戏</button>
+</buttons>
+
+<messages>
+    <msg>你打败了我的世界放置 !{NL}{NL}地图已开启。</msg>
+    <msg id="save_game_msg">保存游戏...</msg>
+    <msg id="save_game_ok">保存游戏...</msg>
+    <msg id="loaded_game_msg">加载游戏信息...</msg>
+    <msg id="loaded_game_ok">游戏成功{NL}载入。</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">点击这里</item>
+    <item id="tut2">你获得了一项成就 !</item>
+    <item id="tut3">和一块木头!{NL}在这里 !</item>
+    <item id="tut4">将这些木头变成木板。{NL}点击这个 !</item>
+    <item id="tut5">你做了木板 !</item>
+    <item id="tut6">这里有你能做的所有东西 !</item>
+    <item id="tut7">我的世界放置 !</item>
+</tutorial>
+</data>	

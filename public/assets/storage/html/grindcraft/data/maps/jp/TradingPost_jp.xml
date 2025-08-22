@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+	<grinders>
+		<item name="overworld" generates="wood" occurance="100" img="overworld.png"></item>
+	</grinders>	
+	
+	<grinds>
+		<item name="hand" img="hand.png" drops="hand=1" dependency="none" timeToBreak="" achievement=""></item>
+		<item name="wood" img="wood.png" drops="wood=1" dependency="hand,wood axe,stone axe,woodsman iron axe,gold axe,diamond axe" timeToBreak="3,1.5,0.75,0.74,0.5,0.375,0.1875" achievement="木が殴られた　！"></item>
+	</grinds>
+	
+	<crafters>
+		<item ingrediens="nothing=0" requiredItem="wood axe,stone axe,iron axe,gold axe,diamond axe" craftedItems="wood=1" image="wood.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="プランクとログを作るに使用。"></item>
+		<item ingrediens="wood=1" requiredItem="nothing" craftedItems="planks=4" image="planks.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="木製の道具とアイテムをクラフトするために使用。"></item>
+		<item ingrediens="planks=4" requiredItem="nothing" craftedItems="crafting table=1" image="craftingTable.png" soundPrefix="wood" type="wood" achievement="クラフトテーブルがクラフトされました　！" onComplete="nothing" tooltip="クラフトされるために必要。"></item>
+		<item ingrediens="planks=2" requiredItem="nothing" craftedItems="stick=4" image="stick.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="木製の道具とアイテムをクラフトするために使用。"></item>
+		<item ingrediens="stick=2,planks=3" requiredItem="crafting table" craftedItems="wood axe=1" image="woodAxe.png" soundPrefix="wood" type="" achievement="木製の道具がクラフトされました　！" onComplete="nothing" tooltip="木を伐ります。"></item>
+		<item ingrediens="wood=7" requiredItem="nothing" craftedItems="big log=1" image="bigLog.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="交易所を建てるために使用。"></item>
+		<item ingrediens="big log=3" requiredItem="nothing" craftedItems="log tier=1" image="logTier.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="ログタワーを建てるために使用。"></item>
+		<item ingrediens="log tier=8" requiredItem="nothing" craftedItems="log tower=1" image="logTower.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="交易所を建てるために必要。"></item>
+		<item ingrediens="big log=4" requiredItem="nothing" craftedItems="lodge tier=1" image="lodgeTier.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="ロッジの基礎を建てるために使用。"></item>
+		<item ingrediens="lodge tier=3" requiredItem="nothing" craftedItems="lodge base=1" image="lodgeBase.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="ロッジを建てるために使用。"></item>
+		<item ingrediens="big log=2" requiredItem="nothing" craftedItems="beam=1" image="beam.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="ロッジの屋根を建てるために使用。"></item>
+		<item ingrediens="beam=5,big log=2" requiredItem="nothing" craftedItems="lodge roof=1" image="lodgeRoof.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="ロッジを建てるために使用。"></item>
+		<item ingrediens="lodge base=1,lodge roof=1" requiredItem="nothing" craftedItems="lodge=1" image="lodge.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="交易所を建てるために必要。"></item>
+		<item ingrediens="lodge=1,log tower=1" requiredItem="nothing" craftedItems="trading post=1" image="tradingPost.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="markMap Chasm Mine-441-537,beatLocation" tooltip="交換するために必要。"></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="10 emeralds=0" image="emeralds10.png" soundPrefix="metal" type="button" achievement="エメラルドを入手されなした　！" onComplete="purchase 10emeralds" tooltip="Kongregateストアを開きます。"></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="30 emeralds=0" image="emeralds30.png" soundPrefix="metal" type="button" achievement="エメラルドを入手されなした　！" onComplete="purchase 30emeralds" tooltip="Kongregateストアを開きます。"></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="100 emeralds=0" image="emeralds100.png" soundPrefix="metal" type="button" achievement="エメラルドを入手されなした　！" onComplete="purchase 100emeralds" tooltip="Kongregateストアを開きます。"></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="emerald=0" image="emerald.png" soundPrefix="metal" type="" achievement="エメラルドを入手されなした　！" onComplete="nothing" tooltip="アイテムと交換できます。"></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min jukebox=1" image="jukebox.png" soundPrefix="metal" type="button" achievement="ジューウクボックス　！" onComplete="purchase jukebox5min-0-5 mins" tooltip="音楽を再生します。５分間、一日{NL}回。"></item>
+		<item ingrediens="emerald=5" requiredItem="trading post" craftedItems="24 hr jukebox=1" image="jukebox.png" soundPrefix="metal" type="trade" achievement="ジューウクボックス　！" onComplete="purchase jukebox24hr-5-24 mins" tooltip="24時間続きます。音楽を再生します。"></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min autoclicker=1" image="autoclicker.png" soundPrefix="metal" type="button" achievement="オートクリッカー　！" onComplete="purchase autoclicker5min-0-5 mins" tooltip="Caps Locｋクリックをやりながらで続けてアイテムをクラフトします。　５分間、一日１回。"></item>		
+		<item ingrediens="emerald=10" requiredItem="trading post" craftedItems="24 hr autoclicker=1" image="autoclicker.png" soundPrefix="metal" type="trade" achievement="オートクリッカー　！" onComplete="purchase autoclicker24hr-10-24 hrs" tooltip="24時間続きます。Caps Locｋクリックをやりながらで続けてアイテムをクラフトします。"></item> 
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min x5 multiplier=1" image="x5Multiplier.png" soundPrefix="metal" type="button" achievement="ｘ５倍　！" onComplete="purchase x5multiplier5min-0-5 mins" tooltip="Ｓｈｉｆｔクリックでより５倍をクラフトする。"></item> 
+		<item ingrediens="emerald=50" requiredItem="trading post" craftedItems="24 hr x5 multiplier=1" image="x5Multiplier.png" soundPrefix="metal" type="trade" achievement="ｘ５倍　！" onComplete="purchase x5multiplier24hr-50-24 hrs" tooltip="Ｓｈｉｆｔクリックでより５倍をクラフトする。"></item> 
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min x10 multiplier=1" image="x10Multiplier.png" soundPrefix="metal" type="button" achievement="ｘ１０倍　！" onComplete="purchase x10multiplier5min-0-5 min" tooltip="Ｃｔｒｌクリックでより10倍をクラフトする。"></item> 
+		<item ingrediens="emerald=100" requiredItem="trading post" craftedItems="24 hr x10 multiplier=1" image="x10Multiplier.png" soundPrefix="metal" type="trade" achievement="ｘ１０倍　！" onComplete="purchase x5multiplier24hr-100-24 hrs" tooltip="24時間続きます。Ｓｈｉｆｔクリックでより５倍をクラフトする。"></item> 
+	</crafters>
+	
+	
+</data>

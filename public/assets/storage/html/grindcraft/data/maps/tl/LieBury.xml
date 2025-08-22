@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+ 
+	<grinders>
+		<item name="overworld" generates="wood,sand,water" occurance="4,29,65" img="overworld.png" maxIncrease="1"/>
+		<item name="mobs" generates="zombie,skeleton,spider,witch,pufferfish" occurance="3,3,3,1,1" img="mobs.png" maxIncrease="1"/>
+		<item name="nether sleigh" generates="netherrack,blaze,ghast,nether wart,zombie pigman" occurance="10,1,1.75,1,3" img="netherSleighGrinder.png" maxIncrease="1"/>
+		<item name="library" generates="bookshelf,out of air" occurance="9,1" img="libraryGrinder.png" maxIncrease="0"/>
+	</grinders>
+
+<grinds>
+	<item name="wood" img="wood.png" drops="wood=1" dependency="woodsman" timeToBreak="0.74" achievement=""/>
+	<item name="sand" img="sand.png" drops="sand=1" dependency="woodsman" timeToBreak="0.5" achievement=""/>
+	<item name="water" img="water.png" drops="water=1" dependency="woodsman" timeToBreak="0.5" achievement=""/>
+	<item name="zombie" img="zombie.png" drops="nothing=0" dependency="hunter" timeToBreak="2.48" achievement=""/>
+	<item name="skeleton" img="skeleton.png" drops="arrow=1" dependency="hunter" timeToBreak="2.18" achievement=""/>
+	<item name="arrow" img="arrow.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="spider" img="spider.png" drops="string=.5" dependency="hunter" timeToBreak="1.78" achievement=""/>
+	<item name="string" img="string.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="witch" img="witch.png" drops="sugar=1" dependency="hunter" timeToBreak="2" achievement=""/>
+	<item name="sugar" img="sugar.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="pufferfish" img="pufferfish.png" drops="pufferfish=1" dependency="fishing rod" timeToBreak="1.5" achievement=""/>
+	<item name="netherrack" img="netherrack.png" drops="netherrack=10" dependency="portal sleigh" timeToBreak="0.5624" achievement=""/>
+	<item name="blaze" img="blaze.png" drops="blaze rod=.5" dependency="portal sleigh" timeToBreak="5" achievement=""/>
+	<item name="blaze rod" img="blazeRod.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="ghast" img="ghast.png" drops="gunpowder=1" dependency="hunter" timeToBreak="4.5" achievement=""/>
+	<item name="gunpowder" img="gunpowder.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="nether wart" img="netherWart.png" drops="nether wart=1" dependency="portal sleigh" timeToBreak="0.5" achievement=""/>
+	<item name="zombie pigman" img="zombiePigman.png" drops="nothing=0" dependency="hunter" timeToBreak="2.49" achievement=""/>
+	<item name="bookshelf" img="bookshelf.png" drops="bookshelf=1" dependency="use breathe water" timeToBreak="1" achievement=""/>
+	<item name="out of air" img="outOfAir.png" drops="out of air=1" dependency="use breathe water" timeToBreak="1" achievement=""/>
+</grinds>
+	
+<crafters>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="wood=1" image="wood.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang maag-craft ng mga paleta at troso."/>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="sand=1" image="sand.png" soundPrefix="dirt" type="grind" achievement="Buhangin na hinukay !" onComplete="nothing" tooltip="Marami nito sa mg isla."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="water=1" image="water.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="Marami nito sa karagatan."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=1" image="arrow.png" soundPrefix="whoosh" type="grind" achievement="Nagawa na ang palaso !" onComplete="nothing" tooltip="Ginagamit kasama ang isang palaso."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="string=1" image="string.png" soundPrefix="whoosh" type="grind" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang gumawa ng tingga."/>
+	<item ingrediens="wood=1" requiredItem="carpenter" craftedItems="planks=4" image="planks.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang makagawa ng mga bagay na galing sa kahoy."/>
+	<item ingrediens="planks=2" requiredItem="carpenter" craftedItems="stick=4" image="stick.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang makagawa ng gate."/>
+	<item ingrediens="stick=3,string=2" requiredItem="carpenter" craftedItems="fishing rod=1" image="fishingRod.png" soundPrefix="whoosh" type="" achievement="Nagawa na ang pamingwit !" onComplete="nothing" tooltip="Kinakailangang mangisda."/>
+	<item ingrediens="nothing=0" requiredItem="fishing rod" craftedItems="pufferfish=1" image="pufferfish.png" soundPrefix="hand" type="grind" achievement="Nahuli ang pufferfish !" onComplete="nothing" tooltip="Ginagamit sa potions."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="nether wart=1" image="netherWart.png" soundPrefix="whoosh" type="grind" achievement="Binunot ang nether wart !" onComplete="nothing" tooltip="Ginagamit sa potions."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="apothecary=1" image="apothecary.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="nothing" tooltip="Gumawa ng mga potion."/>
+	<item ingrediens="nether wart=1,pufferfish=1" requiredItem="apothecary" craftedItems="breathe water=1" image="potion.png" soundPrefix="hand" type="" achievement="Nagawa ang potion !" onComplete="nothing" tooltip="Ginagamit upang makahinga sa ilalim ng tubig."/>
+	<item ingrediens="breathe water=1" requiredItem="nothing" craftedItems="use breathe water=1" image="usePotion.png" soundPrefix="hand" type="" achievement="Ininom ang Potion !" onComplete="showGrinder library,automate library" tooltip="Ginagamit upang makarating sa silid-aklatan sa ilalim ng tubig."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="netherrack=1" image="netherrack.png" soundPrefix="wood" type="grind" achievement="Nakasalansan na ang Nether !" onComplete="nothing" tooltip="Marami nito sa Nether."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="blaze rod=1" image="blazeRod.png" soundPrefix="metal" type="grind" achievement="Blaze rod !" onComplete="nothing" tooltip="Ginagamit upang gumawa ng mga potions."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gunpowder=1" image="gunpowder.png" soundPrefix="whoosh" type="grind" achievement="Pulbura" onComplete="nothing" tooltip="Ginagamit sa mga pampasabog."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="bookshelf=1" image="bookshelf.png" soundPrefix="wood" type="grind" achievement="Nakuha ang libro !" onComplete="nothing" tooltip="Ginagamit upang gumawa ng mga salansan ng libro."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="out of air=1" image="outOfAir.png" soundPrefix="whoosh" type="grind" achievement="Nauubusan ng hangin !" onComplete="hideGrinder library,deautomate library" tooltip="Paubos na ang potion para makahinga sa tubig."/>
+	<item ingrediens="bookshelf=4" requiredItem="nothing" craftedItems="bookcase=1" image="bookcase.png" soundPrefix="wood" type="" achievement="Bookcase built !" onComplete="nothing" tooltip="Kinakailangan upang makakuha ng toneladang mga libro."/>
+	<item ingrediens="bookcase=15" requiredItem="nothing" craftedItems="ton of books=1" image="tonOfBooks.png" soundPrefix="wood" type="" achievement="Toneladang mga libro !" onComplete="markMap Hogquartz-305-366,beatLocation" tooltip="Required to beat lie bury."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="sugar=1" image="sugar.png" soundPrefix="metal" type="grind" achievement="Bumaba ang asukal !" onComplete="nothing" tooltip="Kinakailangan upang makagawa ng potions."/>
+	<item ingrediens="nether wart=1,sugar=1" requiredItem="apothecary" craftedItems="speed potion=1" image="potion.png" soundPrefix="hand" type="" achievement="Nagawa na ang potion !" onComplete="nothing" tooltip="Maaring inumin."/>
+	<item ingrediens="speed potion=1" requiredItem="nothing" craftedItems="use speed potion=1" image="usePotion.png" soundPrefix="hand" type="" achievement="Ininom ang Potion !" onComplete="speed 200" tooltip="Mayroong speedy properties."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="miner=1" image="miner.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="Magmina sa nawalang minahan."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="hunter=1" image="hunter.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="Lumalaban sa spawner ng mob."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="cobblestone=1" image="cobblestone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Ginagamit sa paggawa ng mga gusali."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="flint=1" image="flint.png" soundPrefix="dirt" type="grind" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang mag-craft ng palaso."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="rail=1" image="rail.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Kinakailangan upang gumawa ng mga riles."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="coal=1" image="coal.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Ginagamit sa pagtunaw ng mga ingots."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="iron ore=1" image="ironOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Kinakailangan upang tunawin ang mga bakal na ingots."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="gold ore=1" image="goldOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Kinakailangan upang tunawin ang mga gintong ingots."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="diamond=1" image="diamond.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Ginagamit sa pag-craft ng mga dyamanteng kasangkapan at bagay."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="redstone=4" image="redstone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang gumawa ng mga redstone devices."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="obsidian=1" image="obsidian.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang bumuo ng mga bagay mula sa obsidian."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="bucket=1" image="bucket.png" soundPrefix="metal" type="grind" achievement="Nagawa na ang Timba !" onComplete="nothing" tooltip=" Kinakailangan upang makuha ang tubig at lava !"/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="gold armor=1" image="goldArmor.png" soundPrefix="metal" type="grind" achievement="Gintong baluti !" onComplete="nothing" tooltip="Para sa paggawa ng mga gintong sundalo."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="gold sword=1" image="goldSword.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip=" Inaatake ang mga mobs."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="iron armor=1" image="ironArmor.png" soundPrefix="metal" type="grind" achievement="Bakal na baluti !" onComplete="nothing" tooltip="Para sa paggawa ng bakal na sundalo."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="iron axe=1" image="ironAxe.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip=" Nagpuputol ng kahoy."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="woodsman=1" image="woodsman.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="automate overworld" tooltip="Ginagawang awtomatiko ang overworld grinder."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="carpenter=1" image="carpenter.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="nothing" tooltip=" Gumagawa ng mga bagay mula sa kahoy."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=4" image="arrow.png" soundPrefix="whoosh" type="" achievement="Nagawa na ang palaso !" onComplete="nothing" tooltip="Pinagsama sa pana."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="block of quartz=1" image="blockOfQuartz.png" soundPrefix="metal" type="" achievement="Gawa sa Bloke ng quartz !" onComplete="nothing" tooltip="Kinakailangan sa paggawa ng mga quartz na istraktura."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron pick=1" image="ironPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Nagmimina ng ginto."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron shovel=1" image="ironShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Palahin ang dumi at graba."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron hoe=1" image="ironHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=" Nagbubungkal ng lupa."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron sword=1" image="ironSword.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=" Inaatake ang mga mobs."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold pick=1" image="goldPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Nagmimina ng dyamante."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold shovel=1" image="goldShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Palahin ang dumi at graba."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold axe=1" image="goldAxe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=" Nagpuputol ng kahoy."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold hoe=1" image="goldHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=" Nagbubungkal ng lupa."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond pick=1" image="diamondPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Mas mabilis na pagmimina."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond shovel=1" image="diamondShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Palahin ang dumi at graba."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond sword=1" image="diamondSword.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=" Inaatake ang mga mobs."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond axe=1" image="diamondAxe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=" Nagpuputol ng kahoy."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond hoe=1" image="diamondHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=" Nagbubungkal ng lupa."/>
+	<item ingrediens="coal=1,iron ore=1" requiredItem="furnace" craftedItems="iron ingot=1" image="ironIngot.png" soundPrefix="metal" type="metal" achievement="Natunaw na ang Iron ingot !" onComplete="nothing" tooltip=" Ginagamit sa pag-craft ng mga kasangkapang bakal at baluti."/>
+	<item ingrediens="coal=1,gold ore=1" requiredItem="furnace" craftedItems="gold ingot=1" image="goldIngot.png" soundPrefix="metal" type="metal" achievement="Natunaw na ang Gintong ingot !" onComplete="nothing" tooltip="Ginagamit upang mag-craft ng mga gintong kasangkapan at baluti."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="city state=1" image="cityState.png" soundPrefix="" type="" achievement="Estado ng Lungsod !" onComplete="nothing" tooltip="Gud job."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="port=1" image="port.png" soundPrefix="wood" type="wood" achievement="Matatag na Daungan !" onComplete="nothing" tooltip="Kinakailangan upang makapaglayag sa Grindcraftia."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="portal sleigh=1" image="portalSleigh.png" soundPrefix="metal" type="" achievement="Portal sleigh !" onComplete="nothing" tooltip="Ginagamit upang maglakbay sa nether."/>
+</crafters>
+</data>

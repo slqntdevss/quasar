@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Broyer</label>
+<label id="craftLabel">Artisanat</label>
+<label id="invLabel">Inventaire</label>
+<label id="achLabel">Réalisations</label>
+<!--<label id="sInfo">Version 0.9.6.9</label>-->
+<label id="sInfo">Version ddf1639</label>
+<label id="sSfx">Volume SFX</label>
+<label id="sMusic">Volume sonore</label>
+<label id="particlesL">Particules</label>
+<label id="layoutL1">Cachez les grincements lorsqu'ils sont automatisés</label>
+<label id="layoutL2">Fusionner l'inventaire</label>
+<label id="sErrors">Afficher les erreurs.</label>
+
+<label id="map_lbl">Carte</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft est mis en pause.</label>
+    <label id="game_win">Vous avez battu GrindCraft !{NL}{NL}Map is open.</label>
+    <label id="beat_msg">Vous avez battu {LBL} !</label>
+    <label id="check_map">Vérifiez la carte !{NL}Vous pouvez aller sur {LBL}</label>
+    <label id="map_open">La carte est ouverte !</label>
+    <label id="tp_build">Vous avez construit le poste de traite.{NL}Échanger des émeraudes contre des objets.</label>
+    <label id="goto">Aller à {LBL}?</label>
+    <label id="purchase">Connectez-vous à Kongregate pour acheter des articles.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Recommencer</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Supprimer le jeu !</button>
+    <button id="play">Jouer</button>
+    <button id="how">Comment</button>
+    <button id="next">Suivant</button>
+    <button id="load">Chargement</button>
+    <button id="save">Sauver</button>
+    <button id="go">Accédez</button>
+    <button id="no">Non</button>
+    <button id="settings">Paramètres</button>
+    <button id="save_game">Sauvegarder le jeu</button>
+    <button id="load_game">Charger le jeu</button>
+</buttons>
+
+<messages>
+    <msg>Vous avez battu GrindCraft !{NL}{NL}La carte est ouverte.</msg>
+    <msg id="save_game_msg">Sauver le jeu...</msg>
+    <msg id="save_game_ok">Sauvegarder le jeu...</msg>
+    <msg id="loaded_game_msg">Charger les données du jeu...</msg>
+    <msg id="loaded_game_ok">Jeu téléchargé avec succès{NL}.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Cliquez ici</item>
+    <item id="tut2">Vous avez atteint un exploit !</item>
+    <item id="tut3">Et un morceau de bois !{NL}Here it is !</item>
+    <item id="tut4">Transformez ce bois en planches. Cliquez ici !</item>
+    <item id="tut5">Vous avez fait des planches !</item>
+    <item id="tut6">Voici tout ce que vous pouvez faire !</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>
+</data>	

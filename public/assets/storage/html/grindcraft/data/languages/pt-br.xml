@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Grind</label>
+<label id="craftLabel">Craft</label>
+<label id="invLabel">Invent�rio</label>
+<label id="achLabel">Conquistas</label>
+<!--<label id="sInfo">Vers�o 0.9.6.9</label>-->
+<label id="sInfo">Vers�o ddf1639</label>
+<label id="sSfx">Volume de Efeitos</label>
+<label id="sMusic">Volume da M�sica</label>
+<label id="particlesL">Part�culas</label>
+<label id="layoutL1">Ocultar trituradores quando automatizados</label>
+<label id="layoutL2">Fus�o de Invent�rio</label>
+<label id="sErrors">Mostrar erros.</label>
+
+<label id="map_lbl">Mapa</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft est� pausado.</label>
+    <label id="game_win">Voc� venceu GrindCraft!{NL}{NL}O mapa est� aberto.</label>
+    <label id="beat_msg">Voc� venceu {LBL} !</label>
+    <label id="check_map">Check the map !{NL}Voc� pode ir para{LBL}</label>
+    <label id="map_open">O mapa est� aberto !</label>
+    <label id="tp_build">Voc� construiu o Posto de Troca.{NL}Troque esmeraldas por itens.</label>
+    <label id="goto">V� para {LBL}?</label>
+    <label id="purchase">Fa�a login no Kongregate para comprar itens.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Retomar</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Excluir jogo !</button>
+    <button id="play">Jogar</button>
+    <button id="how">Como</button>
+    <button id="next">Pr�ximo</button>
+    <button id="load">Carregar</button>
+    <button id="save">Salvar</button>
+    <button id="go">Ir</button>
+    <button id="no">N�o</button>
+    <button id="settings">Configura��es</button>
+    <button id="save_game">Salvar Jogo</button>
+    <button id="load_game">Carregar Jogo</button>
+</buttons>
+
+<messages>
+    <msg>Voc� venceu GrindCraft !{NL}{NL}O mapa est� aberto.</msg>
+    <msg id="save_game_msg">Salvando o Jogo...</msg>
+    <msg id="save_game_ok">Salvando o Jogo...</msg>
+    <msg id="loaded_game_msg">Carregar dados do Jogo...</msg>
+    <msg id="loaded_game_ok">Jogo carregado com sucesso{NL}.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Clique aqui</item>
+    <item id="tut2">Voc� tem uma conquista!</item>
+    <item id="tut3">E um peda�o de madeira!{NL}Aqui est� !</item>
+    <item id="tut4">Transforme essa madeira em t�buas.{NL}Clique aqui !</item>
+    <item id="tut5">Voc� fez t�buas!</item>
+    <item id="tut6">Aqui est� tudo o que voc� pode fazer!</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>
+</data>	

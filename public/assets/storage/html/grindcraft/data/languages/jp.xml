@@ -1,0 +1,63 @@
+<label id="grindLabel">Grind</label>
+<label id="craftLabel">Craft</label>
+<label id="invLabel">在庫</label>
+<label id="achLabel">実績</label>
+<!--<label id="sInfo">バージョン 0.9.6.9</label>-->
+<label id="sInfo">バージョン ddf1639</label>
+<label id="sSfx">SFX音量</label>
+<label id="sMusic">音楽の音量</label>
+<label id="particlesL">粒子</label>
+<label id="layoutL1">自動化時にグラインドを非表示にする</label>
+<label id="layoutL2">在庫を統合する</label>
+<label id="sErrors">エラーを表示する</label>
+
+<label id="map_lbl">地図</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft　は一時停止しています。</label>
+    <label id="game_win">あなたは　GrindCraft　にかった！{NL}{NL}地図が開かれる。</label>
+    <label id="beat_msg">あなたは {LBL} に勝った！</label>
+    <label id="check_map">地図を確認する ！{NL}　あなたは{LBL}に行くことができる</label>
+    <label id="map_open">地図が開かれる ！</label>
+    <label id="tp_build">あなたは交易所を立てました。{NL}エメラルドをアイテムと交換する。</label>
+    <label id="goto">{LBL}へ行く？</label>
+    <label id="purchase">Kongregate　にサインインするとアイテムを購入できます。</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">再開</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">ゲームを削除 ！</button>
+    <button id="play">プレイ</button>
+    <button id="how">方法</button>
+    <button id="next">次</button>
+    <button id="load">ロード</button>
+    <button id="save">セーブ</button>
+    <button id="go">行く</button>
+    <button id="no">いいえ</button>
+    <button id="settings">設定</button>
+    <button id="save_game">ゲームをセーブ</button>
+    <button id="load_game">ゲームをロード</button>
+</buttons>
+
+<messages>
+    <msg>あなたは GrindCraft に勝った！{NL}{NL}地図が開かれる。</msg>
+    <msg id="save_game_msg">ゲームがセーブ中。。。</msg>
+    <msg id="save_game_ok">ゲームがセーブ中。。。</msg>
+    <msg id="loaded_game_msg">ゲームのデータをロードする。。。</msg>
+    <msg id="loaded_game_ok">ゲームは正常に{NL}ロードされました。</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">ここでクリックして</item>
+    <item id="tut2">あなたは実績を取得しました ！</item>
+    <item id="tut3">そしても木片　！{NL}ここにあります ！</item>
+    <item id="tut4">その木片を厚板に変える。{NL}これをクリックして ！</item>
+    <item id="tut5">あなたはより多くの厚板を作りました ！</item>
+    <item id="tut6">ここにはあなたが作ることができる全てのある物です　！</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>

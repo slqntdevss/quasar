@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+	<grinders>
+		<item name="overworld" generates="wood" occurance="100" img="overworld.png"></item>
+	</grinders>	
+	
+	<grinds>
+		<item name="hand" img="hand.png" drops="hand=1" dependency="none" timeToBreak="" achievement=""></item>
+		<item name="wood" img="wood.png" drops="wood=1" dependency="hand,wood axe,stone axe,woodsman iron axe,gold axe,diamond axe" timeToBreak="3,1.5,0.75,0.74,0.5,0.375,0.1875" achievement="Sinuntok ang Puno !"></item>
+	</grinds>
+	
+	<crafters>
+		<item ingrediens="nothing=0" requiredItem="wood axe,stone axe,iron axe,gold axe,diamond axe" craftedItems="wood=1" image="wood.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang makagawa ng mga paleta."></item>
+		<item ingrediens="wood=1" requiredItem="nothing" craftedItems="planks=4" image="planks.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Ginagamit sa pag-craft ng mga kasangkapang kahoy at mga bagay."></item>
+		<item ingrediens="planks=4" requiredItem="nothing" craftedItems="crafting table=1" image="craftingTable.png" soundPrefix="wood" type="wood" achievement="Nagawa ang Crafting Table !" onComplete="nothing" tooltip=" Kinakailangan sa paggawa ng mga item."></item>
+		<item ingrediens="planks=2" requiredItem="nothing" craftedItems="stick=4" image="stick.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Ginagamit sa pag-craft ng mga kasangkapang kahoy at mga bagay."></item>
+		<item ingrediens="stick=2,planks=3" requiredItem="crafting table" craftedItems="wood axe=1" image="woodAxe.png" soundPrefix="wood" type="" achievement="Nagawa ang kasangkapang kahoy !" onComplete="nothing" tooltip=" Nagpuputol ng kahoy."></item>
+		<item ingrediens="wood=7" requiredItem="nothing" craftedItems="big log=1" image="bigLog.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang gumawa ng trading post."></item>
+		<item ingrediens="big log=3" requiredItem="nothing" craftedItems="log tier=1" image="logTier.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang gumawa ng toreng kahoy."></item>
+		<item ingrediens="log tier=8" requiredItem="nothing" craftedItems="log tower=1" image="logTower.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Kinakailangan upang gumawa ng trading post."></item>
+		<item ingrediens="big log=4" requiredItem="nothing" craftedItems="lodge tier=1" image="lodgeTier.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang gumawa ng base ng maliit na bahay."></item>
+		<item ingrediens="lodge tier=3" requiredItem="nothing" craftedItems="lodge base=1" image="lodgeBase.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang gumawa ng maliit na bahay."></item>
+		<item ingrediens="big log=2" requiredItem="nothing" craftedItems="beam=1" image="beam.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang gumawa ng bubong ng maliit na bahay."></item>
+		<item ingrediens="beam=5,big log=2" requiredItem="nothing" craftedItems="lodge roof=1" image="lodgeRoof.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Ginagamit upang gumawa ng maliit na bahay."></item>
+		<item ingrediens="lodge base=1,lodge roof=1" requiredItem="nothing" craftedItems="lodge=1" image="lodge.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="Kinakailangan upang gumawa ng trading post."></item>
+		<item ingrediens="lodge=1,log tower=1" requiredItem="nothing" craftedItems="trading post=1" image="tradingPost.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="markMap Chasm Mine-441-537,beatLocation" tooltip="Kinakailangan para makipagpalitan."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="10 emeralds=0" image="emeralds10.png" soundPrefix="metal" type="button" achievement="Mga nakuhang emeralds !" onComplete="purchase 10emeralds" tooltip="Binubuksan ang Kongregate store."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="30 emeralds=0" image="emeralds30.png" soundPrefix="metal" type="button" achievement="Mga nakuhang emeralds !" onComplete="purchase 30emeralds" tooltip="Binubuksan ang Kongregate store."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="100 emeralds=0" image="emeralds100.png" soundPrefix="metal" type="button" achievement="Mga nakuhang emeralds !" onComplete="purchase 100emeralds" tooltip="Binubuksan ang Kongregate store."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="emerald=0" image="emerald.png" soundPrefix="metal" type="" achievement="Mga nakuhang emeralds !" onComplete="nothing" tooltip="Maaaring ipagpalit para sa mga item."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min jukebox=1" image="jukebox.png" soundPrefix="metal" type="button" achievement="Jukebox !" onComplete="purchase jukebox5min-0-5 mins" tooltip="Magpatugtog ng musika. Tumatagal ng 5 min{NL}bawat araw."></item>
+		<item ingrediens="emerald=5" requiredItem="trading post" craftedItems="24 hr jukebox=1" image="jukebox.png" soundPrefix="metal" type="trade" achievement="Jukebox !" onComplete="purchase jukebox24hr-5-24 mins" tooltip="Tumatagal ng 24 na oras. Magpatugtog ng musika."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min autoclicker=1" image="autoclicker.png" soundPrefix="metal" type="button" achievement="Autoclicker !" onComplete="purchase autoclicker5min-0-5 mins" tooltip="Patuloy na gumagawa ng mga item gamit ang Caps Lock-click. Tumatagal ng 5 min. 1 bawat araw."></item>		
+		<item ingrediens="emerald=10" requiredItem="trading post" craftedItems="24 hr autoclicker=1" image="autoclicker.png" soundPrefix="metal" type="trade" achievement="Autoclicker !" onComplete="purchase autoclicker24hr-10-24 hrs" tooltip="Tumatagal ng 24 na oras. Patuloy na gumagawa ng mga item gamit ang Caps Lock-click."></item> 
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min x5 multiplier=1" image="x5Multiplier.png" soundPrefix="metal" type="button" achievement="x5 na multiplier !" onComplete="purchase x5multiplier5min-0-5 mins" tooltip="Nagka-craft ng 5 beses nang higit pa gamit ang Shift-click. Tumatagal ng 5 min bawat araw."></item> 
+		<item ingrediens="emerald=50" requiredItem="trading post" craftedItems="24 hr x5 multiplier=1" image="x5Multiplier.png" soundPrefix="metal" type="trade" achievement="x5 na multiplier !" onComplete="purchase x5multiplier24hr-50-24 hrs" tooltip="Nagka-craft ng 5 beses nang higit pa gamit ang Shift-click. Tumatagal ng 5 min bawat araw."></item> 
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min x10 multiplier=1" image="x10Multiplier.png" soundPrefix="metal" type="button" achievement="x10 na multiplier !" onComplete="purchase x10multiplier5min-0-5 min" tooltip="Nagka-craft ng 10 beses nang higit pa gamit ang Ctrl-click. Tumatagal ng 5 min bawat araw."></item> 
+		<item ingrediens="emerald=100" requiredItem="trading post" craftedItems="24 hr x10 multiplier=1" image="x10Multiplier.png" soundPrefix="metal" type="trade" achievement="x10 na multiplier !" onComplete="purchase x5multiplier24hr-100-24 hrs" tooltip="Tumatagal ng 24 oras. Gumagawa ng 5 beses nang higit pa gamit ang Shift-click."></item> 
+	</crafters>
+	
+	
+</data>

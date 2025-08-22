@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Grind</label>
+<label id="craftLabel">Craft</label>
+<label id="invLabel">Inventar</label>
+<label id="achLabel">Erfolge</label>
+<!--<label id="sInfo">Version 0.9.6.9</label>-->
+<label id="sInfo">Version ddf1639</label>
+<label id="sSfx">SFX Lautstärke</label>
+<label id="sMusic">Musiklautstärke</label>
+<label id="particlesL">Partikel</label>
+<label id="layoutL1">Grinds bei Automatisierung ausblenden</label>
+<label id="layoutL2">Inventar aufräumen</label>
+<label id="sErrors">Zeige Fehler.</label>
+
+<label id="map_lbl">Karte</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft ist pausiert.</label>
+    <label id="game_win">Du hast GrindCraft beendet!{NL}{NL}Die Karte ist offen.</label>
+    <label id="beat_msg">Du hast{LBL} beendet!</label>
+    <label id="check_map">Guck dir die Karet an!{NL}Du kannst nach{LBL} gehen</label>
+    <label id="map_open">Karte ist offen!</label>
+    <label id="tp_build">Du hast den Handelsposten gebaut.{NL}Tausche Smaragde gegen Gegenstände.</label>
+    <label id="goto">Nach{LBL} reisen?</label>
+    <label id="purchase">Melde dich bei Kongregate an, um Gegenstände zu kaufen.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Weiter</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Spielstand löschen</button>
+    <button id="play">Spielen</button>
+    <button id="how">Anleitung</button>
+    <button id="next">Weiter</button>
+    <button id="load">Laden</button>
+    <button id="save">Speichern</button>
+    <button id="go">Los</button>
+    <button id="no">Nein</button>
+    <button id="settings">Einstellungen</button>
+    <button id="save_game">Spiel speichern</button>
+    <button id="load_game">Spiel laden</button>
+</buttons>
+
+<messages>
+    <msg>Du hast GrindCraft beendet!{NL}{NL}Karte ist offen.</msg>
+    <msg id="save_game_msg">Spiel wird gespeichert...</msg>
+    <msg id="save_game_ok">Spiel wird gespeichert...</msg>
+    <msg id="loaded_game_msg">Spieldaten werden geladen...</msg>
+    <msg id="loaded_game_ok">Spiel erfolgreich{NL}geladen.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Klicke hier</item>
+    <item id="tut2">Du hast einen Erfolg bekommmen!</item>
+    <item id="tut3">Und ein Stück Holz!{NL}Hier ist es!</item>
+    <item id="tut4">Wandle das Holz in Planken um.{NL}Klicke hier!</item>
+    <item id="tut5">Du hast Planken hergestellt!</item>
+    <item id="tut6">Hier siehst du alles, was du herstellen kannst!</item>
+    <item id="tut7">GrindCraft!</item>
+</tutorial>
+</data>	

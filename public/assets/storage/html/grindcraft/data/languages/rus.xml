@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Измельчить</label>
+<label id="craftLabel">Создать</label>
+<label id="invLabel">Инвентарь</label>
+<label id="achLabel">Достижения</label>
+<!--<label id="sInfo">Версия 0.9.6.9</label>-->
+<label id="sInfo">Версия ddf1639</label>
+<label id="sSfx">Громкость звуковых эффектов</label>
+<label id="sMusic">Громкость музыки</label>
+<label id="particlesL">Частицы</label>
+<label id="layoutL1">Скрыть шлифовку при автоматизации</label>
+<label id="layoutL2">Объединить инвентарь</label>
+<label id="sErrors">Показать ошибки.</label>
+
+<label id="map_lbl">Карта</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">Игра GrindCraft приостановлена.</label>
+    <label id="game_win">Вы победили GrindCraft!{NL}{NL}Карта открыта.</label>
+    <label id="beat_msg">Вы победили {LBL} !</label>
+    <label id="check_map">Проверьте карту ! {NL}Вы можете отправиться в {LBL}.</label>
+    <label id="map_open">Карта открыта !</label>
+    <label id="tp_build">Вы построили Торговый пост.{NL}Обменивайте изумруды на предметы.</label>
+    <label id="goto">Перейти к {LBL}?</label>
+    <label id="purchase">Войдите в Конгрегейт, чтобы купить предметы.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Возобновить</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Удалить игру !</button>
+    <button id="play">Играть</button>
+    <button id="how">Как</button>
+    <button id="next">Далее</button>
+    <button id="load">Загрузить</button>
+    <button id="save">Сохранить</button>
+    <button id="go">Перейти</button>
+    <button id="no">Нет</button>
+    <button id="settings">Настройки</button>
+    <button id="save_game">Сохранить игру</button>
+    <button id="load_game">Загрузить игру</button>
+</buttons>
+
+<messages>
+    <msg>Вы победили в GrindCraft ! {NL}{NL} Карта открыта.</msg>
+    <msg id="save_game_msg">Сохранение игры...</msg>
+    <msg id="save_game_ok">Сохранение игры...</msg>
+    <msg id="loaded_game_msg">Загрузка данных игры...</msg>
+    <msg id="loaded_game_ok">Игра успешно загружена{NL}.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Нажмите здесь</item>
+    <item id="tut2">Вы получили достижение !</item>
+    <item id="tut3">И кусок дерева ! {NL}Вот он !</item>
+    <item id="tut4">Превратите это дерево в доски.{NL}Нажмите здесь !</item>
+    <item id="tut5">Вы сделали доски !</item>
+    <item id="tut6">Вот все, что вы можете сделать !</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>
+</data>	

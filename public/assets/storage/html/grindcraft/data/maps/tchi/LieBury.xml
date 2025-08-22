@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+ 
+	<grinders>
+		<item name="overworld" generates="wood,sand,water" occurance="4,29,65" img="overworld.png" maxIncrease="1"/>
+		<item name="mobs" generates="zombie,skeleton,spider,witch,pufferfish" occurance="3,3,3,1,1" img="mobs.png" maxIncrease="1"/>
+		<item name="nether sleigh" generates="netherrack,blaze,ghast,nether wart,zombie pigman" occurance="10,1,1.75,1,3" img="netherSleighGrinder.png" maxIncrease="1"/>
+		<item name="library" generates="bookshelf,out of air" occurance="9,1" img="libraryGrinder.png" maxIncrease="0"/>
+	</grinders>
+
+<grinds>
+	<item name="wood" img="wood.png" drops="wood=1" dependency="woodsman" timeToBreak="0.74" achievement=""/>
+	<item name="sand" img="sand.png" drops="sand=1" dependency="woodsman" timeToBreak="0.5" achievement=""/>
+	<item name="water" img="water.png" drops="water=1" dependency="woodsman" timeToBreak="0.5" achievement=""/>
+	<item name="zombie" img="zombie.png" drops="nothing=0" dependency="hunter" timeToBreak="2.48" achievement=""/>
+	<item name="skeleton" img="skeleton.png" drops="arrow=1" dependency="hunter" timeToBreak="2.18" achievement=""/>
+	<item name="arrow" img="arrow.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="spider" img="spider.png" drops="string=.5" dependency="hunter" timeToBreak="1.78" achievement=""/>
+	<item name="string" img="string.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="witch" img="witch.png" drops="sugar=1" dependency="hunter" timeToBreak="2" achievement=""/>
+	<item name="sugar" img="sugar.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="pufferfish" img="pufferfish.png" drops="pufferfish=1" dependency="fishing rod" timeToBreak="1.5" achievement=""/>
+	<item name="netherrack" img="netherrack.png" drops="netherrack=10" dependency="portal sleigh" timeToBreak="0.5624" achievement=""/>
+	<item name="blaze" img="blaze.png" drops="blaze rod=.5" dependency="portal sleigh" timeToBreak="5" achievement=""/>
+	<item name="blaze rod" img="blazeRod.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="ghast" img="ghast.png" drops="gunpowder=1" dependency="hunter" timeToBreak="4.5" achievement=""/>
+	<item name="gunpowder" img="gunpowder.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="nether wart" img="netherWart.png" drops="nether wart=1" dependency="portal sleigh" timeToBreak="0.5" achievement=""/>
+	<item name="zombie pigman" img="zombiePigman.png" drops="nothing=0" dependency="hunter" timeToBreak="2.49" achievement=""/>
+	<item name="bookshelf" img="bookshelf.png" drops="bookshelf=1" dependency="use breathe water" timeToBreak="1" achievement=""/>
+	<item name="out of air" img="outOfAir.png" drops="out of air=1" dependency="use breathe water" timeToBreak="1" achievement=""/>
+</grinds>
+	
+<crafters>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="wood=1" image="wood.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="曾用於製作木板和原木。"/>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="sand=1" image="sand.png" soundPrefix="dirt" type="grind" achievement="沙已挖 !" onComplete="nothing" tooltip="島嶼上有很多這樣的東西。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="water=1" image="water.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="海裡有很多這樣的東西。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=1" image="arrow.png" soundPrefix="whoosh" type="grind" achievement="箭已製作完成 !" onComplete="nothing" tooltip="曾與弓一起使用。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="string=1" image="string.png" soundPrefix="whoosh" type="grind" achievement="nothing" onComplete="nothing" tooltip="曾用於製作牽繩。"/>
+	<item ingrediens="wood=1" requiredItem="carpenter" craftedItems="planks=4" image="planks.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="曾用木材製作東西。"/>
+	<item ingrediens="planks=2" requiredItem="carpenter" craftedItems="stick=4" image="stick.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="曾用於製作大門。"/>
+	<item ingrediens="stick=3,string=2" requiredItem="carpenter" craftedItems="fishing rod=1" image="fishingRod.png" soundPrefix="whoosh" type="" achievement="釣竿已製作完成 !" onComplete="nothing" tooltip="要求釣魚。"/>
+	<item ingrediens="nothing=0" requiredItem="fishing rod" craftedItems="pufferfish=1" image="pufferfish.png" soundPrefix="hand" type="grind" achievement="河豚已抓到 !" onComplete="nothing" tooltip="用於藥水。"/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="nether wart=1" image="netherWart.png" soundPrefix="whoosh" type="grind" achievement="地獄疙瘩已撿起 !" onComplete="nothing" tooltip="用於藥水。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="apothecary=1" image="apothecary.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="nothing" tooltip="製作藥水。"/>
+	<item ingrediens="nether wart=1,pufferfish=1" requiredItem="apothecary" craftedItems="breathe water=1" image="potion.png" soundPrefix="hand" type="" achievement="藥水製作完畢 !" onComplete="nothing" tooltip="用於在水下呼吸。"/>
+	<item ingrediens="breathe water=1" requiredItem="nothing" craftedItems="use breathe water=1" image="usePotion.png" soundPrefix="hand" type="" achievement="藥水已喝了 !" onComplete="showGrinder library,automate library" tooltip="用於到達水下圖書館。"/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="netherrack=1" image="netherrack.png" soundPrefix="wood" type="grind" achievement="下界折磨 !" onComplete="nothing" tooltip="在下界有很多這個。"/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="blaze rod=1" image="blazeRod.png" soundPrefix="metal" type="grind" achievement="烈焰棒 !" onComplete="nothing" tooltip="曾用於製作藥水。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gunpowder=1" image="gunpowder.png" soundPrefix="whoosh" type="grind" achievement="火藥 !" onComplete="nothing" tooltip="曾用於爆破"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="bookshelf=1" image="bookshelf.png" soundPrefix="wood" type="grind" achievement="得到書本 !" onComplete="nothing" tooltip="曾用於製作成堆的書。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="out of air=1" image="outOfAir.png" soundPrefix="whoosh" type="grind" achievement="沒空氣了 !" onComplete="hideGrinder library,deautomate library" tooltip="水下呼吸藥水用完了。"/>
+	<item ingrediens="bookshelf=4" requiredItem="nothing" craftedItems="bookcase=1" image="bookcase.png" soundPrefix="wood" type="" achievement="Bookcase built !" onComplete="nothing" tooltip="要求得到一噸的書。"/>
+	<item ingrediens="bookcase=15" requiredItem="nothing" craftedItems="ton of books=1" image="tonOfBooks.png" soundPrefix="wood" type="" achievement="大量的書 !" onComplete="markMap Hogquartz-305-366,beatLocation" tooltip="Required to beat lie bury."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="sugar=1" image="sugar.png" soundPrefix="metal" type="grind" achievement="糖已掉落 !" onComplete="nothing" tooltip="要求製作藥水。"/>
+	<item ingrediens="nether wart=1,sugar=1" requiredItem="apothecary" craftedItems="speed potion=1" image="potion.png" soundPrefix="hand" type="" achievement="藥水已製作完成 !" onComplete="nothing" tooltip="可以飲用。"/>
+	<item ingrediens="speed potion=1" requiredItem="nothing" craftedItems="use speed potion=1" image="usePotion.png" soundPrefix="hand" type="" achievement="藥水已喝了 !" onComplete="speed 200" tooltip="有迅速的特性。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="miner=1" image="miner.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="開採失落的礦井。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="hunter=1" image="hunter.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="與暴民生成器戰鬥。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="cobblestone=1" image="cobblestone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="曾用於建造建築。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="flint=1" image="flint.png" soundPrefix="dirt" type="grind" achievement="nothing" onComplete="nothing" tooltip="曾用於製造箭。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="rail=1" image="rail.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="要求建造鐵路。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="coal=1" image="coal.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="曾用於冶煉鐵錠。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="iron ore=1" image="ironOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="要求冶煉鐵錠。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="gold ore=1" image="goldOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="要求冶煉金錠。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="diamond=1" image="diamond.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="曾用於製作鑽石工具和物品。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="redstone=4" image="redstone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="曾用於製造紅石裝置。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="obsidian=1" image="obsidian.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="曾用黑曜石建造物品。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="bucket=1" image="bucket.png" soundPrefix="metal" type="grind" achievement="桶子已製作完成 !" onComplete="nothing" tooltip="要求取得水和熔岩。"/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="gold armor=1" image="goldArmor.png" soundPrefix="metal" type="grind" achievement="黃金鎧甲 !" onComplete="nothing" tooltip="用於製造黃金士兵。"/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="gold sword=1" image="goldSword.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="攻擊暴徒。"/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="iron armor=1" image="ironArmor.png" soundPrefix="metal" type="grind" achievement="鐵鎧甲 !" onComplete="nothing" tooltip="用於製造鐵士兵。"/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="iron axe=1" image="ironAxe.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="砍伐木頭。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="woodsman=1" image="woodsman.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="automate overworld" tooltip="自動化全世界研磨器。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="carpenter=1" image="carpenter.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="nothing" tooltip="用木材製作東西。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=4" image="arrow.png" soundPrefix="whoosh" type="" achievement="箭已製作完成 !" onComplete="nothing" tooltip="與弓結合。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="block of quartz=1" image="blockOfQuartz.png" soundPrefix="metal" type="" achievement="石英塊製作完成 " onComplete="nothing" tooltip="要求製造石英結構。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron pick=1" image="ironPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="開採黃金。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron shovel=1" image="ironShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="鏟土和礫石。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron hoe=1" image="ironHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="耕種土壤。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron sword=1" image="ironSword.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="攻擊暴徒。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold pick=1" image="goldPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="開採鑽石。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold shovel=1" image="goldShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="鏟土和礫石。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold axe=1" image="goldAxe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="砍伐木頭。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold hoe=1" image="goldHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="耕種土壤。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond pick=1" image="diamondPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="更快地開採。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond shovel=1" image="diamondShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="鏟土和礫石。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond sword=1" image="diamondSword.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="攻擊暴徒。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond axe=1" image="diamondAxe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="砍伐木頭。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond hoe=1" image="diamondHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="耕種土壤。"/>
+	<item ingrediens="coal=1,iron ore=1" requiredItem="furnace" craftedItems="iron ingot=1" image="ironIngot.png" soundPrefix="metal" type="metal" achievement="鐵錠已冶煉完成 !" onComplete="nothing" tooltip="曾用於製作鐵製工具和盔甲。"/>
+	<item ingrediens="coal=1,gold ore=1" requiredItem="furnace" craftedItems="gold ingot=1" image="goldIngot.png" soundPrefix="metal" type="metal" achievement="金錠已冶煉 !" onComplete="nothing" tooltip="曾用於製作黃金工具和鎧甲。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="city state=1" image="cityState.png" soundPrefix="" type="" achievement="城邦 !" onComplete="nothing" tooltip="做得不錯。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="port=1" image="port.png" soundPrefix="wood" type="wood" achievement="港口已建立 !" onComplete="nothing" tooltip="要求在格林德克拉菲亞周圍航行。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="portal sleigh=1" image="portalSleigh.png" soundPrefix="metal" type="" achievement="傳送門雪橇 !" onComplete="nothing" tooltip="曾用於前往下界旅行。"/>
+</crafters>
+</data>

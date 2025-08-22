@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+ 
+	<grinders>
+		<item name="overworld" generates="wood,sand,water" occurance="4,29,65" img="overworld.png" maxIncrease="1"/>
+		<item name="mobs" generates="zombie,skeleton,spider,witch,pufferfish" occurance="3,3,3,1,1" img="mobs.png" maxIncrease="1"/>
+		<item name="nether sleigh" generates="netherrack,blaze,ghast,nether wart,zombie pigman" occurance="10,1,1.75,1,3" img="netherSleighGrinder.png" maxIncrease="1"/>
+		<item name="library" generates="bookshelf,out of air" occurance="9,1" img="libraryGrinder.png" maxIncrease="0"/>
+	</grinders>
+
+<grinds>
+	<item name="wood" img="wood.png" drops="wood=1" dependency="woodsman" timeToBreak="0.74" achievement=""/>
+	<item name="sand" img="sand.png" drops="sand=1" dependency="woodsman" timeToBreak="0.5" achievement=""/>
+	<item name="water" img="water.png" drops="water=1" dependency="woodsman" timeToBreak="0.5" achievement=""/>
+	<item name="zombie" img="zombie.png" drops="nothing=0" dependency="hunter" timeToBreak="2.48" achievement=""/>
+	<item name="skeleton" img="skeleton.png" drops="arrow=1" dependency="hunter" timeToBreak="2.18" achievement=""/>
+	<item name="arrow" img="arrow.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="spider" img="spider.png" drops="string=.5" dependency="hunter" timeToBreak="1.78" achievement=""/>
+	<item name="string" img="string.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="witch" img="witch.png" drops="sugar=1" dependency="hunter" timeToBreak="2" achievement=""/>
+	<item name="sugar" img="sugar.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="pufferfish" img="pufferfish.png" drops="pufferfish=1" dependency="fishing rod" timeToBreak="1.5" achievement=""/>
+	<item name="netherrack" img="netherrack.png" drops="netherrack=10" dependency="portal sleigh" timeToBreak="0.5624" achievement=""/>
+	<item name="blaze" img="blaze.png" drops="blaze rod=.5" dependency="portal sleigh" timeToBreak="5" achievement=""/>
+	<item name="blaze rod" img="blazeRod.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="ghast" img="ghast.png" drops="gunpowder=1" dependency="hunter" timeToBreak="4.5" achievement=""/>
+	<item name="gunpowder" img="gunpowder.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="nether wart" img="netherWart.png" drops="nether wart=1" dependency="portal sleigh" timeToBreak="0.5" achievement=""/>
+	<item name="zombie pigman" img="zombiePigman.png" drops="nothing=0" dependency="hunter" timeToBreak="2.49" achievement=""/>
+	<item name="bookshelf" img="bookshelf.png" drops="bookshelf=1" dependency="use breathe water" timeToBreak="1" achievement=""/>
+	<item name="out of air" img="outOfAir.png" drops="out of air=1" dependency="use breathe water" timeToBreak="1" achievement=""/>
+</grinds>
+	
+<crafters>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="wood=1" image="wood.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="Utilisé pour fabriquer des planches et des rondins."/>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="sand=1" image="sand.png" soundPrefix="dirt" type="grind" achievement="Sable creusé !" onComplete="nothing" tooltip="Il y en a beaucoup sur les îles."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="water=1" image="water.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="Il y en a beaucoup dans la mer."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=1" image="arrow.png" soundPrefix="whoosh" type="grind" achievement="Flèches artisanales !" onComplete="nothing" tooltip="Utilisé avec un arc."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="string=1" image="string.png" soundPrefix="whoosh" type="grind" achievement="nothing" onComplete="nothing" tooltip="Utilisé pour faire une piste."/>
+	<item ingrediens="wood=1" requiredItem="carpenter" craftedItems="planks=4" image="planks.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="Utilisé pour faire des choses avec du bois."/>
+	<item ingrediens="planks=2" requiredItem="carpenter" craftedItems="stick=4" image="stick.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="Utilisé pour fabriquer un portail."/>
+	<item ingrediens="stick=3,string=2" requiredItem="carpenter" craftedItems="fishing rod=1" image="fishingRod.png" soundPrefix="whoosh" type="" achievement="Canne à pêche artisanale !" onComplete="nothing" tooltip="Nécessaire pour pêcher."/>
+	<item ingrediens="nothing=0" requiredItem="fishing rod" craftedItems="pufferfish=1" image="pufferfish.png" soundPrefix="hand" type="grind" achievement="Macareux capturé !" onComplete="nothing" tooltip="Utilisé dans les potions."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="nether wart=1" image="netherWart.png" soundPrefix="whoosh" type="grind" achievement="Rien n'a été choisi !" onComplete="nothing" tooltip="Utilisé dans les potions."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="apothecary=1" image="apothecary.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="nothing" tooltip="Fait des potions."/>
+	<item ingrediens="nether wart=1,pufferfish=1" requiredItem="apothecary" craftedItems="breathe water=1" image="potion.png" soundPrefix="hand" type="" achievement="Potion fabriquée !" onComplete="nothing" tooltip="Utilisé pour respirer sous l'eau."/>
+	<item ingrediens="breathe water=1" requiredItem="nothing" craftedItems="use breathe water=1" image="usePotion.png" soundPrefix="hand" type="" achievement="Potion bue !" onComplete="showGrinder library,automate library" tooltip="Utilisé pour atteindre la bibliothèque sous-marine."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="netherrack=1" image="netherrack.png" soundPrefix="wood" type="grind" achievement="Roche du Nether !" onComplete="nothing" tooltip="Il y en a beaucoup dans les Bas-Fonds."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="blaze rod=1" image="blazeRod.png" soundPrefix="metal" type="grind" achievement="Baguette de flamme !" onComplete="nothing" tooltip="Utilisé pour faire des potions."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gunpowder=1" image="gunpowder.png" soundPrefix="whoosh" type="grind" achievement="Poudre à canon !" onComplete="nothing" tooltip="Utilisé dans les explosifs"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="bookshelf=1" image="bookshelf.png" soundPrefix="wood" type="grind" achievement="Livres reçus !" onComplete="nothing" tooltip="Utilisé pour faire des piles de livres."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="out of air=1" image="outOfAir.png" soundPrefix="whoosh" type="grind" achievement="Manque d'air !" onComplete="hideGrinder library,deautomate library" tooltip="La potion respiratoire est épuisée."/>
+	<item ingrediens="bookshelf=4" requiredItem="nothing" craftedItems="bookcase=1" image="bookcase.png" soundPrefix="wood" type="" achievement="Bookcase built !" onComplete="nothing" tooltip="Nécessaire pour obtenir une tonne de livres."/>
+	<item ingrediens="bookcase=15" requiredItem="nothing" craftedItems="ton of books=1" image="tonOfBooks.png" soundPrefix="wood" type="" achievement="Tonne de livres !" onComplete="markMap Hogquartz-305-366,beatLocation" tooltip="Required to beat lie bury."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="sugar=1" image="sugar.png" soundPrefix="metal" type="grind" achievement="Sucre en baisse !" onComplete="nothing" tooltip="Nécessaire pour faire des potions."/>
+	<item ingrediens="nether wart=1,sugar=1" requiredItem="apothecary" craftedItems="speed potion=1" image="potion.png" soundPrefix="hand" type="" achievement="Potion fabriquée !" onComplete="nothing" tooltip="Peut être bu."/>
+	<item ingrediens="speed potion=1" requiredItem="nothing" craftedItems="use speed potion=1" image="usePotion.png" soundPrefix="hand" type="" achievement="Potion bue !" onComplete="speed 200" tooltip="A des propriétés rapides."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="miner=1" image="miner.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="Miner la carrière perdue."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="hunter=1" image="hunter.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="Combat le frayeur de la foule."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="cobblestone=1" image="cobblestone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Utilisé pour fabriquer des bâtiments."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="flint=1" image="flint.png" soundPrefix="dirt" type="grind" achievement="nothing" onComplete="nothing" tooltip="Utilisé pour fabriquer des flèches."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="rail=1" image="rail.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Nécessaire pour construire des chemins de fer."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="coal=1" image="coal.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Utilisé pour fondre des lingots."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="iron ore=1" image="ironOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Nécessaire pour fondre les lingots de fer."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="gold ore=1" image="goldOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Nécessaire pour fondre les lingots d'or."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="diamond=1" image="diamond.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Utilisé pour fabriquer des outils et des objets en diamant."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="redstone=4" image="redstone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Utilisé pour fabriquer des dispositifs de pierre rouge."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="obsidian=1" image="obsidian.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Utilisé pour construire des objets en obsidienne."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="bucket=1" image="bucket.png" soundPrefix="metal" type="grind" achievement="Seau fabriqué !" onComplete="nothing" tooltip="Nécessaire pour obtenir de l'eau et de la lave."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="gold armor=1" image="goldArmor.png" soundPrefix="metal" type="grind" achievement="Armure en or !" onComplete="nothing" tooltip="Pour avoir fabriqué des soldats en or."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="gold sword=1" image="goldSword.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Attaque des monstres."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="iron armor=1" image="ironArmor.png" soundPrefix="metal" type="grind" achievement="Armure en fer !" onComplete="nothing" tooltip="Pour fabriquer des soldats de fer."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="iron axe=1" image="ironAxe.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="Coupe du bois."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="woodsman=1" image="woodsman.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="automate overworld" tooltip="Automatise le broyeur du monde."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="carpenter=1" image="carpenter.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="nothing" tooltip="Il fabrique des objets en bois."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=4" image="arrow.png" soundPrefix="whoosh" type="" achievement="Flèches artisanales !" onComplete="nothing" tooltip="Combiné avec l'arc."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="block of quartz=1" image="blockOfQuartz.png" soundPrefix="metal" type="" achievement="Bloc de quartz fabriqué !" onComplete="nothing" tooltip="Nécessaire pour fabriquer des structures en quartz."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron pick=1" image="ironPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Mines d'or."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron shovel=1" image="ironShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="elleter de la terre et du gravier."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron hoe=1" image="ironHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Travail du sol."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron sword=1" image="ironSword.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Attaque des monstres."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold pick=1" image="goldPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Mines de diamants."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold shovel=1" image="goldShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="elleter de la terre et du gravier."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold axe=1" image="goldAxe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Coupe du bois."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold hoe=1" image="goldHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Travail du sol."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond pick=1" image="diamondPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Mines plus rapides."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond shovel=1" image="diamondShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="elleter de la terre et du gravier."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond sword=1" image="diamondSword.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Attaque des monstres."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond axe=1" image="diamondAxe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Coupe du bois."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond hoe=1" image="diamondHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="Travail du sol."/>
+	<item ingrediens="coal=1,iron ore=1" requiredItem="furnace" craftedItems="iron ingot=1" image="ironIngot.png" soundPrefix="metal" type="metal" achievement="Lingot de fer fondu !" onComplete="nothing" tooltip="Utilisé pour fabriquer des outils et des armures en fer."/>
+	<item ingrediens="coal=1,gold ore=1" requiredItem="furnace" craftedItems="gold ingot=1" image="goldIngot.png" soundPrefix="metal" type="metal" achievement="Lingot d'or fondu !" onComplete="nothing" tooltip="Utilisé pour fabriquer des outils et des armures en or."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="city state=1" image="cityState.png" soundPrefix="" type="" achievement="Ville Etat !" onComplete="nothing" tooltip="Bon travail."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="port=1" image="port.png" soundPrefix="wood" type="wood" achievement="Port établi !" onComplete="nothing" tooltip="Requis pour naviguer autour de Grindcraftia."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="portal sleigh=1" image="portalSleigh.png" soundPrefix="metal" type="" achievement="Traîneau portique !" onComplete="nothing" tooltip="Utilisé pour voyager dans les profondeurs."/>
+</crafters>
+</data>

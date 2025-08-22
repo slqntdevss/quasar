@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+
+	<grinders>
+		<item name="overworld" generates="wood" occurance="100" img="overworld.png"></item>
+	</grinders>	
+	
+	<grinds>
+		<item name="hand" img="hand.png" drops="hand=1" dependency="none" timeToBreak="" achievement=""></item>
+		<item name="wood" img="wood.png" drops="wood=1" dependency="hand,wood axe,stone axe,woodsman iron axe,gold axe,diamond axe" timeToBreak="3,1.5,0.75,0.74,0.5,0.375,0.1875" achievement="나무를 주먹으로 때렸습니다 !"></item>
+	</grinds>
+	
+	<crafters>
+		<item ingrediens="nothing=0" requiredItem="wood axe,stone axe,iron axe,gold axe,diamond axe" craftedItems="wood=1" image="wood.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="나무 판자를 제작하는 데 사용합니다."></item>
+		<item ingrediens="wood=1" requiredItem="nothing" craftedItems="planks=4" image="planks.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="목재 공구와 아이템을 제작하는데 사용합니다."></item>
+		<item ingrediens="planks=4" requiredItem="nothing" craftedItems="crafting table=1" image="craftingTable.png" soundPrefix="wood" type="wood" achievement="작업대를 제작했습니다 !" onComplete="nothing" tooltip="아이템 제작에 필요합니다."></item>
+		<item ingrediens="planks=2" requiredItem="nothing" craftedItems="stick=4" image="stick.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="목재 공구와 아이템을 제작하는데 사용합니다."></item>
+		<item ingrediens="stick=2,planks=3" requiredItem="crafting table" craftedItems="wood axe=1" image="woodAxe.png" soundPrefix="wood" type="" achievement="목재 공구를 제작했습니다 !" onComplete="nothing" tooltip="나무를 팹니다."></item>
+		<item ingrediens="wood=7" requiredItem="nothing" craftedItems="big log=1" image="bigLog.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="교역소를 짓는데 사용합니다."></item>
+		<item ingrediens="big log=3" requiredItem="nothing" craftedItems="log tier=1" image="logTier.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="원목 타월르 짓는데 사용합니다."></item>
+		<item ingrediens="log tier=8" requiredItem="nothing" craftedItems="log tower=1" image="logTower.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="교역소를 짓는데 필요합니다."></item>
+		<item ingrediens="big log=4" requiredItem="nothing" craftedItems="lodge tier=1" image="lodgeTier.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="별장 기초판을 짓는데 사용합니다."></item>
+		<item ingrediens="lodge tier=3" requiredItem="nothing" craftedItems="lodge base=1" image="lodgeBase.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="별장을 짓는데 사용합니다."></item>
+		<item ingrediens="big log=2" requiredItem="nothing" craftedItems="beam=1" image="beam.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="별장 지붕을 짓는데 사용합니다."></item>
+		<item ingrediens="beam=5,big log=2" requiredItem="nothing" craftedItems="lodge roof=1" image="lodgeRoof.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="별장을 짓는데 사용합니다."></item>
+		<item ingrediens="lodge base=1,lodge roof=1" requiredItem="nothing" craftedItems="lodge=1" image="lodge.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="교역소를 짓는데 필요합니다."></item>
+		<item ingrediens="lodge=1,log tower=1" requiredItem="nothing" craftedItems="trading post=1" image="tradingPost.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="markMap Chasm Mine-441-537,beatLocation" tooltip="거래하는데 필요합니다."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="10 emeralds=0" image="emeralds10.png" soundPrefix="metal" type="button" achievement="에메랄드를 가졌습니다 !" onComplete="purchase 10emeralds" tooltip="콘그리게이트 상점을 엽니다."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="30 emeralds=0" image="emeralds30.png" soundPrefix="metal" type="button" achievement="에메랄드를 가졌습니다 !" onComplete="purchase 30emeralds" tooltip="콘그리게이트 상점을 엽니다."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="100 emeralds=0" image="emeralds100.png" soundPrefix="metal" type="button" achievement="에메랄드를 가졌습니다 !" onComplete="purchase 100emeralds" tooltip="콘그리게이트 상점을 엽니다."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="emerald=0" image="emerald.png" soundPrefix="metal" type="" achievement="에메랄드를 가졌습니다 !" onComplete="nothing" tooltip="아이템으로 교환할 수 있습니다."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min jukebox=1" image="jukebox.png" soundPrefix="metal" type="button" achievement="주크박스 !" onComplete="purchase jukebox5min-0-5 mins" tooltip="음악을 재생합니다. 하루에{NL}번 5분 지속됩니다."></item>
+		<item ingrediens="emerald=5" requiredItem="trading post" craftedItems="24 hr jukebox=1" image="jukebox.png" soundPrefix="metal" type="trade" achievement="주크박스 !" onComplete="purchase jukebox24hr-5-24 mins" tooltip="24시간 지속됩니다. 음악을 재생합니다."></item>
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min autoclicker=1" image="autoclicker.png" soundPrefix="metal" type="button" achievement="오토클릭커" onComplete="purchase autoclicker5min-0-5 mins" tooltip="캡스락-클릭으로 계속 아이템을 제작합니다. 5분 지속됩니다. 하루에 1번."></item>		
+		<item ingrediens="emerald=10" requiredItem="trading post" craftedItems="24 hr autoclicker=1" image="autoclicker.png" soundPrefix="metal" type="trade" achievement="오토클릭커" onComplete="purchase autoclicker24hr-10-24 hrs" tooltip="24시간 지속됩니다."></item> 
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min x5 multiplier=1" image="x5Multiplier.png" soundPrefix="metal" type="button" achievement="x5 배" onComplete="purchase x5multiplier5min-0-5 mins" tooltip="쉬프트-클릭으로 5배 많이 제작합니다. 하루에 5분 지속됩니다."></item> 
+		<item ingrediens="emerald=50" requiredItem="trading post" craftedItems="24 hr x5 multiplier=1" image="x5Multiplier.png" soundPrefix="metal" type="trade" achievement="x5 배" onComplete="purchase x5multiplier24hr-50-24 hrs" tooltip="쉬프트-클릭으로 5배 많이 제작합니다. 하루에 5분 지속됩니다."></item> 
+		<item ingrediens="nothing=0" requiredItem="trading post" craftedItems="5 min x10 multiplier=1" image="x10Multiplier.png" soundPrefix="metal" type="button" achievement="x10 배" onComplete="purchase x10multiplier5min-0-5 min" tooltip=""></item> 
+		<item ingrediens="emerald=100" requiredItem="trading post" craftedItems="24 hr x10 multiplier=1" image="x10Multiplier.png" soundPrefix="metal" type="trade" achievement="x10 배" onComplete="purchase x5multiplier24hr-100-24 hrs" tooltip=""></item> 
+	</crafters>
+	
+	
+</data>

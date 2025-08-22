@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Grinda</label>
+<label id="craftLabel">Tillverka</label>
+<label id="invLabel">Inventarium</label>
+<label id="achLabel">Prestationer</label>
+<!--<label id="sInfo">Version 0.9.6.9</label>-->
+<label id="sInfo">Version ddf1639</label>
+<label id="sSfx">SFX-volym</label>
+<label id="sMusic">Musikvolym</label>
+<label id="particlesL">Partiklar</label>
+<label id="layoutL1">Dölj grinders medan automatiserade</label>
+<label id="layoutL2">Slå samman inventarium</label>
+<label id="sErrors">Visa fel.</label>
+
+<label id="map_lbl">Karta</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft är pausat.</label>
+    <label id="game_win">Du har besegrat GrindCraft!{NL}{NL}Kartan är öppen.</label>
+    <label id="beat_msg">Du besegrade {LBL} !</label>
+    <label id="check_map">Kolla kartan !{NL}Du kan gå till {LBL}</label>
+    <label id="map_open">Kartan är öppen !</label>
+    <label id="tp_build">Du har byggt Handelsstationen.{NL}Byt smaragder mot föremål.</label>
+    <label id="goto">Gå till {LBL}?</label>
+    <label id="purchase">Logga in på Kongregate för att köpa föremål.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Återuppta</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Radera spelet !</button>
+    <button id="play">Spela</button>
+    <button id="how">Hur</button>
+    <button id="next">Nästa</button>
+    <button id="load">Ladda</button>
+    <button id="save">Spara</button>
+    <button id="go">Kör</button>
+    <button id="no">Nej</button>
+    <button id="settings">Inställningar</button>
+    <button id="save_game">Spara spel</button>
+    <button id="load_game">Ladda spel</button>
+</buttons>
+
+<messages>
+    <msg>Du besegrade GrindCraft !{NL}{NL}Kartan är öppen.</msg>
+    <msg id="save_game_msg">Sparar spelet...</msg>
+    <msg id="save_game_ok">Sparar spelet...</msg>
+    <msg id="loaded_game_msg">Ladda speldata...</msg>
+    <msg id="loaded_game_ok">Spelet har{NL}laddats.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Klicka här</item>
+    <item id="tut2">Du fick en prestation !</item>
+    <item id="tut3">Och en träbit !{NL}Här är den !</item>
+    <item id="tut4">Förvandla det där trät till plankor.{NL}Klicka här !</item>
+    <item id="tut5">Du tillverkade plankor !</item>
+    <item id="tut6">Här är alla föremål du kan tillverka !</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>
+</data>	

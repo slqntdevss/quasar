@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Mag-Grind</label>
+<label id="craftLabel">Mag-Craft</label>
+<label id="invLabel">Imbentaryo</label>
+<label id="achLabel">Mga Tagumpay</label>
+<!--<label id="sInfo">Version 0.9.6.9</label>--> <!--<label id="sInfo">Bersyong 0.9.6.9</label>-->
+<label id="sInfo">Bersyong ddf1639</label>
+<label id="sSfx">Lakas ng SFX</label>
+<label id="sMusic">Lakas ng Musika</label>
+<label id="particlesL">Mga Particle</label>
+<label id="layoutL1">Itago ang mga grind kapag awtomatiko</label>
+<label id="layoutL2">Pag-isahin ang Imbentaryo</label>
+<label id="sErrors">Ipakita ang mga mali.</label>
+
+<label id="map_lbl">Mapa</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">Nakatigil ang GrindCraft.</label>
+    <label id="game_win">You beat GrindCraft!{NL}{NL}Nakabukas ang mapa.</label>
+    <label id="beat_msg">Iyong natalo ang {LBL} !</label>
+    <label id="check_map">Tingnan ang mapa !{NL}Maaari kang pumunta sa {LBL}</label>
+    <label id="map_open">Ang mapa ay bukas na !</label>
+    <label id="tp_build">Binuo mo ang Trading Post.{NL}Ipagpalit ang mga emerald para sa mga item.</label>
+    <label id="goto">Pumunta sa {LBL}?</label>
+    <label id="purchase">Mag sign in sa Kongregate upang makabili ng mga bagay.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Magpatuloy</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Burahin ang Laro !</button>
+    <button id="play">Maglaro</button>
+    <button id="how">Paano</button>
+    <button id="next">Susunod</button>
+    <button id="load">I-load</button>
+    <button id="save">I-save</button>
+    <button id="go">Pumunta</button>
+    <button id="no">Hindi</button>
+    <button id="settings">Mga Setting</button>
+    <button id="save_game">I-save ang Laro</button>
+    <button id="load_game">I-load ang Laro</button>
+</buttons>
+
+<messages>
+    <msg>Natalo mo ang GrindCraft !{NL}{NL}Ang mapa ay bukas na.</msg>
+    <msg id="save_game_msg">Sine-save Ang laro...</msg>
+    <msg id="save_game_ok">Sine-save Ang laro...</msg>
+    <msg id="loaded_game_msg">Nilo-load ang data ng laro...</msg>
+    <msg id="loaded_game_ok">Ang laro ay matagumpay na{NL}nai-load.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">I-click ito</item>
+    <item id="tut2">Nakakuha ka ng Achievement !</item>
+    <item id="tut3">At isang piraso ng kahoy !{NL}Narito !</item>
+    <item id="tut4">Gawing mga paleta ang kahoy na ito.{NL}I-click ito !</item>
+    <item id="tut5">Ikaw ay nakagawa ng mga paleta !</item>
+    <item id="tut6">Narito ang lahat ng mga bagay na maaari mong gawin !</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>
+</data>	

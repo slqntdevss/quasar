@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Brousení</label>
+<label id="craftLabel">Řemeslo</label>
+<label id="invLabel">Inventář</label>
+<label id="achLabel">Úspechy</label>
+<!--<label id="sInfo">Verze 0.9.6.9</label>-->
+<label id="sInfo">Verze ddf1639</label>
+<label id="sSfx">SFX Hlasitost</label>
+<label id="sMusic">Hlasitosť hudby</label>
+<label id="particlesL">Častice</label>
+<label id="layoutL1">Skrývka sa brúsi pri automatizácii</label>
+<label id="layoutL2">Zlúčenie inventára</label>
+<label id="sErrors">Zobraziť chyby.</label>
+
+<label id="map_lbl">Mapa</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft je pozastavený.</label>
+    <label id="game_win">Porazil si GrindCraft!{NL}{NL}Mapa je otvorená.</label>
+    <label id="beat_msg">Porazili ste {LBL}!</label>
+    <label id="check_map">Pozrite si mapu !{NL}Môžete ísť na {LBL}</label>
+    <label id="map_open">Mapa je otvorená !</label>
+    <label id="tp_build">Postavili ste Obchodnú poštu.{NL}Vymieňajte smaragdy za predmety.</label>
+    <label id="goto">Prejsť na {LBL}?</label>
+    <label id="purchase">Prihláste sa do služby Kongregate a nakupujte položky.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Životopis</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Vymazat hru !</button>
+    <button id="play">Přehrát</button>
+    <button id="how">Jak</button>
+    <button id="next">Další</button>
+    <button id="load">Načíst</button>
+    <button id="save">Uložit</button>
+    <button id="go">Přejít</button>
+    <button id="no">Ne</button>
+    <button id="settings">Nastavení</button>
+    <button id="save_game">Uložit Hru</button>
+    <button id="load_game">Načíst Hru</button>
+</buttons>
+
+<messages>
+    <msg>Porazili jste GrindCraft !{NL}{NL}Mapa je otevřená.</msg>
+    <msg id="save_game_msg">Uložení hry...</msg>
+    <msg id="save_game_ok">Uložení hry...</msg>
+    <msg id="loaded_game_msg">Načíst herní data...</msg>
+    <msg id="loaded_game_ok">Hra byla úspěšně{NL}nahrána.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Klikněte zde</item>
+    <item id="tut2">Získali jste úspěch !</item>
+    <item id="tut3">A kus dřeva !{NL}Tady je. !</item>
+    <item id="tut4">Přeměňte dřevo na prkna.{NL}Klikněte na toto !</item>
+    <item id="tut5">YVyrobili jste prkna !</item>
+    <item id="tut6">Zde jsou všechny věci, které můžete vyrobit !</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>
+</data>

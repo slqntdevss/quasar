@@ -1,0 +1,171 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+	
+	
+	<grinders>
+		<item name="nether sleigh" generates="netherrack,blaze,ghast,nether wart,zombie pigman" occurance="10,1,1.75,1,3" img="netherSleighGrinder.png" maxIncrease="3"/>
+		<item name="overworld" generates="wood,sand,water" occurance="5,20,20" img="overworld.png"/>
+		<item name="mine" generates="stone,coal ore,iron ore,gold ore,diamond ore,redstone ore,obsidian" occurance="50,14,4,3,1,4,2" img="mine.png" maxIncrease="3"/>
+		<item name="mobs" generates="nothing,zombie,skeleton,witch,zombie villager,spider" occurance="remainder,1.75,1.75,1.75,1.75,1.75" img="mine.png" maxIncrease="3"/>
+	</grinders>
+	
+	<grinds>
+		<item name="netherrack" img="netherrack.png" drops="netherrack=10" dependency="portal sleigh" timeToBreak="0.5624" achievement=""/>
+		<item name="blaze" img="blaze.png" drops="blaze rod=.5" dependency="portal sleigh" timeToBreak="5" achievement=""/>
+		<item name="blaze rod" img="blazeRod.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="ghast" img="ghast.png" drops="gunpowder=1" dependency="hunter" timeToBreak="4.5" achievement=""/>
+		<item name="gunpowder" img="gunpowder.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="nether wart" img="netherWart.png" drops="nether wart=1" dependency="portal sleigh" timeToBreak="0.5" achievement=""/>
+		<item name="zombie pigman" img="zombiePigman.png" drops="nothing=0" dependency="hunter" timeToBreak="2.49" achievement=""/>
+		<item name="wood" img="wood.png" drops="wood=1" dependency="woodsman" timeToBreak="0.74" achievement=""/>
+		<item name="sand" img="sand.png" drops="sand=1" dependency="woodsman" timeToBreak="0.1874" achievement=""/>
+		<item name="water" img="water.png" drops="water=1" dependency="woodsman" timeToBreak="0.125" achievement=""/>
+		<item name="stone" img="stone.png" drops="cobblestone=1" dependency="miner" timeToBreak="0.5624" achievement=""/>
+		<item name="cobblestone" img="cobblestone.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="coal ore" img="coalOre.png" drops="coal=1" dependency="miner" timeToBreak="1.124" achievement=""/>
+		<item name="coal" img="coal.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="iron ore" img="ironOre.png" drops="iron ore=1" dependency="miner" timeToBreak="1.24" achievement=""/>
+		<item name="gold ore" img="goldOre.png" drops="gold ore=1" dependency="miner" timeToBreak="1.8" achievement=""/>
+		<item name="diamond ore" img="diamondOre.png" drops="diamond=1" dependency="miner" timeToBreak="1.8" achievement=""/>
+		<item name="diamond" img="diamond.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="redstone ore" img="redstoneOre.png" drops="redstone=4" dependency="miner" timeToBreak="1.125" achievement=""/>
+		<item name="redstone" img="redstone.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="obsidian" img="obsidian.png" drops="obsidian=1" dependency="miner" timeToBreak="5" achievement=""/>
+		<item name="zombie" img="zombie.png" drops="nothing=0" dependency="hunter" timeToBreak="2.48" achievement=""/>
+		<item name="skeleton" img="skeleton.png" drops="arrow=.5" dependency="hunter" timeToBreak="2.18" achievement=""/>
+		<item name="arrow" img="arrow.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="witch" img="witch.png" drops="witch=1" dependency="trap" timeToBreak="3" achievement=""/>
+		<item name="zombie villager" img="zombieVillager.png" drops="zombie villager=1" dependency="trap" timeToBreak="1.67" achievement=""/>
+		<item name="spider" img="spider.png" drops="string=.5" dependency="hunter" timeToBreak="1.78" achievement=""/>
+		<item name="string" img="string.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="slime" img="slime.png" drops="slime ball=.5" dependency="hunter" timeToBreak="0.98" achievement=""/>
+		<item name="slime ball" img="slimeBall.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="chicken" img="chicken.png" drops="feather=.5" dependency="wood sword,stone sword,hunter,butcher,iron sword,gold sword,diamond sword" timeToBreak="0.4,0.39,0.38,0.37,0.33,0.286,0.26" achievement=""/>
+		<item name="feather" img="feather.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="cow" img="cow.png" drops="leather=2" dependency="wood sword,stone sword,hunter,butcher,iron sword,gold sword,diamond sword" timeToBreak="1,0.99,0.98,0.97,0.83,0.714,0.638" achievement=""/>
+		<item name="leather" img="leather.png" drops="" dependency="" timeToBreak="" achievement=""/>
+		<item name="pig" img="pig.png" drops="nothing=0" dependency="wood sword,stone sword,hunter,butcher,iron sword,gold sword,diamond sword" timeToBreak="1,0.99,0.98,0.97,0.83,0.714,0.638" achievement=""/>
+		<item name="sheep" img="sheep.png" drops="wool=.5" dependency="wood sword,stone sword,hunter,butcher,iron sword,gold sword,diamond sword" timeToBreak="0.8,0.79,0.78,0.77,0.667,0.57,0.5" achievement=""/>
+		<item name="wool" img="wool.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	</grinds>
+<crafters>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="hogquartz" image="hogquartz.png" soundPrefix="metal" type="" achievement="ホッグクウォーツが建てられました　！" onComplete="nothing" tooltip="上級のクラフターを訓練します。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold smith=1" image="goldSmith.png" soundPrefix="hand" type="" achievement="金工師が訓練されました　！" onComplete="nothing" tooltip="金の物を作るために使用。"/>
+	<item ingrediens="gold smith=1" requiredItem="hogquartz" craftedItems="master smith=1" image="masterSmith.png" soundPrefix="hand" type="" achievement="マスター鍛冶師が訓練されました　！" onComplete="nothing" tooltip="金属のアイテムを溶かすために使用。"/>
+	<item ingrediens="gold soldier=1" requiredItem="master smith" craftedItems="gold soldier=0" image="goldSoldier.png" soundPrefix="hand" type="melter" achievement="金の兵舎　！" onComplete="drop soldier=1-gold armor=1" tooltip="鎧を外します。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="soldier=1" image="soldier.png" soundPrefix="hand" type="" achievement="兵士が上がれました　！" onComplete="nothing" tooltip="オブシディアンの兵士を作るに使用。"/>
+	<item ingrediens="gold armor=1" requiredItem="master smith" craftedItems="gold armor=0" image="goldArmor.png" soundPrefix="metal" type="melter" achievement="装甲が解体されました　！" onComplete="drop gold helmet=1-gold breastplate=1-gold leggings=1-gold boots=1" tooltip="鎧を解体します。"/>
+	<item ingrediens="gold helmet=1" requiredItem="master smith" craftedItems="gold helmet=0" image="goldHelmet.png" soundPrefix="metal" type="melter" achievement="金のヘルメットが溶けました　！" onComplete="drop gold ingot=5" tooltip="金インゴットに溶かします。"/>
+	<item ingrediens="gold breastplate=1" requiredItem="master smith" craftedItems="gold breastplate=0" image="goldBreastplate.png" soundPrefix="metal" type="melter" achievement="胸当てが溶けました　！" onComplete="drop gold ingot=8" tooltip="金インゴットに溶かします。"/>
+	<item ingrediens="gold leggings=1" requiredItem="master smith" craftedItems="gold leggings=0" image="goldLeggings.png" soundPrefix="metal" type="melter" achievement="金のレギンスが溶けました　！" onComplete="drop gold ingot=7" tooltip="金インゴットに溶かします。"/>
+	<item ingrediens="gold boots=1" requiredItem="master smith" craftedItems="gold boots=0" image="goldBoots.png" soundPrefix="metal" type="melter" achievement="金のブーツが溶けました　！" onComplete="drop gold ingot=4" tooltip="金インゴットに溶かします。"/>
+	<item ingrediens="gold knight=1" requiredItem="master smith" craftedItems="gold knight=0" image="goldKnight.png" soundPrefix="metal" type="melter" achievement="nothing" onComplete="drop gold soldier=1-war horse=1" tooltip="騎士を降ります。"/>
+	<item ingrediens="war horse=1" requiredItem="master smith" craftedItems="war horse=0" image="warHorse.png" soundPrefix="" type="melter" achievement="nothing" onComplete="drop tamed horse=1-gold block=4" tooltip="鎧を外します。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="tamed horse=1" image="tamedHorse.png" soundPrefix="metal" type="" achievement="nothing" onComplete="nothing" tooltip="オブシディアンの乗り物を作るに使用。"/>
+	<item ingrediens="gold block=1" requiredItem="master smith" craftedItems="gold block=0" image="goldBlock.png" soundPrefix="metal" type="melter" achievement="nothing" onComplete="drop gold ingot=9" tooltip="金インゴットに溶かします。"/>
+	<item ingrediens="gold pick=1" requiredItem="master smith" craftedItems="gold pick=0" image="goldPick.png" soundPrefix="metal" type="melter" achievement="金の道具が溶けました　！" onComplete="drop gold ingot=3" tooltip="金インゴットに溶かします。"/>
+	<item ingrediens="gold shovel=1" requiredItem="master smith" craftedItems="gold shovel=0" image="goldShovel.png" soundPrefix="metal" type="melter" achievement="金の道具が溶けました　！" onComplete="drop gold ingot=1" tooltip="金インゴットに溶かします。"/>
+	<item ingrediens="gold sword=1" requiredItem="master smith" craftedItems="gold sword=0" image="goldSword.png" soundPrefix="metal" type="melter" achievement="金の道具が溶けました　！" onComplete="drop gold ingot=2" tooltip="金インゴットに溶かします。"/>
+	<item ingrediens="gold axe=1" requiredItem="master smith" craftedItems="gold axe=0" image="goldAxe.png" soundPrefix="metal" type="melter" achievement="金の道具が溶けました　！" onComplete="drop gold ingot=3" tooltip="金インゴットに溶かします。"/>
+	<item ingrediens="gold hoe=1" requiredItem="master smith" craftedItems="gold hoe=0" image="goldHoe.png" soundPrefix="metal" type="melter" achievement="金の道具が溶けました　！" onComplete="drop gold ingot=2" tooltip="金インゴットに溶かします。"/>
+	<item ingrediens="iron ingot=2" requiredItem="nothing" craftedItems="gold ingot=1" image="goldIngot.png" soundPrefix="metal" type="" achievement="nothing" onComplete="nothing" tooltip="ダイヤモンドに変換することができます。"/>
+	<item ingrediens="nothing=0" requiredItem="trap" craftedItems="witch=1" image="witch.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="魔法使いに変わる。"/>
+	<item ingrediens="witch=1" requiredItem="priest" craftedItems="wizard=1" image="wizard.png" soundPrefix="hand" type="villager" achievement="魔法使いが変わりました　！" onComplete="nothing" tooltip="飛行軍馬を作るために必要。"/>
+	<item ingrediens="wizard=1" requiredItem="hogquartz" craftedItems="apothecary=1" image="apothecary.png" soundPrefix="hand" type="" achievement="薬師が訓練されました　！" onComplete="nothing" tooltip="ポーションと爆弾を作るために使用。"/>
+	<item ingrediens="witch=1" requiredItem="hunter" craftedItems="sugar=1" image="sugar.png" soundPrefix="metal" type="" achievement="砂糖が落ちました　！" onComplete="nothing" tooltip="ポーションを作るために必要。"/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="nether wart=1" image="netherWart.png" soundPrefix="whoosh" type="grind" achievement="ネザーウォートが拾った　！" onComplete="nothing" tooltip="ポーションに使用。"/>
+	<item ingrediens="sugar=1,nether wart=1" requiredItem="apothecary" craftedItems="speed potion=1" image="potion.png" soundPrefix="whoosh" type="" achievement="ポーションが作り出した　！" onComplete="nothing" tooltip="飲むことができます。"/>
+	<item ingrediens="speed potion=1" requiredItem="nothing" craftedItems="use speed potion=0" image="usePotion.png" soundPrefix="whoosh" type="" achievement="ポーションを飲みました　！" onComplete="speed 200" tooltip="スピーディな性質を持っています。"/>
+	<item ingrediens="wizard=1" requiredItem="hogquartz" craftedItems="alchemist=1" image="alchemist.png" soundPrefix="hand" type="" achievement="錬金術師が訓練されました　！" onComplete="nothing" tooltip="金属と結晶を変換するために使用。"/>
+	<item ingrediens="gold ingot=2" requiredItem="alchemist" craftedItems="diamond=1" image="diamond.png" soundPrefix="metal" type="" achievement="ダイアモンドが変換されました　！" onComplete="nothing" tooltip="ダイヤモンドに変換します。"/>
+	<item ingrediens="flying knight=1" requiredItem="master smith" craftedItems="flying knight=0" image="flyingKnight.png" soundPrefix="hand" type="melter" achievement="nothing" onComplete="drop diamond soldier=1-flying war horse=1" tooltip="飛行騎士を降ります。"/>
+	<item ingrediens="flying war horse=1" requiredItem="master smith" craftedItems="flying war horse=0" image="flyingWarHorse.png" soundPrefix="" type="melter" achievement="nothing" onComplete="drop tamed flying horse=1-diamond block=4" tooltip="鎧を解体します。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="tamed flying horse=1" image="tamedFlyingHorse.png" soundPrefix="" type="" achievement="nothing" onComplete="nothing" tooltip="オブシディアンの乗り物を作るに使用。"/>
+	<item ingrediens="diamond block=1" requiredItem="master smith" craftedItems="diamond block=0" image="diamondBlock.png" soundPrefix="metal" type="melter" achievement="nothing" onComplete="drop diamond=9" tooltip="ダイヤモンドに分解します。"/>
+	<item ingrediens="diamond soldier=1" requiredItem="master smith" craftedItems="diamond soldier=0" image="diamondSoldier.png" soundPrefix="hand" type="melter" achievement="ダイヤモンドの兵士　！" onComplete="drop soldier=1-diamond armor=1" tooltip="鎧を外します。"/>
+	<item ingrediens="diamond armor=1" requiredItem="master smith" craftedItems="diamond armor=0" image="diamondArmor.png" soundPrefix="metal" type="melter" achievement="装甲が解体されました　！" onComplete="drop diamond helmet=1-diamond breastplate=1-diamond leggings=1-diamond boots=1" tooltip="鎧を解体します。"/>
+	<item ingrediens="diamond helmet=1" requiredItem="master smith" craftedItems="diamond helmet=0" image="diamondHelmet.png" soundPrefix="metal" type="melter" achievement="ダイヤモンドが抽出されました　！" onComplete="drop diamond=5" tooltip="ダイヤモンドを剝がします。"/>
+	<item ingrediens="diamond breastplate=1" requiredItem="master smith" craftedItems="diamond breastplate=0" image="diamondBreastplate.png" soundPrefix="metal" type="melter" achievement="ダイヤモンドが抽出されました　！" onComplete="drop diamond=8" tooltip="ダイヤモンドを剝がします。"/>
+	<item ingrediens="diamond leggings=1" requiredItem="master smith" craftedItems="diamond leggings=0" image="diamondLeggings.png" soundPrefix="metal" type="melter" achievement="ダイヤモンドが抽出されました　！" onComplete="drop diamond=7" tooltip="ダイヤモンドを剝がします。"/>
+	<item ingrediens="diamond boots=1" requiredItem="master smith" craftedItems="diamond boots=0" image="diamondBoots.png" soundPrefix="metal" type="melter" achievement="ダイヤモンドが抽出されました　！" onComplete="drop diamond=4" tooltip="ダイヤモンドを剝がします。"/>
+	<item ingrediens="iron armor=1" requiredItem="master smith" craftedItems="iron armor=0" image="ironArmor.png" soundPrefix="metal" type="melter" achievement="装甲が解体されました　！" onComplete="drop iron helmet=1-iron breastplate=1-iron leggings=1-iron boots=1" tooltip="鎧を解体します。"/>
+	<item ingrediens="iron helmet=1" requiredItem="master smith" craftedItems="iron helmet=0" image="ironHelmet.png" soundPrefix="metal" type="melter" achievement="鉄のヘルメットが溶けました　！" onComplete="drop iron ingot=5" tooltip="鉄インゴットに溶かします。"/>
+	<item ingrediens="iron breastplate=1" requiredItem="master smith" craftedItems="iron breastplate=0" image="ironBreastplate.png" soundPrefix="metal" type="melter" achievement="鉄の胸当てが溶けました　！" onComplete="drop iron ingot=8" tooltip="鉄インゴットに溶かします。"/>
+	<item ingrediens="iron leggings=1" requiredItem="master smith" craftedItems="iron leggings=0" image="ironLeggings.png" soundPrefix="metal" type="melter" achievement="鉄のレギンスが溶けました　！" onComplete="drop iron ingot=7" tooltip="鉄インゴットに溶かします。"/>
+	<item ingrediens="iron boots=1" requiredItem="master smith" craftedItems="iron boots=0" image="ironBoots.png" soundPrefix="metal" type="melter" achievement="鉄のブーツが溶けました ！" onComplete="drop iron ingot=4" tooltip="鉄インゴットに溶かします。"/>
+	<item ingrediens="iron pick=1" requiredItem="master smith" craftedItems="iron pick=0" image="ironPick.png" soundPrefix="metal" type="melter" achievement="鉄の道具が溶けました　！" onComplete="drop iron ingot=3" tooltip="鉄インゴットに溶かします。"/>
+	<item ingrediens="iron shovel=1" requiredItem="master smith" craftedItems="iron shovel=0" image="ironShovel.png" soundPrefix="metal" type="melter" achievement="鉄の道具が溶けました　！" onComplete="drop iron ingot=1" tooltip="鉄インゴットに溶かします。"/>
+	<item ingrediens="iron sword=1" requiredItem="master smith" craftedItems="iron sword=0" image="ironSword.png" soundPrefix="metal" type="melter" achievement="鉄の道具が溶けました　！" onComplete="drop iron ingot=2" tooltip="鉄インゴットに溶かします。"/>
+	<item ingrediens="iron axe=1" requiredItem="master smith" craftedItems="iron axe=0" image="ironAxe.png" soundPrefix="metal" type="melter" achievement="鉄の道具が溶けました　！" onComplete="drop iron ingot=3" tooltip="鉄インゴットに溶かします。"/>
+	<item ingrediens="iron hoe=1" requiredItem="master smith" craftedItems="iron hoe=0" image="ironHoe.png" soundPrefix="metal" type="melter" achievement="鉄の道具が溶けました　！" onComplete="drop iron ingot=2" tooltip="鉄インゴットに溶かします。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron ingot=1" image="ironIngot.png" soundPrefix="metal" type="" achievement="金が変換されました　！" onComplete="nothing" tooltip="鉄を金に変換します。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="redstone=1" image="redstone.png" soundPrefix="metal" type="grind" achievement="レッドストーンが採掘されました　！" onComplete="nothing" tooltip="レッドストーン回路やポーションで使用されます。"/>
+	<item ingrediens="speed potion=1,redstone=1" requiredItem="apothecary" craftedItems="speed 2 potion=1" image="potion.png" soundPrefix="whoosh" type="" achievement="ポーションが作り出した　！" onComplete="nothing" tooltip="飲むことができます。"/>
+	<item ingrediens="speed 2 potion=1" requiredItem="nothing" craftedItems="use speed 2 potion=0" image="usePotion.png" soundPrefix="whoosh" type="" achievement="ポーションを飲みました　！" onComplete="speed 400" tooltip="スピードの持続時間が長くなります。"/>
+	<item ingrediens="diamond=2" requiredItem="alchemist" craftedItems="obsidian=1" image="obsidian.png" soundPrefix="metal" type="" achievement="オブシディアンが変換されました　！" onComplete="nothing" tooltip="道具と鎧をクラフトするに使用。"/>
+	<item ingrediens="obsidian=5" requiredItem="master smith" craftedItems="obsidian helmet=1" image="obsidianHelmet.png" soundPrefix="metal" type="" achievement="オブシディアンのヘルメット　！" onComplete="nothing" tooltip="道具と鎧をクラフトするに使用。"/>
+	<item ingrediens="obsidian=8" requiredItem="master smith" craftedItems="obsidian breastplate=1" image="obsidianBreastplate.png" soundPrefix="metal" type="" achievement="オブシディアンの胸当て　！" onComplete="nothing" tooltip="道具と鎧をクラフトするに使用。"/>
+	<item ingrediens="obsidian=7" requiredItem="master smith" craftedItems="obsidian leggings=1" image="obsidianLeggings.png" soundPrefix="metal" type="" achievement="オブシディアンのレギンス　！" onComplete="nothing" tooltip="道具と鎧をクラフトするに使用。"/>
+	<item ingrediens="obsidian=4" requiredItem="master smith" craftedItems="obsidian boots=1" image="obsidianBoots.png" soundPrefix="metal" type="" achievement="オブシディアンのブーツ　！" onComplete="nothing" tooltip="道具と鎧をクラフトするに使用。"/>
+	<item ingrediens="obsidian helmet=1,obsidian breastplate=1,obsidian leggings=1,obsidian boots=1" requiredItem="nothing" craftedItems="obsidian armor=1" image="obsidianArmor.png" soundPrefix="metal" type="" achievement="オブシディアンの装甲　！" onComplete="nothing" tooltip="オブシディアンの兵士を作るために使用。"/>
+	<item ingrediens="obsidian=2,stick=1" requiredItem="master smith" craftedItems="obsidian sword=1" image="obsidianSword.png" soundPrefix="metal" type="" achievement="オブシディアンの剣　！" onComplete="nothing" tooltip="オブシディアンの兵士を作るために使用。"/>
+	<item ingrediens="wood=1" requiredItem="carpenter" craftedItems="stick=8" image="stick.png" soundPrefix="wood" type="wood" achievement="nothing" onComplete="nothing" tooltip="道具と木材をクラフトするに使用。"/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="string=1" image="string.png" soundPrefix="whoosh" type="grind" achievement="nothing" onComplete="nothing" tooltip="弓を作るために使用。"/>
+	<item ingrediens="stick=3,string=3" requiredItem="fletcher" craftedItems="bow=1" image="bow.png" soundPrefix="wood" type="" achievement="弓がクラフトされました　！" onComplete="nothing" tooltip="オブシディアンの兵士を作るために使用。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=1" image="arrow.png" soundPrefix="whoosh" type="grind" achievement="nothing" onComplete="nothing" tooltip="オブシディアンの兵士を作るために使用。"/>
+	<item ingrediens="soldier=1,obsidian armor=1,obsidian sword=1,bow=1,arrow=8" requiredItem="nothing" craftedItems="obsidian soldier=1" image="obsidianSoldier.png" soundPrefix="hand" type="villager" achievement="オブシディアンの兵士　！" onComplete="nothing" tooltip="オブシディアンの騎士を訓練するために必要。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="ton of apples=1" image="tonOfApples.png" soundPrefix="hand" type="" achievement="That&#039;s a ton !" onComplete="nothing" tooltip="バッシュルにできます。"/>
+	<item ingrediens="ton of apples=1" requiredItem="nothing" craftedItems="bushel=12" image="bushel.png" soundPrefix="metal" type="melter" achievement="りんごが摘まれました！" onComplete="nothing" tooltip="金色のりんごに分かれます。"/>
+	<item ingrediens="bushel=1" requiredItem="nothing" craftedItems="golden apple=8" image="goldenApple.png" soundPrefix="metal" type="melter" achievement="nothing" onComplete="nothing" tooltip="りんごから金を取り残します。"/>
+	<item ingrediens="golden apple=1" requiredItem="alchemist" craftedItems="apple=1" image="apple.png" soundPrefix="metal" type="" achievement="りんごが変換されました　！" onComplete="drop gold ingot=9" tooltip="エンチャントされたりんごを作るために必要。"/>
+	<item ingrediens="gold ingot=9" requiredItem="nothing" craftedItems="gold block=1" image="goldBlock.png" soundPrefix="metal" type="" achievement="金のブロックがクラフトされました　！" onComplete="nothing" tooltip="エンチャントされたりんごを作るために必要。"/>
+	<item ingrediens="gold block=9,apple=1" requiredItem="alchemist" craftedItems="enchanted apple=1" image="enchantedApple.png" soundPrefix="metal" type="" achievement="エンチャントされたりんご　！" onComplete="nothing" tooltip="オブシディアンの兵士を作るために使用。"/>
+	<item ingrediens="tamed horse=1,obsidian=9,enchanted apple=1" requiredItem="master smith" craftedItems="obsidian war horse=1" image="obsidianWarHorse.png" soundPrefix="" type="" achievement="オブシディアンの軍馬　！" onComplete="nothing" tooltip="オブシディアンの騎士を訓練するために必要。"/>
+	<item ingrediens="obsidian soldier=1,obsidian war horse=1" requiredItem="nothing" craftedItems="obsidian knight=1" image="obsidianKnight.png" soundPrefix="hand" type="villager" achievement="オブシディアンの騎士　！" onComplete="nothing" tooltip="オブシディアンの軍隊を構築するために必要。"/>
+	<item ingrediens="tamed flying horse=1,obsidian=9,enchanted apple=1" requiredItem="master smith" craftedItems="obsidian flying horse=1" image="obsidianFlyingHorse.png" soundPrefix="" type="" achievement="オブシディアンの飛行馬　！" onComplete="nothing" tooltip="オブシディアンの飛行騎士を訓練するために必要。"/>
+	<item ingrediens="obsidian soldier=1,obsidian flying horse=1" requiredItem="nothing" craftedItems="obsidian flying knight=1" image="obsidianFlyingKnight.png" soundPrefix="hand" type="villager" achievement="オブシディアンの飛行騎士　！" onComplete="nothing" tooltip="オブシディアンの軍隊を構築するために必要。"/>
+	<item ingrediens="obsidian soldier=12,obsidian knight=4,obsidian flying knight=4" requiredItem="nothing" craftedItems="obsidian army=1" image="obsidianArmy.png" soundPrefix="metal" type="" achievement="オブシディアンの軍隊　！" onComplete="nothing" tooltip="艦隊を建造するために必要。"/>
+	<item ingrediens="nothing=0" requiredItem="trap" craftedItems="zombie villager=1" image="zombieVillager.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="村人に変わる。"/>
+	<item ingrediens="zombie villager=1" requiredItem="priest" craftedItems="villager=1" image="villager.png" soundPrefix="hand" type="villager" achievement="ゾンビ村人が変わりました　！" onComplete="nothing" tooltip="専門化できます。"/>
+	<item ingrediens="villager=1" requiredItem="sergeant" craftedItems="soldier=1" image="soldier.png" soundPrefix="hand" type="villager" achievement="兵士が上がれました　！" onComplete="nothing" tooltip="オブシディアンの兵士を作るに使用。"/>
+	<item ingrediens="wizard=1" requiredItem="hogquartz" craftedItems="redstone wizard=1" image="redstoneWizard.png" soundPrefix="hand" type="" achievement="レッドストーン魔法使い　！" onComplete="nothing" tooltip="レッドストーンのアイテムを作ります。"/>
+	<item ingrediens="cobblestone=7,bow=1,redstone=1" requiredItem="redstone wizard" craftedItems="dispenser=1" image="dispenser.png" soundPrefix="metal" type="" achievement="ディスペンサーがクラフトされました　！" onComplete="nothing" tooltip="大砲を作るために使用。"/>
+	<item ingrediens="wood=1" requiredItem="carpenter" craftedItems="wood slab=6" image="woodSlab.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="木材を作って物に使用。"/>
+	<item ingrediens="wood slab=5" requiredItem="carpenter" craftedItems="cannon platform=1" image="cannonPlatform.png" soundPrefix="wood" type="" achievement="大砲の台　！" onComplete="nothing" tooltip="大砲を作るために使用。"/>
+	<item ingrediens="dispenser=3,water=1" requiredItem="nothing" craftedItems="cannon chamber=1" image="cannonChamber.png" soundPrefix="metal" type="" achievement="大砲室　！" onComplete="nothing" tooltip="大砲を作るために使用。"/>
+	<item ingrediens="cobblestone=1,coal=1" requiredItem="furnace" craftedItems="stone=1" image="stone.png" soundPrefix="metal" type="" achievement="石が焼いた　！" onComplete="nothing" tooltip="ボタンを作るために使用。"/>
+	<item ingrediens="stone=1" requiredItem="mason" craftedItems="button=1" image="button.png" soundPrefix="metal" type="" achievement="ボタンがクラフトされました　！" onComplete="nothing" tooltip="レッドストーンの物を作るために使用。"/>
+	<item ingrediens="stick=1,redstone=1" requiredItem="redstone wizard" craftedItems="redstone torch=1" image="redstoneTorch.png" soundPrefix="wood" type="" achievement="レッドストーンのトーチ　！" onComplete="nothing" tooltip="ボタンを作るために使用。"/>
+	<item ingrediens="redstone torch=1,button=1,redstone=2" requiredItem="redstone wizard" craftedItems="cannon trigger=1" image="cannonTrigger.png" soundPrefix="wood" type="" achievement="大砲のトリガー　！" onComplete="nothing" tooltip="大砲を作るために使用。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="gunpowder=1" image="gunpowder.png" soundPrefix="dirt" type="grind" achievement="ガンパウダー　！" onComplete="nothing" tooltip="爆弾に使用。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="sand=1" image="sand.png" soundPrefix="dirt" type="grind" achievement="砂を掘りました　！" onComplete="nothing" tooltip="ＴＮＴを作るために使用。"/>
+	<item ingrediens="gunpowder=5,sand=4" requiredItem="apothecary" craftedItems="tnt=1" image="tnt.png" soundPrefix="dirt" type="" achievement="ＴＮＴが作りました　！" onComplete="nothing" tooltip="大砲を作るために使用。"/>
+	<item ingrediens="cannon platform=1,cannon chamber=1,cannon trigger=1,tnt=64" requiredItem="redstone wizard" craftedItems="cannon=1" image="cannon.png" soundPrefix="metal" type="" achievement="大砲が建てられました　！" onComplete="nothing" tooltip="砲艦を作るために使用。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="ship=1" image="ship.png" soundPrefix="" type="" achievement="船　！" onComplete="nothing" tooltip="Grinｄcraftiaを航海するに使用。"/>
+	<item ingrediens="ship=1,cannon=2" requiredItem="nothing" craftedItems="gunship=1" image="gunship.png" soundPrefix="metal" type="" achievement="砲艦が建てられました　！" onComplete="nothing" tooltip="艦隊を建造するために必要。"/>
+	<item ingrediens="obsidian army=1,gunship=3" requiredItem="nothing" craftedItems="armada=1" image="armada.png" soundPrefix="metal" type="" achievement="艦隊が作られました　！" onComplete="markMap Strongs Isle-207-1041,beatLocation" tooltip="Strongs Isleを爆発するために使用。"/>
+	<item ingrediens="nothing=0" requiredItem="armada" craftedItems="armada exporter=1" image="armada.png" soundPrefix="" type="" achievement="nothing" onComplete="navigateToUrl 1JcZeg" tooltip="ダウンロード。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="cobblestone=1" image="cobblestone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="ビルを建てるために使用。"/>
+	<item ingrediens="cobblestone=8" requiredItem="mason" craftedItems="furnace=1" image="furnace.png" soundPrefix="" type="" achievement="炉がクラフトされました　！" onComplete="nothing" tooltip="鉄と金を溶かすために必要。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="coal=1" image="coal.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="インゴットを精錬するために使用。"/>
+	<item ingrediens="cobblestone=1,coal=1" requiredItem="furnace" craftedItems="stone=1" image="stone.png" soundPrefix="metal" type="" achievement="石が焼いた　！" onComplete="nothing" tooltip="ボタンを作るために使用。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="gold ore=1" image="goldOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="金インゴットを精錬するために使用。"/>
+	<item ingrediens="coal=1,gold ore=1" requiredItem="furnace" craftedItems="gold ingot=1" image="goldIngot.png" soundPrefix="metal" type="metal" achievement="金インゴットが焼かれました　！" onComplete="nothing" tooltip="金の道具と鎧を作るために使用。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="woodsman=1" image="woodsman.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="Get&#039;s stuff from the overworld."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="carpenter=1" image="carpenter.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="物が木材から作る。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="miner=1" image="miner.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="鉱山を採掘します。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="mason=1" image="mason.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="高度な構造物を建設できます。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="hunter=1" image="hunter.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="モブを狩ります。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="priest=1" image="priest.png" soundPrefix="hand" type="" achievement="司祭が訓練されました　！" onComplete="nothing" tooltip="魔女を魔法使いに変えます。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="sergeant=1" image="sergeant.png" soundPrefix="hand" type="" achievement="軍曹が雇われました　！" onComplete="nothing" tooltip="村人を兵士に変えます。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="fletcher=1" image="fletcher.png" soundPrefix="hand" type="" achievement="弓矢作り師が訓練されました　！" onComplete="nothing" tooltip="弓矢をクラフトする。"/>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="wood=1" image="wood.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="木材から物を作ります。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="trap=1" image="trap.png" soundPrefix="wood" type="" achievement="罠が作られました　！" onComplete="nothing" tooltip="魔女を捕まえるために必要。"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="iron ore=1" image="ironOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="鉄のインゴットを精錬するために使用。"/>
+	<item ingrediens="coal=1,iron ore=1" requiredItem="furnace" craftedItems="iron ingot=1" image="ironIngot.png" soundPrefix="metal" type="metal" achievement="鉄インゴットが溶かされました　！" onComplete="nothing" tooltip="鉄の道具と鎧を作るために使用。"/>
+	<item ingrediens="nothing=0" requiredItem="bucket" craftedItems="water=1" image="water.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="庭が作るために使用。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="city state=1" image="cityState.png" soundPrefix="" type="" achievement="都市国家　！" onComplete="nothing" tooltip="グッドジョブ。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="port=1" image="port.png" soundPrefix="wood" type="wood" achievement="港が設立されました　！" onComplete="nothing" tooltip="Grinｄcraftiaを航海する必要。"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="portal sleigh=1" image="portalSleigh.png" soundPrefix="metal" type="" achievement="ポータルのスレー　！" onComplete="nothing" tooltip="ネザーに行くために使用。"/>
+</crafters>
+</data>

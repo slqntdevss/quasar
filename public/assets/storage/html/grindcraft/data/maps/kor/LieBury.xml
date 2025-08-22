@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+ 
+	<grinders>
+		<item name="overworld" generates="wood,sand,water" occurance="4,29,65" img="overworld.png" maxIncrease="1"/>
+		<item name="mobs" generates="zombie,skeleton,spider,witch,pufferfish" occurance="3,3,3,1,1" img="mobs.png" maxIncrease="1"/>
+		<item name="nether sleigh" generates="netherrack,blaze,ghast,nether wart,zombie pigman" occurance="10,1,1.75,1,3" img="netherSleighGrinder.png" maxIncrease="1"/>
+		<item name="library" generates="bookshelf,out of air" occurance="9,1" img="libraryGrinder.png" maxIncrease="0"/>
+	</grinders>
+
+<grinds>
+	<item name="wood" img="wood.png" drops="wood=1" dependency="woodsman" timeToBreak="0.74" achievement=""/>
+	<item name="sand" img="sand.png" drops="sand=1" dependency="woodsman" timeToBreak="0.5" achievement=""/>
+	<item name="water" img="water.png" drops="water=1" dependency="woodsman" timeToBreak="0.5" achievement=""/>
+	<item name="zombie" img="zombie.png" drops="nothing=0" dependency="hunter" timeToBreak="2.48" achievement=""/>
+	<item name="skeleton" img="skeleton.png" drops="arrow=1" dependency="hunter" timeToBreak="2.18" achievement=""/>
+	<item name="arrow" img="arrow.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="spider" img="spider.png" drops="string=.5" dependency="hunter" timeToBreak="1.78" achievement=""/>
+	<item name="string" img="string.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="witch" img="witch.png" drops="sugar=1" dependency="hunter" timeToBreak="2" achievement=""/>
+	<item name="sugar" img="sugar.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="pufferfish" img="pufferfish.png" drops="pufferfish=1" dependency="fishing rod" timeToBreak="1.5" achievement=""/>
+	<item name="netherrack" img="netherrack.png" drops="netherrack=10" dependency="portal sleigh" timeToBreak="0.5624" achievement=""/>
+	<item name="blaze" img="blaze.png" drops="blaze rod=.5" dependency="portal sleigh" timeToBreak="5" achievement=""/>
+	<item name="blaze rod" img="blazeRod.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="ghast" img="ghast.png" drops="gunpowder=1" dependency="hunter" timeToBreak="4.5" achievement=""/>
+	<item name="gunpowder" img="gunpowder.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="nether wart" img="netherWart.png" drops="nether wart=1" dependency="portal sleigh" timeToBreak="0.5" achievement=""/>
+	<item name="zombie pigman" img="zombiePigman.png" drops="nothing=0" dependency="hunter" timeToBreak="2.49" achievement=""/>
+	<item name="bookshelf" img="bookshelf.png" drops="bookshelf=1" dependency="use breathe water" timeToBreak="1" achievement=""/>
+	<item name="out of air" img="outOfAir.png" drops="out of air=1" dependency="use breathe water" timeToBreak="1" achievement=""/>
+</grinds>
+	
+<crafters>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="wood=1" image="wood.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="나무판자와 원목을 제작하는데 필요합니다."/>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="sand=1" image="sand.png" soundPrefix="dirt" type="grind" achievement="모래를 팠습니다 !" onComplete="nothing" tooltip="이건 섬에 많습니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="water=1" image="water.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="이건 바다에 많습니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=1" image="arrow.png" soundPrefix="whoosh" type="grind" achievement="화살을 제작했습니다 !" onComplete="nothing" tooltip="활과 함께 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="string=1" image="string.png" soundPrefix="whoosh" type="grind" achievement="nothing" onComplete="nothing" tooltip="끈을 제작하는데 사용합니다."/>
+	<item ingrediens="wood=1" requiredItem="carpenter" craftedItems="planks=4" image="planks.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="나무로 물건을 제작하는데 사용합니다."/>
+	<item ingrediens="planks=2" requiredItem="carpenter" craftedItems="stick=4" image="stick.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="관문을 제작하는데 사용합니다."/>
+	<item ingrediens="stick=3,string=2" requiredItem="carpenter" craftedItems="fishing rod=1" image="fishingRod.png" soundPrefix="whoosh" type="" achievement="낚시대를 제조했습니다 !" onComplete="nothing" tooltip="낚시하는데 필요합니다."/>
+	<item ingrediens="nothing=0" requiredItem="fishing rod" craftedItems="pufferfish=1" image="pufferfish.png" soundPrefix="hand" type="grind" achievement="복어를 잡았습니다 !" onComplete="nothing" tooltip="약물에 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="nether wart=1" image="netherWart.png" soundPrefix="whoosh" type="grind" achievement="네더 사마귀를 땄습니다 !" onComplete="nothing" tooltip="약물에 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="apothecary=1" image="apothecary.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="nothing" tooltip="물약을 만듭니다."/>
+	<item ingrediens="nether wart=1,pufferfish=1" requiredItem="apothecary" craftedItems="breathe water=1" image="potion.png" soundPrefix="hand" type="" achievement="약물을 제조했습니다 !" onComplete="nothing" tooltip="수중에서 호흡하는데 사용합니다."/>
+	<item ingrediens="breathe water=1" requiredItem="nothing" craftedItems="use breathe water=1" image="usePotion.png" soundPrefix="hand" type="" achievement="포션을 마셨습니다 !" onComplete="showGrinder library,automate library" tooltip="수중 도서관에 도달하는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="netherrack=1" image="netherrack.png" soundPrefix="wood" type="grind" achievement="네더가 박살났습니다 !" onComplete="nothing" tooltip="이건 네더에 많습니다."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="blaze rod=1" image="blazeRod.png" soundPrefix="metal" type="grind" achievement="블레이즈 막대 !" onComplete="nothing" tooltip="약물을 제작하는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gunpowder=1" image="gunpowder.png" soundPrefix="whoosh" type="grind" achievement="화약 !" onComplete="nothing" tooltip="폭발물을 제작하는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="bookshelf=1" image="bookshelf.png" soundPrefix="wood" type="grind" achievement="책이 !" onComplete="nothing" tooltip="책더미를 제작하는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="out of air=1" image="outOfAir.png" soundPrefix="whoosh" type="grind" achievement="숨이 찹니다 !" onComplete="hideGrinder library,deautomate library" tooltip="수중 호흡 포션이 소진됐습니다."/>
+	<item ingrediens="bookshelf=4" requiredItem="nothing" craftedItems="bookcase=1" image="bookcase.png" soundPrefix="wood" type="" achievement="Bookcase built !" onComplete="nothing" tooltip="엄청 많은 책을 얻는데 필요합니다."/>
+	<item ingrediens="bookcase=15" requiredItem="nothing" craftedItems="ton of books=1" image="tonOfBooks.png" soundPrefix="wood" type="" achievement="엄청 많은 책 !" onComplete="markMap Hogquartz-305-366,beatLocation" tooltip="Required to beat lie bury."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="sugar=1" image="sugar.png" soundPrefix="metal" type="grind" achievement="설탕을 드롭했습니다 !" onComplete="nothing" tooltip="약물을 제작하는데 필요합니다."/>
+	<item ingrediens="nether wart=1,sugar=1" requiredItem="apothecary" craftedItems="speed potion=1" image="potion.png" soundPrefix="hand" type="" achievement="약물을 제조했습니다 !" onComplete="nothing" tooltip="마실 수 있습니다."/>
+	<item ingrediens="speed potion=1" requiredItem="nothing" craftedItems="use speed potion=1" image="usePotion.png" soundPrefix="hand" type="" achievement="포션을 마셨습니다 !" onComplete="speed 200" tooltip="빠른 속성을 가지고 있습니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="miner=1" image="miner.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="잊혀진 광산을 캡니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="hunter=1" image="hunter.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="몹 스포너와 싸웁니다."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="cobblestone=1" image="cobblestone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="건물을 짓는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="flint=1" image="flint.png" soundPrefix="dirt" type="grind" achievement="nothing" onComplete="nothing" tooltip="화살을 제작하는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="rail=1" image="rail.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="철도를 짓는데 필요합니다."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="coal=1" image="coal.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="주괴를 제련하는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="iron ore=1" image="ironOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="철 주괴를 제련하는데 필요합니다."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="gold ore=1" image="goldOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="황금 주괴를 제련하는데 필요합니다."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="diamond=1" image="diamond.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="다이아몬드 공구와 아이템을 제작하는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="redstone=4" image="redstone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="레드스톤 장치를 제작하는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="obsidian=1" image="obsidian.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="흑요석으로 사물을 제작하는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="bucket=1" image="bucket.png" soundPrefix="metal" type="grind" achievement="양동이를 제작했습니다 !" onComplete="nothing" tooltip="물과 용암을 얻는데 필요합니다."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="gold armor=1" image="goldArmor.png" soundPrefix="metal" type="grind" achievement="황금 갑옷 !" onComplete="nothing" tooltip="황금 병사 제작하는 용"/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="gold sword=1" image="goldSword.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="몹을 공격합니다."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="iron armor=1" image="ironArmor.png" soundPrefix="metal" type="grind" achievement="철재 갑옷 !" onComplete="nothing" tooltip="철 병사를 제작하는 용."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="iron axe=1" image="ironAxe.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="나무를 팹니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="woodsman=1" image="woodsman.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="automate overworld" tooltip="오버월드 그라인더를 자동화합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="carpenter=1" image="carpenter.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="nothing" tooltip="나무로 물건을 제작합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=4" image="arrow.png" soundPrefix="whoosh" type="" achievement="화살을 제작했습니다 !" onComplete="nothing" tooltip="활과 결합합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="block of quartz=1" image="blockOfQuartz.png" soundPrefix="metal" type="" achievement="석영 블록을 제작했습니다 !" onComplete="nothing" tooltip="석영 구조물을 짓는데 필요합니다. "/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron pick=1" image="ironPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="황금을 캡니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron shovel=1" image="ironShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="흙과 자갈을 삽으로 펍니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron hoe=1" image="ironHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="흙을 경작합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron sword=1" image="ironSword.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="몹을 공격합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold pick=1" image="goldPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="다이아몬드를 캡니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold shovel=1" image="goldShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="흙과 자갈을 삽으로 펍니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold axe=1" image="goldAxe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="나무를 팹니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold hoe=1" image="goldHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="흙을 경작합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond pick=1" image="diamondPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="빨리 캡니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond shovel=1" image="diamondShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="흙과 자갈을 삽으로 펍니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond sword=1" image="diamondSword.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="몹을 공격합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond axe=1" image="diamondAxe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="나무를 팹니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond hoe=1" image="diamondHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="흙을 경작합니다."/>
+	<item ingrediens="coal=1,iron ore=1" requiredItem="furnace" craftedItems="iron ingot=1" image="ironIngot.png" soundPrefix="metal" type="metal" achievement="철 주괴를 제련했습니다 !" onComplete="nothing" tooltip="철재 공구와 갑옷을 제작하는 데 사용합니다."/>
+	<item ingrediens="coal=1,gold ore=1" requiredItem="furnace" craftedItems="gold ingot=1" image="goldIngot.png" soundPrefix="metal" type="metal" achievement="황금 주괴를 제련했습니다 !" onComplete="nothing" tooltip="황금 공구와 갑옷을 제작하는데 사용합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="city state=1" image="cityState.png" soundPrefix="" type="" achievement="도시 국가 !" onComplete="nothing" tooltip="굿 잡."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="port=1" image="port.png" soundPrefix="wood" type="wood" achievement="항구를 설립했습니다 !" onComplete="nothing" tooltip="그라인드크래프티아를 항해하는데 필요합니다."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="portal sleigh=1" image="portalSleigh.png" soundPrefix="metal" type="" achievement="차원문 썰매 !" onComplete="nothing" tooltip="네더를 탐험하는데 사용합니다."/>
+</crafters>
+</data>

@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Jauha</label>
+<label id="craftLabel">Valmista</label>
+<label id="invLabel">Tavaraluettelo</label>
+<label id="achLabel">Saavutukset</label>
+<!--<label id="sInfo">Versio 0.9.6.9</label>-->
+<label id="sInfo">Versio ddf1639</label>
+<label id="sSfx">SFX Äänenvoimakkuus</label>
+<label id="sMusic">Musiikki Äänenvoimakkuus</label>
+<label id="particlesL">Hiukkaset</label>
+<label id="layoutL1">Piilota jauhetut kun automatisoitu.</label>
+<label id="layoutL2">Yhdistä Tavaraluettelo</label>
+<label id="sErrors">Näytä virheet.</label>
+
+<label id="map_lbl">Kartta</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft on pysäytetty.</label>
+    <label id="game_win">Päihitit GrindCraftin!{NL}{NL}Kartta on auki.</label>
+    <label id="beat_msg">Päihitit {LBL} !</label>
+    <label id="check_map">Katso karttaa !{NL}Voit mennä {LBL}</label>
+    <label id="map_open">Kartta on auki !</label>
+    <label id="tp_build">Rakensit Kauppapaikan.{NL}Vaihda smaragdeja tavaroihin.</label>
+    <label id="goto">Mene {LBL}?</label>
+    <label id="purchase">Kirjaudu Kongregateen ostaaksesi tavaroita.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Palaa takaisin</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Poista peli !</button>
+    <button id="play">Pelaa</button>
+    <button id="how">Miten</button>
+    <button id="next">Seuraava</button>
+    <button id="load">Lataa</button>
+    <button id="save">Tallenna</button>
+    <button id="go">Mene</button>
+    <button id="no">Ei</button>
+    <button id="settings">Asetukset</button>
+    <button id="save_game">Tallenna Peli</button>
+    <button id="load_game">Lataa Peli</button>
+</buttons>
+
+<messages>
+    <msg>Päihitit GrindCraftin !{NL}{NL}Kartta on auki.</msg>
+    <msg id="save_game_msg">Peliä tallennetaan...</msg>
+    <msg id="save_game_ok">Peliä tallennetaan...</msg>
+    <msg id="loaded_game_msg">Pelitietoja ladataan...</msg>
+    <msg id="loaded_game_ok">Peli{NL}ladattu onnistuneesti.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Klikkaa tästä</item>
+    <item id="tut2">Sait Saavutuksen !</item>
+    <item id="tut3">Ja palan puuta !{NL}Tässä se on !</item>
+    <item id="tut4">Muuta puu laudoiksi.{NL}Klikkaa tätä !</item>
+    <item id="tut5">Teit lautoja !</item>
+    <item id="tut6">Tässä kaikki mitä voit valmistaa !</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>
+</data>	

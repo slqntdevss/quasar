@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Grind</label>
+<label id="craftLabel">Craft</label>
+<label id="invLabel">Inventar</label>
+<label id="achLabel">Prestasjoner</label>
+<!--<label id="sInfo">Versjon 0.9.6.9</label>-->
+<label id="sInfo">Versjon ddf1639</label>
+<label id="sSfx">SFX Volum</label>
+<label id="sMusic">Musikk Volum</label>
+<label id="particlesL">Particles</label>
+<label id="layoutL1">Skjul grind når den er automatisert</label>
+<label id="layoutL2">Slå sammen inventar</label>
+<label id="sErrors">Vis feilmeldinger.</label>
+
+<label id="map_lbl">Kart</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft er satt på pause.</label>
+    <label id="game_win">Du slo GrindCraft!{NL}{NL}Kart er åpent.</label>
+    <label id="beat_msg">Du slo{LBL}!</label>
+    <label id="check_map">Sjekk kartet!{NL}Du kan gå til {LBL}</label>
+    <label id="map_open">Kart er åpent!</label>
+    <label id="tp_build">Du bygde handelsposten.{NL}Byt smaragder mot varer.</label>
+    <label id="goto">Gå til {LBL}?</label>
+    <label id="purchase">Logg på Kongregate for å kjøpe varer.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Start igjen</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Slett spill!</button>
+    <button id="play">Spill</button>
+    <button id="how">Hvordan</button>
+    <button id="next">Neste</button>
+    <button id="load">Last inn</button>
+    <button id="save">Lagre</button>
+    <button id="go">Gå</button>
+    <button id="no">Nei</button>
+    <button id="settings">Innstillinger</button>
+    <button id="save_game">Lagre spill</button>
+    <button id="load_game">Last inn spill</button>
+</buttons>
+
+<messages>
+    <msg>Du slo GrindCraft!{NL}{NL}Kart er åpent.</msg>
+    <msg id="save_game_msg">Lagrer spillet...</msg>
+    <msg id="save_game_ok">Lagrer spillet...</msg>
+    <msg id="loaded_game_msg">Laster spillet...</msg>
+    <msg id="loaded_game_ok">Spill {NL}lastet inn.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Klikk her</item>
+    <item id="tut2">Du har en presentasjon!</item>
+    <item id="tut3">Og litt treverk!{NL}Her er den!</item>
+    <item id="tut4">Gjør det treverket til planker.{NL}Klikk denne!</item>
+    <item id="tut5">Du lagde planker!</item>
+    <item id="tut6">Her er alt du kan lage!</item>
+    <item id="tut7">GrindCraft!</item>
+</tutorial>
+</data>	

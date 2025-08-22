@@ -1,3 +1,11 @@
+const gameFrame = document.querySelector(".gameframe");
+
+function loadIframe(path) {
+	gameFrame.style.display = "block";
+	document.getElementById("actualGameFrame").src = `/assets/storage${path}`;
+	console.log("loading:" + path);
+}
+
 document.addEventListener("DOMContentLoaded", async () => {
 	const response = await fetch("/assets/json/storage.json");
 	const data = await response.json();
@@ -16,7 +24,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 		card.appendChild(p);
 		document.querySelector(".container").appendChild(card);
 		card.addEventListener("click", () => {
-			location.href = `/assets/storage${game.path}`;
+			loadIframe(game.path);
 		});
 	}
+});
+
+document.getElementById("closeFrame").addEventListener("click", () => {
+	gameFrame.style.display = "none";
 });

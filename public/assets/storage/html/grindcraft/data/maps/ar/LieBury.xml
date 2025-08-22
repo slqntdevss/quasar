@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<data>
+ 
+	<grinders>
+		<item name="overworld" generates="wood,sand,water" occurance="4,29,65" img="overworld.png" maxIncrease="1"/>
+		<item name="mobs" generates="zombie,skeleton,spider,witch,pufferfish" occurance="3,3,3,1,1" img="mobs.png" maxIncrease="1"/>
+		<item name="nether sleigh" generates="netherrack,blaze,ghast,nether wart,zombie pigman" occurance="10,1,1.75,1,3" img="netherSleighGrinder.png" maxIncrease="1"/>
+		<item name="library" generates="bookshelf,out of air" occurance="9,1" img="libraryGrinder.png" maxIncrease="0"/>
+	</grinders>
+
+<grinds>
+	<item name="wood" img="wood.png" drops="wood=1" dependency="woodsman" timeToBreak="0.74" achievement=""/>
+	<item name="sand" img="sand.png" drops="sand=1" dependency="woodsman" timeToBreak="0.5" achievement=""/>
+	<item name="water" img="water.png" drops="water=1" dependency="woodsman" timeToBreak="0.5" achievement=""/>
+	<item name="zombie" img="zombie.png" drops="nothing=0" dependency="hunter" timeToBreak="2.48" achievement=""/>
+	<item name="skeleton" img="skeleton.png" drops="arrow=1" dependency="hunter" timeToBreak="2.18" achievement=""/>
+	<item name="arrow" img="arrow.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="spider" img="spider.png" drops="string=.5" dependency="hunter" timeToBreak="1.78" achievement=""/>
+	<item name="string" img="string.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="witch" img="witch.png" drops="sugar=1" dependency="hunter" timeToBreak="2" achievement=""/>
+	<item name="sugar" img="sugar.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="pufferfish" img="pufferfish.png" drops="pufferfish=1" dependency="fishing rod" timeToBreak="1.5" achievement=""/>
+	<item name="netherrack" img="netherrack.png" drops="netherrack=10" dependency="portal sleigh" timeToBreak="0.5624" achievement=""/>
+	<item name="blaze" img="blaze.png" drops="blaze rod=.5" dependency="portal sleigh" timeToBreak="5" achievement=""/>
+	<item name="blaze rod" img="blazeRod.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="ghast" img="ghast.png" drops="gunpowder=1" dependency="hunter" timeToBreak="4.5" achievement=""/>
+	<item name="gunpowder" img="gunpowder.png" drops="" dependency="" timeToBreak="" achievement=""/>
+	<item name="nether wart" img="netherWart.png" drops="nether wart=1" dependency="portal sleigh" timeToBreak="0.5" achievement=""/>
+	<item name="zombie pigman" img="zombiePigman.png" drops="nothing=0" dependency="hunter" timeToBreak="2.49" achievement=""/>
+	<item name="bookshelf" img="bookshelf.png" drops="bookshelf=1" dependency="use breathe water" timeToBreak="1" achievement=""/>
+	<item name="out of air" img="outOfAir.png" drops="out of air=1" dependency="use breathe water" timeToBreak="1" achievement=""/>
+</grinds>
+	
+<crafters>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="wood=1" image="wood.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="يستخدم في صناعة الألواح الخشبية"/>
+	<item ingrediens="nothing=0" requiredItem="woodsman" craftedItems="sand=1" image="sand.png" soundPrefix="dirt" type="grind" achievement="حفرة الرمل!" onComplete="nothing" tooltip="العديد منها على الجزر."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="water=1" image="water.png" soundPrefix="wood" type="grind" achievement="nothing" onComplete="nothing" tooltip="العديد منها في البحر."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=1" image="arrow.png" soundPrefix="whoosh" type="grind" achievement="تمت صناعة الأسهم!" onComplete="nothing" tooltip="يستخدم مع القوس."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="string=1" image="string.png" soundPrefix="whoosh" type="grind" achievement="nothing" onComplete="nothing" tooltip="يستخدم في صناعة الرسن."/>
+	<item ingrediens="wood=1" requiredItem="carpenter" craftedItems="planks=4" image="planks.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="يستخدم في صناعة أدوات خشبية."/>
+	<item ingrediens="planks=2" requiredItem="carpenter" craftedItems="stick=4" image="stick.png" soundPrefix="wood" type="" achievement="nothing" onComplete="nothing" tooltip="يستخدم في صناعة بوابة."/>
+	<item ingrediens="stick=3,string=2" requiredItem="carpenter" craftedItems="fishing rod=1" image="fishingRod.png" soundPrefix="whoosh" type="" achievement="تم تصنيع سنارة الصيد!" onComplete="nothing" tooltip="مطلوب في صيد الأسماك."/>
+	<item ingrediens="nothing=0" requiredItem="fishing rod" craftedItems="pufferfish=1" image="pufferfish.png" soundPrefix="hand" type="grind" achievement="تم اصطياد السمكة النفيخة!" onComplete="nothing" tooltip="يستخدم في الجرعات."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="nether wart=1" image="netherWart.png" soundPrefix="whoosh" type="grind" achievement="تم التقاط النتوء السفلي!" onComplete="nothing" tooltip="يستخدم في الجرعات."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="apothecary=1" image="apothecary.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="nothing" tooltip="يصنع الترياق."/>
+	<item ingrediens="nether wart=1,pufferfish=1" requiredItem="apothecary" craftedItems="breathe water=1" image="potion.png" soundPrefix="hand" type="" achievement="تمت صناعة الجرعة!" onComplete="nothing" tooltip="يستخدم في التنفس تحت الماء."/>
+	<item ingrediens="breathe water=1" requiredItem="nothing" craftedItems="use breathe water=1" image="usePotion.png" soundPrefix="hand" type="" achievement="تم شرب الجرعة!" onComplete="showGrinder library,automate library" tooltip="يستخدم في الوصول إلى المكتبة تحت الماء."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="netherrack=1" image="netherrack.png" soundPrefix="wood" type="grind" achievement="تم حمل الأداة السفلية!" onComplete="nothing" tooltip="العديد من هذا في الأسفل."/>
+	<item ingrediens="nothing=0" requiredItem="portal sleigh" craftedItems="blaze rod=1" image="blazeRod.png" soundPrefix="metal" type="grind" achievement="قضيب اللهب!" onComplete="nothing" tooltip="يستخدم في صناعة الجرعات."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gunpowder=1" image="gunpowder.png" soundPrefix="whoosh" type="grind" achievement="البارود!" onComplete="nothing" tooltip="يستخدم في المتفجرات."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="bookshelf=1" image="bookshelf.png" soundPrefix="wood" type="grind" achievement="تم الحصول على الكتب!" onComplete="nothing" tooltip="يستخدم في صناعة أكوام الكتب."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="out of air=1" image="outOfAir.png" soundPrefix="whoosh" type="grind" achievement="نفد الهواء!" onComplete="hideGrinder library,deautomate library" tooltip="نفد ترياق التنفس تحت الماء."/>
+	<item ingrediens="bookshelf=4" requiredItem="nothing" craftedItems="bookcase=1" image="bookcase.png" soundPrefix="wood" type="" achievement="Bookcase built !" onComplete="nothing" tooltip="مطلوب للحصول على آلاف الكتب."/>
+	<item ingrediens="bookcase=15" requiredItem="nothing" craftedItems="ton of books=1" image="tonOfBooks.png" soundPrefix="wood" type="" achievement="الكثير من الكتب!" onComplete="markMap Hogquartz-305-366,beatLocation" tooltip="Required to beat lie bury."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="sugar=1" image="sugar.png" soundPrefix="metal" type="grind" achievement="تم استخراج السكر!" onComplete="nothing" tooltip="مطلوب في صناعة الجرعات."/>
+	<item ingrediens="nether wart=1,sugar=1" requiredItem="apothecary" craftedItems="speed potion=1" image="potion.png" soundPrefix="hand" type="" achievement="تم تصنيع الجرعة!" onComplete="nothing" tooltip="يمكن شربه."/>
+	<item ingrediens="speed potion=1" requiredItem="nothing" craftedItems="use speed potion=1" image="usePotion.png" soundPrefix="hand" type="" achievement="تم شرب الجرعة!" onComplete="speed 200" tooltip="يملك خصائص تسريع."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="miner=1" image="miner.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="ينجم في المنجم المفقود."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="hunter=1" image="hunter.png" soundPrefix="hand" type="" achievement="nothing" onComplete="nothing" tooltip="يحارب السمك الناضج."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="cobblestone=1" image="cobblestone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="يستخدم في إنشاء الأبنية!"/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="flint=1" image="flint.png" soundPrefix="dirt" type="grind" achievement="nothing" onComplete="nothing" tooltip="يستخدم في صناعة السهام."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="rail=1" image="rail.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="يستخدم في بناء السكك."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="coal=1" image="coal.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="يستخدم في صهر السبائك."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="iron ore=1" image="ironOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="مطلوب في صهر السبائك الحديدية."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="gold ore=1" image="goldOre.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="مطلوب في صهر السبائك الذهبية."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="diamond=1" image="diamond.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="يستخدم في صناعة الأدوات والعناصر الماسية."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="redstone=4" image="redstone.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="يستخدم في صناعة أدوات الحجارة الحمراء."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="obsidian=1" image="obsidian.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="يستخدم في صناعة أدوات الحجر البركاني."/>
+	<item ingrediens="nothing=0" requiredItem="miner" craftedItems="bucket=1" image="bucket.png" soundPrefix="metal" type="grind" achievement="تم تصنيع الدلو!" onComplete="nothing" tooltip="مطلوب للحصول على الماء والحمم البركانية."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="gold armor=1" image="goldArmor.png" soundPrefix="metal" type="grind" achievement="درع ذهبي!" onComplete="nothing" tooltip="لصناعة الجنود الذهبيين."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="gold sword=1" image="goldSword.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="الهجمات الغوغائية!"/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="iron armor=1" image="ironArmor.png" soundPrefix="metal" type="grind" achievement="درع حديدي!" onComplete="nothing" tooltip="لصناعة الجنود الحديديين."/>
+	<item ingrediens="nothing=0" requiredItem="hunter" craftedItems="iron axe=1" image="ironAxe.png" soundPrefix="metal" type="grind" achievement="nothing" onComplete="nothing" tooltip="قطع الخشب."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="woodsman=1" image="woodsman.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="automate overworld" tooltip="يؤتمت الطاحونة العالمية."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="carpenter=1" image="carpenter.png" soundPrefix="hand" type="villager" achievement="nothing" onComplete="nothing" tooltip="يصنع الأشياء من الخشب."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="arrow=4" image="arrow.png" soundPrefix="whoosh" type="" achievement="تمت صناعة الأسهم!" onComplete="nothing" tooltip="مدمج مع القوس"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="block of quartz=1" image="blockOfQuartz.png" soundPrefix="metal" type="" achievement="تمت صناعة قطعة من الكوارتز!" onComplete="nothing" tooltip="مطلوب في صناعة بنى الكوارتز."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron pick=1" image="ironPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="ينجم عن الذهب."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron shovel=1" image="ironShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=" أوساخ المجارف والمجارف!"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron hoe=1" image="ironHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="حرث التربة."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="iron sword=1" image="ironSword.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="الهجمات الغوغائية!"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold pick=1" image="goldPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=".ينجم عن الماس"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold shovel=1" image="goldShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=" أوساخ المجارف والمجارف!"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold axe=1" image="goldAxe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="قطع الخشب."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="gold hoe=1" image="goldHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="حرث التربة."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond pick=1" image="diamondPick.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="يسرع عملية التنجيم."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond shovel=1" image="diamondShovel.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip=" أوساخ المجارف والمجارف!"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond sword=1" image="diamondSword.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="الهجمات الغوغائية!"/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond axe=1" image="diamondAxe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="قطع الخشب."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="diamond hoe=1" image="diamondHoe.png" soundPrefix="metal" type="metal" achievement="nothing" onComplete="nothing" tooltip="حرث التربة."/>
+	<item ingrediens="coal=1,iron ore=1" requiredItem="furnace" craftedItems="iron ingot=1" image="ironIngot.png" soundPrefix="metal" type="metal" achievement="تمت إذابة السكيبة المعدنية!" onComplete="nothing" tooltip="يستخدم في صناعة الأدوات والدروع الحديدية."/>
+	<item ingrediens="coal=1,gold ore=1" requiredItem="furnace" craftedItems="gold ingot=1" image="goldIngot.png" soundPrefix="metal" type="metal" achievement="تمت إذابة السبيكة الذهبية!" onComplete="nothing" tooltip="يستخدم في صناعة الأدوات والدروع الذهبية."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="city state=1" image="cityState.png" soundPrefix="" type="" achievement="ولاية المدينة!" onComplete="nothing" tooltip="عمل جيد."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="port=1" image="port.png" soundPrefix="wood" type="wood" achievement="تم إنشاء الميناء!" onComplete="nothing" tooltip="مطلوب للإبحار حول المنطقة."/>
+	<item ingrediens="nothing=0" requiredItem="nothing" craftedItems="portal sleigh=1" image="portalSleigh.png" soundPrefix="metal" type="" achievement="مزلاق البوابة!" onComplete="nothing" tooltip="يستخدم في الغوص إلى الأسفل."/>
+</crafters>
+</data>

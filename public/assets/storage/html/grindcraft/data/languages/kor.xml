@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">그라인드</label>
+<label id="craftLabel">제작</label>
+<label id="invLabel">인벤토리</label>
+<label id="achLabel">업적</label>
+<!--<label id="sInfo">버전 0.9.6.9</label>-->
+<label id="sInfo">버전 ddf1639</label>
+<label id="sSfx">SFX 볼륨</label>
+<label id="sMusic">음악 볼륨</label>
+<label id="particlesL">입자</label>
+<label id="layoutL1">자동화 시 그라인드 가리기</label>
+<label id="layoutL2">인벤토리 통합</label>
+<label id="sErrors">에러를 표시합니다.</label>
+
+<label id="map_lbl">지도</label>
+
+
+<alerts>
+    <label id="startL">그라인드크래프트</label>
+    <label id="pauseL">그라인드크래프트를 일시중지했습니다.</label>
+    <label id="game_win">그라인드 크래프트를 깼습니다!{NL}{NL}지도가 해금됐습니다.</label>
+    <label id="beat_msg">{LBL}을(를) 깼습니다 !</label>
+    <label id="check_map">지도를 확인하십시오 !{NL}당신은 {LBL}에 갈 수 있습니다</label>
+    <label id="map_open">지도가 해금됐습니다 !</label>
+    <label id="tp_build">당신은 교역소를 지었습니다.{NL}는 에메랄드를 아이템과 거래합니다.</label>
+    <label id="goto">{LBL}에 가시겠습니까?</label>
+    <label id="purchase">콘그리게이트에 로그인하셔서 아이템을 구매하십시오.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">계속하기</button>
+    <button id="ok">오케이</button>
+    <button id="deleteGame">게임 삭제 !</button>
+    <button id="play">시작</button>
+    <button id="how">어떻게</button>
+    <button id="next">다음</button>
+    <button id="load">불러오기</button>
+    <button id="save">저장</button>
+    <button id="go">가기</button>
+    <button id="no">아니요</button>
+    <button id="settings">설정</button>
+    <button id="save_game">게임 저장</button>
+    <button id="load_game">게임 불러오기</button>
+</buttons>
+
+<messages>
+    <msg>당신은 그라인드크래프트를 깼습니다 !{NL}{NL}지도가 해금됐습니다.</msg>
+    <msg id="save_game_msg">게임을 저장하고 있습니다...</msg>
+    <msg id="save_game_ok">게임을 저장하고 있습니다...</msg>
+    <msg id="loaded_game_msg">게임 데이터를 불러옵니다...</msg>
+    <msg id="loaded_game_ok">Game successfuly{NL}loaded.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">여기를 클리하십시오</item>
+    <item id="tut2">업적을 달성했습니다 !</item>
+    <item id="tut3">그리고 나무 한 그루 !{NL}여기 있습니다 !</item>
+    <item id="tut4">저 나무를 판자로 만드십시오.{NL}이것을 클릭하십시오 !</item>
+    <item id="tut5">판자를 제작했습니다 !</item>
+    <item id="tut6">당신이 제작할 수 있는 것들 전부 여기에 있습니다 !</item>
+    <item id="tut7">그라인드크래프트 !</item>
+</tutorial>
+</data>	

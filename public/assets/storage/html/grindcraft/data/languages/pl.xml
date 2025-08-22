@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Miel</label>
+<label id="craftLabel">Twórz</label>
+<label id="invLabel">Ekwipunek</label>
+<label id="achLabel">Osiągnięcia</label>
+<!--<label id="sInfo">Wersja 0.9.6.9</label>-->
+<label id="sInfo">Wersja ddf1639</label>
+<label id="sSfx">Głośność SFX</label>
+<label id="sMusic">Głośność muzyki</label>
+<label id="particlesL">Cząsteczki</label>
+<label id="layoutL1">Ukryj grindy, gdy są zautomatyzowane</label>
+<label id="layoutL2">Połącz zasoby reklamowe</label>
+<label id="sErrors">Pokaż błędy.</label>
+
+<label id="map_lbl">Mapa</label>
+
+
+<alerts>
+   <label id="startL">GrindCraft</label>
+     <label id="pauseL">GrindCraft jest wstrzymany.</label>
+     <label id="game_win">Przeszedłeś GrindCraft!{NL}{NL}Mapa jest otwarta.</label>
+     <label id="beat_msg">Pokonałeś {LBL}!</label>
+     <label id="check_map">Sprawdź mapę!{NL}Możesz przejść do {LBL}</label>
+     <label id="map_open">Mapa jest otwarta!</label>
+     <label id="tp_build">Zbudowałeś punkt handlowy.{NL}Wymień szmaragdy na przedmioty.</label>
+     <label id="goto">Iść do {LBL}?</label>
+     <label id="purchase">Zaloguj się do Kongregate, aby kupić przedmioty.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Wznów</button>
+     <button id="ok">OK</button>
+     <button id="deleteGame">Usuń grę!</button>
+     <button id="play">Odtwórz</button>
+     <button id="how">Jak</button>
+     <button id="next">Dalej</button>
+     <button id="load">Załaduj</button>
+     <button id="save">Zapisz</button>
+     <button id="go">Idź</button>
+     <button id="no">Nie</button>
+     <button id="settings">Ustawienia</button>
+     <button id="save_game">Zapisz grę</button>
+     <button id="load_game">Załaduj grę</button>
+</buttons>
+
+<messages>
+    <msg>Przeszedłeś GrindCraft!{NL}{NL}Mapa jest otwarta.</msg>
+     <msg id="save_game_msg">Zapisywanie gry...</msg>
+     <msg id="save_game_ok">Zapisywanie gry...</msg>
+     <msg id="loaded_game_msg">Załaduj dane gry...</msg>
+     <msg id="loaded_game_ok">Gra pomyślnie{NL}załadowana.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Kliknij tutaj</item>
+     <item id="tut2">Zdobyłeś osiągnięcie!</item>
+     <item id="tut3">I kawałek drewna!{NL}Oto i on!</item>
+     <item id="tut4">Zamień to drewno w deski.{NL}Kliknij tu!</item>
+     <item id="tut5">Stworzyłęś deski!</item>
+     <item id="tut6">Oto wszystko, co możesz zrobić!</item>
+     <item id="tut7">GrindCraft!</item>
+</tutorial>
+</data>	 

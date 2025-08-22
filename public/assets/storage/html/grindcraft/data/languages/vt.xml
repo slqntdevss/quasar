@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Cày</label>
+<label id="craftLabel">Chế tạo</label>
+<label id="invLabel">Trang bị</label>
+<label id="achLabel">Thành tựu</label>
+<!--<label id="sInfo">Phiên bản 0.9.6.9</label>-->
+<label id="sInfo">Phiên bản ddf1639</label>
+<label id="sSfx"> m lượng Hiệu ứng  m thanh</label>
+<label id="sMusic"> m lượng Nhạc</label>
+<label id="particlesL">Vật thể nhỏ</label>
+<label id="layoutL1">Ẩn cày khi tự động</label>
+<label id="layoutL2">Kết hợp Trang bị</label>
+<label id="sErrors">Hiển thị Lỗi.</label>
+
+<label id="map_lbl">Bản đồ</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft đã tạm dừng.</label>
+    <label id="game_win">Bạn đã phá đảo GrindCraft!{NL}{NL}Bản đồ đã mở ra.</label>
+    <label id="beat_msg">Bạn đã đánh bại {LBL} !</label>
+    <label id="check_map">Xem bản đồ đi !{NL}Bạn có thể đến {LBL}</label>
+    <label id="map_open">Bản đồ đã mở ra !</label>
+    <label id="tp_build">Bạn đã xây Trạm giao dịch.{NL}Hãy giao dịch ngọc lục bảo để lấy vật phẩm.</label>
+    <label id="goto">Đi đến {LBL}?</label>
+    <label id="purchase">Đăng nhập vào Kongregate để mua hàng.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Tiếp tục</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Xóa trò chơi !</button>
+    <button id="play">Chơi</button>
+    <button id="how">Cách làm</button>
+    <button id="next">Tiếp theo</button>
+    <button id="load">Tải</button>
+    <button id="save">Lưu</button>
+    <button id="go">Đi</button>
+    <button id="no">Không</button>
+    <button id="settings">Cài đặt</button>
+    <button id="save_game">Lưu trò chơi</button>
+    <button id="load_game">Tải trò chơi</button>
+</buttons>
+
+<messages>
+    <msg>Bạn đã phá đảo GrindCraft!{NL}{NL}Bản đồ đã mở.</msg>
+    <msg id="save_game_msg">Đang lưu trò chơi...</msg>
+    <msg id="save_game_ok">Đang lưu trò chơi...</msg>
+    <msg id="loaded_game_msg">Tải dữ liệu trò chơi...</msg>
+    <msg id="loaded_game_ok">Đã tải{NL}trò chơi thành công.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Nhấn vào đây</item>
+    <item id="tut2">Bạn vừa đạt một Thành tựu !</item>
+    <item id="tut3">Và một mảnh gỗ !{NL}Đây nè !</item>
+    <item id="tut4">Hãy biến mảnh gỗ đó thành tấm ván.{NL}Nhấn vào đây !</item>
+    <item id="tut5">Bạn đã tạo một tấm ván !</item>
+    <item id="tut6">Đây là tất cả những thứ bạn có thể tạo !</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>
+</data>	

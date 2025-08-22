@@ -1,0 +1,65 @@
+<data>
+<label id="grindLabel">Grind</label>
+<label id="craftLabel">Craft</label>
+<label id="invLabel">Inventaris</label>
+<label id="achLabel">Prestaties</label>
+<!--<label id="sInfo">Versie 0.9.6.9</label>-->
+<label id="sInfo">Versie ddf1639</label>
+<label id="sSfx">SFX Volume</label>
+<label id="sMusic">Muziek Volume</label>
+<label id="particlesL">Deeltjes</label>
+<label id="layoutL1">Verberg grinds als geautomatiseerd</label>
+<label id="layoutL2">Inventaris samenvoegen</label>
+<label id="sErrors">Toon fouten.</label>
+
+<label id="map_lbl">Kaart</label>
+
+
+<alerts>
+    <label id="startL">GrindCraft</label>
+    <label id="pauseL">GrindCraft is gepauzeerd.</label>
+    <label id="game_win">Je hebt GrindCraft verslaan!{NL}{NL}Map is open.</label>
+    <label id="beat_msg">Je hebt {LBL} verslaan !</label>
+    <label id="check_map">Controleer de kaart! !{NL}Je kan naar {LBL} gaan</label>
+    <label id="map_open">Kaart is open !</label>
+    <label id="tp_build">Je hebt de handelspost gebouwd.{NL}Ruil smaragden voor voorwerpen.</label>
+    <label id="goto">Naar {LBL} gaan?</label>
+    <label id="purchase">Log in op Kongregate om items te kopen.</label>
+</alerts>
+
+<achieve></achieve>
+
+<buttons>
+    <button id="resume">Doorspelen</button>
+    <button id="ok">OK</button>
+    <button id="deleteGame">Spel verwijderen !</button>
+    <button id="play">Spelen</button>
+    <button id="how">Hoe</button>
+    <button id="next">Volgende</button>
+    <button id="load">Laden</button>
+    <button id="save">Opslaan</button>
+    <button id="go">Ga</button>
+    <button id="no">Nee</button>
+    <button id="settings">Instellingen</button>
+    <button id="save_game">Spel Opslaan</button>
+    <button id="load_game">Spel Laden</button>
+</buttons>
+
+<messages>
+    <msg>Je hebt GrindCraft verslaan !{NL}{NL}Kaart is open.</msg>
+    <msg id="save_game_msg">Spel aan het opslaan...</msg>
+    <msg id="save_game_ok">Spel aan het opslaan...</msg>
+    <msg id="loaded_game_msg">Spelgegevens laden...</msg>
+    <msg id="loaded_game_ok">Spel succesvol{NL}geladen.</msg>
+</messages>
+
+<tutorial>
+    <item id="tut1">Klik hier</item>
+    <item id="tut2">Je hebt een prestatie behaald !</item>
+    <item id="tut3">En een stuk hout !{NL}Hier is het !</item>
+    <item id="tut4">Maak van dat hout planken.{NL}Klik dit !</item>
+    <item id="tut5">Je hebt planken gemaakt !</item>
+    <item id="tut6">Hier zijn alle spullen die je kan maken !</item>
+    <item id="tut7">GrindCraft !</item>
+</tutorial>
+</data>	
