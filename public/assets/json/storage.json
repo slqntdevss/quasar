@@ -82,5 +82,167 @@
 		"id": "raft",
 		"path": "/webgl/raft/",
 		"img": "/raft.png"
+	},
+	{
+		"name": "7 Days in Purgatory",
+		"id": "7dip",
+		"path": "/webgl/7dip/",
+		"img": "/7dip.png"
+	},
+	{
+		"name": "Duck Life 1",
+		"id": "dl1",
+		"path": "/flash/dl1/",
+		"img": "/dl1.png"
+	},
+	{
+		"name": "Duck Life 2",
+		"id": "dl2",
+		"path": "/flash/dl2/",
+		"img": "/dl2.png"
+	},
+	{
+		"name": "Duck Life 3",
+		"id": "dl3",
+		"path": "/flash/dl3/",
+		"img": "/dl3.png"
+	},
+	{
+		"name": "Duck Life 4",
+		"id": "dl4",
+		"path": "/flash/dl4/",
+		"img": "/dl4.png"
+	},
+	{
+		"name": "Papa's Bakeria",
+		"id": "pbake",
+		"path": "/flash/pbake/",
+		"img": "/pbake.png"
+	},
+	{
+		"name": "Papa's Burgeria",
+		"id": "pburg",
+		"path": "/flash/pburg/",
+		"img": "/pburg.png"
+	},
+	{
+		"name": "Papa's Cheeseria",
+		"id": "pchee",
+		"path": "/flash/pchee/",
+		"img": "/pchee.png"
+	},
+	{
+		"name": "Papa's Cupcakeria",
+		"id": "pcupc",
+		"path": "/flash/pcupc/",
+		"img": "/pcupc.png"
+	},
+	{
+		"name": "Papa's Donuteria",
+		"id": "pdonut",
+		"path": "/flash/pdonut/",
+		"img": "/pdonut.png"
+	},
+	{
+		"name": "Papa's Freezeria",
+		"id": "pfreeze",
+		"path": "/flash/pfreeze/",
+		"img": "/pfreeze.png"
+	},
+	{
+		"name": "Papa's Hotdoggeria",
+		"id": "photdog",
+		"path": "/flash/photdog/",
+		"img": "/photdog.png"
+	},
+	{
+		"name": "Papa's Pancakeria",
+		"id": "ppan",
+		"path": "/flash/ppan/",
+		"img": "/ppan.png"
+	},
+	{
+		"name": "Papa's Pastaria",
+		"id": "ppasta",
+		"path": "/flash/ppasta/",
+		"img": "/ppasta.png"
+	},
+	{
+		"name": "Papa's Pizzaria",
+		"id": "ppizza",
+		"path": "/flash/ppizza/",
+		"img": "/ppizza.png"
+	},
+	{
+		"name": "Papa's Scooperia",
+		"id": "pscoop",
+		"path": "/flash/pscoop/",
+		"img": "/pscoop.png"
+	},
+	{
+		"name": "Papa's Sushieria",
+		"id": "psushi",
+		"path": "/flash/psushi/",
+		"img": "/psushi.png"
+	},
+	{
+		"name": "Papa's Wingeria",
+		"id": "pwing",
+		"path": "/flash/pwing/",
+		"img": "/pwing.png"
+	},
+	{
+		"name": "Custom Flash Game",
+		"id": "flash",
+		"path": "/flash/custom/",
+		"img": "/flash.png"
+	},
+	{
+		"name": "Worlds Hardest Game",
+		"id": "whg",
+		"path": "/flash/whg/",
+		"img": "/whg.png"
+	},
+	{
+		"name": "Worlds Hardest Game 2",
+		"id": "whg2",
+		"path": "/flash/whg2/",
+		"img": "/whg2.png"
+	},
+	{
+		"name": "People Playground",
+		"id": "people",
+		"path": "/webgl/people/",
+		"img": "/people.png"
+	},
+	{
+		"name": "Achievement Unlocked",
+		"id": "au",
+		"path": "/flash/au/",
+		"img": "/au.png"
+	},
+	{
+		"name": "Achievement Unlocked 2",
+		"id": "au2",
+		"path": "/flash/au2/",
+		"img": "/au2.png"
+	},
+	{
+		"name": "Achievement Unlocked 3",
+		"id": "au3",
+		"path": "/flash/au3/",
+		"img": "/au3.png"
+	},
+	{
+		"name": "Raft Wars",
+		"id": "rw",
+		"path": "/flash/rw/",
+		"img": "/rw.png"
+	},
+	{
+		"name": "Raft Wars 2",
+		"id": "rw2",
+		"path": "/flash/rw2/",
+		"img": "/rw2.png"
 	}
 ]

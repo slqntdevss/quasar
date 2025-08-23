@@ -61,7 +61,7 @@ body {
 }
 .container {
 	position: relative;
-	margin: 10% auto 0 auto;
+	margin: 5% auto 0 auto;
 	display: grid;
 	gap: 7.5px;
 	width: 90%;
@@ -93,6 +93,7 @@ body {
 	position: absolute;
 	pointer-events: none;
 	filter: invert(1);
+	mix-blend-mode: difference;
 	transition: opacity 0.3s ease-in-out;
 	z-index: 999;
 }

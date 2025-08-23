@@ -1,0 +1,13 @@
+{
+"companyName": "DefaultCompany",
+"productName": "The Gateway",
+"dataUrl": "Seven Days in Purgatory.data.unityweb",
+"wasmCodeUrl": "Seven Days in Purgatory.wasm.code.unityweb",
+"wasmFrameworkUrl": "Seven Days in Purgatory.wasm.framework.unityweb",
+"TOTAL_MEMORY": 268435456,
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20",
+"cacheControl": {"default": "must-revalidate"}
+}

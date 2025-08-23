@@ -31,4 +31,5 @@ document.addEventListener("DOMContentLoaded", async () => {
 
 document.getElementById("closeFrame").addEventListener("click", () => {
 	gameFrame.style.display = "none";
+	document.getElementById("actualGameFrame").src = "about:blank";
 });

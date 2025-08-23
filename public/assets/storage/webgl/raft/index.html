@@ -75,7 +75,7 @@
 								done = done + 1;
 								document.querySelector(
 									"#loading-text"
-								).textContent = `LOADING... (${done}/${max})`;
+								).textContent = `Parts downloaded (${done}/${max})`;
 								fetchPart(index + 1);
 							})
 							.catch(reject);
@@ -160,13 +160,13 @@
 				id="loading-text"
 				style="
 					color: white;
+					font-family: Inter, sans-serif;
 					font-size: 48px;
-					font-family: cursive;
 					text-align: center;
 					margin-top: 20px;
 				"
 			>
-				LOADING...
+				Parts downloaded (0/5)
 			</div>
 			<div id="unityContainer"></div>
 		</div>
