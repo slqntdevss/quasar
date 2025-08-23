@@ -80,6 +80,7 @@ body {
 	text-align: center;
 	box-sizing: border-box;
 	transition: 0.3s ease-in-out;
+	font-size: 0.75rem;
 }
 .card:hover {
 	padding: 4px;
