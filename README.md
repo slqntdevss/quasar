@@ -8,4 +8,6 @@ UGS - about 20 - 30 games on here
 
 NPA(me, breadbb, bog/aukak, 98corbins) - most of the webports
 
+JustJxrdanWasDefinetlyTaken - CDN switching option, game quantity additions
+
 please join the [discord](https://discord.gg/e3AUEuFDp8)
