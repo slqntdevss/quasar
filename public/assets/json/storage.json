@@ -1708,5 +1708,12 @@
 		"path": "/html/crk",
 		"img": "/crk.webp",
 		"category": ["Strategy", "Arcade"]
+	},
+	{
+		"name": "Sims 3",
+		"id": "sims3",
+		"path": "/emulator/ds/sims3",
+		"img": "/sims3.webp",
+		"category": ["Simulation", "Arcade"]
 	}
 ]
