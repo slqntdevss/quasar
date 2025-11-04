@@ -149,6 +149,9 @@ closeBtn.addEventListener("click", () => {
 	document.querySelector(".center").style.display = "flex";
 	document.querySelector(".w-container").classList.remove("show");
 	frame.style.display = "none";
+	cursor.style.opacity = 1;
+	document.documentElement.style.cursor = "none";
+	document.body.style.cursor = "none";
 });
 document.getElementById("urlForm").addEventListener("submit", async (e) => {
 	event.preventDefault();
