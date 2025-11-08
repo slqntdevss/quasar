@@ -1,8 +1,12 @@
 "use strict";
+document.title = "Quasar";
+const title = document.querySelectorAll("#title");
+const address = document.getElementById("address");
+title.forEach((t) => (t.textContent = "Quasar"));
+address.placeholder = "browse the internet";
 const stockSW = "./sw.js";
 const swAllowedHostnames = ["localhost", "127.0.0.1"];
 const form = document.getElementById("form");
-const address = document.getElementById("address");
 const connection = new BareMux.BareMuxConnection("/mux/worker.js");
 const { ScramjetController } = $scramjetLoadController();
 const autoc = document.getElementById("autoc");
@@ -55,8 +59,11 @@ form.addEventListener("submit", async (event) => {
 		throw err;
 	}
 
-	const url = search(address.value, "https://duckduckgo.com/?q=%s");
+	let url = search(address.value, "https://duckduckgo.com/?q=%s");
 
+	if (url.includes("://now.gg")) {
+		url = "https://nowgg.fun";
+	}
 	frame.style.display = "block";
 	let wispUrl =
 		(location.protocol === "https:" ? "wss" : "ws") +
@@ -66,9 +73,6 @@ form.addEventListener("submit", async (event) => {
 	if ((await connection.getTransport()) !== "/ep/index.mjs") {
 		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
 	}
-	console.log(wispUrl);
-	console.log(wispUrl);
-	console.log(wispUrl);
 	const sjEncode = scramjet.encodeUrl.bind(scramjet);
 	frame.src = sjEncode(url);
 	cursor.style.opacity = 0;
@@ -162,11 +166,13 @@ document.getElementById("urlForm").addEventListener("submit", async (e) => {
 		throw err;
 	}
 
-	const url = search(
+	let url = search(
 		document.getElementById("urlInput").value,
 		"https://duckduckgo.com/?q=%s"
 	);
-
+	if (url.includes("://now.gg")) {
+		url = "https://nowgg.fun";
+	}
 	frame.style.display = "block";
 	let wispUrl =
 		(location.protocol === "https:" ? "wss" : "ws") +

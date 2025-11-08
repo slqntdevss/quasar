@@ -62,21 +62,7 @@ app.use((req, res, next) => {
 		fs.readFile(filePath, "utf8", (err, data) => {
 			if (err) return next();
 
-			const analytics = `
-    		<!-- Google tag (gtag.js) -->
-    		<script
-        		async
-        		src="https://www.googletagmanager.com/gtag/js?id=G-7JPJ866MG9">
-    		</script>
-    		<script>
-        		window.dataLayer = window.dataLayer || [];
-        		function gtag() {
-        		    dataLayer.push(arguments);
-        		}
-        		gtag("js", new Date());
-        		gtag("config", "G-7JPJ866MG9");
-    		</script>
-			`;
+			const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JPJ866MG9"></script><script>window.dataLayer = window.dataLayer || [];function gtag() {dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-7JPJ866MG9");</script>`;
 
 			const modified = data.replace(/<\/head>/i, `${analytics}\n</head>`);
 			res.send(modified);

@@ -441,6 +441,7 @@ p {
 	border-bottom-right-radius: 6px;
 	bottom: 0;
 	background: var(--main-bg);
+	backdrop-filter: blur(10px);
 	display: flex;
 	align-items: center;
 	gap: 10px;

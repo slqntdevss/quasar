@@ -1722,5 +1722,33 @@
 		"path": "/emulator/gba/knidl",
 		"img": "/knidl.webp",
 		"category": ["Platformer", "Arcade"]
+	},
+	{
+		"name": "Drift Hunters",
+		"id": "dhunters",
+		"path": "/html/dhunters",
+		"img": "/dhunters.webp",
+		"category": ["Sandbox", "Arcade"]
+	},
+	{
+		"name": "Drift Boss",
+		"id": "dboss",
+		"path": "/html/dboss",
+		"img": "/dboss.webp",
+		"category": ["Sandbox", "Arcade"]
+	},
+	{
+		"name": "Escape Road",
+		"id": "eroad",
+		"path": "/html/eroad",
+		"img": "/eroad.webp",
+		"category": ["Sandbox", "Arcade"]
+	},
+	{
+		"name": "Escape Road 2",
+		"id": "eroad2",
+		"path": "/html/eroad2",
+		"img": "/eroad2.webp",
+		"category": ["Sandbox", "Arcade"]
 	}
 ]
