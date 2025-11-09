@@ -3,11 +3,9 @@ import path from "path";
 import fs from "fs";
 import "dotenv/config";
 import cors from "cors";
-import dns from "node:dns";
 
 import { createServer } from "node:http";
 import { fileURLToPath } from "node:url";
-import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
@@ -36,21 +34,6 @@ app.use((req, res, next) => {
 	res.setHeader("Pragma", "no-cache");
 	res.setHeader("Expires", "0");
 	next();
-});
-
-logging.set_level(logging.NONE);
-
-dns.setServers(["94.140.14.14", "94.140.15.15"]);
-wisp.options.dns_method = "resolve";
-wisp.options.dns_servers = ["94.140.14.14", "94.140.15.15"];
-wisp.options.dns_result_order = "ipv4first";
-
-server.on("upgrade", (req, socket, head) => {
-	if (req.url.endsWith("/wisp/")) {
-		wisp.routeRequest(req, socket, head);
-	} else {
-		socket.end();
-	}
 });
 
 app.use((req, res, next) => {

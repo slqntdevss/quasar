@@ -179,7 +179,6 @@ document.getElementById("urlForm").addEventListener("submit", async (e) => {
 		"://" +
 		location.host +
 		"/wisp/";
-
 	if ((await connection.getTransport()) !== "/ep/index.mjs") {
 		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
 	}
