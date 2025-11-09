@@ -318,7 +318,12 @@ document.addEventListener("DOMContentLoaded", () => {
 	}
 });
 
-let faviconLink = document.querySelector('link[rel*="shortcut icon"]');
+let faviconLink = document.querySelector('link[rel*="icon"]');
+if (!faviconLink) {
+	faviconLink = document.createElement("link");
+	faviconLink.rel = "icon";
+	document.head.appendChild(faviconLink);
+}
 document.addEventListener("visibilitychange", (e) => {
 	if (document.hidden && localStorage.getItem("focusCloaking") == "true") {
 		document.title = "Home";
