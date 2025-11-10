@@ -628,3 +628,52 @@ p {
 	user-select: none;
 	letter-spacing: 2px;
 }
+
+.quick-apps-grid {
+	width: 100%;
+	margin: 18px 0 0 0;
+	display: flex;
+	justify-content: center;
+}
+.apps-grid-container {
+	display: grid;
+	grid-template-columns: repeat(5, minmax(0, 1fr));
+	gap: 16px;
+	width: 100%;
+	max-width: 540px;
+}
+.apps-grid-tile {
+	background: var(--main-bg, #232526);
+	border: var(--main-border, 1px solid #fff);
+	border-radius: var(--card-radius, 12px);
+	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	transition: box-shadow 0.18s, transform 0.18s;
+	cursor: pointer;
+	padding: 10px 6px 12px 6px;
+	text-align: center;
+	outline: none;
+}
+.apps-grid-tile:hover,
+.apps-grid-tile:focus {
+	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
+	transform: translateY(-2px) scale(1.04);
+	border: var(--accent-border, 2px solid #88f);
+}
+.apps-grid-tile img {
+	width: 44px;
+	height: 44px;
+	border-radius: 8px;
+	object-fit: cover;
+	background: #2222;
+	margin-bottom: 6px;
+	border: 1px solid #19191955;
+}
+.apps-grid-label {
+	color: var(--main-text, #fff);
+	font-size: 0.98em;
+	font-weight: 400;
+	word-break: break-word;
+}

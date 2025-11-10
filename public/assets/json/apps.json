@@ -1,0 +1,27 @@
+[
+	{
+		"name": "YouTube",
+		"url": "https://youtube.com",
+		"img": "/youtube.webp"
+	},
+	{
+		"name": "TikTok",
+		"url": "https://tiktok.com",
+		"img": "/tiktok.webp"
+	},
+	{
+		"name": "Reddit",
+		"url": "https://reddit.com",
+		"img": "/reddit.webp"
+	},
+	{
+		"name": "Twitter",
+		"url": "https://twitter.com",
+		"img": "/twitter.webp"
+	},
+	{
+		"name": "Movies",
+		"url": "https://beech.watch",
+		"img": "/movies.webp"
+	}
+]

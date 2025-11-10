@@ -6,6 +6,7 @@ import cors from "cors";
 
 import { createServer } from "node:http";
 import { fileURLToPath } from "node:url";
+import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";

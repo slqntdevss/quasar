@@ -70,6 +70,8 @@ form.addEventListener("submit", async (event) => {
 		"://" +
 		location.host +
 		"/wisp/";
+
+	console.log(wispUrl);
 	if ((await connection.getTransport()) !== "/ep/index.mjs") {
 		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
 	}
@@ -179,6 +181,9 @@ document.getElementById("urlForm").addEventListener("submit", async (e) => {
 		"://" +
 		location.host +
 		"/wisp/";
+
+	console.log(wispUrl);
+	console.log(wispUrl);
 	if ((await connection.getTransport()) !== "/ep/index.mjs") {
 		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
 	}
@@ -186,3 +191,59 @@ document.getElementById("urlForm").addEventListener("submit", async (e) => {
 	const sjEncode = scramjet.encodeUrl.bind(scramjet);
 	frame.src = sjEncode(url);
 });
+
+(async function () {
+	const grid = document.getElementById("quick-apps-grid");
+	if (!grid) return;
+	try {
+		const resp = await fetch("/assets/json/apps.json");
+		if (!resp.ok) {
+			grid.innerHTML =
+				'<div style="color: var(--main-text, white); text-align:center;">No apps found.</div>';
+			return;
+		}
+		const apps = await resp.json();
+		const gridHTML = `<div class="apps-grid-container">
+		${apps
+			.slice(0, 5)
+			.map(
+				(app, idx) => `
+			<div class="apps-grid-tile" tabindex="0" data-url="${app.url}">
+				<img src="/assets/img${app.img}" alt="${app.name}" />
+				<span class="apps-grid-label">${app.name}</span>
+			</div>
+		`
+			)
+			.join("")}
+		</div>`;
+		grid.innerHTML = gridHTML;
+		Array.from(grid.querySelectorAll(".apps-grid-tile")).forEach((tile) => {
+			tile.addEventListener("click", async () => {
+				let url = tile.getAttribute("data-url");
+				try {
+					await registerSW();
+				} catch {}
+				let wispUrl =
+					(location.protocol === "https:" ? "wss" : "ws") +
+					"://" +
+					location.host +
+					"/wisp/";
+				console.log(wispUrl);
+				if ((await connection.getTransport()) !== "/ep/index.mjs") {
+					await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
+				}
+				const sjEncode = scramjet.encodeUrl.bind(scramjet);
+				frame.style.display = "block";
+				frame.src = sjEncode(url);
+				wContainer.classList.add("show");
+				autoc.classList.remove("show");
+				cursor.style.opacity = 0;
+				document.documentElement.style.cursor = "auto";
+				document.body.style.cursor = "auto";
+			});
+		});
+	} catch (e) {
+		grid.innerHTML =
+			'<div style="color: var(--main-text, white); text-align:center;">Error loading apps.</div>';
+	}
+})();
