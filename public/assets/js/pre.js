@@ -50,7 +50,6 @@ async function searchSJ(url) {
 		location.host +
 		"/wisp/";
 
-	console.log(wispUrl);
 	if ((await connection.getTransport()) !== "/ep/index.mjs") {
 		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
 	}
@@ -88,7 +87,6 @@ form.addEventListener("submit", async (event) => {
 
 frame.addEventListener("load", () => {
 	const url = scramjet.decodeUrl(frame.src);
-	console.log(url);
 	document.getElementById("urlInput").value = url;
 });
 
