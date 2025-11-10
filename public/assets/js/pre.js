@@ -31,6 +31,37 @@ async function registerSW() {
 
 	await navigator.serviceWorker.register(stockSW);
 }
+async function searchSJ(url) {
+	try {
+		await registerSW();
+	} catch (err) {
+		throw err;
+	}
+
+	let cleanedUrl = search(url, "https://duckduckgo.com/?q=%s");
+
+	if (cleanedUrl.includes("://now.gg")) {
+		cleanedUrl = "https://nowgg.fun";
+	}
+	frame.style.display = "block";
+	let wispUrl =
+		(location.protocol === "https:" ? "wss" : "ws") +
+		"://" +
+		location.host +
+		"/wisp/";
+
+	console.log(wispUrl);
+	if ((await connection.getTransport()) !== "/ep/index.mjs") {
+		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
+	}
+	const sjEncode = scramjet.encodeUrl.bind(scramjet);
+	frame.src = sjEncode(cleanedUrl);
+	cursor.style.opacity = 0;
+	document.documentElement.style.cursor = "auto";
+	document.body.style.cursor = "auto";
+	wContainer.classList.add("show");
+	autoc.classList.remove("show");
+}
 function search(input, template) {
 	try {
 		return new URL(input).toString();
@@ -52,36 +83,7 @@ const scramjet = new ScramjetController({
 scramjet.init();
 form.addEventListener("submit", async (event) => {
 	event.preventDefault();
-
-	try {
-		await registerSW();
-	} catch (err) {
-		throw err;
-	}
-
-	let url = search(address.value, "https://duckduckgo.com/?q=%s");
-
-	if (url.includes("://now.gg")) {
-		url = "https://nowgg.fun";
-	}
-	frame.style.display = "block";
-	let wispUrl =
-		(location.protocol === "https:" ? "wss" : "ws") +
-		"://" +
-		location.host +
-		"/wisp/";
-
-	console.log(wispUrl);
-	if ((await connection.getTransport()) !== "/ep/index.mjs") {
-		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
-	}
-	const sjEncode = scramjet.encodeUrl.bind(scramjet);
-	frame.src = sjEncode(url);
-	cursor.style.opacity = 0;
-	document.documentElement.style.cursor = "auto";
-	document.body.style.cursor = "auto";
-	wContainer.classList.add("show");
-	autoc.classList.remove("show");
+	searchSJ(address.value);
 });
 
 frame.addEventListener("load", () => {
@@ -161,35 +163,7 @@ closeBtn.addEventListener("click", () => {
 });
 document.getElementById("urlForm").addEventListener("submit", async (e) => {
 	event.preventDefault();
-
-	try {
-		await registerSW();
-	} catch (err) {
-		throw err;
-	}
-
-	let url = search(
-		document.getElementById("urlInput").value,
-		"https://duckduckgo.com/?q=%s"
-	);
-	if (url.includes("://now.gg")) {
-		url = "https://nowgg.fun";
-	}
-	frame.style.display = "block";
-	let wispUrl =
-		(location.protocol === "https:" ? "wss" : "ws") +
-		"://" +
-		location.host +
-		"/wisp/";
-
-	console.log(wispUrl);
-	console.log(wispUrl);
-	if ((await connection.getTransport()) !== "/ep/index.mjs") {
-		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
-	}
-
-	const sjEncode = scramjet.encodeUrl.bind(scramjet);
-	frame.src = sjEncode(url);
+	searchSJ(document.getElementById("urlInput").value);
 });
 
 (async function () {
@@ -220,26 +194,7 @@ document.getElementById("urlForm").addEventListener("submit", async (e) => {
 		Array.from(grid.querySelectorAll(".apps-grid-tile")).forEach((tile) => {
 			tile.addEventListener("click", async () => {
 				let url = tile.getAttribute("data-url");
-				try {
-					await registerSW();
-				} catch {}
-				let wispUrl =
-					(location.protocol === "https:" ? "wss" : "ws") +
-					"://" +
-					location.host +
-					"/wisp/";
-				console.log(wispUrl);
-				if ((await connection.getTransport()) !== "/ep/index.mjs") {
-					await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
-				}
-				const sjEncode = scramjet.encodeUrl.bind(scramjet);
-				frame.style.display = "block";
-				frame.src = sjEncode(url);
-				wContainer.classList.add("show");
-				autoc.classList.remove("show");
-				cursor.style.opacity = 0;
-				document.documentElement.style.cursor = "auto";
-				document.body.style.cursor = "auto";
+				searchSJ(url);
 			});
 		});
 	} catch (e) {
