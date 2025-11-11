@@ -1684,28 +1684,28 @@
 	{
 		"name": "Roblox",
 		"id": "rbx",
-		"path": "/html/rbx",
+		"path": "/html/ngg/rbx",
 		"img": "/rbx.webp",
 		"category": ["Sandbox"]
 	},
 	{
 		"name": "Stumble Guys",
 		"id": "stg",
-		"path": "/html/stg",
+		"path": "/html/ngg/stg",
 		"img": "/stg.webp",
 		"category": ["Platformer", "Arcade"]
 	},
 	{
 		"name": "Fortnite",
 		"id": "fn",
-		"path": "/html/fn",
+		"path": "/html/ngg/fn",
 		"img": "/fn.webp",
 		"category": ["Shooter", "Arcade"]
 	},
 	{
 		"name": "Cookie Run Kingdom",
 		"id": "crk",
-		"path": "/html/crk",
+		"path": "/html/ngg/crk",
 		"img": "/crk.webp",
 		"category": ["Strategy", "Arcade"]
 	},
