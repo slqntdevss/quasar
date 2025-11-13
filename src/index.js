@@ -27,13 +27,14 @@ const server = createServer(app);
 app.use((req, res, next) => {
 	// relaly stupid fix
 
-	if (req.path.includes("psp")) {
+	if (req.path.includes("psp") || req.path.includes("emulator")) {
 		res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
 		res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
 	} else {
 		res.removeHeader("Cross-Origin-Opener-Policy");
 		res.removeHeader("Cross-Origin-Embedder-Policy");
 	}
+
 	res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
 	res.setHeader(
 		"Cache-Control",
