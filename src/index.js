@@ -25,8 +25,15 @@ const publicDir = path.join(
 const server = createServer(app);
 
 app.use((req, res, next) => {
-	res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-	res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+	// relaly stupid fix
+
+	if (req.path.includes("psp")) {
+		res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
+		res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+	} else {
+		res.removeHeader("Cross-Origin-Opener-Policy");
+		res.removeHeader("Cross-Origin-Embedder-Policy");
+	}
 	res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
 	res.setHeader(
 		"Cache-Control",
