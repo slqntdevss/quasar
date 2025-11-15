@@ -18,7 +18,7 @@
 				margin-top: 20px;
 			"
 		>
-			Parts downloaded (0/9)
+			Parts downloaded (N/A)
 		</div>
 		<div id="unity-container" class="unity-desktop">
 			<canvas id="unity-canvas"></canvas>
@@ -31,7 +31,7 @@
 				return (bytes / (1024 * 1024)).toFixed(2);
 			}
 
-			async function mergeFiles(fileParts, concurrency = 4) {
+			async function mergeFiles(fileParts, concurrency = 5) {
 				const results = new Array(fileParts.length);
 				let completedBytes = 0;
 				let totalBytes = 0;
