@@ -1,5 +1,10 @@
 [
 	{
+		"name": "Invidious",
+		"url": "https://inv.perditum.com/feed/popular",
+		"img": "/invid.webp"
+	},
+	{
 		"name": "YouTube",
 		"url": "https://youtube.com",
 		"img": "/youtube.webp"

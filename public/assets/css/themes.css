@@ -1,8 +1,8 @@
 .theme-classic {
 	--background-gradient: linear-gradient(
 		90deg,
-		hsla(254, 100%, 73%, 1) 0%,
-		hsla(226, 100%, 64%, 1) 100%
+		rgb(53, 81, 114) 0%,
+		rgb(73, 153, 219) 100%
 	);
 	--main-bg: rgba(58, 58, 58, 0.404);
 	--main-border: 1px solid white;

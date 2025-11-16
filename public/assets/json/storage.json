@@ -1750,5 +1750,68 @@
 		"path": "/html/eroad2",
 		"img": "/eroad2.webp",
 		"category": ["Sandbox", "Arcade"]
+	},
+	{
+		"name": "Ragdoll Hit",
+		"id": "raghit",
+		"path": "/html/raghit",
+		"img": "/raghit.webp",
+		"category": ["Action"]
+	},
+	{
+		"name": "Skate It",
+		"id": "skit",
+		"path": "/emulator/ds/skit",
+		"img": "/skit.webp",
+		"category": ["Arcade", "Simulation"]
+	},
+	{
+		"name": "Plants VS Zombies 2",
+		"id": "pvz2",
+		"path": "/html/pvz2",
+		"img": "/pvz2.webp",
+		"category": ["Arcade", "Simulation"]
+	},
+	{
+		"name": "CS 1.6",
+		"id": "cs",
+		"path": "/html/cs",
+		"img": "/cs.webp",
+		"category": ["Action", "Shooter"]
+	},
+	{
+		"name": "Polytrack",
+		"id": "pt",
+		"path": "/html/pt",
+		"img": "/pt.webp",
+		"category": ["Action", "Arcade"]
+	},
+	{
+		"name": "Half-Life",
+		"id": "hl",
+		"path": "/html/hl",
+		"img": "/hl.webp",
+		"category": ["Action", "Shooter"]
+	},
+	{
+		"name": "Bloons Tower Defense 5",
+		"id": "btd5",
+		"path": "/flash/btd5",
+		"img": "/btd5.webp",
+		"category": ["Strategy", "Flash"]
+	},
+	{
+		"name": "Cluster Rush",
+		"id": "crush",
+		"path": "/webgl/crush",
+		"img": "/crush.webp",
+		"category": ["Action", "Webport"]
+	},
+	{
+		"name": "Slime Rancher",
+		"id": "sr",
+		"path": "/webgl/sr",
+		"img": "/sr.webp",
+		"category": ["Action", "Webport"]
 	}
 ]

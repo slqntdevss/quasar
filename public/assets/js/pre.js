@@ -177,7 +177,7 @@ document.getElementById("urlForm").addEventListener("submit", async (e) => {
 		const apps = await resp.json();
 		const gridHTML = `<div class="apps-grid-container">
 		${apps
-			.slice(0, 5)
+			.slice(0, 6)
 			.map(
 				(app, idx) => `
 			<div class="apps-grid-tile" tabindex="0" data-url="${app.url}">
