@@ -14,7 +14,7 @@ async function addScript(src, defer = false) {
 	await addScript("/marcs/scramjet.all.js");
 	await addScript("mux/index.js");
 	await addScript("ep/index.js");
-	await new Promise((r) => setTimeout(r, 50));
+	await new Promise((r) => setTimeout(r, 150));
 
 	await addScript("/assets/js/pre.js");
 })();
