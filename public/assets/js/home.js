@@ -10,6 +10,4 @@ function addScript(src, defer = false) {
 addScript("/marcs/scramjet.all.js");
 addScript("mux/index.js", true);
 addScript("ep/index.js", true);
-document.addEventListener("DOMContentLoaded", () => {
-	addScript("assets/js/pre.js", true);
-});
+addScript("assets/js/pre.js", true);
