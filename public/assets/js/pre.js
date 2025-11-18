@@ -1,4 +1,5 @@
 "use strict";
+const stockSW = "./sw.js";
 const form = document.getElementById("form");
 const connection = new BareMux.BareMuxConnection("/mux/worker.js");
 const { ScramjetController } = $scramjetLoadController();
