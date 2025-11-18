@@ -1,15 +1,20 @@
 //testing for secuirly
 
 async function addScript(src, defer = false) {
-	const s = document.createElement("script");
-	s.src = src;
-	if (defer) s.defer = true;
-	document.head.appendChild(s);
+	return new Promise((resolve, reject) => {
+		const s = document.createElement("script");
+		s.src = src;
+		s.onload = resolve;
+		s.onerror = reject;
+		document.head.appendChild(s);
+	});
 }
 
 (async () => {
 	await addScript("/marcs/scramjet.all.js");
 	await addScript("mux/index.js");
 	await addScript("ep/index.js");
-	await addScript("assets/js/pre.js");
+	await new Promise((r) => setTimeout(r, 50));
+
+	await addScript("/assets/js/pre.js");
 })();
