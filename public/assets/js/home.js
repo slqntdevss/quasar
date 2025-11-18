@@ -1,6 +1,6 @@
 //testing for secuirly
 
-function addScript(src, defer = false) {
+async function addScript(src, defer = false) {
 	const s = document.createElement("script");
 	s.src = src;
 	if (defer) s.defer = true;
