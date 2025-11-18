@@ -8,6 +8,6 @@ function addScript(src, defer = false) {
 }
 
 addScript("/marcs/scramjet.all.js");
-addScript("mux/index.js", true);
-addScript("ep/index.js", true);
-addScript("assets/js/pre.js", true);
+addScript("mux/index.js");
+addScript("ep/index.js");
+addScript("assets/js/pre.js");
