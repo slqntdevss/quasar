@@ -7,6 +7,9 @@ function addScript(src, defer = false) {
 	document.head.appendChild(s);
 }
 
-addScript("/marcs/scramjet.all.js");
-addScript("ep/index.js");
-addScript("assets/js/pre.js");
+(async () => {
+	await addScript("/marcs/scramjet.all.js");
+	await addScript("mux/index.js");
+	await addScript("ep/index.js");
+	await addScript("assets/js/pre.js");
+})();
