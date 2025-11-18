@@ -6,6 +6,7 @@ import cors from "cors";
 
 import { createServer } from "node:http";
 import { fileURLToPath } from "node:url";
+import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
@@ -46,25 +47,17 @@ app.use((req, res, next) => {
 
 app.use((req, res, next) => {
 	const isDir = req.path.endsWith("/");
-
-	// determine file path
-	const filePath = isDir
-		? path.join(publicDir, req.path, "index.html")
-		: path.join(publicDir, req.path);
-
-	// only modify if it’s an HTML file
-	if (filePath.endsWith(".html")) {
+	if ((req.get("Accept") && req.get("Accept").includes("text/html")) || isDir) {
+		const filePath = isDir
+			? path.join(publicDir, req.path, "index.html")
+			: path.join(publicDir, req.path);
 		fs.readFile(filePath, "utf8", (err, data) => {
 			if (err) return next();
 
-			const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JPJ866MG9"></script>
-      <script>window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag("js", new Date());
-      gtag("config", "G-7JPJ866MG9");</script>`;
+			const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JPJ866MG9"></script><script>window.dataLayer = window.dataLayer || [];function gtag() {dataLayer.push(arguments);}gtag("js", new Date());gtag("config", "G-7JPJ866MG9");</script>`;
 
 			const modified = data.replace(/<\/head>/i, `${analytics}\n</head>`);
-			res.type("html").send(modified);
+			res.send(modified);
 		});
 	} else {
 		next();
