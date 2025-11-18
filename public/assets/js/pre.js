@@ -1,12 +1,13 @@
 "use strict";
-document.title = "Quasar";
-const title = document.querySelectorAll("#title");
-const address = document.getElementById("address");
-title.forEach((t) => (t.textContent = "Quasar"));
-address.placeholder = "browse the internet";
-const stockSW = "./sw.js";
-const swAllowedHostnames = ["localhost", "127.0.0.1"];
+
 document.addEventListener("DOMContentLoaded", () => {
+	document.title = "Quasar";
+	const title = document.querySelectorAll("#title");
+	const address = document.getElementById("address");
+	title.forEach((t) => (t.textContent = "Quasar"));
+	address.placeholder = "browse the internet";
+	const stockSW = "./sw.js";
+	const swAllowedHostnames = ["localhost", "127.0.0.1"];
 	const form = document.getElementById("form");
 	const connection = new BareMux.BareMuxConnection("/mux/worker.js");
 	const { ScramjetController } = $scramjetLoadController();
