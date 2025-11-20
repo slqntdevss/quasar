@@ -16,6 +16,7 @@ document.body.insertAdjacentHTML('beforeend', '<div id="container-976e351ff44eac
 // js scripts
 const scripts = [
     '//brillianceremisswhistled.com/94d3e6b189169213c968a0f35cf2c24b/invoke.js', // banner
+    '//brillianceremisswhistled.com/94d3e6b189169213c968a0f35cf2c24b/invoke.js', // banner (x2)
     '//brillianceremisswhistled.com/976e351ff44eac06013f3d88e10200d0/invoke.js', // native banner
     '//brillianceremisswhistled.com/976e351ff44eac06013f3d88e10200d0/invoke.js' // native banner (x2)
 ];
