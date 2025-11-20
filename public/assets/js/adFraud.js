@@ -11,13 +11,13 @@ globalThis.atOptions = {
 };
 // native banner container
 document.body.insertAdjacentHTML('beforeend', '<div id="container-976e351ff44eac06013f3d88e10200d0"></div>');
+document.body.insertAdjacentHTML('beforeend', '<div id="container-976e351ff44eac06013f3d88e10200d0"></div>');
 
 // js scripts
 const scripts = [
     '//brillianceremisswhistled.com/94d3e6b189169213c968a0f35cf2c24b/invoke.js', // banner
-    '//brillianceremisswhistled.com/a3/4b/09/a34b09ba540c45a83f0731ef7f9fce12.js', // popunder
-    '//brillianceremisswhistled.com/f6/6b/19/f66b199727e844c6fd4d4c67f3c67c72.js', // social bar
-    '//brillianceremisswhistled.com/976e351ff44eac06013f3d88e10200d0/invoke.js' // native banner
+    '//brillianceremisswhistled.com/976e351ff44eac06013f3d88e10200d0/invoke.js', // native banner
+    '//brillianceremisswhistled.com/976e351ff44eac06013f3d88e10200d0/invoke.js' // native banner (x2)
 ];
 
 scripts.forEach(link => {
@@ -27,12 +27,8 @@ scripts.forEach(link => {
 });
 // ad fraud!
 (function() {
-    // rename window.open to windowopen
-    globalThis.windowopen = window.open
-    window.open = () => null;
-
     // hide element
-    const hideElement = (el) => {
+    const hideElement = (el, preventRedirection) => {
         el.style.position = "absolute";
         el.style.left = "-99999px";
         el.style.top = "-99999px";
@@ -40,12 +36,18 @@ scripts.forEach(link => {
         el.style.height = "1px";
         el.style.opacity = "0";
         el.style.pointerEvents = "none";
+        // prevent redirection if preventRedirection is true
+        if (preventRedirection) {
+            el.removeAttribute('href');
+            el.style.pointerEvents = "none";
+            el.onclick = (e) => { e.preventDefault(); return false; };
+        }
     };
 
     // patch iframes
     const protectIframe = (iframe) => {
         if (iframe.src === "about:blank") {
-            hideElement(iframe);
+            hideElement(iframe, true);
             
             try {
                 iframe.addEventListener('load', () => {
@@ -82,25 +84,14 @@ scripts.forEach(link => {
         }
     };
 
-    // hide ad elements
-    const hideAds = () => {
-        document.querySelectorAll(`#${CSS.escape("container-976e351ff44eac06013f3d88e10200d0")}`).forEach(hideElement);
-        document.querySelectorAll(`#${CSS.escape("atContainer-94d3e6b189169213c968a0f35cf2c24b")}`).forEach(hideElement);
-
-        document.querySelectorAll('.container-976e351ff44eac06013f3d88e10200d0__link').forEach(el => {
-            el.removeAttribute('href');
-            el.style.pointerEvents = "none";
-            el.onclick = (e) => { e.preventDefault(); return false; };
-        });
-    };
-
     // start hiding ads
     setInterval(() => {
         document.querySelectorAll('iframe').forEach(protectIframe);
-        hideAds();
-    }, 1000);
+        document.querySelectorAll(`#${CSS.escape("container-976e351ff44eac06013f3d88e10200d0")}`).forEach(hideElement, true);
+        document.querySelectorAll(`#${CSS.escape("atContainer-94d3e6b189169213c968a0f35cf2c24b")}`).forEach(hideElement, true);
+    }, 250);
 })();
-
+/*
 // prevent redirects fully with onbeforeunload (except for button clicks)
 let allowRedirect = false;
 
@@ -154,3 +145,4 @@ window.addEventListener('beforeunload', function(e) {
     });
     return '';
 }, true);
+*/
