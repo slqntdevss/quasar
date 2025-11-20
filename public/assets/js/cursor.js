@@ -7,7 +7,7 @@ let cursorX = 0;
 let cursorY = 0;
 
 if (!localStorage.getItem("customCursor")) {
-	localStorage.setItem("customCursor", "true");
+	localStorage.setItem("customCursor", "false");
 }
 if (customCursor) {
 	customCursor.classList.toggle(
