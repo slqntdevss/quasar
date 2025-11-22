@@ -1563,10 +1563,10 @@
 		"category": ["Platformer", "Flash"]
 	},
 	{
-		"name": "Portal",
-		"id": "portal",
+		"name": "Portal (flash)",
+		"id": "portalflash",
 		"path": "/flash/portal",
-		"img": "/portal.webp",
+		"img": "/portalflash.webp",
 		"category": ["Platformer", "Flash"]
 	},
 	{
@@ -1813,5 +1813,12 @@
 		"path": "/webgl/sr",
 		"img": "/sr.webp",
 		"category": ["Action", "Webport"]
+	},
+	{
+		"name": "Portal",
+		"id": "portal",
+		"path": "/webgl/portal/portal-wrapper.html",
+		"img": "/portal.webp",
+		"category": ["Strategy", "Webport"]
 	}
 ]
