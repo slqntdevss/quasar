@@ -1820,5 +1820,33 @@
 		"path": "/webgl/portal/portal-wrapper.html",
 		"img": "/portal.webp",
 		"category": ["Strategy", "Webport"]
+	},
+	{
+		"name": "Retro Bowl 26",
+		"id": "rb26",
+		"path": "/html/rb26",
+		"img": "/rb26.webp",
+		"category": ["Strategy", "Arcade"]
+	},
+	{
+		"name": "Sonic EXE",
+		"id": "sonicexe",
+		"path": "/webgl/sonicexe",
+		"img": "/sonicexe.webp",
+		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Bloons Tower Defense 6",
+		"id": "btd6",
+		"path": "/html/btd6",
+		"img": "/btd6.webp",
+		"category": ["Strategy", "Simulation"]
+	},
+	{
+		"name": "Oneshot",
+		"id": "os",
+		"path": "/webgl/os",
+		"img": "/os.webp",
+		"category": ["Puzzle", "Adventure", "Webport"]
 	}
 ]

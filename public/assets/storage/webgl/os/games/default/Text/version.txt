@@ -1,0 +1,2 @@
+YNOproject
+On the first line of this document, write YNOproject to set the game on YNOproject mode. This makes the vault puzzle no longer rely on generating a text file in the document folder, instead asking players to check the Community Screenshots of the site (intended for deployment on YNOproject, or for personal testing like translation).

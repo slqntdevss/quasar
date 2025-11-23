@@ -1,0 +1,168 @@
+07/14/2025 - EasyRPG Compatibility Version
+
+Files updated:
+Map0001.lmu - Made the game no longer save on slot 16, due to the workaround no longer being needed.
+Map0020.lmu - Added a version check to know whether or not the YNOproject mode should be enabled for compatibility (YNOproject word present on the first line of the file version in the YNOproject Assets Archive sub-folder of the Text folder).
+Map0025.lmu - Fixed an issue where selecting Continue then Start on the title screen would prevent saving the game in the Barrens, effectively softlocking the game.  Updated the save check code to point to the database. Removed a part of the tint code for compatibility reasons.
+Map0029.lmu - Make the wallpaper System be used inside the ruins outside of Maize's room if the pc has been enabled and the pixel puzzle has not been solved yet.
+Map0030.lmu - Make the wallpaper System be used inside the ruins outside of Maize's room if the pc has been enabled and the pixel puzzle has not been solved yet.
+Map0031.lmu - Make the wallpaper System be used inside the ruins outside of Maize's room if the pc has been enabled and the pixel puzzle has not been solved yet.
+Map0032.lmu - Make the wallpaper System be used inside the ruins outside of Maize's room if the pc has been enabled and the pixel puzzle has not been solved yet.
+MAP0037.lmu - Added a version check to know whether or not the YNOproject mode should be enabled for compatibility (YNOproject word present on the first line of the file version in the YNOproject Assets Archive sub-folder of the Text folder).  Updated the save check code to point to the database. Fixed an issue where the dream pictures would be displayed with a tint.  Removed a part of the tint code for compatibility reasons.
+Map0049.lmu - Added a version check to know whether or not the YNOproject mode should be enabled for compatibility (YNOproject word present on the first line of the file version in the YNOproject Assets Archive sub-folder of the Text folder).  Updated the save check code to point to the database.  Removed a part of the tint code for compatibility reasons.
+Map0051.lmu - Added a version check to know whether or not the YNOproject mode should be enabled for compatibility (YNOproject word present on the first line of the file version in the YNOproject Assets Archive sub-folder of the Text folder).
+Map0060.lmu - Fixed an issue where the menu theme change when breaking the lightbulb wouldn't occur due to a wrong conditional branch being set if the sensitivity was set to ON.
+Map0067.lmu - Fixed an issue where selecting Continue then Start on the title screen would prevent saving the game in the Barrens, effectively softlocking the game. Updated the save file selection code to automatically put the cursor on the most recent valid save file.
+Map0068.lmu - Moved the vault code message in this map, to avoid at most encoding issues when editing the file in RPG Maker. A failsafe, uncorrupted message will instead be used if played while using Maniac.
+
+RPG_RT.ldb - Fixed an issue where selecting Continue then Start on the title screen would prevent saving the game in the Barrens, effectively softlocking the game. Made the game no longer save on slot 16, due to the workaround no longer being needed. Added a version check to know whether or not the YNOproject mode should be enabled for compatibility (YNOproject word present on the first line of the file version in the YNOproject Assets Archive sub-folder of the Text folder). Moved the code of the Savefile Transfer here to reuse code. Changed the destination of the Documents folder when writing the vault code. Moved the vault code generation to Map0068. Updated the safe code roll to allow its values to properly be between 0 and 999999, and to be rerolled when using a save from the YNOproject setting on the offline mode. Greatly improved the save menu to make it closer to the in-engine save menu, by making it faster, allowing to hold up or down to scroll automatically, fix the timing of the cursor and arrows, fix the display of the cursor, allowing to loop, not forcing the cursor to be centered when on a slot between 2 and 14... Fix issues with the BGM when loading and saving.
+
+FaceSet/blue - Reverted the file back to its v1.03 status due to the background change no longer being needed.
+FaceSet/niko - Reverted the file back to its v1.03 status due to the background change no longer being needed.
+
+Picture/credits_both - Converted back the file to the xyz format for consistency.
+
+RPG_RT.exe - Replaced the executable of the game by an up to date EasyRPG Player.
+
+EasyRPG.ini - Changed the Maniac mode of the game from Maniac=1 to Maniac=2 (keeps the variable range of RPG Maker 2003). Set the EasyRPG mode to 1 (Clone Event command is used).
+
+=================================================================================================================================================================
+
+09/24/2024 - Offline Version + badge flag (Version: https://drive.google.com/file/d/1nmLFEIiJlzYPkPZ62isq9fbYrj4naWc8/view?usp=sharing)
+
+Files updated:
+Map0020.lmu - Add code for the vault code (see RPG_RT.lmu). Rewrote dialogues mentioning the document folder to match with this new change.
+Map0051.lmu - Add code to reset the vault code.
+RPG_RT.ldb - Make the switch 209 be set ON when the novelty T-shirt is wore, to be able to be detected for an achievement on the site. Add code to write a document for the vault code (done when interacting with the vault for the first time or while still closed) and clear it (game start and once puzzle achieved). If you want to touch the database, make sure to recopy properly the message of the document after.
+RPG_RT.ini - Changed the encoding to UTF8.
+
+Removed duplicated files.
+Move the Document to the Text folder and expanded the changes document.
+
+
+
+
+
+=================================================================================================================================================================
+
+09/12/2024 - YNOproject OneShot version using Maniac Patch (Version: https://drive.google.com/file/d/1R92kFkHSMPTEruZj_KAbaU-rkAkFJ-Z-/view?usp=sharing - Password: OneShot - Replace the executable used in the game by an EasyRPG Player released around that time, such as the one in the offline version above)
+
+Global changes:
+- Reimplemented missing messages of the Entity
+- Reimplemented the missing endings
+- Changed how saving is done to be closer to the original game (the 15 save slots are not gone though, and saving for the first time or loading a save will still allow you to select a save slot)
+- Fixed an issue with the bed in Glen not being able to be used from side
+- Made the vault and wallpaper puzzles hints clearer
+- Updated some credits
+- Added a failsafe for George in case their value is not rolled prior to visiting their room (impossible in normal gameplay, but has been an issue in the past so I preferred to add it)
+
+
+Files added:
+Map0051.lmu - Intro map used as the starting point before continuing to the title screen. The status of the ending is obtained from the global save before proceeding, which is then used to determine the ending on which you're continuing. Inputs are also set up to be locked when going there, and are returned during the intro.
+Map0067.lmu - Simulated title screen. This is done this way to be able to use a simulated save menu and altering the title screen depending on the situation. Note that the holding a key will not work the same way than on the real RPG_RT title, that the save menu does not loop, centers the view on the cursor to be easier to code for menu, and is slower, but it's not a big issue. The save menu also displays the status of the save (Nothing noteworthy if the save file is ported from an older version, Barrens, Glen or Refuge if the last time the save was done there, No Data if there is no save file in said slot, Corrupted Data in said case, Unknown Data if the content does not match, and You killed Niko/The savior is gone/Niko saved the world if the save was done last time as part of one of those endings, preventing the save from being loaded.
+
+
+Files updated:
+Map0001.lmu - Added code to handle the different endings properly on the site, added a reset of the current save slot from the global save, removed the variable 7 from the reset due to being needed for the reset, and made Map0051.lmu be the new starting point instead of Map0001.lmu.
+Map0002.lmu - Implemented the save flag to enable the death of Niko once the first puzzle is solved, and reimplemented the message used when starting a new game while the game has already been started once.
+Map0020.lmu - Implemented the missing messages of the Entity, and made the final hint clearer due to the issues surrounding it.
+Map0025.lmu - Updated how the bed works (a custom save menu is used, save flags are set before and after saving to know the status of the save file, where it was taken, if the player should end up on the normal title or on the bad ending), and implemented a failsafe in case the map or database has been edited since the last save to make the save be able to be loaded smoothly.
+Map0033.lmu - Changed the word screenshot to menu for the wallpaper hint to make a bit more sense than what it was previously.
+Map0037.lmu - Updated how the bed works (more details in Map0025.lmu, though instead of using a save menu the save is automatically done depending on which save was the last loaded), implemented a failsafe in case the map or database has been edited since the last save to make the save be able to be loaded smoothly, and fixed an issue where using the bed from another side than the main one would not make you enter in it.
+Map0049.lmu - Updated how the bed works (more details in Map0025.lmu, though instead of using a save menu the save is automatically done depending on which save was the last loaded), and implemented a failsafe in case the map or database has been edited since the last save to make the save be able to be loaded smoothly.
+Map0060.lmu - Added settings for the save flags and updated Eliza's credits.
+Map0061.lmu - Implemented the missing message at the end, added settings for the save flags, updated Eliza's credits.
+Map0062.lmu - Implemented the missing messages of the Entity. When a message is displayed, the input of the player are specifically blocked and the elevator stops shaking.
+Map0063.lmu - Implemented the missing messages of the Entity, and implemented a failsafe in case George's value is not intialised when visiting the room.
+RPG_RT.ini - Added a flag to force the encoding of the game to be 1252 (not really needed, but easier to do conversions of the files).
+RPG_RT.ldb - Made the default title screen be skipped, added new common events that are used for the save scripts, added names for the new switches and variables used, changed the line of text used when exiting the game to match with the oneshot phase of the game (unfortunately there's no way to change this line on-the-fly in EasyRPG), added a switch to disable completely the quick teleport menu during the intro, made the maximum and minimum values possible for variables match with vanilla 2k3, adjusted the transparency of the window.
+RPG_RT.lmt - Added the two new maps in the maptree, and changed the starting point of the game to be in Map0051.lmu.
+EasyRPG.ini - Changed the engine of the game to be considered as 2k3e with Maniac enabled, to be able to use the commands Get Save Info, Save, Load, Control Global Save and Show String Picture. To accomodate with this, flags were edited in RPG_RT.ldb to make the maximum and minimum values possible for variables match with vanilla 2k3, and the transparency of the window was adjusted for that as well.
+
+
+Materials added:
+
+Picture/credit.eliza.xyz - Updated Eliza's credits. This led to the edit of the file mentioned in the two endings, to match with this change.
+Picture/pc_message_barrens.xyz, Picture/pc_message_cursor_barrens.xyz - Textbox used to mimic the choice that the player can have in the offline version.
+Picture/pc_text_barrens.xyz, Picture/pc_text_barrens_help1.xyz, Picture/pc_text_barrens_help2.xyz - Text of the Entity used in the Barrens that were previously missing. The different filenames are due to me only realising later the presence of those lines.
+Picture/pc_text_elevator1.xyz, Picture/pc_text_elevator2.xyz, Picture/pc_text_elevator3.xyz, Picture/pc_text_elevator4.xyz, Picture/pc_text_elevator5.xyz - Text of the Entity used in the Elevator that were previously missing.
+Picture/pc_text_niko_death.xyz - Text used when reaching the you killed Niko ending.
+Picture/pc_text_refuge1.xyz, Picture/pc_text_refuge2.xyz, Picture/pc_text_refuge3.xyz, Picture/pc_text_refuge4.xyz, - Text of the Entity used in the Refuge that were previously missing.
+Picture/pc_text_savior_gone.xyz - Text used at the end of the game after doing the return home ending.
+Picture/save_box_arrows.xyz, Picture/save_box_header.xyz, Picture/save_screen_background.xyz, Picture/save_screen_background_hide.xyz, Picture/save_screen_cursor.xyz, Picture/save_screen_save_box.xyz - Assets used for the save screen menu, since the menu used on the title screen and in the Barrens is not the real one. Some of those assets could have been avoided of being recreated by just spamming Show String Picture commands and doing tricky manipulations to existing pictures, but I wanted something easier, that could be easily touched if needed, and that wouldn't break if changes were made to those commands due to potential inaccuracies between EasyRPG and Maniac.
+Picture/title_arrow.xyz - Arrow used on the title screen. During the world saved ending, a tint is applied to it to make it appear black on the white title to make it be seen and match properly.
+
+System/System3.xyz - Duplicate of the default system file, used when the lightbulb is broken during the return home and you killed Niko. Doesn't has any impact on the game, but in idea it could be used on the site with a black UI theme to make it as if the fact that the lightbulb impacted the site itself.
+
+Title/title_alt.xyz - Title of the game used when no specific ending is ongoing and that no save file exists. Duplicate of Title/title.xyz, with the word continue added on it to make it clear that you can use a savefile (if you didn't killed/made Niko be gone on each slot).
+
+
+Materials updated:
+
+FaceSet/blue.xyz, FaceSet/niko.xyz - Changed the colour of the background used as the transparent colour. Why? The command Get Save Info to get the picture of a savefile doesn't remove the transparency, which would make it be displayed weirdly if the background wasn't edited to make it match with the colour of the save menu. FaceSet/blue.xyz wasn't technically needed since you cannot save with Alula under normal circumstances, but I preferred to add it in case (and yeah, all of this could have been avoided by hardcoding the obtention of Niko's picture, but I preferred to do something more flexible once set.)
+
+Picture/credit_both.xyz - Updated Eliza's credits.
+
+
+All of the picture files were added in the xyz format to match with how the original game had its files set. Feel free to convert them and take a look at what they are.
+
+
+
+===============================================================================================================
+04/01/2024 - YNOproject OneShot version using vanilla English 2003 engine (Patch for the legacy game: https://drive.google.com/file/d/1fy-_kBGKTjAAIa9f9D_8XoYCKf15zX2r/view?usp=sharing)
+
+
+Map0001.lmu:
+- Made George's random value for the dice side be rolled when starting a new game
+
+Map0002.lmu:
+- Added an extra picture (Picture/pc_text8.xyz) to simulate the last screen of the computer on an online environment
+
+Map0008.lmu, Map0016.lmu, Map0018.lmu, Map0023.lmu, Map0031.lmu, Map0034.lmu, Map0046.lmu, Map0060.lmu
+- Edited the mention of the name of the player to instead mention the name of an actor, allowing it to be globally referenced everywhere
+
+Map0020.lmu:
+- Edited the mention of the name of the player to instead mention the name of an actor, allowing it to be globally referenced everywhere
+- Changed the vault puzzle to make the randomized value be set to a static one instead (063014, original OneShot's release date) and changed the mention of the Documents folder to instead reference Community Screenshots, which was where the code was located (see Text/vault_code_document.png for the image that was used, and Text/vault_code_document.txt for the text version)
+
+Map0025.lmu, Map0037.lmu
+- Edited the mention of the name of the player to instead mention the name of an actor, allowing it to be globally referenced everywhere
+- Edited the code of the bed and dream events to work with the default RPG Maker system: just before opening the save screen, the screen is tinted in black and the music is replaced by a muted one second track (Sound/TitleSelect.opus). Closing the save screen without saving displays the text that displays when selecting No, as well as resuming the previous music and make the screen reappears. Once a save is done, a check is done to verify if the BGM has completed a loop, which should give a different result depending on the scenario: if the music had time to loop, it means that the player was already playing; the screen reappears, Niko goes to sleep and returns to the title screen. Otherwise, if the music didn't had time to loop, it means that the save was just loaded, and that the dream event must be launched, the code of the actual dream taken from the common event for loading the game, and the screen reappears just before. One issue with this coding is that resuming a save after the map or database was edited will put you on a black screen without any music, though you will be able to resume your game by holding left and pressing enter to interact with the bed, but this may need to be adressed later.
+
+Map0028.lmu
+- Reset the system of the player once the Alula puzzle has been completed (see Map0033.lmu for the system talk)
+
+Map0033.lmu
+- Edited the mention of the name of the player to instead mention the name of an actor, allowing it to be globally referenced everywhere
+- Changed the wallpaper puzzle to instead change the system of the player to a different one (System/system2.xyz), where the only change is the background, having the pattern from the wallpaper on it. This pattern was also applied to the site, see Text/containerbg_wallpaper_puzzle.png for the example pattern. Note that the last line of text after interacting with the computer once the system is changed was also edited but doesn't seem to really make sense here, this may have to be edited.
+
+Map0049.lmu
+- Edited the mention of the name of the player to instead mention the name of an actor, allowing it to be globally referenced everywhere
+- Edited the code of the bed and dream events to work with the default RPG Maker system: just before opening the save screen, the screen is tinted in black and the music is replaced by a muted one second track (Sound/TitleSelect.opus). Closing the save screen without saving displays the text that displays when selecting No, as well as resuming the previous music and make the screen reappears. Once a save is done, a check is done to verify if the BGM has completed a loop, which should give a different result depending on the scenario: if the music had time to loop, it means that the player was already playing; the screen reappears, Niko goes to sleep and returns to the title screen. Otherwise, if the music didn't had time to loop, it means that the save was just loaded, and that the dream event must be launched, in which the screen reappears just before. One issue with this coding is that resuming a save after the map or database was edited will put you on a black screen without any music, though you will be able to resume your game by holding left and pressing enter to interact with the bed, but this may need to be adressed later.
+
+Map0061.lmu
+- Edited the mention of the name of the player to instead mention the name of an actor, allowing it to be globally referenced everywhere
+- Made the game return to the title screen when the ending "Return home" is finished
+
+Picture/pc_text8.xyz
+- Contains the text "You only have one shot, Player." as a replacement for a pop-up text that is supposed to appear in Map0002.lmu
+
+Sound/TitleSelect.opus
+- The "BGM has completed a loop" check done for the save bed changes doesn't work for wav files, so this file was converted here as an opus file. Note that the audio files are converted to the opus format in any case for optimization and performance on the online version, so this file is only given here to allow you to properly test the game offline. (No longer there since September)
+
+System/system2.xyz
+- Default system of the game with just the background pattern changed, see Map0033.lmu for more details
+
+RPG_RT.ldb:
+- Edited the default name of the 2nd actor to be listed as Player, default name used to mention the name of the player
+
+EasyRPG.ini:
+- Specified the engine of the game to not make it be detected as being a RPG Maker 2000 game, making events having a page be enabled when a variable was equal to a value also work when the value was greater, disallowing the use of the teleport menu and adding a save option in the menu
+
+
+Text folder content (not used in-game, more notes and files applied to the server directly applying to the game):
+vault_code_document: Text used for the vault code, taken from the document file of the original game. A code was added to it (063014), and a picture version was made for it to be used as a screenshot.
+
+containerbg_wallpaper_puzzle: Background pattern used for the wallpaper puzzle, see Map0033.lmu for more details
+
+changes: document the changes made to the game for the online version

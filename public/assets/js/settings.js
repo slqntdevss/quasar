@@ -62,6 +62,39 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (localStorage.getItem("focusCloaking") == null) {
 		localStorage.setItem("focusCloaking", true);
 	}
+	if (localStorage.getItem("autoCloak") == null) {
+		localStorage.setItem("autoCloak", false);
+	}
+
+	if (
+		localStorage.getItem("autoCloak") == "true" &&
+		window.top === window.self
+	) {
+		const ab = window.open("about:blank", "_blank");
+		if (ab) {
+			ab.document.write(`
+<!DOCTYPE html>
+<html lang="en" style="margin: 0; padding: 0; height: 100vh">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+	</head>
+	<body style="margin: 0; padding: 0; height: 100vh; overflow: hidden">
+		<iframe
+			width="100%"
+			height="100%"
+			style="margin: 0"
+			src="${window.location.origin}"
+		></iframe>
+	</body>
+</html>
+
+					`);
+			window.location.href = "https://classroom.google.com";
+		}
+	}
+
 	const allThemes = document.querySelectorAll(".theme-option");
 	document.body.classList.add(
 		localStorage.getItem("activeTheme") || "theme-classic"
@@ -74,6 +107,18 @@ document.addEventListener("DOMContentLoaded", () => {
 			document.body.classList.add(theme);
 		});
 	});
+	if (document.getElementById("autoCloak")) {
+		document
+			.getElementById("autoCloak")
+			.classList.toggle("active", localStorage.getItem("autoCloak") === "true");
+		document.getElementById("autoCloak").addEventListener("click", () => {
+			document.getElementById("autoCloak").classList.toggle("active");
+			localStorage.setItem(
+				"autoCloak",
+				document.getElementById("autoCloak").classList.contains("active")
+			);
+		});
+	}
 	if (document.getElementById("focusCloaking")) {
 		document
 			.getElementById("focusCloaking")

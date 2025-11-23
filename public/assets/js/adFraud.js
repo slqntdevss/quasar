@@ -56,7 +56,7 @@ scripts.forEach((link) => {
 
 	// patch iframes
 	const protectIframe = (iframe) => {
-		if (iframe.id === "actualGameFrame") return;
+		if (iframe.id === "actualGameFrame" || iframe.id === "frame") return;
 		if (iframe.src === "about:blank") {
 			hideElement(iframe, true);
 
