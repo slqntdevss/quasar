@@ -259,14 +259,12 @@
 	grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
 	gap: 8px;
 	margin-top: 16px;
-	cursor: none;
 }
 .theme-option {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	gap: 8px;
-	cursor: none;
 }
 .theme-option span {
 	color: var(--main-text);
@@ -278,7 +276,6 @@
 	border: 2px solid #fff;
 	margin-bottom: 4px;
 	box-sizing: border-box;
-	cursor: none;
 }
 
 .theme-preview.theme-classic {

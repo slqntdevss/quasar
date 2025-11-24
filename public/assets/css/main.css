@@ -152,7 +152,6 @@ select {
 	box-sizing: border-box;
 	transition: 0.3s ease-in-out;
 	appearance: none;
-	cursor: none;
 }
 select:hover {
 	border: var(--main-border);
@@ -327,7 +326,6 @@ p {
 	width: 150px;
 	height: 32px;
 	text-align: left;
-	cursor: none;
 	padding: 0 12px;
 	transition: 0.3s ease-in-out;
 	color: var(--main-text);
@@ -343,7 +341,6 @@ p {
 	padding: 10px 12px;
 	width: 100%;
 	max-width: 350px;
-	cursor: none;
 	transition: 0.3s ease-in-out;
 	color: var(--main-text);
 }
@@ -538,7 +535,6 @@ p {
 	border: var(--main-border);
 	border-radius: var(--main-radius);
 	color: var(--main-text);
-	cursor: none;
 	font-size: 14px;
 	transition: 0.4s ease-in-out;
 	white-space: nowrap;
