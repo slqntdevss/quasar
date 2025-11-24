@@ -29,22 +29,14 @@ app.use((req, res, next) => {
 	if (
 		req.path.includes("psp") ||
 		req.path.includes("emulator") ||
-		req.path.includes("portal") || req.path.includes("portal-wrapper")
+		req.path.includes("portal") ||
+		req.path.includes("portal-wrapper")
 	) {
 		res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
 		res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-	} else {
-		res.removeHeader("Cross-Origin-Opener-Policy");
-		res.removeHeader("Cross-Origin-Embedder-Policy");
 	}
 
 	res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
-	res.setHeader(
-		"Cache-Control",
-		"no-store, no-cache, must-revalidate, private"
-	);
-	res.setHeader("Pragma", "no-cache");
-	res.setHeader("Expires", "0");
 	next();
 });
 
@@ -73,9 +65,7 @@ app.use((req, res, next) => {
 	}
 });
 
-app.use((req, res, next) => {
-	express.static(publicDir)(req, res, next);
-});
+app.use(express.static(publicDir));
 
 app.use("/marcs", express.static(scramjetPath));
 app.use("/mux", express.static(baremuxPath));
