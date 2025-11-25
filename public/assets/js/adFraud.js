@@ -117,58 +117,70 @@ scripts.forEach((link) => {
 			.forEach(hideElement, true);
 	}, 250);
 })();
-/*
 // prevent redirects fully with onbeforeunload (except for button clicks)
 let allowRedirect = false;
 
-document.addEventListener('click', function(e) {
-    if (e.target.tagName === 'BUTTON' || e.target.closest('button') || e.target.tagName === "H1") {
-        allowRedirect = true;
-        setTimeout(() => { allowRedirect = false; }, 1000);
-    }
-}, true);
+document.addEventListener(
+	"click",
+	function (e) {
+		if (
+			e.target.tagName === "BUTTON" ||
+			e.target.closest("button") ||
+			e.target.tagName === "H1"
+		) {
+			allowRedirect = true;
+			setTimeout(() => {
+				allowRedirect = false;
+			}, 1000);
+		}
+	},
+	true
+);
 
-window.onbeforeunload = function(e) {
-    if (allowRedirect) return undefined;
-    
-    e.preventDefault();
-    e.returnValue = '';
-    console.log('[BLOCKED REDIRECT]', {
-        timestamp: new Date().toISOString(),
-        stack: new Error().stack
-    });
-    return '';
+window.onbeforeunload = function (e) {
+	if (allowRedirect) return undefined;
+
+	e.preventDefault();
+	e.returnValue = "";
+	console.log("[BLOCKED REDIRECT]", {
+		timestamp: new Date().toISOString(),
+		stack: new Error().stack,
+	});
+	return "";
 };
 
-Object.defineProperty(window, 'onbeforeunload', {
-    set: function(val) {
-        console.log('[ATTEMPT TO OVERRIDE BLOCKER]', {
-            timestamp: new Date().toISOString(),
-            stack: new Error().stack
-        });
-    },
-    get: function() {
-        return function(e) {
-            if (allowRedirect) return undefined;
-            
-            e.preventDefault();
-            e.returnValue = '';
-            return '';
-        };
-    },
-    configurable: false,
-    enumerable: true
+Object.defineProperty(window, "onbeforeunload", {
+	set: function (val) {
+		console.log("[ATTEMPT TO OVERRIDE BLOCKER]", {
+			timestamp: new Date().toISOString(),
+			stack: new Error().stack,
+		});
+	},
+	get: function () {
+		return function (e) {
+			if (allowRedirect) return undefined;
+
+			e.preventDefault();
+			e.returnValue = "";
+			return "";
+		};
+	},
+	configurable: false,
+	enumerable: true,
 });
 
-window.addEventListener('beforeunload', function(e) {
-    if (allowRedirect) return;
-    
-    e.preventDefault();
-    e.returnValue = '';
-    console.log('[BLOCKED VIA LISTENER]', {
-        timestamp: new Date().toISOString(),
-        stack: new Error().stack
-    });
-    return '';
-}, true);
-*/
+window.addEventListener(
+	"beforeunload",
+	function (e) {
+		if (allowRedirect) return;
+
+		e.preventDefault();
+		e.returnValue = "";
+		console.log("[BLOCKED VIA LISTENER]", {
+			timestamp: new Date().toISOString(),
+			stack: new Error().stack,
+		});
+		return "";
+	},
+	true
+);
