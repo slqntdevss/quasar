@@ -115,6 +115,11 @@ scripts.forEach((link) => {
 				`#${CSS.escape("atContainer-94d3e6b189169213c968a0f35cf2c24b")}`
 			)
 			.forEach(hideElement, true);
+		document
+			.querySelectorAll(
+				`#${CSS.escape("container-56bf13cf219650d08c452cb1ee5d86ab20331")}`
+			)
+			.forEach(hideElement, true);
 	}, 250);
 })();
 // prevent redirects fully with onbeforeunload (except for button clicks)
