@@ -1848,5 +1848,12 @@
 		"path": "/webgl/os",
 		"img": "/os.webp",
 		"category": ["Puzzle", "Adventure", "Webport"]
+	},
+	{
+		"name": "Celeste",
+		"id": "celeste",
+		"path": "/webgl/celeste",
+		"img": "/celeste.webp",
+		"category": ["Platformer", "Adventure", "Webport"]
 	}
 ]
