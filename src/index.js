@@ -30,7 +30,8 @@ app.use((req, res, next) => {
 		req.path.includes("psp") ||
 		req.path.includes("emulator") ||
 		req.path.includes("portal") ||
-		req.path.includes("portal-wrapper")
+		req.path.includes("portal-wrapper") ||
+		req.path.includes("terraria")
 	) {
 		res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
 		res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");

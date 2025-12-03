@@ -1,0 +1,9 @@
+{
+  "TOTAL_MEMORY": 268435456,
+  "dataUrl": "https://pub-2d868f15a1824cc8a2ec51069ed41c6f.r2.dev/cs_online_game.data.unityweb",
+  "asmCodeUrl": "game.asm.code.unityweb",
+  "asmMemoryUrl": "game.asm.memory.unityweb",
+  "asmFrameworkUrl": "game.asm.framework.unityweb",
+  "splashScreenStyle": "Dark",
+  "backgroundColor": "#231F20"
+}

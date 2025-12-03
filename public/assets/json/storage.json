@@ -1776,7 +1776,7 @@
 		"name": "CS 1.6",
 		"id": "cs",
 		"path": "/html/cs",
-		"img": "/cs.webp",
+		"img": "/cso.webp",
 		"category": ["Action", "Shooter"]
 	},
 	{
@@ -1855,5 +1855,47 @@
 		"path": "/webgl/celeste",
 		"img": "/celeste.webp",
 		"category": ["Platformer", "Adventure", "Webport"]
+	},
+	{
+		"name": "Terraria",
+		"id": "terraria",
+		"path": "/webgl/terraria/terraria-wrapper.html",
+		"img": "/terraria.webp",
+		"category": ["Survival", "Adventure", "Webport"]
+	},
+	{
+		"name": "CS Online",
+		"id": "cso",
+		"path": "/webgl/cs_online",
+		"img": "/cs.webp",
+		"category": ["Shooter", "Webport"]
+	},
+	{
+		"name": "Duck Life Space",
+		"id": "dls",
+		"path": "/html/dls",
+		"img": "/dls.webp",
+		"category": ["Adventure", "Strategy"]
+	},
+	{
+		"name": "Duck Life Battle",
+		"id": "dlb",
+		"path": "/html/dlb",
+		"img": "/dlb.webp",
+		"category": ["Adventure", "Strategy"]
+	},
+	{
+		"name": "Gunspin",
+		"id": "gs",
+		"path": "/webgl/gs",
+		"img": "/gs.webp",
+		"category": ["Clicker", "Webport"]
+	},
+	{
+		"name": "Bacon May Die",
+		"id": "bmd",
+		"path": "/webgl/bmd",
+		"img": "/bmd.webp",
+		"category": ["Sandbox", "Webport"]
 	}
 ]
