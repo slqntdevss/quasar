@@ -1,5 +1,6 @@
 const connection = new BareMux.BareMuxConnection("/mux/worker.js");
 const client = new BareMux.BareClient();
+window.MonoWasmThreads = false;
 
 async function wispFetch(url, options = {}) {
 	if (!window._wispMuxConn) {
@@ -7446,7 +7447,9 @@ async function preInit() {
 	console.debug("initializing dotnet");
 	const s = await dotnet
 		.withConfig({
-			pthreadPoolInitialSize: 16,
+			pthreadPoolInitialSize: 6,
+			pthreadPoolSize: 8,
+			maximumMemory: 2147483648,
 		})
 		.create();
 	console.log("loading libcurl"),
@@ -12644,9 +12647,7 @@ const OpfsExplorer = function () {
 	`),
 			(this.mount = async () => {
 				try {
-					const TOTAL_PARTS = 31; // Easy to edit - change this number to match your split files
-
-					// Download all parts
+					const TOTAL_PARTS = 31;
 					this.downloadingParts = true;
 					this.currentPart = 0;
 					this.totalParts = TOTAL_PARTS;
@@ -12658,13 +12659,11 @@ const OpfsExplorer = function () {
 							`https://pub-b5eafec9e3274b85a057d79374ad4a8b.r2.dev/terraria/Content.tar.part${i}`
 						).href;
 						const dataBuf = await wispFetch(partUrl);
-						const partData = dataBuf; // ArrayBuffer analog
+						const partData = dataBuf;
 						chunks.push(new Uint8Array(partData));
 
 						this.currentPart = i;
 					}
-
-					// Combine all parts into one
 					const totalLength = chunks.reduce(
 						(acc, chunk) => acc + chunk.length,
 						0
@@ -12676,8 +12675,6 @@ const OpfsExplorer = function () {
 						combined.set(chunk, offset);
 						offset += chunk.length;
 					}
-
-					// Now extract the combined tar
 					this.downloadingParts = false;
 					this.extracting = true;
 					this.extractedCount = 0;
@@ -12691,9 +12688,6 @@ const OpfsExplorer = function () {
 							controller.close();
 						},
 					});
-
-					// Check if we need to decompress
-					//stream = stream.pipeThrough(new DecompressionStream("gzip"));
 
 					await extractTar(stream, rootFolder, (path, size) => {
 						y.extractedCount++;
