@@ -7447,9 +7447,8 @@ async function preInit() {
 	console.debug("initializing dotnet");
 	const s = await dotnet
 		.withConfig({
-			pthreadPoolInitialSize: 6,
-			pthreadPoolSize: 8,
-			maximumMemory: 2147483648,
+			pthreadPoolInitialSize: 3,
+			pthreadPoolSize: 5,
 		})
 		.create();
 	console.log("loading libcurl"),
