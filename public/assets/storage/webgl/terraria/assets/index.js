@@ -7447,9 +7447,17 @@ async function preInit() {
 	console.debug("initializing dotnet");
 	const s = await dotnet
 		.withConfig({
-			pthreadPoolInitialSize: 3,
-			pthreadPoolSize: 5,
+			pthreadPoolInitialSize: 16,
 		})
+		.withEnvironmentVariable("MONO_SLEEP_ABORT_LIMIT", "99999")
+		.withRuntimeOptions([
+			"--jiterpreter-minimum-trace-hit-count=500",
+			"--jiterpreter-trace-monitoring-period=100",
+			"--jiterpreter-trace-monitoring-max-average-penalty=150",
+			`--jiterpreter-wasm-bytes-limit=${64 * 1024 * 1024}`,
+			`--jiterpreter-table-size=${32 * 1024}`,
+			"--jiterpreter-stats-enabled",
+		])
 		.create();
 	console.log("loading libcurl"),
 		await libcurl.load_wasm(
