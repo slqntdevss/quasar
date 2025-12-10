@@ -11,6 +11,13 @@ const themeOptions = document.querySelectorAll(".theme-option");
 let listening = false;
 let debounce = false;
 
+let shaderList;
+
+(async () => {
+	const response = await fetch("/assets/json/shaders.json");
+	shaderList = await response.json();
+})();
+
 if (localStorage.getItem("activeTheme") == null) {
 	localStorage.setItem("activeTheme", "theme-classic");
 }
@@ -52,11 +59,11 @@ function startGLSL(gl, canvas) {
 	});
 
 	const vertexShaderSource = `
-					attribute vec2 position;
-					void main() {
-						gl_Position = vec4(position, 0.0, 1.0);
-					}
-				`;
+		attribute vec2 position;
+		void main() {
+			gl_Position = vec4(position, 0.0, 1.0);
+		}
+	`;
 
 	const fragmentShaderSource = localStorage.getItem("fragmentShader");
 
@@ -78,6 +85,11 @@ function startGLSL(gl, canvas) {
 		gl.FRAGMENT_SHADER,
 		fragmentShaderSource
 	);
+
+	if (!fragmentShader) {
+		console.error("Failed to compile fragment shader");
+		return;
+	}
 
 	const program = gl.createProgram();
 	gl.attachShader(program, vertexShader);
@@ -165,21 +177,41 @@ document.addEventListener("DOMContentLoaded", () => {
 	);
 	allThemes.forEach((option) => {
 		option.addEventListener("click", () => {
-			document.body.classList.remove(localStorage.getItem("activeTheme"));
+			document.body.classList.remove("theme");
 			const theme = option.getAttribute("data-theme-class");
 			const canvas = document.querySelector(".glslCanvas");
+
 			if (theme.includes("glsl")) {
-				const gl = canvas.getContext("webgl");
-				canvas.width = window.innerWidth;
-				canvas.height = window.innerHeight;
-				canvas.classList.add("enabled");
-				gl.viewport(0, 0, canvas.width, canvas.height);
-				startGLSL(gl, canvas);
+				let shaderToUse;
+				localStorage.setItem("activeTheme", "theme-glsl");
+				document.body.classList.add("theme-glsl");
+
+				if (theme === "theme-glsl-orb") {
+					shaderToUse = shaderList.orb;
+				} else if (theme === "theme-glsl-vortex") {
+					shaderToUse = shaderList.vortex;
+				} else if (theme === "theme-glsl-gc") {
+					shaderToUse = shaderList.gc;
+				} else if (theme === "theme-glsl-polygons") {
+					shaderToUse = shaderList.polygons;
+				} else {
+					shaderToUse = localStorage.getItem("fragmentShader");
+				}
+
+				if (shaderToUse) {
+					localStorage.setItem("fragmentShader", shaderToUse);
+					const gl = canvas.getContext("webgl");
+					canvas.width = window.innerWidth;
+					canvas.height = window.innerHeight;
+					canvas.classList.add("enabled");
+					gl.viewport(0, 0, canvas.width, canvas.height);
+					startGLSL(gl, canvas);
+				}
 			} else {
 				canvas.classList.remove("enabled");
+				localStorage.setItem("activeTheme", theme);
+				document.body.classList.add(theme);
 			}
-			document.body.classList.add(theme);
-			localStorage.setItem("activeTheme", theme);
 		});
 	});
 
