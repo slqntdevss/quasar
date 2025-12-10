@@ -449,8 +449,8 @@ let customShaderCode = "";
 if (uploadShaderBtn) {
 	uploadShaderBtn.addEventListener("click", () => {
 		shaderModal.classList.add("show");
-		if (localStorage.getItem("customShader")) {
-			shaderCodeArea.value = localStorage.getItem("customShader");
+		if (localStorage.getItem("fragmentShader")) {
+			shaderCodeArea.value = localStorage.getItem("fragmentShader");
 		}
 	});
 }
