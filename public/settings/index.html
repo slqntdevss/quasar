@@ -22,6 +22,7 @@
 			alt="cursor"
 			height="32px"
 		/>
+		<canvas class="glslCanvas"></canvas>
 		<div class="nav-container">
 			<div class="nav">
 			<h1 onclick="window.location.href='/'">Quasar</h1>
@@ -70,23 +71,38 @@
 				</div>
 			</div>
 		</div>
+		<div class="shader-upload-modal" id="shaderModal">
+	<div class="shader-modal-content">
+		<div class="shader-modal-header">
+			<h2>Upload Custom Shader</h2>
+			<button class="close-modal" id="closeModal">
+				<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<line x1="18" y1="6" x2="6" y2="18"></line>
+					<line x1="6" y1="6" x2="18" y2="18"></line>
+				</svg>
+			</button>
+		</div>
+		<div class="shader-content">
+			<div class="file-drop-zone" id="dropZone">
+				<svg xmlns="http://www.w3.org/2000/svg" width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+					<path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+					<polyline points="17 8 12 3 7 8"></polyline>
+					<line x1="12" y1="3" x2="12" y2="15"></line>
+				</svg>
+				<p>Drag & drop or click to browse</p>
+				<input type="file" id="fileInput" accept=".glsl,.frag,.txt" hidden>
+			</div>
+			<textarea id="shaderCode" placeholder="Or paste your fragment shader code here..."></textarea>
+		</div>
+		<div class="shader-modal-footer">
+			<button class="reset-shader-btn" id="resetShader">Reset to Default</button>
+			<button class="apply-shader-btn" id="applyShader">Apply Shader</button>
+		</div>
+	</div>
+</div>
 		<div class="settings-container">
 			<div class="settings-category">
 				<h2>QOL</h2>
-				<!--<h3>CDN Switcher (Use if games fail to load)</h3>
-				<select id="cdn-switcher">
-					<option value="https://cdn.statically.io/gl/3kh0/3kh0-assets/main/">
-						Statically
-					</option>
-					<option
-						value="https://cdn.jsdelivr.net/gh/GalacticNetwork/3kh0-assets@main/"
-					>
-						JSDelivr
-					</option>
-					<option value="https://glcdn.rawgit.net/3kh0/3kh0-assets/-/raw/main/">
-						Rawgit
-					</option>
-				</select>-->
 				<h3>Panic</h3>
 				<h5>Panic Button</h5>
 				<button id="panicKey">N/A</button>
@@ -194,6 +210,14 @@
 						<div class="theme-preview theme-carbon"></div>
 						<span>Carbon</span>
 					</div>
+					<div class="theme-option" data-theme-class="theme-glsl">
+						<div class="theme-preview theme-glsl"></div>
+						<span>GLSL</span>
+					</div>
+				</div>
+				<h3>GLSL</h3>
+				<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 5px;">		
+					<button id="uploadShader" style="width: fit-content;">Upload GLSL Shader</button>
 				</div>
 			</div>
 		</div>

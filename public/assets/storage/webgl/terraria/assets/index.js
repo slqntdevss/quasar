@@ -12739,10 +12739,7 @@ const OpfsExplorer = function () {
 						{
 							class: "center",
 						},
-						use(
-							this.currentPart,
-							(current) => `${current}/${this.totalParts} parts downloaded`
-						)
+						use(this.currentPart, (current) => `${current}/31 parts downloaded`)
 					)
 				),
 				$if(

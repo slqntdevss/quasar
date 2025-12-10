@@ -252,6 +252,19 @@
 	--card-radius: 12px;
 	--settings-radius: 12px;
 }
+.theme-glsl {
+	--main-border: 1px solid rgba(255, 255, 255, 0.28);
+	--main-radius: 6px;
+	--main-text: rgba(255, 255, 255, 0.92);
+	--accent-border: 2px solid rgba(255, 255, 255, 0.35);
+	--header-border: 1px solid rgba(255, 255, 255, 0.28);
+	--search-border: 1px solid rgba(255, 255, 255, 0.28);
+	--notfound-border: 2px solid rgba(255, 255, 255, 0.28);
+	--option-bg: transparent;
+	--option-text: rgba(255, 255, 255, 0.92);
+	--card-radius: 12px;
+	--settings-radius: 12px;
+}
 
 .theme-options-grid {
 	display: grid;
@@ -343,5 +356,9 @@
 }
 .theme-preview.theme-carbon {
 	background: linear-gradient(90deg, #232526 0%, #393939 100%);
+	border: 1px solid #888;
+}
+.theme-preview.theme-glsl {
+	background: linear-gradient(90deg, #000000 0%, #1f1f1f 100%);
 	border: 1px solid #888;
 }
