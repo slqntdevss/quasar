@@ -507,7 +507,7 @@ function handleFile(file) {
 applyShaderBtn.addEventListener("click", () => {
 	const shaderCode = shaderCodeArea.value.trim();
 	if (shaderCode) {
-		localStorage.setItem("customShader", shaderCode);
+		localStorage.setItem("fragmentShader", shaderCode);
 		shaderModal.classList.remove("show");
 		location.reload();
 	}
@@ -515,7 +515,7 @@ applyShaderBtn.addEventListener("click", () => {
 
 resetShaderBtn.addEventListener("click", () => {
 	if (confirm("Reset to default shader?")) {
-		localStorage.removeItem("customShader");
+		localStorage.removeItem("fragmentShader");
 		shaderCodeArea.value = "";
 		location.reload();
 	}
