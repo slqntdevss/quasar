@@ -8,9 +8,19 @@ const exportBtn = document.getElementById("export");
 const importBtn = document.getElementById("import");
 const clear = document.getElementById("clear");
 const themeOptions = document.querySelectorAll(".theme-option");
+const shaderModal = document.getElementById("shaderModal");
+const uploadShaderBtn = document.getElementById("uploadShader");
+const closeModal = document.getElementById("closeModal");
+const dropZone = document.getElementById("dropZone");
+const fileInput = document.getElementById("fileInput");
+const shaderCodeArea = document.getElementById("shaderCode");
+const applyShaderBtn = document.getElementById("applyShader");
+const resetShaderBtn = document.getElementById("resetShader");
+
+let allowRedirect = false;
+let customShaderCode = "";
 let listening = false;
 let debounce = false;
-
 let shaderList;
 
 (async () => {
@@ -53,8 +63,10 @@ window.addEventListener("keypress", (e) => {
 });
 function startGLSL(gl, canvas) {
 	window.addEventListener("resize", () => {
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
+		canvas.width = Math.floor(window.innerWidth * 0.25);
+		canvas.height = Math.floor(window.innerHeight * 0.25);
+		canvas.style.width = "100vw";
+		canvas.style.height = "100vh";
 		gl.viewport(0, 0, canvas.width, canvas.height);
 	});
 
@@ -141,6 +153,9 @@ document.addEventListener("DOMContentLoaded", () => {
 	if (localStorage.getItem("autoCloak") == null) {
 		localStorage.setItem("autoCloak", false);
 	}
+	if (localStorage.getItem("antiClose") == null) {
+		localStorage.setItem("antiClose", false);
+	}
 
 	if (
 		localStorage.getItem("autoCloak") == "true" &&
@@ -167,8 +182,10 @@ document.addEventListener("DOMContentLoaded", () => {
 	const allThemes = document.querySelectorAll(".theme-option");
 	if (localStorage.getItem("activeTheme").includes("glsl")) {
 		const canvas = document.querySelector(".glslCanvas");
-		canvas.width = window.innerWidth;
-		canvas.height = window.innerHeight;
+		canvas.width = Math.floor(window.innerWidth * 0.25);
+		canvas.height = Math.floor(window.innerHeight * 0.25);
+		canvas.style.width = "100vw";
+		canvas.style.height = "100vh";
 		canvas.classList.add("enabled");
 		startGLSL(canvas.getContext("webgl"), canvas);
 	}
@@ -201,8 +218,10 @@ document.addEventListener("DOMContentLoaded", () => {
 				if (shaderToUse) {
 					localStorage.setItem("fragmentShader", shaderToUse);
 					const gl = canvas.getContext("webgl");
-					canvas.width = window.innerWidth;
-					canvas.height = window.innerHeight;
+					canvas.width = Math.floor(window.innerWidth * 0.25);
+					canvas.height = Math.floor(window.innerHeight * 0.25);
+					canvas.style.width = "100vw";
+					canvas.style.height = "100vh";
 					canvas.classList.add("enabled");
 					gl.viewport(0, 0, canvas.width, canvas.height);
 					startGLSL(gl, canvas);
@@ -214,6 +233,19 @@ document.addEventListener("DOMContentLoaded", () => {
 			}
 		});
 	});
+
+	if (document.getElementById("antiClose")) {
+		document
+			.getElementById("antiClose")
+			.classList.toggle("active", localStorage.getItem("antiClose") === "true");
+		document.getElementById("antiClose").addEventListener("click", () => {
+			document.getElementById("antiClose").classList.toggle("active");
+			localStorage.setItem(
+				"antiClose",
+				document.getElementById("antiClose").classList.contains("active")
+			);
+		});
+	}
 
 	if (document.getElementById("autoCloak")) {
 		document
@@ -467,16 +499,30 @@ document.addEventListener("visibilitychange", (e) => {
 		faviconLink.href = "/assets/img/favicon.png";
 	}
 });
-const shaderModal = document.getElementById("shaderModal");
-const uploadShaderBtn = document.getElementById("uploadShader");
-const closeModal = document.getElementById("closeModal");
-const dropZone = document.getElementById("dropZone");
-const fileInput = document.getElementById("fileInput");
-const shaderCodeArea = document.getElementById("shaderCode");
-const applyShaderBtn = document.getElementById("applyShader");
-const resetShaderBtn = document.getElementById("resetShader");
 
-let customShaderCode = "";
+document.addEventListener(
+	"click",
+	function (e) {
+		if (
+			e.target.tagName === "BUTTON" ||
+			e.target.closest("button") ||
+			e.target.tagName === "H1"
+		) {
+			allowRedirect = true;
+			setTimeout(() => {
+				allowRedirect = false;
+			}, 1000);
+		}
+	},
+	true
+);
+window.addEventListener("beforeunload", (e) => {
+	if (allowRedirect || localStorage.getItem("antiClose") == "false")
+		return undefined;
+
+	e.preventDefault();
+	return "";
+});
 
 if (uploadShaderBtn) {
 	uploadShaderBtn.addEventListener("click", () => {

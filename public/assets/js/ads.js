@@ -86,6 +86,7 @@ window.fetch = function (url, options = {}) {
 // hide ads
 setInterval(() => {
 	document.querySelectorAll('iframe[src="about:blank"]').forEach((iframe) => {
+		if (iframe.id === "actualGameFrame" || iframe.id === "frame") return;
 		iframe.style.display = "none";
 		iframe.style.visibility = "hidden";
 		iframe.style.pointerEvents = "none";
