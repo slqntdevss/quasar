@@ -838,6 +838,95 @@ p {
 	flex: 1;
 }
 
+.addon-popup {
+	position: fixed;
+	width: 98%;
+	border: var(--main-border);
+	border-radius: 10px;
+	background: var(--main-bg);
+	color: var(--main-text);
+	margin: 10px;
+	padding: 7px;
+	bottom: -200px;
+	transition: 0.7s ease-in-out;
+}
+.addon-popup.visible {
+	transform: translateY(-275px);
+	opacity: 1;
+}
+.addon-popup-header {
+	display: flex;
+	align-items: center;
+	margin-bottom: 0.5rem;
+}
+
+.addon-popup-icon {
+	width: 40px;
+	height: 40px;
+	background: rgba(255, 255, 255, 0.1);
+	border-radius: 8px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-right: 1rem;
+}
+
+.addon-popup-title {
+	font-size: 1.2rem;
+	font-weight: 600;
+	margin: 0;
+}
+
+.addon-popup-content {
+	margin: 0.5rem 0;
+}
+
+.addon-popup-description {
+	margin: 1rem 0;
+	line-height: 1;
+	color: rgba(255, 255, 255, 0.9);
+}
+.addon-popup-script-info {
+	font-size: 1.4rem;
+	font-weight: bold;
+}
+
+.addon-popup-buttons {
+	display: flex;
+	justify-content: flex-end;
+	gap: 0.75rem;
+	margin-bottom: 0.5rem;
+}
+
+.addon-popup-button {
+	padding: 0.6rem 1.2rem;
+	border-radius: 8px;
+	font-size: 0.9rem;
+	font-weight: 500;
+	cursor: pointer;
+	transition: all 0.2s;
+	border: none;
+}
+
+.addon-popup-button.cancel {
+	background: rgba(255, 255, 255, 0.1);
+	color: white;
+}
+
+.addon-popup-button.cancel:hover {
+	background: rgba(255, 255, 255, 0.2);
+}
+
+.addon-popup-button.inject {
+	background: var(--main-bg);
+	border: var(--main-border);
+	color: var(--main-text);
+	transition: 0.6s ease-in-out;
+}
+.addon-popup-button.inject:hover {
+	filter: brightness(1.2);
+}
+
 .apply-shader-btn:hover {
 	filter: brightness(1.2);
 }

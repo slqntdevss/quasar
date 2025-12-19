@@ -538,40 +538,43 @@ if (closeModal) {
 		shaderModal.classList.remove("show");
 	});
 }
+if (shaderModal) {
+	shaderModal.addEventListener("click", (e) => {
+		if (e.target === shaderModal) {
+			shaderModal.classList.remove("show");
+		}
+	});
+}
+if (dropZone) {
+	dropZone.addEventListener("click", () => {
+		fileInput.click();
+	});
 
-shaderModal.addEventListener("click", (e) => {
-	if (e.target === shaderModal) {
-		shaderModal.classList.remove("show");
-	}
-});
+	dropZone.addEventListener("dragover", (e) => {
+		e.preventDefault();
+		dropZone.classList.add("drag-over");
+	});
 
-dropZone.addEventListener("click", () => {
-	fileInput.click();
-});
+	dropZone.addEventListener("dragleave", () => {
+		dropZone.classList.remove("drag-over");
+	});
 
-dropZone.addEventListener("dragover", (e) => {
-	e.preventDefault();
-	dropZone.classList.add("drag-over");
-});
-
-dropZone.addEventListener("dragleave", () => {
-	dropZone.classList.remove("drag-over");
-});
-
-dropZone.addEventListener("drop", (e) => {
-	e.preventDefault();
-	dropZone.classList.remove("drag-over");
-	const files = e.dataTransfer.files;
-	if (files.length > 0) {
-		handleFile(files[0]);
-	}
-});
-
-fileInput.addEventListener("change", (e) => {
-	if (e.target.files.length > 0) {
-		handleFile(e.target.files[0]);
-	}
-});
+	dropZone.addEventListener("drop", (e) => {
+		e.preventDefault();
+		dropZone.classList.remove("drag-over");
+		const files = e.dataTransfer.files;
+		if (files.length > 0) {
+			handleFile(files[0]);
+		}
+	});
+}
+if (fileInput) {
+	fileInput.addEventListener("change", (e) => {
+		if (e.target.files.length > 0) {
+			handleFile(e.target.files[0]);
+		}
+	});
+}
 
 function handleFile(file) {
 	const reader = new FileReader();
@@ -581,20 +584,22 @@ function handleFile(file) {
 	};
 	reader.readAsText(file);
 }
-
-applyShaderBtn.addEventListener("click", () => {
-	const shaderCode = shaderCodeArea.value.trim();
-	if (shaderCode) {
-		localStorage.setItem("fragmentShader", shaderCode);
-		shaderModal.classList.remove("show");
-		location.reload();
-	}
-});
-
-resetShaderBtn.addEventListener("click", () => {
-	if (confirm("Reset to default shader?")) {
-		localStorage.removeItem("fragmentShader");
-		shaderCodeArea.value = "";
-		location.reload();
-	}
-});
+if (applyShaderBtn) {
+	applyShaderBtn.addEventListener("click", () => {
+		const shaderCode = shaderCodeArea.value.trim();
+		if (shaderCode) {
+			localStorage.setItem("fragmentShader", shaderCode);
+			shaderModal.classList.remove("show");
+			location.reload();
+		}
+	});
+}
+if (resetShaderBtn) {
+	resetShaderBtn.addEventListener("click", () => {
+		if (confirm("Reset to default shader?")) {
+			localStorage.removeItem("fragmentShader");
+			shaderCodeArea.value = "";
+			location.reload();
+		}
+	});
+}

@@ -10,7 +10,15 @@ const forwardBtn = document.getElementById("forwardBtn");
 const reloadBtn = document.getElementById("reloadBtn");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
 const closeBtn = document.getElementById("closeBtn");
-let frame = document.getElementById("frame");
+let extensions;
+
+// FUCK COMMONJS BRO
+async function loadExtensions() {
+	extensions = await (await fetch("/assets/json/extensions.json")).json();
+}
+loadExtensions();
+/** @type {HTMLIFrameElement} */ // im so used to typescript i NEED types
+const frame = document.getElementById("frame");
 let timeout;
 async function registerSW() {
 	if (!navigator.serviceWorker) {
@@ -61,7 +69,7 @@ function search(input, template) {
 	} catch (err) {}
 
 	try {
-		const url = new URL(`http://${input}`);
+		const url = new URL(`https://${input}`);
 		if (url.hostname.includes(".")) return url.toString();
 	} catch (err) {}
 	return template.replace("%s", encodeURIComponent(input));
@@ -79,9 +87,41 @@ form.addEventListener("submit", async (event) => {
 	searchSJ(address.value);
 });
 
+function showAddonPopup(addonData) {
+	const popup = document.querySelector(".addon-popup");
+	popup.classList.add("visible");
+	const title = popup.querySelector(".addon-popup-title");
+	const name = document.getElementById("script-name");
+	const description = document.getElementById("script-description");
+	const closeAddon = document.getElementById("addon-cancel");
+	const activateAddon = document.getElementById("addon-inject");
+
+	title.textContent = `Addon available for ${addonData.site}`;
+	name.textContent = addonData.extensionName + ":";
+	description.textContent = addonData.description;
+
+	closeAddon.addEventListener("click", (e) => {
+		popup.classList.remove("visible");
+	});
+	activateAddon.addEventListener("click", (e) => {
+		const scriptEl = document.createElement("script");
+		scriptEl.innerHTML = addonData.code;
+		frame.contentDocument.body.insertAdjacentElement("afterbegin", scriptEl);
+		popup.classList.remove("visible");
+	});
+}
+
 frame.addEventListener("load", () => {
-	const url = scramjet.decodeUrl(frame.src);
+	const url = scramjet.decodeUrl(frame.contentWindow.location.href);
 	document.getElementById("urlInput").value = url;
+	for (const ext of extensions) {
+		console.log(url);
+		if (url.includes(ext.site)) {
+			showAddonPopup(ext);
+			break;
+		}
+		console.log(ext);
+	}
 });
 
 address.addEventListener("input", (e) => {
@@ -96,7 +136,6 @@ address.addEventListener("input", (e) => {
 					return;
 				}
 				const suggestions = await response.json();
-				console.log(suggestions);
 				autoc.innerHTML = "";
 				if (suggestions.length > 0) {
 					for (const suggestion of suggestions) {
@@ -133,7 +172,7 @@ forwardBtn.addEventListener("click", () => {
 	}
 });
 reloadBtn.addEventListener("click", () => {
-	frame.src = frame.src;
+	frame.contentWindow.location.reload();
 });
 fullscreenBtn.addEventListener("click", () => {
 	if (!document.fullscreenElement) {
@@ -149,9 +188,11 @@ closeBtn.addEventListener("click", () => {
 	document.querySelector(".center").style.display = "flex";
 	document.querySelector(".w-container").classList.remove("show");
 	frame.style.display = "none";
-	cursor.style.opacity = 1;
-	document.documentElement.style.cursor = "none";
-	document.body.style.cursor = "none";
+	if (localStorage.getItem("customCursor") !== "false") {
+		cursor.style.opacity = 1;
+		document.documentElement.style.cursor = "none";
+		document.body.style.cursor = "none";
+	}
 });
 document.getElementById("urlForm").addEventListener("submit", async (e) => {
 	event.preventDefault();

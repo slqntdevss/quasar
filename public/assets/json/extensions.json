@@ -1,0 +1,14 @@
+[
+	{
+		"extensionName": "KaHack",
+		"description": "Auto answer for Kahoot",
+		"site": "kahoot.it",
+		"code": "var s=document.createElement('script');fetch('https://cdn.jsdelivr.net/gh/KRWCLASSIC/KaHoax@main/KaHoax.user.js').then(r=>r.text()).then(t=>{s.innerHTML=t;document.head.appendChild(s)})"
+	},
+	{
+		"extensionName": "Example addon",
+		"description": "showcase for addon feature",
+		"site": "example.com",
+		"code": "alert('goat quasar technology 2064')"
+	}
+]

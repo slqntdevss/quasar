@@ -46,12 +46,27 @@ if (localStorage.getItem("cursorSpeed") == null) {
 	localStorage.setItem("cursorSpeed", 1);
 }
 
+let lastScrollX = window.scrollX;
+let lastScrollY = window.scrollY;
+
 window.addEventListener("mousemove", (e) => {
 	mouseX = e.clientX + window.scrollX - 24;
 	mouseY = e.clientY + window.scrollY - 24;
 });
 
+window.addEventListener("scroll", () => {
+	const dx = window.scrollX - lastScrollX;
+	const dy = window.scrollY - lastScrollY;
+
+	mouseX += dx;
+	mouseY += dy;
+
+	lastScrollX = window.scrollX;
+	lastScrollY = window.scrollY;
+});
+
 function animate() {
+	if (localStorage.getItem("customCursor") === "false") return;
 	cursorX += (mouseX - cursorX) * localStorage.getItem("cursorSpeed") || 0.08;
 	cursorY += (mouseY - cursorY) * localStorage.getItem("cursorSpeed") || 0.08;
 
