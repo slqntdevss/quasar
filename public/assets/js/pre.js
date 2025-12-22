@@ -115,12 +115,10 @@ frame.addEventListener("load", () => {
 	const url = scramjet.decodeUrl(frame.contentWindow.location.href);
 	document.getElementById("urlInput").value = url;
 	for (const ext of extensions) {
-		console.log(url);
 		if (url.includes(ext.site)) {
 			showAddonPopup(ext);
 			break;
 		}
-		console.log(ext);
 	}
 });
 

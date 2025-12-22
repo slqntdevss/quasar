@@ -1904,5 +1904,37 @@
 		"path": "/webgl/uk",
 		"img": "/uk.webp",
 		"category": ["Action", "Webport"]
+	},
+	{
+		"id": "customnes",
+		"name": "Custom NES Game",
+		"description": "Upload your own file",
+		"img": "/customnes.webp",
+		"path": "/emulator/nes/custom",
+		"category": ["Arcade"]
+	},
+	{
+		"id": "custompsp",
+		"name": "Custom PSP Game",
+		"description": "Upload your own file",
+		"img": "/custompsp.webp",
+		"path": "/emulator/psp/custom",
+		"category": ["Arcade"]
+	},
+	{
+		"id": "custompsx",
+		"name": "Custom PSX Game",
+		"description": "Upload your own file",
+		"img": "/custompsx.webp",
+		"path": "/emulator/psx/custom",
+		"category": ["Arcade"]
+	},
+	{
+		"id": "customsnes",
+		"name": "Custom SNES Game",
+		"description": "Upload your own file",
+		"img": "/customsnes.webp",
+		"path": "/emulator/snes/custom",
+		"category": ["Arcade"]
 	}
 ]
