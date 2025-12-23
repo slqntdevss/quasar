@@ -44,7 +44,7 @@ scramjet.init();
 
 		console.log(prefix);
 
-		const nowggFunUrl = `https://${prefix}.ip.nowgg.fun/apps/a/10019/b.html`;
+		const nowggFunUrl = `https://${prefix}.ip.nowgg.ing/apps/a/10019/b.html`;
 
 		console.log(nowggFunUrl);
 
