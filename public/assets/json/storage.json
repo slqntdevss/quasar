@@ -217,7 +217,7 @@
 		"category": ["Arcade", "Flash"]
 	},
 	{
-		"name": "Custom Flash Game",
+		"name": "Flash Emulator",
 		"id": "flash",
 		"path": "/flash/custom/",
 		"img": "/flash.webp",
@@ -409,7 +409,7 @@
 		"name": "Getaway Shootout",
 		"id": "gs",
 		"path": "/html/getaway-shootout/",
-		"img": "/gs.webp",
+		"img": "/getaways.webp",
 		"category": ["Action"]
 	},
 	{
@@ -449,7 +449,7 @@
 	},
 	{
 		"id": "customgba",
-		"name": "Custom GBA Game",
+		"name": "GBA Emulator",
 		"description": "Upload your own file",
 		"img": "/gba.webp",
 		"path": "/emulator/gba/custom",
@@ -457,7 +457,7 @@
 	},
 	{
 		"id": "customds",
-		"name": "Custom DS Game",
+		"name": "DS Emulator",
 		"description": "Upload your own file",
 		"img": "/customds.webp",
 		"path": "/emulator/ds/custom",
@@ -465,7 +465,7 @@
 	},
 	{
 		"id": "customn64",
-		"name": "Custom N64 Game",
+		"name": "N64 Emulator",
 		"img": "/n64.webp",
 		"path": "/emulator/n64/custom",
 		"category": ["Arcade"]
@@ -984,7 +984,7 @@
 	{
 		"id": "bb",
 		"name": "Block Blast",
-		"img": "/bb.webp",
+		"img": "/bblast.webp",
 		"path": "/webgl/bb",
 		"category": ["Strategy", "Webport"]
 	},
@@ -1907,7 +1907,7 @@
 	},
 	{
 		"id": "customnes",
-		"name": "Custom NES Game",
+		"name": "NES Emulator",
 		"description": "Upload your own file",
 		"img": "/customnes.webp",
 		"path": "/emulator/nes/custom",
@@ -1915,7 +1915,7 @@
 	},
 	{
 		"id": "custompsp",
-		"name": "Custom PSP Game",
+		"name": "PSP Emulator",
 		"description": "Upload your own file",
 		"img": "/custompsp.webp",
 		"path": "/emulator/psp/custom",
@@ -1923,7 +1923,7 @@
 	},
 	{
 		"id": "custompsx",
-		"name": "Custom PSX Game",
+		"name": "PSX Emulator",
 		"description": "Upload your own file",
 		"img": "/custompsx.webp",
 		"path": "/emulator/psx/custom",
@@ -1931,10 +1931,80 @@
 	},
 	{
 		"id": "customsnes",
-		"name": "Custom SNES Game",
+		"name": "SNES Emulator",
 		"description": "Upload your own file",
 		"img": "/customsnes.webp",
 		"path": "/emulator/snes/custom",
+		"category": ["Arcade"]
+	},
+	{
+		"name": "Flying Gorilla",
+		"id": "fg",
+		"path": "/webgl/fg",
+		"img": "/fg.webp",
+		"category": ["Action", "Webport"]
+	},
+	{
+		"name": "Pixel Gun 3D (old)",
+		"id": "pg3d",
+		"path": "/webgl/pg3d",
+		"img": "/pg3d.webp",
+		"category": ["Action", "Webport"]
+	},
+	{
+		"name": "Slendytubbies remake",
+		"id": "st",
+		"path": "/webgl/st",
+		"img": "/st.webp",
+		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "To The Core",
+		"id": "ttc",
+		"path": "/webgl/ttc",
+		"img": "/ttc.webp",
+		"category": ["Clicker", "Webport"]
+	},
+	{
+		"name": "Metal Gear Solid",
+		"id": "mgs",
+		"path": "/emualtor/psx/mgs",
+		"img": "/mgs.webp",
+		"category": ["Action"]
+	},
+	{
+		"name": "Doom",
+		"id": "doom",
+		"path": "/emulator/gba/doom",
+		"img": "/doom.webp",
+		"category": ["Action", "Shooter"]
+	},
+	{
+		"name": "Doom II",
+		"id": "doom2",
+		"path": "/emulator/gba/doom2",
+		"img": "/doom2.webp",
+		"category": ["Action", "Shooter"]
+	},
+	{
+		"name": "Jetpack Joyride",
+		"id": "jj",
+		"path": "/html/jj",
+		"img": "/jj.webp",
+		"category": ["Action", "Platformer"]
+	},
+	{
+		"name": "Helix Jump",
+		"id": "hj",
+		"path": "/html/hj",
+		"img": "/hj.webp",
+		"category": ["Arcade"]
+	},
+	{
+		"name": "Ball Blast",
+		"id": "bb",
+		"path": "/html/bb",
+		"img": "/bb.webp",
 		"category": ["Arcade"]
 	}
 ]

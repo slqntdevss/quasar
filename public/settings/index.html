@@ -234,10 +234,26 @@
 						<div class="theme-preview theme-glsl"></div>
 						<span>Polygons</span>
 					</div>
+					<div class="theme-option" data-theme-class="theme-glsl-space">
+						<div class="theme-preview theme-glsl"></div>
+						<span>Space</span>
+					</div>
 				</div>
 				<h3>GLSL</h3>
 				<div style="display: grid; grid-template-columns: 1fr 1fr; grid-template-rows: auto auto; gap: 5px;">		
 					<button id="uploadShader" style="width: fit-content;">Upload GLSL Shader</button>
+				</div>
+				<h5>Shader Quality</h3>
+				<div style="display: flex">
+					<input
+						id="glslQuality"
+						type="range"
+						min="0.01"
+						max="1"
+						value="0.25"
+						step="0.01"
+					/>
+					<p id="currentQuality">0.08</p>
 				</div>
 			</div>
 		</div>

@@ -1,5 +1,7 @@
 const cursorSpeedSlider = document.getElementById("cursorSpeed");
+const shaderQualitySlider = document.getElementById("glslQuality");
 const currentSpeed = document.getElementById("currentSpeed");
+const currentQuality = document.getElementById("currentQuality");
 const panicButton = document.getElementById("panicKey");
 const panicURL = document.getElementById("panicURL");
 const abCloak = document.getElementById("abCloak");
@@ -34,16 +36,37 @@ if (localStorage.getItem("activeTheme") == null) {
 
 if (cursorSpeedSlider != null) {
 	cursorSpeedSlider.addEventListener("input", (e) => {
-		console.log(e.target.value);
 		currentSpeed.textContent = e.target.value;
 		localStorage.setItem("cursorSpeed", e.target.value);
+	});
+}
+if (shaderQualitySlider != null) {
+	let debounceTimer;
+
+	shaderQualitySlider.addEventListener("input", (e) => {
+		currentQuality.textContent = e.target.value;
+		localStorage.setItem("glslQuality", e.target.value);
+
+		clearTimeout(debounceTimer);
+		debounceTimer = setTimeout(() => {
+			const canvas = document.querySelector(".glslCanvas");
+			const shaderKey =
+				localStorage.getItem("activeTheme") === "theme-glsl"
+					? "customShader"
+					: "fragmentShader";
+
+			startGLSL(
+				canvas.getContext("webgl"),
+				canvas,
+				localStorage.getItem(shaderKey)
+			);
+		}, 150);
 	});
 }
 
 window.addEventListener("keypress", (e) => {
 	if (listening) {
 		localStorage.setItem("panicKey", e.key);
-		console.log(e.key);
 		listening = false;
 		if (panicButton) {
 			panicButton.textContent = `Panic Key set to ${e.key}`;
@@ -61,23 +84,37 @@ window.addEventListener("keypress", (e) => {
 		}
 	}
 });
-function startGLSL(gl, canvas) {
-	window.addEventListener("resize", () => {
-		canvas.width = Math.floor(window.innerWidth * 0.25);
-		canvas.height = Math.floor(window.innerHeight * 0.25);
+function startGLSL(gl, canvas, shader) {
+	// resize handling
+	function resize() {
+		canvas.width = Math.floor(
+			window.innerWidth * localStorage.getItem("glslQuality")
+		);
+		canvas.height = Math.floor(
+			window.innerHeight * localStorage.getItem("glslQuality")
+		);
 		canvas.style.width = "100vw";
 		canvas.style.height = "100vh";
 		gl.viewport(0, 0, canvas.width, canvas.height);
+	}
+	window.addEventListener("resize", resize);
+	resize();
+
+	// mouse tracking
+	let mouseX = 0;
+	let mouseY = 0;
+	canvas.addEventListener("mousemove", (e) => {
+		const rect = canvas.getBoundingClientRect();
+		mouseX = e.clientX - rect.left;
+		mouseY = rect.height - (e.clientY - rect.top);
 	});
 
 	const vertexShaderSource = `
-		attribute vec2 position;
-		void main() {
-			gl_Position = vec4(position, 0.0, 1.0);
-		}
-	`;
-
-	const fragmentShaderSource = localStorage.getItem("fragmentShader");
+attribute vec2 position;
+void main() {
+	gl_Position = vec4(position, 0.0, 1.0);
+}
+`;
 
 	function createShader(gl, type, source) {
 		const shader = gl.createShader(type);
@@ -92,16 +129,8 @@ function startGLSL(gl, canvas) {
 	}
 
 	const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
-	const fragmentShader = createShader(
-		gl,
-		gl.FRAGMENT_SHADER,
-		fragmentShaderSource
-	);
-
-	if (!fragmentShader) {
-		console.error("Failed to compile fragment shader");
-		return;
-	}
+	const fragmentShader = createShader(gl, gl.FRAGMENT_SHADER, shader);
+	if (!fragmentShader) return;
 
 	const program = gl.createProgram();
 	gl.attachShader(program, vertexShader);
@@ -109,7 +138,9 @@ function startGLSL(gl, canvas) {
 	gl.linkProgram(program);
 	gl.useProgram(program);
 
+	// fullscreen quad
 	const vertices = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
+
 	const buffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 	gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
@@ -118,13 +149,20 @@ function startGLSL(gl, canvas) {
 	gl.enableVertexAttribArray(positionLocation);
 	gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
-	const resolutionLocation = gl.getUniformLocation(program, "resolution");
-	const timeLocation = gl.getUniformLocation(program, "time");
+	function render(t) {
+		const time = t * 0.001;
 
-	function render(time) {
-		time *= 0.001;
-		gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+		gl.useProgram(program);
+
+		// Set uniforms for fragment shader
+		const timeLocation = gl.getUniformLocation(program, "time");
+		const resolutionLocation = gl.getUniformLocation(program, "resolution");
+		const mouseLocation = gl.getUniformLocation(program, "mouse");
+
 		gl.uniform1f(timeLocation, time);
+		gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
+		gl.uniform2f(mouseLocation, mouseX, mouseY);
+
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 		requestAnimationFrame(render);
 	}
@@ -140,6 +178,14 @@ document.addEventListener("DOMContentLoaded", () => {
 	) {
 		currentSpeed.textContent = localStorage.getItem("cursorSpeed");
 		cursorSpeedSlider.value = localStorage.getItem("cursorSpeed");
+	}
+	if (
+		localStorage.getItem("glslQuality") != null &&
+		currentQuality != null &&
+		shaderQualitySlider != null
+	) {
+		currentQuality.textContent = localStorage.getItem("glslQuality");
+		shaderQualitySlider.value = localStorage.getItem("glslQuality");
 	}
 	if (localStorage.getItem("panicKey") == null) {
 		localStorage.setItem("panicKey", "`");
@@ -181,17 +227,32 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	const allThemes = document.querySelectorAll(".theme-option");
 	if (localStorage.getItem("activeTheme").includes("glsl")) {
+		document.body.classList.add("theme-glsl");
 		const canvas = document.querySelector(".glslCanvas");
-		canvas.width = Math.floor(window.innerWidth * 0.25);
-		canvas.height = Math.floor(window.innerHeight * 0.25);
+		canvas.width = Math.floor(
+			window.innerWidth * localStorage.getItem("glslQuality")
+		);
+		canvas.height = Math.floor(
+			window.innerHeight * localStorage.getItem("glslQuality")
+		);
 		canvas.style.width = "100vw";
 		canvas.style.height = "100vh";
 		canvas.classList.add("enabled");
-		startGLSL(canvas.getContext("webgl"), canvas);
+		const shaderKey =
+			localStorage.getItem("activeTheme") === "theme-glsl"
+				? "customShader"
+				: "fragmentShader";
+		startGLSL(
+			canvas.getContext("webgl"),
+			canvas,
+			localStorage.getItem(shaderKey)
+		);
+	} else {
+		document.body.classList.add(
+			localStorage.getItem("activeTheme") || "theme-classic"
+		);
 	}
-	document.body.classList.add(
-		localStorage.getItem("activeTheme") || "theme-classic"
-	);
+
 	allThemes.forEach((option) => {
 		option.addEventListener("click", () => {
 			document.body.classList.remove("theme");
@@ -200,7 +261,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 			if (theme.includes("glsl")) {
 				let shaderToUse;
-				localStorage.setItem("activeTheme", "theme-glsl");
+				localStorage.setItem("activeTheme", theme);
 				document.body.classList.add("theme-glsl");
 
 				if (theme === "theme-glsl-orb") {
@@ -211,20 +272,28 @@ document.addEventListener("DOMContentLoaded", () => {
 					shaderToUse = shaderList.gc;
 				} else if (theme === "theme-glsl-polygons") {
 					shaderToUse = shaderList.polygons;
+				} else if (theme === "theme-glsl-space") {
+					shaderToUse = shaderList.space;
 				} else {
-					shaderToUse = localStorage.getItem("fragmentShader");
+					shaderToUse = localStorage.getItem("customShader");
 				}
 
 				if (shaderToUse) {
-					localStorage.setItem("fragmentShader", shaderToUse);
+					if (theme !== "theme-glsl") {
+						localStorage.setItem("fragmentShader", shaderToUse);
+					}
 					const gl = canvas.getContext("webgl");
-					canvas.width = Math.floor(window.innerWidth * 0.25);
-					canvas.height = Math.floor(window.innerHeight * 0.25);
+					canvas.width = Math.floor(
+						window.innerWidth * localStorage.getItem("glslQuality")
+					);
+					canvas.height = Math.floor(
+						window.innerHeight * localStorage.getItem("glslQuality")
+					);
 					canvas.style.width = "100vw";
 					canvas.style.height = "100vh";
 					canvas.classList.add("enabled");
 					gl.viewport(0, 0, canvas.width, canvas.height);
-					startGLSL(gl, canvas);
+					startGLSL(gl, canvas, shaderToUse);
 				}
 			} else {
 				canvas.classList.remove("enabled");
@@ -406,7 +475,6 @@ document.addEventListener("DOMContentLoaded", () => {
 				});
 				saveData.iDB.push(dbDump);
 			}
-			console.log(saveData);
 			const blob = new Blob([JSON.stringify(saveData, null, 2)], {
 				type: "application/json",
 			});
@@ -527,8 +595,8 @@ window.addEventListener("beforeunload", (e) => {
 if (uploadShaderBtn) {
 	uploadShaderBtn.addEventListener("click", () => {
 		shaderModal.classList.add("show");
-		if (localStorage.getItem("fragmentShader")) {
-			shaderCodeArea.value = localStorage.getItem("fragmentShader");
+		if (localStorage.getItem("customShader")) {
+			shaderCodeArea.value = localStorage.getItem("customShader");
 		}
 	});
 }
@@ -588,7 +656,7 @@ if (applyShaderBtn) {
 	applyShaderBtn.addEventListener("click", () => {
 		const shaderCode = shaderCodeArea.value.trim();
 		if (shaderCode) {
-			localStorage.setItem("fragmentShader", shaderCode);
+			localStorage.setItem("customShader", shaderCode);
 			shaderModal.classList.remove("show");
 			location.reload();
 		}
@@ -597,7 +665,7 @@ if (applyShaderBtn) {
 if (resetShaderBtn) {
 	resetShaderBtn.addEventListener("click", () => {
 		if (confirm("Reset to default shader?")) {
-			localStorage.removeItem("fragmentShader");
+			localStorage.removeItem("customShader");
 			shaderCodeArea.value = "";
 			location.reload();
 		}

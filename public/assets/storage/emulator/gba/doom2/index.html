@@ -1,0 +1,59 @@
+<html>
+	<head>
+		<title>Quasar GBA Loader</title>
+		<style>
+			body {
+				overflow: hidden;
+				background: #000000;
+				margin-top: 0;
+				margin-left: 0;
+				color: #000000;
+			}
+		</style>
+		<style type="text/css">
+			#button {
+				display: none;
+			}
+
+			.imgb_vis {
+				animation: imgb-animation 7s linear;
+			}
+
+			@keyframes imgb-animation {
+				10% {
+					transform: translateX(0);
+				}
+
+				20% {
+					transform: translateX(100px);
+				}
+
+				90% {
+					transform: translateX(100px);
+				}
+
+				100% {
+					transform: translateX(0);
+				}
+			}
+		</style>
+	</head>
+
+	<body>
+		<div style="width: 100vw; height: 100vh; max-width: 100%">
+			<div id="game" style="display: none"></div>
+		</div>
+		<script>
+			document.getElementById("game").style.display = "none";
+			document.getElementById("game").style.display = "block";
+			window.EJS_player = "#game";
+			window.EJS_core = "gba";
+			window.EJS_gameUrl = "game.zip";
+			window.EJS_pathtodata = "https://cdn.emulatorjs.org/stable/data/";
+
+			const script = document.createElement("script");
+			script.src = "https://cdn.emulatorjs.org/stable/data/loader.js";
+			document.body.appendChild(script);
+		</script>
+	</body>
+</html>
