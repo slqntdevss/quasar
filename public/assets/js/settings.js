@@ -33,6 +33,9 @@ let shaderList;
 if (localStorage.getItem("activeTheme") == null) {
 	localStorage.setItem("activeTheme", "theme-classic");
 }
+if (localStorage.getItem("glslQuality") == null) {
+	localStorage.setItem("glslQuality", 0.2);
+}
 
 if (cursorSpeedSlider != null) {
 	cursorSpeedSlider.addEventListener("input", (e) => {
