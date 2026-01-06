@@ -10,7 +10,8 @@ import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
-//import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
+// if your hosting your own version of quasar, uncomment this
+import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 
 const app = express();
 
@@ -21,8 +22,6 @@ const publicDir = path.join(
 	path.dirname(fileURLToPath(import.meta.url)),
 	`../public`
 );
-
-//logging.set_level(logging.NONE);
 
 const server = createServer(app);
 
@@ -43,14 +42,14 @@ app.use((req, res, next) => {
 	res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
 	next();
 });
-
-/*server.on("upgrade", (req, socket, head) => {
+// uncomment this too if your hosting your own version
+server.on("upgrade", (req, socket, head) => {
 	if (req.url.endsWith("/wisp/")) {
 		wisp.routeRequest(req, socket, head);
 	} else {
 		socket.end();
 	}
-});*/
+});
 
 app.use((req, res, next) => {
 	const isDir = req.path.endsWith("/");
@@ -89,9 +88,9 @@ app.get("/autoc", async (req, res) => {
 	if (!q) {
 		return res.status(400).send({ error: "Query parameter is required" });
 	}
-	const result = await fetch(
-		`https://duckduckgo.com/ac/?q=${q}&format=json`
-	).then((response) => response.json());
+	const result = await fetch(`https://duckduckgo.com/ac/?q=${q}&format=json`)
+		.then((response) => response.json())
+		.catch((err) => console.log(err));
 	res.status(200).send(result);
 });
 

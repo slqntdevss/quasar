@@ -2006,5 +2006,33 @@
 		"path": "/html/bb",
 		"img": "/bb.webp",
 		"category": ["Arcade"]
+	},
+	{
+		"name": "Genshin Impact",
+		"id": "gi",
+		"path": "/html/ngg/gi",
+		"img": "/gi.webp",
+		"category": ["Adventure"]
+	},
+	{
+		"name": "COD Mobile",
+		"id": "codm",
+		"path": "/html/ngg/codm",
+		"img": "/codm.webp",
+		"category": ["Action", "Shooter"]
+	},
+	{
+		"name": "Stickman Hook",
+		"id": "smh",
+		"path": "/html/smh",
+		"img": "/smh.webp",
+		"category": ["Platformer", "Casual"]
+	},
+	{
+		"name": "Among Us",
+		"id": "amongus",
+		"path": "/html/ngg/au",
+		"img": "/amongus.webp",
+		"category": ["Action", "Strategy"]
 	}
 ]

@@ -44,7 +44,7 @@ scramjet.init();
 
 		console.log(prefix);
 
-		const nowggFunUrl = `https://${prefix}.ip.nowgg.fun/apps/cognosphere-pte-ltd-/1773/genshin-impact.html`;
+		const nowggFunUrl = `https://${prefix}.ip.nowgg.fun/apps/a/10008/b.html`;
 
 		console.log(nowggFunUrl);
 
