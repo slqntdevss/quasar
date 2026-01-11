@@ -1991,7 +1991,7 @@
 		"id": "jj",
 		"path": "/html/jj",
 		"img": "/jj.webp",
-		"category": ["Action", "Platformer"]
+		"category": ["Action", "Platformer", "Webport"]
 	},
 	{
 		"name": "Helix Jump",
@@ -2034,5 +2034,33 @@
 		"path": "/html/ngg/au",
 		"img": "/amongus.webp",
 		"category": ["Action", "Strategy"]
+	},
+	{
+		"name": "Gorilla Tag",
+		"id": "gtag",
+		"path": "/webgl/gtag",
+		"img": "/gtag.webp",
+		"category": ["Platformer", "Strategy", "Webport"]
+	},
+	{
+		"name": "Learn to Fly 3",
+		"id": "ltf3",
+		"path": "/flash/ltf3",
+		"img": "/ltf3.webp",
+		"category": ["Arcade", "Strategy", "Flash"]
+	},
+	{
+		"name": "Please, Don't Touch Anything",
+		"id": "pdta",
+		"path": "/webgl/pdta",
+		"img": "/pdta.webp",
+		"category": ["Puzzle", "Strategy", "Webport"]
+	},
+	{
+		"name": "We Become What We Behold",
+		"id": "wbwwb",
+		"path": "/webgl/wbwwb",
+		"img": "/wbwwb.webp",
+		"category": ["Puzzle", "Webport"]
 	}
 ]

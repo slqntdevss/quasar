@@ -105,3 +105,14 @@ setInterval(() => {
 		}
 	});
 }, 100);
+
+const originalSetTimeout = window.setTimeout;
+window.setTimeout = function (fn, delay) {
+	if (typeof fn === "function" && (delay == undefined || delay == null)) {
+		const fnText = fn.toString();
+		if (fnText.includes("href")) {
+			return 0;
+		}
+	}
+	return originalSetTimeout.apply(this, arguments);
+};
