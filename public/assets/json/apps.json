@@ -1,8 +1,8 @@
 [
 	{
-		"name": "Invidious",
-		"url": "https://inv.perditum.com/feed/popular",
-		"img": "/invid.webp"
+		"name": "DuckAI",
+		"url": "https://duck.ai",
+		"img": "/ddg.webp"
 	},
 	{
 		"name": "YouTube",
