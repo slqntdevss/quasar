@@ -2062,5 +2062,12 @@
 		"path": "/webgl/wbwwb",
 		"img": "/wbwwb.webp",
 		"category": ["Puzzle", "Webport"]
+	},
+	{
+		"name": "Iron Snout",
+		"id": "is",
+		"path": "/html/is",
+		"img": "/is.webp",
+		"category": ["Action", "Adventure"]
 	}
 ]
