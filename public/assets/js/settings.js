@@ -88,7 +88,6 @@ window.addEventListener("keypress", (e) => {
 	}
 });
 function startGLSL(gl, canvas, shader) {
-	// resize handling
 	function resize() {
 		canvas.width = Math.floor(
 			window.innerWidth * localStorage.getItem("glslQuality")
@@ -103,7 +102,6 @@ function startGLSL(gl, canvas, shader) {
 	window.addEventListener("resize", resize);
 	resize();
 
-	// mouse tracking
 	let mouseX = 0;
 	let mouseY = 0;
 	canvas.addEventListener("mousemove", (e) => {
@@ -141,7 +139,6 @@ void main() {
 	gl.linkProgram(program);
 	gl.useProgram(program);
 
-	// fullscreen quad
 	const vertices = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
 
 	const buffer = gl.createBuffer();
@@ -157,7 +154,6 @@ void main() {
 
 		gl.useProgram(program);
 
-		// Set uniforms for fragment shader
 		const timeLocation = gl.getUniformLocation(program, "time");
 		const resolutionLocation = gl.getUniformLocation(program, "resolution");
 		const mouseLocation = gl.getUniformLocation(program, "mouse");
@@ -258,7 +254,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
 	allThemes.forEach((option) => {
 		option.addEventListener("click", () => {
-			document.body.classList.remove("theme");
+			document.body.classList.remove(...document.body.classList);
 			const theme = option.getAttribute("data-theme-class");
 			const canvas = document.querySelector(".glslCanvas");
 
