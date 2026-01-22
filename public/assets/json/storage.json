@@ -2069,5 +2069,12 @@
 		"path": "/html/is",
 		"img": "/is.webp",
 		"category": ["Action", "Adventure"]
+	},
+	{
+		"name": "R.E.P.O.",
+		"id": "repo",
+		"path": "/webgl/repo",
+		"img": "/repo.webp",
+		"category": ["Puzzle", "Webport"]
 	}
 ]
