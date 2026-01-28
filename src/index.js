@@ -20,7 +20,7 @@ app.use(cors());
 
 const publicDir = path.join(
 	path.dirname(fileURLToPath(import.meta.url)),
-	`../public`
+	`../public`,
 );
 
 const server = createServer(app);

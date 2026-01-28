@@ -2076,5 +2076,54 @@
 		"path": "/webgl/repo",
 		"img": "/repo.webp",
 		"category": ["Puzzle", "Webport"]
+	},
+	{
+		"name": "Replicate",
+		"id": "rep",
+		"path": "/webgl/rep",
+		"img": "/rep.webp",
+		"category": ["Puzzle", "Webport"]
+	},
+	{
+		"name": "Sort the Court",
+		"id": "stc",
+		"path": "/webgl/stc",
+		"img": "/stc.webp",
+		"category": ["Simulation", "Webport"]
+	},
+	{
+		"name": "Balatro",
+		"id": "balatro",
+		"path": "/webgl/balatro",
+		"img": "/balatro.webp",
+		"category": ["Arcade", "Webport"]
+	},
+	{
+		"name": "Schoolboy Runaway",
+		"id": "sbrunaway",
+		"path": "/webgl/sbrunaway",
+		"img": "/sbrunaway.webp",
+		"category": ["Strategy", "Webport"]
+	},
+	{
+		"name": "A Difficult Game About Climbing",
+		"id": "adgac",
+		"path": "/webgl/adgac",
+		"img": "/adgac.webp",
+		"category": ["Strategy", "Webport"]
+	},
+	{
+		"name": "Monkey Mart",
+		"id": "mm",
+		"path": "/html/mm",
+		"img": "/mm.webp",
+		"category": ["Strategy", "Simulation"]
+	},
+	{
+		"name": "FeedVid Live",
+		"id": "fvl",
+		"path": "/webgl/fvl",
+		"img": "/fvl.webp",
+		"category": ["Horror", "Webport"]
 	}
 ]
