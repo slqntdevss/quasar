@@ -20,7 +20,7 @@ async function addScript(src, defer = false) {
 	} catch (err) {
 		throw err;
 	}
-	await new Promise((r) => setTimeout(r, 150));
+	await new Promise((r) => setTimeout(r, 100));
 
 	await addScript("/assets/js/pre.js");
 })();

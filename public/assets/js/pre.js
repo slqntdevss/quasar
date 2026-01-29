@@ -20,19 +20,6 @@ loadExtensions();
 /** @type {HTMLIFrameElement} */ // im so used to typescript i NEED types
 const frame = document.getElementById("frame");
 let timeout;
-async function registerSW() {
-	if (!navigator.serviceWorker) {
-		if (
-			location.protocol !== "https:" &&
-			!swAllowedHostnames.includes(location.hostname)
-		)
-			throw new Error("Service workers cannot be registered without https.");
-
-		throw new Error("Your browser doesn't support service workers.");
-	}
-
-	await navigator.serviceWorker.register(stockSW);
-}
 async function searchSJ(url) {
 	let cleanedUrl = search(url, "https://duckduckgo.com/?q=%s");
 
@@ -211,7 +198,7 @@ document.getElementById("urlForm").addEventListener("submit", async (e) => {
 				<img src="/assets/img${app.img}" alt="${app.name}" />
 				<span class="apps-grid-label">${app.name}</span>
 			</div>
-		`
+		`,
 			)
 			.join("")}
 		</div>`;
