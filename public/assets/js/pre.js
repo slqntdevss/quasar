@@ -34,12 +34,6 @@ async function registerSW() {
 	await navigator.serviceWorker.register(stockSW);
 }
 async function searchSJ(url) {
-	try {
-		await registerSW();
-	} catch (err) {
-		throw err;
-	}
-
 	let cleanedUrl = search(url, "https://duckduckgo.com/?q=%s");
 
 	if (cleanedUrl.includes("://now.gg")) {

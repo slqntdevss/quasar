@@ -15,6 +15,11 @@ async function addScript(src, defer = false) {
 	await addScript("mux/index.js");
 	await addScript("ep/index.js");
 	await addScript("lc/index.js");
+	try {
+		await registerSW();
+	} catch (err) {
+		throw err;
+	}
 	await new Promise((r) => setTimeout(r, 150));
 
 	await addScript("/assets/js/pre.js");
