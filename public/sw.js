@@ -18,7 +18,11 @@ async function initScramjetDB() {
 }
 
 self.addEventListener("install", (event) => {
-	event.waitUntil(initScramjetDB().then(() => self.skipWaiting()));
+	event.waitUntil(
+		initScramjetDB()
+			.then(() => self.skipWaiting())
+			.catch("failed to setup SW"),
+	);
 });
 
 async function handleRequest(event) {
