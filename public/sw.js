@@ -11,17 +11,9 @@ const uvsw = new UVServiceWorker();
 // prevent some dumb error with scramjet when the sw is updated its weird idk
 async function initScramjetDB() {
 	return new Promise((resolve, reject) => {
-		const request = indexedDB.open("$scramjet", 1);
-
-		request.onupgradeneeded = function (event) {
-			const db = event.target.result;
-			if (!db.objectStoreNames.contains("config")) {
-				db.createObjectStore("config");
-			}
-		};
-
-		request.onsuccess = () => resolve(request.result);
-		request.onerror = () => reject(request.error);
+		const deleteRequest = indexedDB.deleteDatabase("$scramjet");
+		deleteRequest.onsuccess = () => resolve();
+		deleteRequest.onerror = () => reject(deleteRequest.error);
 	});
 }
 
