@@ -2125,5 +2125,61 @@
 		"path": "/webgl/fvl",
 		"img": "/fvl.webp",
 		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Battle Cats",
+		"id": "battlecats",
+		"path": "/html/astra/battle-cats",
+		"img": "/battlecats.webp",
+		"category": ["Strategy"]
+	},
+	{
+		"name": "Brawl Stars",
+		"id": "brawlstars",
+		"path": "/html/astra/brawl-stars",
+		"img": "/brawlstars.webp",
+		"category": ["Action", "Arcade"]
+	},
+	{
+		"name": "Clash of Clans",
+		"id": "coc",
+		"path": "/html/astra/coc",
+		"img": "/coc.webp",
+		"category": ["Action", "Arcade"]
+	},
+	{
+		"name": "Clash Royale",
+		"id": "cr",
+		"path": "/html/astra/cr",
+		"img": "/cr.webp",
+		"category": ["Action", "Arcade"]
+	},
+	{
+		"name": "FC Mobile",
+		"id": "fcm",
+		"path": "/html/astra/fcm",
+		"img": "/fcm.webp",
+		"category": ["Sports", "Arcade"]
+	},
+	{
+		"name": "Madden",
+		"id": "madden",
+		"path": "/html/astra/madden",
+		"img": "/madden.webp",
+		"category": ["Sports", "Arcade"]
+	},
+	{
+		"name": "MojoLauncher (Minecraft)",
+		"id": "mojo",
+		"path": "/html/astra/mojo",
+		"img": "/mojo.webp",
+		"category": ["Sandbox", "Arcade"]
+	},
+	{
+		"name": "PUBG",
+		"id": "pubg",
+		"path": "/html/astra/pubg",
+		"img": "/pubg.webp",
+		"category": ["Shooter", "Action"]
 	}
 ]

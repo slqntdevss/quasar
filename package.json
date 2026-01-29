@@ -17,6 +17,7 @@
 		"@mercuryworkshop/libcurl-transport": "^1.5.1",
 		"@mercuryworkshop/scramjet": "https://github.com/MercuryWorkshop/scramjet/releases/download/latest/mercuryworkshop-scramjet-2.0.0-alpha.tgz",
 		"@mercuryworkshop/wisp-js": "^0.4.0",
+		"@titaniumnetwork-dev/ultraviolet": "^3.2.10",
 		"cookie-parser": "^1.4.7",
 		"cors": "^2.8.5",
 		"dotenv": "^17.2.1",

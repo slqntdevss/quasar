@@ -10,6 +10,7 @@ import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
 import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
+import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 // if your hosting your own version of quasar, uncomment this
 //import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 
@@ -76,8 +77,18 @@ app.use((req, res, next) => {
 	}
 });
 
+app.get("/vu/vu.config.js", (req, res) => {
+	res.sendFile(
+		path.join(path.dirname(fileURLToPath(import.meta.url)), `./vu.config.js`),
+	);
+});
+app.get("/vu/vu.bundle.js", (req, res) => {
+	res.sendFile(path.join(uvPath, `/uv.bundle.js`));
+});
+
 app.use(express.static(publicDir));
 
+app.use("/vu", express.static(uvPath));
 app.use("/marcs", express.static(scramjetPath));
 app.use("/mux", express.static(baremuxPath));
 app.use("/ep", express.static(epoxyPath));
