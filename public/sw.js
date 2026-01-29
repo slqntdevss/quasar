@@ -8,6 +8,27 @@ const scramjet = new ScramjetServiceWorker();
 
 const uvsw = new UVServiceWorker();
 
+// prevent some dumb error with scramjet when the sw is updated its weird idk
+async function initScramjetDB() {
+	return new Promise((resolve, reject) => {
+		const request = indexedDB.open("$scramjet", 1);
+
+		request.onupgradeneeded = function (event) {
+			const db = event.target.result;
+			if (!db.objectStoreNames.contains("config")) {
+				db.createObjectStore("config");
+			}
+		};
+
+		request.onsuccess = () => resolve(request.result);
+		request.onerror = () => reject(request.error);
+	});
+}
+
+self.addEventListener("install", (event) => {
+	event.waitUntil(initScramjetDB().then(() => self.skipWaiting()));
+});
+
 async function handleRequest(event) {
 	await scramjet.loadConfig();
 	if (scramjet.route(event)) return await scramjet.fetch(event);
