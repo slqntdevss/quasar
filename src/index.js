@@ -12,7 +12,7 @@ import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 // if your hosting your own version of quasar, uncomment this
-//import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
+import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 
 const app = express();
 
@@ -44,13 +44,13 @@ app.use((req, res, next) => {
 	next();
 });
 // uncomment this too if your hosting your own version
-/*server.on("upgrade", (req, socket, head) => {
+server.on("upgrade", (req, socket, head) => {
 	if (req.url.endsWith("/wisp/")) {
 		wisp.routeRequest(req, socket, head);
 	} else {
 		socket.end();
 	}
-});*/
+});
 
 app.use((req, res, next) => {
 	const isDir = req.path.endsWith("/");

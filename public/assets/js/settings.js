@@ -61,7 +61,7 @@ if (shaderQualitySlider != null) {
 			startGLSL(
 				canvas.getContext("webgl"),
 				canvas,
-				localStorage.getItem(shaderKey)
+				localStorage.getItem(shaderKey),
 			);
 		}, 150);
 	});
@@ -75,7 +75,7 @@ window.addEventListener("keypress", (e) => {
 			panicButton.textContent = `Panic Key set to ${e.key}`;
 			setTimeout(() => {
 				panicButton.textContent = `Panic Key: ${localStorage.getItem(
-					"panicKey"
+					"panicKey",
 				)}`;
 			}, 3000);
 		}
@@ -90,10 +90,10 @@ window.addEventListener("keypress", (e) => {
 function startGLSL(gl, canvas, shader) {
 	function resize() {
 		canvas.width = Math.floor(
-			window.innerWidth * localStorage.getItem("glslQuality")
+			window.innerWidth * localStorage.getItem("glslQuality"),
 		);
 		canvas.height = Math.floor(
-			window.innerHeight * localStorage.getItem("glslQuality")
+			window.innerHeight * localStorage.getItem("glslQuality"),
 		);
 		canvas.style.width = "100vw";
 		canvas.style.height = "100vh";
@@ -168,8 +168,25 @@ void main() {
 
 	requestAnimationFrame(render);
 }
+async function registerSW() {
+	if (!navigator.serviceWorker) {
+		if (
+			location.protocol !== "https:" &&
+			!swAllowedHostnames.includes(location.hostname)
+		)
+			throw new Error("Service workers cannot be registered without https.");
 
-document.addEventListener("DOMContentLoaded", () => {
+		throw new Error("Your browser doesn't support service workers.");
+	}
+
+	await navigator.serviceWorker.register("/sw.js");
+}
+document.addEventListener("DOMContentLoaded", async () => {
+	try {
+		await registerSW();
+	} catch (err) {
+		throw err;
+	}
 	if (
 		localStorage.getItem("cursorSpeed") != null &&
 		currentSpeed != null &&
@@ -229,10 +246,10 @@ document.addEventListener("DOMContentLoaded", () => {
 		document.body.classList.add("theme-glsl");
 		const canvas = document.querySelector(".glslCanvas");
 		canvas.width = Math.floor(
-			window.innerWidth * localStorage.getItem("glslQuality")
+			window.innerWidth * localStorage.getItem("glslQuality"),
 		);
 		canvas.height = Math.floor(
-			window.innerHeight * localStorage.getItem("glslQuality")
+			window.innerHeight * localStorage.getItem("glslQuality"),
 		);
 		canvas.style.width = "100vw";
 		canvas.style.height = "100vh";
@@ -244,11 +261,11 @@ document.addEventListener("DOMContentLoaded", () => {
 		startGLSL(
 			canvas.getContext("webgl"),
 			canvas,
-			localStorage.getItem(shaderKey)
+			localStorage.getItem(shaderKey),
 		);
 	} else {
 		document.body.classList.add(
-			localStorage.getItem("activeTheme") || "theme-classic"
+			localStorage.getItem("activeTheme") || "theme-classic",
 		);
 	}
 
@@ -283,10 +300,10 @@ document.addEventListener("DOMContentLoaded", () => {
 					}
 					const gl = canvas.getContext("webgl");
 					canvas.width = Math.floor(
-						window.innerWidth * localStorage.getItem("glslQuality")
+						window.innerWidth * localStorage.getItem("glslQuality"),
 					);
 					canvas.height = Math.floor(
-						window.innerHeight * localStorage.getItem("glslQuality")
+						window.innerHeight * localStorage.getItem("glslQuality"),
 					);
 					canvas.style.width = "100vw";
 					canvas.style.height = "100vh";
@@ -310,7 +327,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			document.getElementById("antiClose").classList.toggle("active");
 			localStorage.setItem(
 				"antiClose",
-				document.getElementById("antiClose").classList.contains("active")
+				document.getElementById("antiClose").classList.contains("active"),
 			);
 		});
 	}
@@ -323,7 +340,7 @@ document.addEventListener("DOMContentLoaded", () => {
 			document.getElementById("autoCloak").classList.toggle("active");
 			localStorage.setItem(
 				"autoCloak",
-				document.getElementById("autoCloak").classList.contains("active")
+				document.getElementById("autoCloak").classList.contains("active"),
 			);
 		});
 	}
@@ -333,13 +350,13 @@ document.addEventListener("DOMContentLoaded", () => {
 			.getElementById("focusCloaking")
 			.classList.toggle(
 				"active",
-				localStorage.getItem("focusCloaking") === "true"
+				localStorage.getItem("focusCloaking") === "true",
 			);
 		document.getElementById("focusCloaking").addEventListener("click", () => {
 			document.getElementById("focusCloaking").classList.toggle("active");
 			localStorage.setItem(
 				"focusCloaking",
-				document.getElementById("focusCloaking").classList.contains("active")
+				document.getElementById("focusCloaking").classList.contains("active"),
 			);
 		});
 	}
@@ -352,7 +369,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				"scrollbars=1,height=" +
 					screen.availHeight +
 					",width=" +
-					screen.availWidth
+					screen.availWidth,
 			);
 			if (privateWindow) {
 				privateWindow.document.write(`
@@ -401,7 +418,7 @@ document.addEventListener("DOMContentLoaded", () => {
 				panicButton.textContent = "Listening...";
 			} else {
 				panicButton.textContent = `Panic Key: ${localStorage.getItem(
-					"panicKey"
+					"panicKey",
 				)}`;
 			}
 		});
@@ -527,7 +544,7 @@ document.addEventListener("DOMContentLoaded", () => {
 							}
 							const tx = db.transaction(
 								dbDump.stores.map((s) => s.name),
-								"readwrite"
+								"readwrite",
 							);
 							for (const store of dbDump.stores) {
 								const objectStore = tx.objectStore(store.name);
@@ -581,7 +598,7 @@ document.addEventListener(
 			}, 1000);
 		}
 	},
-	true
+	true,
 );
 window.addEventListener("beforeunload", (e) => {
 	if (allowRedirect || localStorage.getItem("antiClose") == "false")

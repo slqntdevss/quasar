@@ -8,23 +8,29 @@ const scramjet = new ScramjetServiceWorker();
 
 const uvsw = new UVServiceWorker();
 
-// prevent some dumb error with scramjet when the sw is updated its weird idk
-async function initScramjetDB() {
-	return new Promise((resolve, reject) => {
-		const deleteRequest = indexedDB.deleteDatabase("$scramjet");
-		deleteRequest.onsuccess = () => resolve();
-		deleteRequest.onerror = () => reject(deleteRequest.error);
-	});
-}
-
-self.addEventListener("install", (event) => {
-	event.waitUntil(
-		initScramjetDB()
-			.then(() => self.skipWaiting())
-			.catch("failed to setup SW"),
-	);
+self.addEventListener("error", function (event) {
+	if (event.error?.name === "NotFoundError") {
+		event.preventDefault();
+		cleanup();
+	}
 });
 
+self.addEventListener("unhandledrejection", function (event) {
+	if (event.reason?.name === "NotFoundError") {
+		event.preventDefault();
+		cleanup();
+	}
+});
+
+async function cleanup() {
+	try {
+		indexedDB.deleteDatabase("$scramjet");
+
+		await self.registration.unregister();
+	} catch (err) {
+		console.error("failed to fix:", err);
+	}
+}
 async function handleRequest(event) {
 	await scramjet.loadConfig();
 	if (scramjet.route(event)) return await scramjet.fetch(event);
