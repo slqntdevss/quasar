@@ -2181,5 +2181,12 @@
 		"path": "/html/astra/pubg",
 		"img": "/pubg.webp",
 		"category": ["Shooter", "Action"]
+	},
+	{
+		"name": "Super Monkey Ball",
+		"id": "smb",
+		"path": "/html/smb/",
+		"img": "/smb.webp",
+		"category": ["Action", "Webport"]
 	}
 ]

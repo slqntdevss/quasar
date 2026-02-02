@@ -1,0 +1,422 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, viewport-fit=cover"
+		/>
+		<title>SMB1 Web Gameplay</title>
+
+		<!-- iOS: run without Safari UI when launched from Home Screen -->
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+		<meta
+			name="theme-color"
+			content="#000000"
+			media="(prefers-color-scheme: dark)"
+		/>
+		<meta
+			name="theme-color"
+			content="#000000"
+			media="(prefers-color-scheme: light)"
+		/>
+
+		<link rel="stylesheet" href="./style.css" />
+		<script type="importmap">
+			{
+				"imports": {
+					"gl-matrix": "https://cdn.jsdelivr.net/npm/gl-matrix@3.4.3/esm/index.js"
+				}
+			}
+		</script>
+	</head>
+	<body>
+		<canvas id="game"></canvas>
+		<canvas id="hud-canvas"></canvas>
+		<div id="stage-fade" class="stage-fade"></div>
+		<div id="overlay" class="overlay">
+			<div class="panel">
+				<h1>Super Monkey Ball 1</h1>
+				<p>Standard gameplay (Beginner / Advanced / Expert).</p>
+				<label class="field">
+					<span>Game Source</span>
+					<select id="game-source">
+						<option value="smb1">Super Monkey Ball 1</option>
+						<option value="smb2">Super Monkey Ball 2</option>
+						<option value="mb2ws">Super Monkey Ball 2 (MB2WS)</option>
+					</select>
+				</label>
+				<div class="pack-controls">
+					<button id="pack-load" class="ghost compact" type="button">
+						Load Pack
+					</button>
+					<div id="pack-picker" class="pack-picker hidden">
+						<button id="pack-load-zip" class="ghost compact" type="button">
+							Zip File
+						</button>
+						<button id="pack-load-folder" class="ghost compact" type="button">
+							Folder
+						</button>
+					</div>
+					<div id="pack-status" class="pack-status">No pack loaded</div>
+				</div>
+				<input id="pack-file" class="hidden" type="file" accept=".zip" />
+				<input id="pack-folder" class="hidden" type="file" webkitdirectory />
+				<div class="pack-controls">
+					<button id="replay-save" class="ghost compact" type="button">
+						Save Replay
+					</button>
+					<button id="replay-load" class="ghost compact" type="button">
+						Load Replay
+					</button>
+					<div id="replay-status" class="pack-status">Replay: none</div>
+				</div>
+				<input id="replay-file" class="hidden" type="file" accept=".json" />
+
+				<label id="control-mode-field" class="field hidden">
+					<span>Control Mode</span>
+					<div class="control-mode-row">
+						<select id="control-mode"></select>
+						<button
+							id="gyro-recalibrate"
+							class="ghost compact hidden"
+							type="button"
+						>
+							Recalibrate
+						</button>
+						<div id="gyro-helper" class="gyro-helper hidden" aria-hidden="true">
+							<div class="gyro-helper-frame">
+								<div id="gyro-helper-ghost" class="gyro-helper-ghost"></div>
+								<div id="gyro-helper-device" class="gyro-helper-device"></div>
+							</div>
+						</div>
+					</div>
+				</label>
+				<div id="control-mode-settings" class="control-mode-settings hidden">
+					<div id="gyro-settings" class="control-mode-block hidden">
+						<label class="field slider-field">
+							<span
+								>Gyro Sensitivity
+								<output id="gyro-sensitivity-value">25°</output></span
+							>
+							<input
+								id="gyro-sensitivity"
+								type="range"
+								min="10"
+								max="25"
+								step="1"
+								value="25"
+							/>
+						</label>
+						<div id="gyro-hint" class="control-hint">
+							Tap the screen during gameplay to recalibrate gyro.
+						</div>
+					</div>
+					<div id="touch-settings" class="control-mode-block hidden">
+						<label class="field slider-field">
+							<span
+								>Virtual Joystick Size
+								<output id="joystick-size-value">1.0x</output></span
+							>
+							<input
+								id="joystick-size"
+								type="range"
+								min="0.5"
+								max="2"
+								step="0.1"
+								value="1"
+							/>
+						</label>
+					</div>
+					<div id="input-falloff-block" class="control-mode-block">
+						<label class="field slider-field">
+							<span
+								>Input Falloff
+								<output id="input-falloff-value">1.5</output></span
+							>
+							<input
+								id="input-falloff"
+								type="range"
+								min="1"
+								max="2"
+								step="0.05"
+								value="1"
+							/>
+						</label>
+						<div class="input-falloff-visuals">
+							<div id="input-falloff-curve-wrap" class="response-curve">
+								<svg
+									id="input-falloff-curve"
+									viewBox="0 0 100 100"
+									role="img"
+									aria-hidden="true"
+								>
+									<path id="input-falloff-path" d="M 0 100 L 100 0"></path>
+								</svg>
+							</div>
+							<div id="input-preview" class="input-preview" aria-hidden="true">
+								<div class="input-preview-grid"></div>
+								<div id="input-raw-dot" class="input-dot raw"></div>
+								<div id="input-processed-dot" class="input-dot processed"></div>
+							</div>
+						</div>
+						<div class="control-hint">
+							A lower value makes joystick input more linear. Higher makes small
+							adjustments more precise.
+						</div>
+					</div>
+					<div id="gamepad-calibration-block" class="control-mode-block hidden">
+						<button id="gamepad-calibrate" class="ghost compact" type="button">
+							Calibrate Stick
+						</button>
+					</div>
+				</div>
+				<div id="smb1-fields">
+					<label class="field">
+						<span>Difficulty</span>
+						<select id="difficulty">
+							<option value="beginner">Beginner</option>
+							<option value="advanced">Advanced</option>
+							<option value="expert">Expert</option>
+							<option value="beginner-extra">Beginner (Extra)</option>
+							<option value="advanced-extra">Advanced (Extra)</option>
+							<option value="expert-extra">Expert (Extra)</option>
+							<option value="master">Master</option>
+						</select>
+					</label>
+					<label class="field">
+						<span>Stage</span>
+						<select id="smb1-stage"></select>
+					</label>
+				</div>
+				<div id="smb2-fields" class="hidden">
+					<label class="field">
+						<span>SMB2 Mode</span>
+						<select id="smb2-mode">
+							<option value="challenge">Challenge</option>
+							<option value="story">Story</option>
+						</select>
+					</label>
+					<div id="smb2-challenge-fields">
+						<label class="field">
+							<span>Challenge Difficulty</span>
+							<select id="smb2-challenge">
+								<option value="beginner">Beginner</option>
+								<option value="advanced">Advanced</option>
+								<option value="expert">Expert</option>
+								<option value="beginner-extra">Beginner Extra</option>
+								<option value="advanced-extra">Advanced Extra</option>
+								<option value="expert-extra">Expert Extra</option>
+								<option value="master">Master</option>
+								<option value="master-extra">Master Extra</option>
+							</select>
+						</label>
+						<label class="field">
+							<span>Challenge Stage</span>
+							<select id="smb2-challenge-stage"></select>
+						</label>
+					</div>
+					<div id="smb2-story-fields" class="hidden">
+						<label class="field">
+							<span>Story World</span>
+							<select id="smb2-story-world"></select>
+						</label>
+						<label class="field">
+							<span>Story Stage</span>
+							<select id="smb2-story-stage"></select>
+						</label>
+					</div>
+				</div>
+				<label class="field checkbox-field hidden">
+					<span>Settings</span>
+				</label>
+				<div class="slider-group">
+					<label class="field slider-field">
+						<span
+							>Music Volume <output id="music-volume-value">50%</output></span
+						>
+						<input
+							id="music-volume"
+							type="range"
+							min="0"
+							max="100"
+							value="50"
+						/>
+					</label>
+					<label class="field slider-field">
+						<span>SFX Volume <output id="sfx-volume-value">30%</output></span>
+						<input id="sfx-volume" type="range" min="0" max="100" value="30" />
+					</label>
+					<label class="field slider-field">
+						<span
+							>Announcer Volume
+							<output id="announcer-volume-value">30%</output></span
+						>
+						<input
+							id="announcer-volume"
+							type="range"
+							min="0"
+							max="100"
+							value="30"
+						/>
+					</label>
+				</div>
+				<div class="row">
+					<button id="start" disabled>Start</button>
+					<button id="resume" class="ghost" disabled>Resume</button>
+				</div>
+				<div class="hint">
+					<div>
+						Controls: WASD / Arrow Keys = tilt, R = reset stage, N = skip stage
+					</div>
+					<div>If you have a controller plugged in, it should work too.</div>
+					<div>
+						Don't worry about reporting bugs. I probably already know about it -
+						it'll get fixed.
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div id="touch-controls" class="touch-controls hidden" aria-hidden="true">
+			<div class="joystick hidden" aria-hidden="true">
+				<div class="joystick-base"></div>
+				<div class="joystick-handle"></div>
+			</div>
+		</div>
+
+		<button
+			id="mobile-menu-button"
+			class="mobile-menu-button hidden"
+			type="button"
+		>
+			Level Select
+		</button>
+
+		<button
+			id="fullscreen-button"
+			class="ghost compact fullscreen-button hidden"
+			type="button"
+		>
+			Fullscreen
+		</button>
+
+		<div
+			id="gamepad-calibration"
+			class="modal hidden"
+			role="dialog"
+			aria-modal="true"
+			aria-hidden="true"
+		>
+			<div class="modal-card">
+				<h2>Stick Calibration</h2>
+				<p>
+					Move the left stick in slow circles to map the gate. Use the full
+					range.
+				</p>
+				<canvas id="gamepad-calibration-map" width="240" height="240"></canvas>
+				<div class="control-hint">
+					Click anywhere or press any controller button to close.
+				</div>
+			</div>
+		</div>
+
+		<script type="module">
+			const field = document.getElementById("control-mode-field");
+			const select = document.getElementById("control-mode");
+			const hasTouch =
+				"ontouchstart" in window || (navigator.maxTouchPoints ?? 0) > 0;
+			const hasCoarsePointer =
+				window.matchMedia?.("(pointer: coarse)")?.matches ?? false;
+			const hasGyro =
+				typeof window.DeviceOrientationEvent !== "undefined" &&
+				(hasTouch || hasCoarsePointer);
+			const gyroButton = document.getElementById("gyro-recalibrate");
+			const gyroHelper = document.getElementById("gyro-helper");
+
+			if (!field || !select || (!hasTouch && !hasGyro)) {
+				field?.classList.add("hidden");
+			} else {
+				const options = [];
+				if (hasGyro) options.push({ value: "gyro", label: "Gyro" });
+				if (hasTouch) options.push({ value: "touch", label: "Touchscreen" });
+
+				if (options.length === 0) {
+					field.classList.add("hidden");
+				} else {
+					field.classList.remove("hidden");
+					select.innerHTML = "";
+					for (const opt of options) {
+						const el = document.createElement("option");
+						el.value = opt.value;
+						el.textContent = opt.label;
+						select.appendChild(el);
+					}
+
+					const key = "smb_control_mode";
+					const saved = localStorage.getItem(key);
+					if (saved && options.some((o) => o.value === saved)) {
+						select.value = saved;
+					} else {
+						select.value = hasTouch ? "touch" : "gyro";
+						localStorage.setItem(key, select.value);
+					}
+
+					const syncGyroUi = () => {
+						const showGyro = select.value === "gyro";
+						gyroButton?.classList.toggle("hidden", !showGyro);
+						gyroHelper?.classList.toggle("hidden", !showGyro);
+					};
+
+					syncGyroUi();
+
+					const requestGyroPermission = async () => {
+						const requests = [];
+						const orientationPermission =
+							window.DeviceOrientationEvent?.requestPermission;
+						if (typeof orientationPermission === "function") {
+							requests.push(
+								orientationPermission.call(window.DeviceOrientationEvent),
+							);
+						}
+						const motionPermission =
+							window.DeviceMotionEvent?.requestPermission;
+						if (typeof motionPermission === "function") {
+							requests.push(motionPermission.call(window.DeviceMotionEvent));
+						}
+						if (requests.length === 0) {
+							return "granted";
+						}
+						try {
+							const results = await Promise.all(requests);
+							return results.every((result) => result === "granted")
+								? "granted"
+								: "denied";
+						} catch {
+							return "denied";
+						}
+					};
+
+					select.addEventListener("change", async () => {
+						let next = select.value;
+
+						// iOS: gyro requires a user-gesture permission prompt.
+						if (next === "gyro") {
+							const result = await requestGyroPermission();
+							if (result !== "granted") {
+								next = hasTouch ? "touch" : "gyro";
+								select.value = next;
+							}
+						}
+
+						localStorage.setItem(key, next);
+						syncGyroUi();
+					});
+				}
+			}
+		</script>
+
+		<script type="module" src="./main.js"></script>
+	</body>
+</html>

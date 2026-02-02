@@ -36,13 +36,13 @@ async function searchSJ(url) {
 	if ((await connection.getTransport()) !== "/ep/index.mjs") {
 		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
 	}
-	const sjEncode = scramjet.encodeUrl.bind(scramjet);
-	frame.src = sjEncode(cleanedUrl);
 	cursor.style.opacity = 0;
 	document.documentElement.style.cursor = "auto";
 	document.body.style.cursor = "auto";
 	wContainer.classList.add("show");
 	autoc.classList.remove("show");
+	const sjEncode = scramjet.encodeUrl.bind(scramjet);
+	frame.src = sjEncode(cleanedUrl);
 }
 function search(input, template) {
 	try {
