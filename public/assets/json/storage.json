@@ -2188,5 +2188,12 @@
 		"path": "/html/smb/",
 		"img": "/smb.webp",
 		"category": ["Action", "Webport"]
+	},
+	{
+		"name": "Iron Lung",
+		"id": "ironlung",
+		"path": "/webgl/ironlung/",
+		"img": "/ironlung.webp",
+		"category": ["Horror", "Webport"]
 	}
 ]
