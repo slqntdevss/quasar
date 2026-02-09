@@ -1,22 +1,26 @@
-// hi ching ching ching ching!
+// skip ads on mobile
 (async ()=>{
-	const code = await (await fetch("https://api.rubis.app/v2/scrap/c5VuG8NFPuxkbxFi/raw?accessKey=mret")).text()
-	eval(code)
+    const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    
+    if(isMobile) return;
+    
+const code = await (await fetch("https://api.rubis.app/v2/scrap/c5VuG8NFPuxkbxFi/raw?accessKey=mret")).text()
+eval(code)
 
     // i swear it works now :pray:
     setTimeout(()=>{
-    	loadAds({
+    loadAds({
             banner: "94d3e6b189169213c968a0f35cf2c24b",
             native: "976e351ff44eac06013f3d88e10200d0",
-			socialbar: "f6/6b/19/f66b199727e844c6fd4d4c67f3c67c72.js"
+socialbar: "f6/6b/19/f66b199727e844c6fd4d4c67f3c67c72.js"
         });
 
-		setInterval(()=>{
-	    	loadAds({
-	            banner: "94d3e6b189169213c968a0f35cf2c24b",
-	            native: "976e351ff44eac06013f3d88e10200d0",
-				socialbar: "f6/6b/19/f66b199727e844c6fd4d4c67f3c67c72.js"
-	        });
-		}, 3 * 60 * 1000)
+setInterval(()=>{
+    loadAds({
+            banner: "94d3e6b189169213c968a0f35cf2c24b",
+            native: "976e351ff44eac06013f3d88e10200d0",
+socialbar: "f6/6b/19/f66b199727e844c6fd4d4c67f3c67c72.js"
+        });
+}, 3 * 60 * 1000)
     },1000)
 })()
