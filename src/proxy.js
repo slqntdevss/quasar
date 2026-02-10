@@ -9,13 +9,14 @@ const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?i
 
 const adScript = `<script src="//js.rev.iq/aptutorfinder.com"></script>`;
 const videoAd = `<div data-ad="video" style="position: fixed; top: 1rem; right: 1rem; z-index: 50;"></div>`;
+const videoAdHome = `<div data-ad="video" style="position: fixed; top: 900px; right: 1rem; z-index: 50;"></div>`;
 const railAds = `<div data-ad="left-rail-1" style="position: fixed; top: 1rem; left: 1rem; z-index: 50;"></div><div data-ad="left-rail-2" style="position: fixed; top: 280px; left: 1rem; z-index: 50;"></div><div data-ad="right-rail-1" style="position: fixed; top: 1rem; right: 1rem; z-index: 50;"></div><div data-ad="right-rail-2" style="position: fixed; top: 280px; right: 1rem; z-index: 50;"></div>`;
 
 function injectHtml(html, pathname) {
 	let modified = html.replace(/<\/head>/i, `${analytics}\n${adScript}\n</head>`);
 
 	const isIndex = pathname === "/" || pathname === "/index.html";
-	const bodyInject = isIndex ? `${railAds}${videoAd}` : videoAd;
+	const bodyInject = isIndex ? `${railAds}${videoAdHome}` : videoAd;
 	modified = modified.replace(/<\/body>/i, `${bodyInject}\n</body>`);
 
 	return modified;
