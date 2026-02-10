@@ -29,22 +29,14 @@ const staticMappings = [
 	{ prefix: "/lc/", dir: libcurlPath },
 ];
 
-/**
- * Try to serve a static file from the given directory.
- * Returns a Response or null if file not found.
- */
 function serveStaticFile(filePath, headers = {}) {
 	const file = Bun.file(filePath);
-	// Bun.file() is lazy - we need to check existence
 	if (fs.existsSync(filePath)) {
 		return new Response(file, { headers });
 	}
 	return null;
 }
 
-/**
- * Build COOP/COEP headers for paths that need them.
- */
 function getCrossOriginHeaders(pathname) {
 	const headers = {
 		"Cross-Origin-Resource-Policy": "cross-origin",
@@ -65,9 +57,6 @@ function getCrossOriginHeaders(pathname) {
 	return headers;
 }
 
-/**
- * Inject analytics into HTML content before </head>.
- */
 function injectAnalytics(html) {
 	return html.replace(/<\/head>/i, `${analytics}\n</head>`);
 }
@@ -131,7 +120,6 @@ const server = Bun.serve({
 		const pathname = url.pathname;
 		const headers = getCrossOriginHeaders(pathname);
 
-		// Check static library mappings first
 		for (const { prefix, dir } of staticMappings) {
 			if (pathname.startsWith(prefix)) {
 				const relativePath = pathname.slice(prefix.length);
@@ -141,13 +129,11 @@ const server = Bun.serve({
 			}
 		}
 
-		// Resolve file path for public directory
 		const isDir = pathname.endsWith("/");
 		const resolvedPath = isDir
 			? path.join(publicDir, pathname, "index.html")
 			: path.join(publicDir, pathname);
 
-		// Serve HTML files with analytics injection
 		if (resolvedPath.endsWith(".html")) {
 			try {
 				const content = await Bun.file(resolvedPath).text();
@@ -159,15 +145,12 @@ const server = Bun.serve({
 					},
 				});
 			} catch {
-				// File not found, fall through
 			}
 		}
 
-		// Serve static files from public directory
 		const staticRes = serveStaticFile(resolvedPath, headers);
 		if (staticRes) return staticRes;
 
-		// If no extension, try .html (SPA-style routing)
 		if (!path.extname(pathname)) {
 			const htmlPath = path.join(publicDir, pathname + ".html");
 			try {
@@ -180,7 +163,6 @@ const server = Bun.serve({
 					},
 				});
 			} catch {
-				// Fall through to 404
 			}
 		}
 
