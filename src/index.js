@@ -29,9 +29,13 @@ const staticMappings = [
 ];
 
 function serveStaticFile(filePath, headers = {}) {
-	const file = Bun.file(filePath);
-	if (fs.existsSync(filePath)) {
-		return new Response(file, { headers });
+	try {
+		const stat = fs.statSync(filePath);
+		if (stat.isFile()) {
+			return new Response(Bun.file(filePath), { headers });
+		}
+	} catch {
+		// File doesn't exist
 	}
 	return null;
 }
