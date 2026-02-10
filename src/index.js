@@ -1,10 +1,7 @@
-import express from "express";
 import path from "path";
 import fs from "fs";
 import "dotenv/config";
-import cors from "cors";
 
-import { createServer } from "node:http";
 import { fileURLToPath } from "node:url";
 import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 import { epoxyPath } from "@mercuryworkshop/epoxy-transport";
@@ -12,106 +9,225 @@ import { baremuxPath } from "@mercuryworkshop/bare-mux/node";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 // if your hosting your own version of quasar, uncomment this
-import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
+// import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 
-const app = express();
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
+const publicDir = path.join(__dirname, "../public");
 
-app.use(express.json());
-app.use(cors());
-
-const publicDir = path.join(
-	path.dirname(fileURLToPath(import.meta.url)),
-	`../public`,
-);
-
-const server = createServer(app);
-
-app.use((req, res, next) => {
-	// relaly stupid fix
-
-	if (
-		req.path.includes("psp") ||
-		req.path.includes("emulator") ||
-		req.path.includes("portal") ||
-		req.path.includes("portal-wrapper") ||
-		req.path.includes("terraria")
-	) {
-		res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
-		res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
-	}
-
-	res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
-	next();
-});
-// uncomment this too if your hosting your own version
-server.on("upgrade", (req, socket, head) => {
-	if (req.url.endsWith("/wisp/")) {
-		wisp.routeRequest(req, socket, head);
-	} else {
-		socket.end();
-	}
-});
-
-app.use((req, res, next) => {
-	const isDir = req.path.endsWith("/");
-
-	const filePath = isDir
-		? path.join(publicDir, req.path, "index.html")
-		: path.join(publicDir, req.path);
-
-	if (filePath.endsWith(".html")) {
-		fs.readFile(filePath, "utf8", (err, data) => {
-			if (err) return next();
-
-			const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JPJ866MG9"></script>
+const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JPJ866MG9"></script>
       <script>window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag("js", new Date());
       gtag("config", "G-7JPJ866MG9");</script>`;
 
-			const modified = data.replace(/<\/head>/i, `${analytics}\n</head>`);
-			res.type("html").send(modified);
-		});
-	} else {
-		next();
+// Static directory mappings for library assets
+const staticMappings = [
+	{ prefix: "/vu/", dir: uvPath },
+	{ prefix: "/marcs/", dir: scramjetPath },
+	{ prefix: "/mux/", dir: baremuxPath },
+	{ prefix: "/ep/", dir: epoxyPath },
+	{ prefix: "/lc/", dir: libcurlPath },
+];
+
+/**
+ * Try to serve a static file from the given directory.
+ * Returns a Response or null if file not found.
+ */
+function serveStaticFile(filePath, headers = {}) {
+	const file = Bun.file(filePath);
+	// Bun.file() is lazy - we need to check existence
+	if (fs.existsSync(filePath)) {
+		return new Response(file, { headers });
 	}
-});
+	return null;
+}
 
-app.get("/vu/vu.config.js", (req, res) => {
-	res.sendFile(
-		path.join(path.dirname(fileURLToPath(import.meta.url)), `./vu.config.js`),
-	);
-});
-app.get("/vu/vu.bundle.js", (req, res) => {
-	res.sendFile(path.join(uvPath, `/uv.bundle.js`));
-});
+/**
+ * Build COOP/COEP headers for paths that need them.
+ */
+function getCrossOriginHeaders(pathname) {
+	const headers = {
+		"Cross-Origin-Resource-Policy": "cross-origin",
+	};
 
-app.use(express.static(publicDir));
-
-app.use("/vu", express.static(uvPath));
-app.use("/marcs", express.static(scramjetPath));
-app.use("/mux", express.static(baremuxPath));
-app.use("/ep", express.static(epoxyPath));
-app.use("/lc", express.static(libcurlPath));
-
-app.get("/autoc", async (req, res) => {
-	const { q } = req.query;
-	if (!q) {
-		return res.status(400).send({ error: "Query parameter is required" });
+	// relaly stupid fix
+	if (
+		pathname.includes("psp") ||
+		pathname.includes("emulator") ||
+		pathname.includes("portal") ||
+		pathname.includes("portal-wrapper") ||
+		pathname.includes("terraria")
+	) {
+		headers["Cross-Origin-Opener-Policy"] = "same-origin";
+		headers["Cross-Origin-Embedder-Policy"] = "require-corp";
 	}
-	const result = await fetch(`https://duckduckgo.com/ac/?q=${q}&format=json`)
-		.then((response) => response.json())
-		.catch((err) => console.log(err));
-	res.status(200).send(result);
-});
 
-app.use((req, res) => {
-	res.status(404).sendFile(path.join(publicDir, "/404.html"));
-});
+	return headers;
+}
+
+/**
+ * Inject analytics into HTML content before </head>.
+ */
+function injectAnalytics(html) {
+	return html.replace(/<\/head>/i, `${analytics}\n</head>`);
+}
 
 const PORT = process.env.PORT || 3000;
 
-server.listen(PORT, "0.0.0.0", () => {
-	console.log(`Listening on port ${PORT}`);
-	console.log(`http://localhost:${PORT}`);
+const server = Bun.serve({
+	port: PORT,
+	hostname: "0.0.0.0",
+
+	routes: {
+		"/vu/vu.config.js": () => {
+			const configPath = path.join(__dirname, "vu.config.js");
+			return new Response(Bun.file(configPath), {
+				headers: {
+					...getCrossOriginHeaders("/vu/vu.config.js"),
+					"Content-Type": "application/javascript",
+				},
+			});
+		},
+
+		"/vu/vu.bundle.js": () => {
+			const bundlePath = path.join(uvPath, "uv.bundle.js");
+			return new Response(Bun.file(bundlePath), {
+				headers: {
+					...getCrossOriginHeaders("/vu/vu.bundle.js"),
+					"Content-Type": "application/javascript",
+				},
+			});
+		},
+
+		"/autoc": {
+			GET: async (req) => {
+				const url = new URL(req.url);
+				const q = url.searchParams.get("q");
+				if (!q) {
+					return Response.json(
+						{ error: "Query parameter is required" },
+						{ status: 400 },
+					);
+				}
+				try {
+					const result = await fetch(
+						`https://duckduckgo.com/ac/?q=${q}&format=json`,
+					);
+					const data = await result.json();
+					return Response.json(data);
+				} catch (err) {
+					console.log(err);
+					return Response.json(
+						{ error: "Failed to fetch autocomplete" },
+						{ status: 500 },
+					);
+				}
+			},
+		},
+	},
+
+	async fetch(req) {
+		const url = new URL(req.url);
+		const pathname = url.pathname;
+		const headers = getCrossOriginHeaders(pathname);
+
+		// Check static library mappings first
+		for (const { prefix, dir } of staticMappings) {
+			if (pathname.startsWith(prefix)) {
+				const relativePath = pathname.slice(prefix.length);
+				const filePath = path.join(dir, relativePath);
+				const res = serveStaticFile(filePath, headers);
+				if (res) return res;
+			}
+		}
+
+		// Resolve file path for public directory
+		const isDir = pathname.endsWith("/");
+		const resolvedPath = isDir
+			? path.join(publicDir, pathname, "index.html")
+			: path.join(publicDir, pathname);
+
+		// Serve HTML files with analytics injection
+		if (resolvedPath.endsWith(".html")) {
+			try {
+				const content = await Bun.file(resolvedPath).text();
+				const modified = injectAnalytics(content);
+				return new Response(modified, {
+					headers: {
+						...headers,
+						"Content-Type": "text/html; charset=utf-8",
+					},
+				});
+			} catch {
+				// File not found, fall through
+			}
+		}
+
+		// Serve static files from public directory
+		const staticRes = serveStaticFile(resolvedPath, headers);
+		if (staticRes) return staticRes;
+
+		// If no extension, try .html (SPA-style routing)
+		if (!path.extname(pathname)) {
+			const htmlPath = path.join(publicDir, pathname + ".html");
+			try {
+				const content = await Bun.file(htmlPath).text();
+				const modified = injectAnalytics(content);
+				return new Response(modified, {
+					headers: {
+						...headers,
+						"Content-Type": "text/html; charset=utf-8",
+					},
+				});
+			} catch {
+				// Fall through to 404
+			}
+		}
+
+		// 404 fallback
+		try {
+			const notFoundHtml = await Bun.file(
+				path.join(publicDir, "404.html"),
+			).text();
+			const modified = injectAnalytics(notFoundHtml);
+			return new Response(modified, {
+				status: 404,
+				headers: {
+					...headers,
+					"Content-Type": "text/html; charset=utf-8",
+				},
+			});
+		} catch {
+			return new Response("Not Found", { status: 404, headers });
+		}
+	},
+
+	// uncomment this too if your hosting your own version
+	// websocket: {
+	// 	open(ws) {},
+	// 	message(ws, message) {},
+	// 	close(ws) {},
+	// },
+
+	error(error) {
+		console.error(error);
+		return new Response("Internal Server Error", { status: 500 });
+	},
 });
+
+// uncomment this too if your hosting your own version
+// to handle wisp websocket upgrades, you would need to use
+// Bun's websocket API or a Node.js compat approach with wisp:
+//
+// import { createServer } from "node:http";
+// const nodeServer = createServer();
+// nodeServer.on("upgrade", (req, socket, head) => {
+// 	if (req.url.endsWith("/wisp/")) {
+// 		wisp.routeRequest(req, socket, head);
+// 	} else {
+// 		socket.end();
+// 	}
+// });
+
+console.log(`Listening on port ${server.port}`);
+console.log(`http://localhost:${server.port}`);
