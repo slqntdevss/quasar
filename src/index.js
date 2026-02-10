@@ -20,7 +20,6 @@ const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?i
       gtag("js", new Date());
       gtag("config", "G-7JPJ866MG9");</script>`;
 
-// Static directory mappings for library assets
 const staticMappings = [
 	{ prefix: "/vu/", dir: uvPath },
 	{ prefix: "/marcs/", dir: scramjetPath },
@@ -152,17 +151,21 @@ const server = Bun.serve({
 		if (staticRes) return staticRes;
 
 		if (!path.extname(pathname)) {
+			const dirIndexPath = path.join(publicDir, pathname, "index.html");
 			const htmlPath = path.join(publicDir, pathname + ".html");
-			try {
-				const content = await Bun.file(htmlPath).text();
-				const modified = injectAnalytics(content);
-				return new Response(modified, {
-					headers: {
-						...headers,
-						"Content-Type": "text/html; charset=utf-8",
-					},
-				});
-			} catch {
+
+			for (const candidate of [dirIndexPath, htmlPath]) {
+				try {
+					const content = await Bun.file(candidate).text();
+					const modified = injectAnalytics(content);
+					return new Response(modified, {
+						headers: {
+							...headers,
+							"Content-Type": "text/html; charset=utf-8",
+						},
+					});
+				} catch {
+				}
 			}
 		}
 
