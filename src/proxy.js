@@ -16,10 +16,15 @@ const adCloseFix = `<script>
 		el.style.setProperty("visibility","visible","important");
 		el.style.setProperty("pointer-events","auto","important");
 	}
-	var obs=new MutationObserver(function(mutations){
+	function fixAll(){
 		document.querySelectorAll(".anti-click-area").forEach(fixCloseBtn);
-	});
-	obs.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:["style"]});
+	}
+	var obs=new MutationObserver(fixAll);
+	obs.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:["style","class"]});
+	var poll=setInterval(function(){
+		var els=document.querySelectorAll(".anti-click-area");
+		if(els.length){fixAll();clearInterval(poll);}
+	},200);
 })();
 </script>`;
 const videoAd = `<div data-ad="video" style="position: fixed; top: 1rem; right: 1rem; z-index: 50;"></div>`;
