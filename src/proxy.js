@@ -10,14 +10,30 @@ const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?i
 const adScript = `<script src="//js.rev.iq/aptutorfinder.com"></script>`;
 const adCloseFix = `<script>
 (function(){
-	function fixCloseBtn(el){
+	function fixAntiClick(el){
 		el.style.setProperty("top","0px","important");
+		el.style.setProperty("right","0px","important");
+		el.style.setProperty("position","absolute","important");
 		el.style.setProperty("opacity","1","important");
 		el.style.setProperty("visibility","visible","important");
 		el.style.setProperty("pointer-events","auto","important");
+		el.style.setProperty("z-index","2147483647","important");
+		el.style.setProperty("overflow","visible","important");
+		var parent=el.parentElement;
+		if(parent){
+			parent.style.setProperty("overflow","visible","important");
+		}
+	}
+	function fixCancelFloat(el){
+		el.style.setProperty("opacity","1","important");
+		el.style.setProperty("visibility","visible","important");
+		el.style.setProperty("pointer-events","auto","important");
+		el.style.setProperty("cursor","pointer","important");
+		el.style.setProperty("z-index","2147483647","important");
 	}
 	function searchShadowRoots(root){
-		root.querySelectorAll(".anti-click-area").forEach(fixCloseBtn);
+		root.querySelectorAll(".anti-click-area").forEach(fixAntiClick);
+		root.querySelectorAll(".lre-cancel-float").forEach(fixCancelFloat);
 		root.querySelectorAll("*").forEach(function(el){
 			if(el.shadowRoot){
 				searchShadowRoots(el.shadowRoot);
