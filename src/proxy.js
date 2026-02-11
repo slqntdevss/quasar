@@ -31,21 +31,40 @@ const adCloseFix = `<script>
 		el.style.setProperty("cursor","pointer","important");
 		el.style.setProperty("z-index","2147483647","important");
 	}
-	function searchShadowRoots(root){
+	var observed=new WeakSet();
+	function searchNode(root){
 		root.querySelectorAll(".anti-click-area").forEach(fixAntiClick);
 		root.querySelectorAll(".lre-cancel-float").forEach(fixCancelFloat);
 		root.querySelectorAll("*").forEach(function(el){
-			if(el.shadowRoot){
-				searchShadowRoots(el.shadowRoot);
+			if(el.shadowRoot && !observed.has(el.shadowRoot)){
+				observed.add(el.shadowRoot);
+				searchNode(el.shadowRoot);
+				try{
+					var sobs=new MutationObserver(function(){searchNode(el.shadowRoot);});
+					sobs.observe(el.shadowRoot,{childList:true,subtree:true,attributes:true});
+				}catch(e){}
 			}
+		});
+		root.querySelectorAll("iframe").forEach(function(iframe){
+			try{
+				var doc=iframe.contentDocument||iframe.contentWindow.document;
+				if(doc && !observed.has(doc)){
+					observed.add(doc);
+					searchNode(doc);
+					try{
+						var iobs=new MutationObserver(function(){searchNode(doc);});
+						iobs.observe(doc.documentElement||doc,{childList:true,subtree:true,attributes:true});
+					}catch(e){}
+				}
+			}catch(e){}
 		});
 	}
 	function fixAll(){
-		searchShadowRoots(document);
+		searchNode(document);
 	}
 	var obs=new MutationObserver(fixAll);
-	obs.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:["style","class"]});
-	setInterval(fixAll,500);
+	obs.observe(document.documentElement,{childList:true,subtree:true,attributes:true});
+	setInterval(fixAll,300);
 })();
 </script>`;
 const videoAd = `<div data-ad="video" style="position: fixed; top: 1rem; right: 1rem; z-index: 50;"></div>`;
