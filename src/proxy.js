@@ -35,6 +35,11 @@ const adCloseFix = `<script>
 	function searchNode(root){
 		root.querySelectorAll(".anti-click-area").forEach(fixAntiClick);
 		root.querySelectorAll(".lre-cancel-float").forEach(fixCancelFloat);
+		root.querySelectorAll("[id^='ac-context-menu-']").forEach(function(el){
+			if(!el.classList.contains("ac-floated-player")){
+				el.classList.add("ac-floated-player");
+			}
+		});
 		root.querySelectorAll("*").forEach(function(el){
 			if(el.shadowRoot && !observed.has(el.shadowRoot)){
 				observed.add(el.shadowRoot);
