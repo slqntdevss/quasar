@@ -11,7 +11,6 @@ const adScript = `<script src="//js.rev.iq/aptutorfinder.com"></script>`;
 const adCloseFix = `<script>
 (function(){
 	function fixAntiClick(el){
-		el.style.setProperty("top","0px","important");
 		el.style.setProperty("right","0px","important");
 		el.style.setProperty("position","absolute","important");
 		el.style.setProperty("opacity","1","important");
@@ -19,6 +18,8 @@ const adCloseFix = `<script>
 		el.style.setProperty("pointer-events","auto","important");
 		el.style.setProperty("z-index","2147483647","important");
 		el.style.setProperty("overflow","visible","important");
+		el.style.setProperty("top","0px","important");
+		el.style.setProperty("height","35px");
 		var parent=el.parentElement;
 		if(parent){
 			parent.style.setProperty("overflow","visible","important");
