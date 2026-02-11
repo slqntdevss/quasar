@@ -930,3 +930,12 @@ p {
 .apply-shader-btn:hover {
 	filter: brightness(1.2);
 }
+
+.anti-click-area {
+	top: 0 !important;
+	right: 0 !important;
+	z-index: 9999 !important;
+	opacity: 1 !important;
+	visibility: visible !important;
+	pointer-events: auto !important;
+}
