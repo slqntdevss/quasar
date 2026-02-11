@@ -8,12 +8,26 @@ const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?i
       gtag("config", "G-7JPJ866MG9");</script>`;
 
 const adScript = `<script src="//js.rev.iq/aptutorfinder.com"></script>`;
+const adCloseFix = `<script>
+(function(){
+	function fixCloseBtn(el){
+		el.style.setProperty("top","0px","important");
+		el.style.setProperty("opacity","1","important");
+		el.style.setProperty("visibility","visible","important");
+		el.style.setProperty("pointer-events","auto","important");
+	}
+	var obs=new MutationObserver(function(mutations){
+		document.querySelectorAll(".anti-click-area").forEach(fixCloseBtn);
+	});
+	obs.observe(document.documentElement,{childList:true,subtree:true,attributes:true,attributeFilter:["style"]});
+})();
+</script>`;
 const videoAd = `<div data-ad="video" style="position: fixed; top: 1rem; right: 1rem; z-index: 50;"></div>`;
 const videoAdHome = `<div data-ad="video" style="position: fixed; top: 900px; right: 1rem; z-index: 50;"></div>`;
 const railAds = `<div data-ad="left-rail-1" style="position: fixed; top: 1rem; left: 1rem; z-index: 50;"></div><div data-ad="left-rail-2" style="position: fixed; top: 280px; left: 1rem; z-index: 50;"></div><div data-ad="right-rail-1" style="position: fixed; top: 1rem; right: 1rem; z-index: 50;"></div><div data-ad="right-rail-2" style="position: fixed; top: 280px; right: 1rem; z-index: 50;"></div>`;
 
 function injectHtml(html, pathname) {
-	let modified = html.replace(/<\/head>/i, `${analytics}\n${adScript}\n</head>`);
+	let modified = html.replace(/<\/head>/i, `${analytics}\n${adScript}\n${adCloseFix}\n</head>`);
 
 	const isIndex = pathname === "/" || pathname === "/index.html";
 	const bodyInject = isIndex ? `${railAds}${videoAdHome}` : videoAd;
