@@ -41,6 +41,19 @@ const adCloseFix = `<script>
 				el.classList.add("ac-floated-player");
 			}
 		});
+		root.querySelectorAll("[class*='ac-player-wrapper']").forEach(function(el){
+			if(!el.classList.contains("ac-floated-player")){
+				el.classList.add("ac-floated-player");
+			}
+			if(!el.classList.contains("ac-floated-classic-theme")){
+				el.classList.add("ac-floated-classic-theme");
+			}
+		});
+		root.querySelectorAll("[class*='luminous-theme']").forEach(function(el){
+			if(!el.classList.contains("is-floated-outer-title")){
+				el.classList.add("is-floated-outer-title");
+			}
+		});
 		root.querySelectorAll("*").forEach(function(el){
 			if(el.shadowRoot && !observed.has(el.shadowRoot)){
 				observed.add(el.shadowRoot);
