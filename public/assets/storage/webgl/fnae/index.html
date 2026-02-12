@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>five-nights-at-epsteins</title><link rel="canonical" href="https://kbhgames.com/game/five-nights-at-epsteins">
+    <style>
+        * { margin: 0; padding: 0; }
+        html, body { width: 100%; height: 100%; overflow: hidden; background: #000; }
+        #unity-container {
+            width: 100%; height: 100%;
+            display: flex; justify-content: center; align-items: center;
+            position: relative;
+        }
+        #unity-canvas {
+            width: 960px; height: 540px;
+            max-width: 100vw; max-height: 100vh;
+            background: #000;
+            cursor: default;
+        }
+        #unity-loading-bar {
+            position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            display: none;
+        }
+        #unity-progress-bar-empty {
+            width: 300px; height: 18px;
+            background: #1a1a1a;
+            border: 1px solid #444;
+            border-radius: 9px;
+            overflow: hidden;
+        }
+        #unity-progress-bar-full {
+            width: 0%; height: 100%;
+            background: linear-gradient(to right, #c8a600, #ffd700);
+            border-radius: 9px;
+            transition: width 0.1s;
+        }
+        #loading-text {
+            color: #888; font-family: monospace;
+            font-size: 14px; margin-top: 10px;
+        }
+        #unity-fullscreen-button { display: none; }
+        #unity-warning { position: absolute; top: 5%; left: 50%; transform: translateX(-50%);
+            background: #a00; color: #fff; padding: 10px 20px;
+            font-family: monospace; font-size: 14px; border-radius: 6px; display: none; }
+    </style>
+</head>
+<body>
+    <div id="unity-container">
+        <canvas id="unity-canvas" tabindex="-1"></canvas>
+        <div id="unity-loading-bar">
+            <div id="unity-progress-bar-empty">
+                <div id="unity-progress-bar-full"></div>
+            </div>
+            <div id="loading-text">Loading...</div>
+        </div>
+        <div id="unity-fullscreen-button" title="Fullscreen">
+            <svg viewBox="0 0 24 24"><path d="M5 5h5V3H3v7h2V5zm9-2v2h5v5h2V3h-7zm7 14h-2v5h-5v2h7v-7zM5 19v-5H3v7h7v-2H5z"/></svg>
+        </div>
+        <div id="unity-warning"></div>
+    </div>
+    <script>
+        var container = document.querySelector("#unity-container");
+        var canvas = document.querySelector("#unity-canvas");
+        var loadingBar = document.querySelector("#unity-loading-bar");
+        var progressBarFull = document.querySelector("#unity-progress-bar-full");
+        var loadingText = document.querySelector("#loading-text");
+        var fullscreenButton = document.querySelector("#unity-fullscreen-button");
+        var warningBanner = document.querySelector("#unity-warning");
+
+        function unityShowBanner(msg, type) {
+            warningBanner.style.display = "block";
+            warningBanner.innerText = msg;
+            if (type === "error") warningBanner.style.background = "#a00";
+            else if (type === "warning") warningBanner.style.background = "#a60";
+            else warningBanner.style.background = "#444";
+            setTimeout(function() { warningBanner.style.display = "none"; }, 5000);
+        }
+
+        var buildUrl = "Build";
+        var loaderUrl = buildUrl + "/WebGL.loader.js";
+
+        var config = {
+            dataUrl: buildUrl + "/WebGL.data",
+            frameworkUrl: buildUrl + "/WebGL.framework.js",
+            codeUrl: buildUrl + "/WebGL.wasm",
+            streamingAssetsUrl: "StreamingAssets",
+            companyName: "DefaultCompany",
+            productName: "ExportedProject",
+            productVersion: "1.0",
+            showBanner: unityShowBanner,
+        };
+
+        if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+            var meta = document.createElement("meta");
+            meta.name = "viewport";
+            meta.content = "width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
+            document.getElementsByTagName("head")[0].appendChild(meta);
+            container.className = "unity-mobile";
+            canvas.className = "unity-mobile";
+        }
+
+        loadingBar.style.display = "block";
+
+        var script = document.createElement("script");
+        script.src = loaderUrl;
+        script.onload = function() {
+            createUnityInstance(canvas, config, function(progress) {
+                progressBarFull.style.width = (100 * progress) + "%";
+                loadingText.innerText = "Loading... " + Math.round(100 * progress) + "%";
+            }).then(function(unityInstance) {
+                loadingBar.style.display = "none";
+                fullscreenButton.onclick = function() {
+                    unityInstance.SetFullscreen(1);
+                };
+            }).catch(function(message) {
+                alert(message);
+            });
+        };
+        document.body.appendChild(script);
+
+        // Maintain 16:9 aspect ratio
+        function resizeCanvas() {
+            var w = window.innerWidth;
+            var h = window.innerHeight;
+            var targetRatio = 16 / 9;
+            var currentRatio = w / h;
+            if (currentRatio > targetRatio) {
+                canvas.style.width = (h * targetRatio) + "px";
+                canvas.style.height = h + "px";
+            } else {
+                canvas.style.width = w + "px";
+                canvas.style.height = (w / targetRatio) + "px";
+            }
+        }
+        window.addEventListener("resize", resizeCanvas);
+        resizeCanvas();
+    </script>
+</body>
+</html>

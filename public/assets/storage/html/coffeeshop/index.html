@@ -1,0 +1,1348 @@
+<!doctype html>
+<html>
+	<head>
+		<base
+			href="//www.coolmathgames.com/sites/default/files/public_games/48838/"
+		/>
+		<meta name="robots" content="noindex" />
+		<link rel="canonical" href="https://www.coolmathgames.com/0-coffee-shop" />
+		<script type="text/javascript">
+			// Google Tag Manager Start
+			//GA event helper functions
+			function getCookie(key) {
+				var keyValue = document.cookie.match("(^|;) ?" + key + "=([^;]*)(;|$)");
+				return keyValue ? keyValue[2] : null;
+			}
+			function setCookie2(key, value, exptime, domain) {
+				//document.cookie = key + "=" + value + ";";
+				var d = new Date();
+				d.setTime(d.getTime() + exptime);
+				var expires = "expires=" + d.toUTCString();
+				document.cookie =
+					key + "=" + value + "; " + expires + "; path=/; domain=" + domain;
+			}
+			var cmg_ga4_gdpr_country = getCookie("GDPR");
+			var cmg_ga4_gdpr_allowed = false;
+			var gdpr_choices =
+				getCookie("cmg_gdpr_uac") != null
+					? JSON.parse(getCookie("cmg_gdpr_uac"))
+					: "";
+			var cmg_gdpr_uac =
+				typeof gdpr_choices.ga != "undefined" ? gdpr_choices.ga : 0;
+			if (cmg_ga4_gdpr_country != null && gdpr_choices && cmg_gdpr_uac) {
+				cmg_ga4_gdpr_allowed = true;
+			} else if (cmg_ga4_gdpr_country != null && gdpr_choices == "") {
+				jQuery(document).ready(function () {
+					if (typeof __tcfapi == "function") {
+						cmg_ga4_gdpr_listener();
+					} else {
+						setTimeout(function () {
+							if (typeof __tcfapi == "function") {
+								cmg_ga4_gdpr_listener();
+							}
+						}, 2000);
+					}
+				});
+			}
+			function cmg_ga4_gdpr_listener() {
+				__tcfapi("addEventListener", 2, function (tcdata, success) {
+					if (success) {
+						//check if we have consent for "Measure content performance"
+						if (tcdata.eventStatus === "useractioncomplete") {
+							// User action completed, handle GA cookie accordingly
+							var gdpr_choices = { ga: 0, lpg: 0, vwo: 3, xp: 0, uac: 1 };
+							//GA4: Measure content performance
+							if (tcdata.publisher.legitimateInterests[8]) {
+								gdpr_choices.ga = 1;
+								cmg_ga4_gdpr_allowed = true;
+							}
+							//VWO: Develop and improve services
+							if (tcdata.publisher.legitimateInterests[10]) {
+								gdpr_choices.vwo = 1;
+							}
+							//lpg & upg: Use limited data to select content
+							if (tcdata.publisher.legitimateInterests[11]) {
+								gdpr_choices.lpg = 1;
+							}
+							//XP: Store and or access information on a device
+							if (
+								tcdata.publisher.legitimateInterests[1] ||
+								tcdata.publisher.consents[1]
+							) {
+								gdpr_choices.xp = 1;
+							}
+							setCookie(
+								"cmg_gdpr_uac",
+								JSON.stringify(gdpr_choices),
+								31556926 * 1000,
+							);
+						}
+					}
+				});
+			}
+			function cmg_ga4_init_ga() {
+				if (
+					cmg_ga4_gdpr_country == null ||
+					(cmg_ga4_gdpr_country != null && cmg_ga4_gdpr_allowed)
+				) {
+					(function (w, d, s, l, i) {
+						w[l] = w[l] || [];
+						w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+						var f = d.getElementsByTagName(s)[0],
+							j = d.createElement(s),
+							dl = l != "dataLayer" ? "&l=" + l : "";
+						j.async = true;
+						j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+						f.parentNode.insertBefore(j, f);
+					})(window, document, "script", "dataLayer", "GTM-WKRSNN8");
+				}
+			}
+			cmg_ga4_init_ga();
+			// Google Tag Manager End
+		</script>
+		<meta charset="utf-8" />
+		<title>Coffee Shop</title>
+		<meta
+			name="viewport"
+			content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, shrink-to-fit=no"
+		/>
+		<meta name="HandheldFriendly" content="true" />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Glass+Antiqua&display=swap"
+			rel="stylesheet"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
+			rel="stylesheet"
+		/>
+		<link href="./styles/main.css" rel="stylesheet" />
+		<meta name="theme-color" content="#eca779" />
+		<meta name="msapplication-navbutton-color" content="#eca779" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="#eca779" />
+		<link
+			rel="shortcut icon"
+			href="./images/favicon.ico"
+			type="image/vnd.microsoft.icon"
+		/>
+
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+		<script
+			type="text/javascript"
+			src="https://www.coolmathgames.com/sites/default/files/cmg-ads.js"
+		></script>
+
+		<script>
+			let wasMuted = false;
+			// To trigger the event Listener adBreakStart
+			document.addEventListener("adBreakStart", () => {
+				console.log("AdBreak Started");
+				//TODO:  Developer needs to add the logic to pause the game and sound here
+				try {
+					wasMuted = window["phaserGameInstance"].sound.mute;
+					window["phaserGameInstance"].sound.setMute();
+					window["phaserGameInstance"].paused = true;
+				} catch (e) {}
+			});
+			// To trigger the event Listener  adBreakComplete
+			document.addEventListener("adBreakComplete", () => {
+				console.log("adBreak Complete");
+				//TODO:  Developer needs to add the logic to resume the game and sound here
+				try {
+					window["phaserGameInstance"].paused = false;
+					if (!wasMuted) window["phaserGameInstance"].sound.unsetMute();
+				} catch (e) {}
+			});
+
+			function cmgAdBreakCall() {
+				try {
+					let _cmgAdBreak = parent.cmgAdBreak ?? cmgAdBreak;
+					if (_cmgAdBreak) {
+						_cmgAdBreak();
+					} else {
+						console.warn("cmgAdBreak not foud!");
+					}
+				} catch (e) {}
+			}
+		</script>
+
+		<style type="text/css">
+			.no-select {
+				-webkit-touch-callout: none; /* iOS Safari */
+				-webkit-user-select: none; /* Safari */
+				-khtml-user-select: none; /* Konqueror HTML */
+				-moz-user-select: none; /* Old versions of Firefox */
+				-ms-user-select: none; /* Internet Explorer/Edge */
+				user-select: none; /* Non-prefixed version, currently supported by Chrome, Edge, Opera and Firefox */
+			}
+		</style>
+
+		<script type="text/javascript">
+			setTimeout(function () {
+				if (document.getElementsByTagName("canvas").length) {
+					document.getElementsByTagName("body")[0].classList.add("no-select");
+				}
+			}, 2000);
+		</script>
+
+		<script type="text/javascript">
+			function setUserAgent(window, userAgent) {
+				// Works on Firefox, Chrome, Opera and IE9+
+				if (navigator.__defineGetter__) {
+					navigator.__defineGetter__("userAgent", function () {
+						return userAgent;
+					});
+				} else if (Object.defineProperty) {
+					Object.defineProperty(navigator, "userAgent", {
+						get: function () {
+							return userAgent;
+						},
+					});
+				}
+				// Works on Safari
+				if (window.navigator.userAgent !== userAgent) {
+					var userAgentProp = {
+						get: function () {
+							return userAgent;
+						},
+					};
+					try {
+						Object.defineProperty(window.navigator, "userAgent", userAgentProp);
+					} catch (e) {
+						window.navigator = Object.create(navigator, {
+							userAgent: userAgentProp,
+						});
+					}
+				}
+			}
+			if (
+				window.navigator.userAgent.indexOf("Safari") >= 0 &&
+				"ontouchstart" in window &&
+				!/iPhone|Android/.test(window.navigator.userAgent)
+			) {
+				//var userAgent = window.navigator.userAgent.replace("Macintosh", "iPad");
+				var userAgent =
+					"Mozilla/5.0 (iPad; CPU OS 13_1_2 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.0.1 Mobile/15E148 Safari/604.1";
+				setUserAgent(window, userAgent);
+			}
+			function cmg_is_mobile_device() {
+				var sUsrAg = navigator.userAgent;
+				//if(/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(sUsrAg)){
+				if (
+					/Android|webOS|iPhone|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
+						sUsrAg,
+					)
+				) {
+					return true;
+				} else {
+					if (navigator.maxTouchPoints == 5) {
+						return true;
+					} else if (
+						sUsrAg.indexOf("Safari") >= 0 &&
+						"ontouchstart" in window &&
+						sUsrAg.indexOf("iPhone") == -1
+					) {
+						return true;
+					} else {
+						return false;
+					}
+				}
+			}
+			var enableDebug = false;
+			function debugOut(msg) {
+				if (
+					typeof getParameterByName === "function" &&
+					getParameterByName("debug") !== ""
+				) {
+					enableDebug = getParameterByName("debug");
+				}
+				if (enableDebug) {
+					console.log(msg);
+				}
+			}
+			function getParameterByName(name) {
+				var regexS = "[\?&]" + name + "=([^&#]*)";
+				var regex = new RegExp(regexS);
+				var results = regex.exec(location.href);
+				if (results !== null) {
+					return decodeURIComponent(results[1].replace(/\+/g, " "));
+				}
+				//Check the parent window
+				var results = regex.exec(window.top.location.href);
+				if (results === null) {
+					return "";
+				}
+				return decodeURIComponent(results[1].replace(/\+/g, " "));
+			}
+			function getBrowserNameVer() {
+				var sBrowser,
+					sUsrAg = navigator.userAgent;
+				// The order matters here, and this may report false positives for unlisted browsers.
+				if (sUsrAg.indexOf("Firefox") > -1) {
+					sBrowser = "Mozilla Firefox";
+					// "Mozilla/5.0 (X11; Ubuntu; Linux x86_64; rv:61.0) Gecko/20100101 Firefox/61.0"
+				} else if (sUsrAg.indexOf("SamsungBrowser") > -1) {
+					sBrowser = "Samsung Internet";
+					// "Mozilla/5.0 (Linux; Android 9; SAMSUNG SM-G955F Build/PPR1.180610.011) AppleWebKit/537.36 (KHTML, like Gecko) SamsungBrowser/9.4 Chrome/67.0.3396.87 Mobile Safari/537.36
+				} else if (sUsrAg.indexOf("Opera") > -1 || sUsrAg.indexOf("OPR") > -1) {
+					sBrowser = "Opera";
+					// "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_14_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/70.0.3538.102 Safari/537.36 OPR/57.0.3098.106"
+				} else if (sUsrAg.indexOf("Trident") > -1) {
+					sBrowser = "Microsoft Internet Explorer";
+					// "Mozilla/5.0 (Windows NT 10.0; WOW64; Trident/7.0; .NET4.0C; .NET4.0E; Zoom 3.6.0; wbx 1.0.0; rv:11.0) like Gecko"
+				} else if (sUsrAg.indexOf("Edge") > -1) {
+					sBrowser = "Microsoft Edge (Legacy)";
+					// "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36 Edge/16.16299"
+				} else if (sUsrAg.indexOf("Edg") > -1) {
+					sBrowser = "Microsoft Edge (Chromium)";
+					// Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/91.0.4472.124 Safari/537.36 Edg/91.0.864.64
+				} else if (sUsrAg.indexOf("Chrome") > -1) {
+					sBrowser = "Google Chrome or Chromium";
+					// "Mozilla/5.0 (X11; Linux x86_64) AppleWebKit/537.36 (KHTML, like Gecko) Ubuntu Chromium/66.0.3359.181 Chrome/66.0.3359.181 Safari/537.36"
+				} else if (sUsrAg.indexOf("Safari") > -1) {
+					sBrowser = "Apple Safari";
+					// "Mozilla/5.0 (iPhone; CPU iPhone OS 11_4 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/11.0 Mobile/15E148 Safari/604.1 980x1306"
+				} else if (
+					!/Safari|CriOS/.test(sUsrAg) &&
+					/iPhone|iPad\iPod/.test(sUsrAg)
+				) {
+					//( /iPhone|iPad\iPod/.test(sUsrAg) &&  /Safari/.test(sUsrAg) )
+					sBrowser = "iPhone Safari WebView";
+				} else {
+					sBrowser = "unknown";
+				}
+				sUsrAgArr = navigator.userAgent.split(" ");
+				sBrowser =
+					sBrowser + " " + sUsrAgArr[0] + " " + sUsrAgArr[sUsrAgArr.length - 1];
+				debugOut("You are using: " + sBrowser);
+				return sBrowser;
+			}
+
+			function trackEvent(category, action, label, value) {
+				if (typeof value === "undefined" || value === null) {
+					value = 0;
+				}
+				if (typeof __gaTracker !== "undefined") {
+					__gaTracker("send", {
+						hitType: "event",
+						eventCategory: category,
+						eventAction: action,
+						eventLabel: label,
+						eventValue: value,
+					});
+				}
+			}
+			//Category: GamePlayPage, Action: DesktopiFrame / DesktopToplevel / DesktopImmersive / MobileToplevel / MobileImmersive, Label: Game title
+			var pCategory = "GamePlayPageRedirect";
+			var pAction = "Mobile " + getBrowserNameVer();
+			var pLabel = location.pathname;
+			if (pLabel.startsWith("/")) {
+				pLabel = pLabel.substr(1);
+			}
+
+			debugOut(
+				"cmgplaypage: debug redirect check - pCategory=" +
+					pCategory +
+					", pAction=" +
+					pAction +
+					" " +
+					new Date(),
+			);
+			if (window.top == window.self && document.referrer == "") {
+				(function (w, d, s, l, i) {
+					w[l] = w[l] || [];
+					w[l].push({ "gtm.start": new Date().getTime(), event: "gtm.js" });
+					var f = d.getElementsByTagName(s)[0],
+						j = d.createElement(s),
+						dl = l != "dataLayer" ? "&l=" + l : "";
+					j.async = true;
+					j.src = "https://www.googletagmanager.com/gtm.js?id=" + i + dl;
+					f.parentNode.insertBefore(j, f);
+				})(window, document, "script", "dataLayer", "GTM-WKRSNN8");
+
+				function ga4ObjInit(event) {
+					ga4Obj = {};
+					var ckeEn = navigator.cookieEnabled;
+					//Required
+					var event =
+						typeof event === "undefined" || event === null || event === ""
+							? "page_load"
+							: event;
+					var userType =
+						!ckeEn || getCookie("cmg_l") == null ? "AnonymousUser" : "FreeUser";
+					if (ckeEn && getCookie("cmg_sx") != null) {
+						userType = "PremiumUser";
+					}
+					var timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone;
+					var adBlock =
+						typeof ad_blocker_detected !== "undefined"
+							? ad_blocker_detected
+							: false;
+					if (
+						typeof gamePage != "undefined" &&
+						gamePage &&
+						typeof hide_preroll_ads != "undefined" &&
+						!hide_preroll_ads &&
+						(document.getElementById("randomAdBlockDiv") == null ||
+							typeof google == "undefined" ||
+							typeof cmgpbjs == "undefined")
+					) {
+						adBlock = true;
+					}
+
+					//DeviceType
+					var deviceType = "Desktop"; //Default
+					var ua = navigator.userAgent;
+					if (
+						/Android|webOS|iPhone|BlackBerry|IEMobile|Opera Mini/i.test(ua) ||
+						navigator.maxTouchPoints == 5
+					) {
+						deviceType = "Mobile";
+					}
+					if (/Android/.test(ua) && /Chrome\/[.0-9]* Mobile/.test(ua)) {
+						//Phone pattern: "Android" + "Chrome/[.0-9]* Mobile"
+						deviceType = "Mobile";
+					} else if (
+						/Android/.test(ua) &&
+						/Chrome\/[.0-9]* (?!Mobile)/.test(ua)
+					) {
+						//Tablet pattern: "Android" + "Chrome/[.0-9]* (?!Mobile)"
+						deviceType = "Tablet";
+					} else if (
+						/iPad/.test(ua) &&
+						/Mobile\/[0-9A-Z]* Safari\/[.0-9]*/.test(ua)
+					) {
+						deviceType = "Tablet";
+					} else if (
+						/iPhone|iPod/.test(ua) &&
+						/Mobile\/[0-9A-Z]* Safari\/[.0-9]*/.test(ua)
+					) {
+						deviceType = "Mobile";
+					}
+
+					//dataLayer obj with required params
+					var ga4Obj = {
+						event: event,
+						user_type: userType,
+						device_type: deviceType,
+						timezone: timeZone,
+						ad_blocker_detected: adBlock,
+					};
+
+					//Optional - dataLayer params
+					if (typeof gameType != "undefined" && gameType != null) {
+						gameType = gameType.replace("game_", "");
+						ga4Obj.game_type = gameType;
+					} else if (
+						typeof quizPage != "undefined" &&
+						quizPage != null &&
+						typeof quizTitle != "undefined"
+					) {
+						ga4Obj.game_type = "trivia";
+						if (
+							typeof result_page != "undefined" &&
+							result_page == "true" &&
+							event == "page_load"
+						) {
+							ga4Obj.game_type = "trivia_result";
+						}
+						ga4Obj.game_name = quizTitle;
+					}
+					if (
+						typeof gameId != "undefined" &&
+						gameId != null &&
+						typeof window.getGameName == "function"
+					) {
+						ga4Obj.game_name = formatGameName(window.getGameName());
+					}
+					const options = {
+						month: "short",
+						day: "numeric",
+						year: "numeric",
+					};
+
+					var cmgL =
+						ckeEn && getCookie("cmg_l") != null ? getCookie("cmg_l") : "";
+					if (cmgL != "") {
+						ga4Obj.coolmath_user_id = cmgL;
+					}
+
+					return ga4Obj;
+				}
+				function ga4_trackEvent(event, pArr, vArr) {
+					if (
+						typeof dataLayer !== "undefined" &&
+						typeof dataLayer.push === "function"
+					) {
+						ga4Obj = ga4ObjInit(event);
+						if (typeof pArr != "undefined" && typeof vArr != "undefined") {
+							var aLen = pArr.length;
+							for (var i = 0; i < aLen; i++) {
+								ga4Obj[pArr[i]] = vArr[i];
+							}
+						}
+						debugOut(
+							"CMGga4: track :" +
+								event +
+								" " +
+								JSON.stringify(ga4Obj) +
+								" " +
+								new Date(),
+						);
+						var ga4Response = dataLayer.push(ga4Obj);
+						debugOut(
+							"CMGga4: track :" +
+								event +
+								" dataLayer.push response = " +
+								JSON.stringify(ga4Response) +
+								" " +
+								new Date(),
+						);
+					} else {
+						debugOut("CMGga4: dataLayer does not exist : " + new Date());
+					}
+				}
+
+				//GA Trackevent and then Redirect the user to game landing page
+				//Check if we can use GA
+
+				//GA Loading
+
+				(function (i, s, o, g, r, a, m) {
+					i["GoogleAnalyticsObject"] = r;
+					((i[r] =
+						i[r] ||
+						function () {
+							(i[r].q = i[r].q || []).push(arguments);
+						}),
+						(i[r].l = 1 * new Date()));
+					((a = s.createElement(o)), (m = s.getElementsByTagName(o)[0]));
+					a.async = 1;
+					a.src = g;
+					m.parentNode.insertBefore(a, m);
+				})(
+					window,
+					document,
+					"script",
+					"//www.google-analytics.com/analytics.js",
+					"__gaTracker",
+				);
+				var ga_dev_host =
+					/(stage|stage2|dev|dev2|dev3|d9\-test)(\-edit)?\.coolmathgames\.(com|local)/.test(
+						window.location.host,
+					);
+				if (
+					ga_dev_host ||
+					window.location.host == "d9-test-coolmathgames.local"
+				) {
+					__gaTracker("create", "UA-1192998-21", "auto");
+				} else {
+					__gaTracker("create", "UA-1192998-2", "auto");
+				}
+
+				//End of GA loading
+				if (cmg_is_mobile_device()) {
+					setTimeout(function () {
+						//Load and fire GA event
+						trackEvent(pCategory, pAction, pLabel);
+						var sUsrAg = navigator.userAgent;
+						//Exclude iPads, iphone/iPod App and Android App
+						if (
+							document.querySelector("link[rel='canonical']").href &&
+							!/iPad/.test(sUsrAg) &&
+							((/iPhone|iPod/.test(sUsrAg) && /Safari/.test(sUsrAg)) ||
+								(/Android/.test(sUsrAg) && !/wv/.test(sUsrAg)))
+						) {
+							window.location.href = document.querySelector(
+								"link[rel='canonical']",
+							).href;
+						}
+					}, 100);
+				}
+				var isValidDevice = true;
+				var browserInfo = navigator.userAgent;
+				if (
+					browserInfo.includes === "iPhone" &&
+					browserInfo.includes === "mobile" &&
+					(browserInfo.includes === "Chrome" ||
+						browserInfo.includes === "Safari")
+				) {
+					isValidDevice = false;
+				}
+				if (isValidDevice) {
+					trackEvent("gamePlayPage", "userVisit", location.pathname);
+					ga4_trackEvent(
+						"gamePlayPage",
+						["action", "path"],
+						["userVisit", location.pathname],
+					);
+				}
+			}
+			//GA4 AEG
+			setInterval(function () {
+				if (!document.hidden) {
+					if (typeof window.parent.postMessage == "function") {
+						debugOut(
+							new Date() + " cmgGameHeartbeat: Active tab. parent postMsg",
+						);
+						window.parent.postMessage(
+							{ cmgGameHeartbeat: document.hasFocus() },
+							"*",
+						);
+					} else if (
+						typeof window.top.postMessage == "function" &&
+						window.top != window.self
+					) {
+						debugOut(new Date() + " cmgGameHeartbeat: Active tab. top postMsg");
+						window.top.postMessage(
+							{ cmgGameHeartbeat: document.hasFocus() },
+							"*",
+						);
+					}
+				} else {
+					debugOut(new Date() + " cmgGameHeartbeat: Inactive tab. No event");
+				}
+			}, 60000);
+		</script>
+	</head>
+	<body>
+		<div id="game">
+			<section id="screen-main">
+				<p class="logo"><img src="./images/logo.svg" alt="" /></p>
+				<h1>Coffee Shop</h1>
+
+				<ul class="menu">
+					<li>
+						<button type="button" class="coffee big" data-screen="screen-game">
+							<span>Play</span>
+						</button>
+					</li>
+					<li class="separated">
+						<button type="button" class="coffee" data-screen="screen-credits">
+							<span>Credits</span>
+						</button>
+					</li>
+					<li class="separated highscore">Highscore: <b></b></li>
+				</ul>
+				<p class="caption">Developed by <i>Armor Games Inc.</i></p>
+				<p class="status">© Copyright 2007 Armor Games Inc.</p>
+				<img class="decor-top" src="./images/main/top.svg" alt="" />
+				<img class="decor-bottom" src="./images/main/bottom.svg" alt="" />
+				<p class="back">
+					<button type="button" data-screen="screen-main"></button>
+				</p>
+			</section>
+
+			<section id="screen-credits" class="hidden">
+				<h2>Credits</h2>
+				<h3>Developed by <i>Armor Games</i></h3>
+				<ul>
+					<li>
+						Produced by . . . . . . . . . . .<b
+							>Daniel McNeely & Jeff Wofford</b
+						>
+					</li>
+					<li>
+						Programming . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+						.<b>Jeff Wofford</b>
+					</li>
+					<li>
+						Graphics . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+						. . .<b>James Dalby</b>
+					</li>
+					<li>
+						Music . . . . . . . . . . . . . . . . . . . . . . . . . . . . . .
+						.<b>Chris Branscome</b>
+					</li>
+					<li>
+						Sound Effects . . . . . . . . .
+						<b>Chris Branscome & Jeff Wofford</b>
+					</li>
+					<li>
+						JavaScript Conversion . . . . . . . . . . . . . . . . .<b
+							>Tomasz Grajewski</b
+						>
+					</li>
+				</ul>
+			</section>
+
+			<section id="screen-game" class="hidden">
+				<canvas></canvas>
+				<p class="balance"></p>
+				<p class="reputation"><span class="bad"></span></p>
+				<div class="weather small">
+					<p>
+						<span class="day"></span> <span class="time"></span>
+						<span class="temp"></span> <span class="temp-desc"></span>
+					</p>
+				</div>
+				<div class="weather big hidden">
+					<p>
+						<span class="day"></span> <span class="time"></span>
+						<span class="temp"></span> <span class="temp-desc"></span>
+					</p>
+				</div>
+				<div class="prepare-outer">
+					<ul class="tabs">
+						<li class="active">
+							<button type="button" data-tab="#game-tab-prepare">
+								Adjustments
+							</button>
+						</li>
+						<li class="hidden">
+							<button type="button" data-tab="#game-tab-stats">Stats</button>
+						</li>
+					</ul>
+					<div class="prepare" id="game-tab-prepare">
+						<h4 class="side">Cups<br />Coffee<br />Milk<br />Sugar</h4>
+						<div class="inventory">
+							<h5>Inventory</h5>
+							<h6>BUY</h6>
+							<div>
+								<div class="row">
+									<p class="unit"><b data-state="inventoryCups">0</b> units</p>
+									<p class="buy">
+										<span>cost: $2.00</span>
+										<button
+											type="button"
+											data-state="inventoryCups"
+											data-qty="10"
+											data-price="200"
+										>
+											10
+										</button>
+										<small>$0.20/unit</small>
+									</p>
+									<p class="buy">
+										<span>cost: $4.00</span>
+										<button
+											type="button"
+											data-state="inventoryCups"
+											data-qty="25"
+											data-price="400"
+										>
+											25
+										</button>
+										<small>$0.16/unit</small>
+									</p>
+									<p class="buy">
+										<span>cost: $6.00</span>
+										<button
+											type="button"
+											data-state="inventoryCups"
+											data-qty="50"
+											data-price="600"
+										>
+											50
+										</button>
+										<small>$0.12/unit</small>
+									</p>
+								</div>
+								<div class="row">
+									<p class="unit"><b data-state="inventoryCoffee">0</b> tsp</p>
+									<p class="buy">
+										<span>cost: $10.00</span>
+										<button
+											type="button"
+											data-state="inventoryCoffee"
+											data-qty="20"
+											data-price="1000"
+										>
+											20
+										</button>
+										<small>$0.50/tsp</small>
+									</p>
+									<p class="buy">
+										<span>cost: $14.00</span>
+										<button
+											type="button"
+											data-state="inventoryCoffee"
+											data-qty="40"
+											data-price="1400"
+										>
+											40
+										</button>
+										<small>$0.35/tsp</small>
+									</p>
+									<p class="buy">
+										<span>cost: $18.00</span>
+										<button
+											type="button"
+											data-state="inventoryCoffee"
+											data-qty="60"
+											data-price="1800"
+										>
+											60
+										</button>
+										<small>$0.30/tsp</small>
+									</p>
+								</div>
+								<div class="row">
+									<p class="unit"><b data-state="inventoryMilk">0</b> cups</p>
+									<p class="buy">
+										<span>cost: $1.00</span>
+										<button
+											type="button"
+											data-state="inventoryMilk"
+											data-qty="10"
+											data-price="100"
+										>
+											10
+										</button>
+										<small>$0.10/cup</small>
+									</p>
+									<p class="buy">
+										<span>cost: $1.80</span>
+										<button
+											type="button"
+											data-state="inventoryMilk"
+											data-qty="20"
+											data-price="180"
+										>
+											20
+										</button>
+										<small>$0.09/cup</small>
+									</p>
+									<p class="buy">
+										<span>cost: $2.00</span>
+										<button
+											type="button"
+											data-state="inventoryMilk"
+											data-qty="40"
+											data-price="200"
+										>
+											40
+										</button>
+										<small>$0.05/cup</small>
+									</p>
+								</div>
+								<div class="row">
+									<p class="unit"><b data-state="inventorySugar">0</b> tsp</p>
+									<p class="buy">
+										<span>cost: $3.00</span>
+										<button
+											type="button"
+											data-state="inventorySugar"
+											data-qty="10"
+											data-price="300"
+										>
+											10
+										</button>
+										<small>$0.30/tsp</small>
+									</p>
+									<p class="buy">
+										<span>cost: $5.00</span>
+										<button
+											type="button"
+											data-state="inventorySugar"
+											data-qty="20"
+											data-price="500"
+										>
+											20
+										</button>
+										<small>$0.25/tsp</small>
+									</p>
+									<p class="buy">
+										<span>cost: $8.00</span>
+										<button
+											type="button"
+											data-state="inventorySugar"
+											data-qty="50"
+											data-price="800"
+										>
+											50
+										</button>
+										<small>$0.16/tsp</small>
+									</p>
+								</div>
+							</div>
+						</div>
+						<div class="recipe expanded">
+							<h5>Recipe</h5>
+							<div>
+								<div>
+									<div class="row">
+										<p class="unit"><b>1</b> unit</p>
+									</div>
+									<div class="row">
+										<p
+											class="slider"
+											data-min="1"
+											data-max="4"
+											data-precision="1"
+											data-state="recipeCoffee"
+											data-display="#slider-recipe-coffee-value"
+										>
+											<span class="min-label">weak</span>
+											<span class="max-label">strong</span>
+											<span class="min-value">1</span>
+											<span class="max-value">4</span>
+											<button>1</button>
+										</p>
+										<p class="unit">
+											<b id="slider-recipe-coffee-value">1.9</b> tsp
+										</p>
+									</div>
+									<div class="row">
+										<p
+											class="slider"
+											data-min="0"
+											data-max="2"
+											data-precision="1"
+											data-state="recipeMilk"
+											data-display="#slider-recipe-milk-value"
+										>
+											<span class="min-label">black</span>
+											<span class="max-label">creamy</span>
+											<span class="min-value">0</span>
+											<span class="max-value">2</span>
+											<button>0</button>
+										</p>
+										<p class="unit">
+											<b id="slider-recipe-milk-value">0.2</b> cups
+										</p>
+									</div>
+									<div class="row">
+										<p
+											class="slider"
+											data-min="0"
+											data-max="4"
+											data-precision="1"
+											data-state="recipeSugar"
+											data-display="#slider-recipe-sugar-value"
+										>
+											<span class="min-label">bitter</span>
+											<span class="max-label">sweet</span>
+											<span class="min-value">0</span>
+											<span class="max-value">4</span>
+											<button>0</button>
+										</p>
+										<p class="unit">
+											<b id="slider-recipe-sugar-value">2</b> tsp
+										</p>
+									</div>
+								</div>
+							</div>
+						</div>
+						<div class="price">
+							<h4>Price</h4>
+							<p
+								class="slider"
+								data-scale="0.9"
+								data-min="0.05"
+								data-max="10"
+								data-prefix="$"
+								data-precision="2"
+								data-rounding="20"
+								data-state="price"
+								data-state-multiplier="100"
+							>
+								<span class="min-value">$0.05</span>
+								<span class="max-value">$10.00</span>
+								<button></button>
+							</p>
+						</div>
+						<p class="servings">Servings: <span>0</span></p>
+						<p class="limited">Limited by: <span>Cups</span></p>
+						<button
+							type="button"
+							class="small-gray quit"
+							data-screen="screen-confirmQuit"
+						>
+							<span>Quit</span>
+						</button>
+						<button type="button" class="small-gray undo" disabled>
+							<span>Undo Purchase</span>
+						</button>
+					</div>
+					<div class="stats" id="game-tab-stats">
+						<ul class="legend">
+							<li>
+								<button type="button" data-chart-line="daily-stats-money">
+									Cash <span style="background: #05ed05"></span>
+								</button>
+							</li>
+							<li>
+								<button type="button" data-chart-line="daily-stats-reputation">
+									Reputation <span style="background: #0505ed"></span>
+								</button>
+							</li>
+							<li>
+								<button type="button" data-chart-line="daily-stats-weather">
+									Weather <span style="background: #ebebeb"></span>
+								</button>
+							</li>
+							<li>
+								<button type="button" class="category">Finances</button>
+								<ul>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-cupsSold"
+										>
+											Cups Sold <span style="background: #058e05"></span>
+										</button>
+									</li>
+									<li>
+										<button type="button" data-chart-line="daily-stats-price">
+											Price <span style="background: #32ea51"></span>
+										</button>
+									</li>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-expenditures"
+										>
+											Expenditures <span style="background: #8e8e05"></span>
+										</button>
+									</li>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-revenues"
+										>
+											Revenues <span style="background: #8eea51"></span>
+										</button>
+									</li>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-profitsLosses"
+										>
+											Profits/Losses <span style="background: #05bc05"></span>
+										</button>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<button type="button" class="category">Recipe</button>
+								<ul>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-recipeCoffee"
+										>
+											Recipe - Coffee <span style="background: #050551"></span>
+										</button>
+									</li>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-recipeMilk"
+										>
+											Recipe - Milk <span style="background: #8e8eea"></span>
+										</button>
+									</li>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-recipeSugar"
+										>
+											Recipe - Sugar <span style="background: #9d9dea"></span>
+										</button>
+									</li>
+								</ul>
+							</li>
+							<li>
+								<button type="button" class="category">Inventory</button>
+								<ul>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-inventoryCups"
+										>
+											Inventory - Cups <span style="background: #ea0532"></span>
+										</button>
+									</li>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-inventoryCoffee"
+										>
+											Inventory - Coffee
+											<span style="background: #510505"></span>
+										</button>
+									</li>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-inventoryMilk"
+										>
+											Inventory - Milk <span style="background: #ea32bc"></span>
+										</button>
+									</li>
+									<li>
+										<button
+											type="button"
+											data-chart-line="daily-stats-inventorySugar"
+										>
+											Inventory - Sugar
+											<span style="background: #ea5105"></span>
+										</button>
+									</li>
+								</ul>
+							</li>
+						</ul>
+
+						<div class="chart"></div>
+						<p class="extra-legend">Days</p>
+					</div>
+					<button type="button" class="start-day" disabled>Loading…</button>
+				</div>
+
+				<div class="serve-price hidden">
+					<div>
+						<h4>Price</h4>
+						<p
+							class="slider"
+							data-scale="0.6"
+							data-min="0.05"
+							data-max="10"
+							data-prefix="$"
+							data-precision="2"
+							data-rounding="20"
+							data-state="price"
+							data-state-multiplier="100"
+							data-display="#in-game-price"
+						>
+							<span class="min-value">$0.05</span>
+							<span class="max-value">$10.00</span>
+							<button></button>
+						</p>
+						<p class="price" id="in-game-price"></p>
+					</div>
+				</div>
+
+				<button type="button" class="skip-day hidden">
+					Skip to End of Day
+				</button>
+
+				<div class="serve-inventory hidden">
+					<div>
+						<h5>Inventory</h5>
+						<dl>
+							<dt>Cups</dt>
+							<dd></dd>
+							<dt>Coffee</dt>
+							<dd></dd>
+							<dt>Milk</dt>
+							<dd></dd>
+							<dt>Sugar</dt>
+							<dd></dd>
+						</dl>
+					</div>
+				</div>
+			</section>
+
+			<section id="screen-day-stats" class="hidden">
+				<div>
+					<h2></h2>
+					<p class="summary"></p>
+					<p class="loses"></p>
+					<ul class="legend">
+						<li>
+							<button type="button" data-chart-line="hourly-stats-money">
+								Cash <span style="background: #05ed05"></span>
+							</button>
+						</li>
+						<li>
+							<button type="button" data-chart-line="hourly-stats-reputation">
+								Reputation <span style="background: #0505ed"></span>
+							</button>
+						</li>
+						<li>
+							<button type="button" data-chart-line="hourly-stats-cupsSold">
+								Cups Sold <span style="background: #048f04"></span>
+							</button>
+						</li>
+						<li>
+							<button type="button" data-chart-line="hourly-stats-price">
+								Price <span style="background: #32ec51"></span>
+							</button>
+						</li>
+					</ul>
+
+					<div class="chart"></div>
+
+					<p class="forecast">
+						Tomorrow's Forecast: <span class="temperature"></span>
+					</p>
+				</div>
+				<button type="button" class="gray continue">
+					<span>Continue</span>
+				</button>
+			</section>
+
+			<section id="screen-tutorial1" class="tutorial hidden">
+				<div>
+					<div class="page page-1">
+						<h3>Getting Started</h3>
+						<p>
+							Congratulations! You've opened your own coffee stand,
+							<b>Cafe Calypso</b>.
+						</p>
+						<p>Your goal is to make as much money as you can in 14 days.</p>
+					</div>
+					<div class="page page-2 hidden">
+						<h3>Starting the Day</h3>
+						<p>
+							Each day begins in <b>Prep Mode</b>. In Prep Mode you buy
+							<b>ingredients</b>, adjust your <b>recipe</b>, and set your
+							<b>price</b>.
+						</p>
+					</div>
+					<div class="page page-3 hidden">
+						<h3>Ingredients</h3>
+						<p>
+							Before you can make coffee you have to buy the ingredients that go
+							into it. Coffee has just four ingredients:
+						</p>
+						<ul>
+							<li>
+								<b>Cups</b> - You can't sell coffee without a cup to serve it
+								in!
+							</li>
+							<li>
+								<b>Coffee</b> - Dark-roasted ground coffee beans keep customers
+								coming.
+							</li>
+							<li><b>Milk</b> - Customers like their coffee creamy.</li>
+							<li>
+								<b>Sugar</b> - What's a cup of coffee without a little
+								sweetener?
+							</li>
+						</ul>
+						<p>
+							Click <b>Next</b> to look at your inventory of ingredients and buy
+							more.
+						</p>
+					</div>
+					<p class="pages">
+						<button type="button" class="show active">Show tutorial</button>
+						<span class="number">1/3</span>
+						<button type="button" class="back hidden"><span>Back</span></button>
+						<button type="button" class="next"><span>Next</span></button>
+					</p>
+				</div>
+			</section>
+
+			<section id="screen-tutorial2" class="tutorial hidden">
+				<div>
+					<div class="page page-1">
+						<p>
+							Move your mouse or tap the the <b>Inventory</b> area to buy
+							ingredients for the day.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section id="screen-tutorial3" class="tutorial hidden">
+				<div>
+					<div class="page page-1">
+						<h3>Stocked Up</h3>
+						<p>
+							Excellent! You bought enough inventory so that you can serve some
+							coffee when customers start arriving.
+						</p>
+					</div>
+					<div class="page page-2 hidden">
+						<h3>Recipe and Price</h3>
+						<p>
+							Before leaving Prep Mode you'll want to adjust the
+							<b>recipe</b> used to make your coffee, as well as the
+							<b>price</b> you charge customers for each serving.
+						</p>
+					</div>
+					<div class="page page-3 hidden">
+						<h3>Recipe</h3>
+						<p>
+							Your <b>recipe</b> determines how expensive your coffee is to
+							make. Your recipe also determines how well your customers like
+							your coffee.
+						</p>
+						<p>
+							You can adjust how much <b>coffee, milk</b>, and <b>sugar</b> you
+							put into each <b>cup</b> of coffee.
+						</p>
+						<p>
+							Generally speaking, customers like more of everything and are
+							willing to pay a higher price for it!
+						</p>
+					</div>
+					<div class="page page-4 hidden">
+						<h3>Price</h3>
+						<p>
+							Pay close attention to your <b>price</b>. This is the amount you
+							charge for each cup of coffee.
+						</p>
+						<p>
+							High-priced coffee earns you more money, but customers won't buy
+							your coffee if they think it's too expensive.
+						</p>
+						<p>They'll pay more on cold days and less on warm ones.</p>
+						<p>
+							Adjusting your price each day is crucial skill in running a
+							successful business!
+						</p>
+					</div>
+					<div class="page page-5 hidden">
+						<h3>Starting the Day</h3>
+						<p>
+							Try adjusting your recipe and price now. Then, when you're ready,
+							just click <b>Start the Day</b> to open your shop and start
+							selling coffee!
+						</p>
+					</div>
+					<p class="pages">
+						<button type="button" class="show active">Show tutorial</button>
+						<span class="number">1/5</span>
+						<button type="button" class="back hidden"><span>Back</span></button>
+						<button type="button" class="next"><span>Next</span></button>
+					</p>
+				</div>
+			</section>
+
+			<section id="screen-confirm-quit" class="hidden">
+				<h5>Abort Game?</h5>
+				<div>
+					<p>Do you want to abort the game?</p>
+					<p>
+						Choosing "Yes" will abort the current game and return you to the
+						main menu. Any progress you have made in this game will be lost.
+					</p>
+					<p>Choosing "No" will resume the current game.</p>
+					<p>
+						<button type="button" class="coffee quit"><span>Yes</span></button>
+						<button type="button" class="coffee close"><span>No</span></button>
+					</p>
+				</div>
+			</section>
+		</div>
+
+		<script src="./game.js"></script>
+		<script>
+			function fnSendMsg(evt) {
+				if (typeof window.parent.postMessage == "function") {
+					window.parent.postMessage("keypress-from-game", "*");
+				} else if (
+					typeof window.top.postMessage == "function" &&
+					window.top != window.self
+				) {
+					window.top.postMessage("keypress-from-game", "*");
+				}
+			}
+			document.body.addEventListener("click", function (event) {
+				fnSendMsg(event);
+			});
+			document.addEventListener("keypress", function (event) {
+				fnSendMsg(event);
+			});
+			document.addEventListener("keydown", function (e) {
+				fnSendMsg(event);
+			});
+			document.addEventListener("keyup", function (e) {
+				fnSendMsg(event);
+			});
+		</script>
+	</body>
+</html>

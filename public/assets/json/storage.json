@@ -2195,5 +2195,40 @@
 		"path": "/webgl/ironlung/",
 		"img": "/ironlung.webp",
 		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Needy Streamer Overload",
+		"id": "nso",
+		"path": "/webgl/nso/",
+		"img": "/nso.webp",
+		"category": ["Adventure", "Webport"]
+	},
+	{
+		"name": "Doki Doki Literature Club",
+		"id": "ddlc",
+		"path": "/webgl/ddlc/",
+		"img": "/ddlc.webp",
+		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Coffee Shop",
+		"id": "coffeeshop",
+		"path": "/html/coffeeshop/",
+		"img": "/coffeeshop.webp",
+		"category": ["Simulation", "Sandbox"]
+	},
+	{
+		"name": "Slow Roads",
+		"id": "slowroads",
+		"path": "/html/slowroads/",
+		"img": "/slowroads.webp",
+		"category": ["Simulation", "Sandbox"]
+	},
+	{
+		"name": "Five night's at Εpѕteinѕ",
+		"id": "fnae",
+		"path": "/html/slowroads/",
+		"img": "/fnae.webp",
+		"category": ["Horror", "Webport"]
 	}
 ]

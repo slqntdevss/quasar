@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="380" height="26" preserveAspectRatio="none" version="1.1" viewBox="0 0 380 26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path id="background" d="m332 229.15q13.95 0 23.8 8.6 7.9 6.85 9.45 15.65h1.9q-1.65-9.55-10-16.85-10.4-9-25.15-9h-11.15l-12.85 0.05q-14.8 0-25.2 9-8.25 7.2-9.95 16.85h1.9q1.65-8.95 9.45-15.65 9.8-8.6 23.8-8.6l12.85-0.05h11.15m22.5 9.7q-9.25-8.05-22.5-8.05h-11.15l-12.85 0.05q-13.25 0-22.5 8.05-7.2 6.25-8.85 14.55h44.2l42.5-0.05q-1.45-8.1-8.85-14.55z" fill="#333"/>
+        <path id="border" d="m332 230.8q13.25 0 22.5 8.05 7.4 6.45 8.85 14.55h1.9q-1.55-8.8-9.45-15.65-9.85-8.6-23.8-8.6h-11.15l-12.85 0.05q-14 0-23.8 8.6-7.8 6.7-9.45 15.65h1.9q1.65-8.3 8.85-14.55 9.25-8.05 22.5-8.05l12.85-0.05z"/>
+    </defs>
+    <use id="background-disabled" transform="translate(-272.85,-227.45)" width="100%" height="100%" xlink:href="#background"/>
+    <use id="border-disabled" transform="translate(-272.85,-227.45)" width="100%" height="100%" xlink:href="#border" fill="#262626"/>
+    <use id="background-normal" transform="translate(-177.85,-227.45)" width="100%" height="100%" xlink:href="#background"/>
+    <use id="border-normal" transform="translate(-177.85,-227.45)" width="100%" height="100%" xlink:href="#border" fill="#666"/>
+    <use id="background-hover" transform="translate(-82.85 -227.45)" width="100%" height="100%" xlink:href="#background"/>
+    <use id="border-hover" transform="translate(-82.85 -227.45)" width="100%" height="100%" xlink:href="#border" fill="#ccc"/>
+    <use id="background-down" transform="translate(12.15 -227.45)" width="100%" height="100%" xlink:href="#background"/>
+    <use id="border-down" transform="translate(12.15 -227.45)" width="100%" height="100%" xlink:href="#border" fill="#fff"/>
+</svg>

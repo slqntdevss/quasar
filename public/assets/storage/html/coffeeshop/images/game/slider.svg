@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="212.6" height="16" preserveAspectRatio="none" version="1.1" viewBox="0 0 212.6 16" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <g id="Layer0_0_FILL">
+            <path d="m426.3 274.7q0-1.25-1.85-1.25l-208.9 13.55q-1.85 0-1.85 1.25 0 1.2 1.85 1.2h208.9q1.85 0 1.85-1.2z" fill="#666"/>
+        </g>
+    </defs>
+    <use transform="translate(-213.7,-273.45)" width="100%" height="100%" xlink:href="#Layer0_0_FILL"/>
+</svg>
