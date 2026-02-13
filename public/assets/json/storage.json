@@ -2230,5 +2230,12 @@
 		"path": "/webgl/fnae/",
 		"img": "/fnae.webp",
 		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Jumbo Mario",
+		"id": "jm",
+		"path": "/webgl/jm/",
+		"img": "/jm.webp",
+		"category": ["Platformer", "Webport"]
 	}
 ]
