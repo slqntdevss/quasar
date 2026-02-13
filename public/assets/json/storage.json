@@ -2227,7 +2227,7 @@
 	{
 		"name": "Five night's at Εpѕteinѕ",
 		"id": "fnae",
-		"path": "/html/slowroads/",
+		"path": "/webgl/fnae/",
 		"img": "/fnae.webp",
 		"category": ["Horror", "Webport"]
 	}
