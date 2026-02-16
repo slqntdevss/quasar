@@ -18,6 +18,7 @@ const fileInput = document.getElementById("fileInput");
 const shaderCodeArea = document.getElementById("shaderCode");
 const applyShaderBtn = document.getElementById("applyShader");
 const resetShaderBtn = document.getElementById("resetShader");
+const cloakType = document.getElementById("cloakMethod");
 
 let allowRedirect = false;
 let customShaderCode = "";
@@ -35,6 +36,17 @@ if (localStorage.getItem("activeTheme") == null) {
 }
 if (localStorage.getItem("glslQuality") == null) {
 	localStorage.setItem("glslQuality", 0.2);
+}
+if (localStorage.getItem("cloakType") == null) {
+	localStorage.setItem("cloakType", "normal");
+}
+if (cloakType != null) {
+	if (localStorage.getItem("cloakType") != null) {
+		cloakType.value = localStorage.getItem("cloakType");
+	}
+	cloakType.addEventListener("change", async (e) => {
+		localStorage.setItem("cloakType", e.target.value);
+	});
 }
 
 if (cursorSpeedSlider != null) {
@@ -223,9 +235,11 @@ document.addEventListener("DOMContentLoaded", async () => {
 		localStorage.getItem("autoCloak") == "true" &&
 		window.top === window.self
 	) {
-		const ab = window.open("about:blank", "_blank");
-		if (ab) {
-			ab.document.write(`
+		if (localStorage.getItem("cloakType") != null) {
+			if (localStorage.getItem("cloakType") == "normal") {
+				const ab = window.open("about:blank", "_blank");
+				if (ab) {
+					ab.document.write(`
 <!DOCTYPE html>
 <html lang="en" style="margin: 0; padding: 0; height: 100vh">
 	<head>
@@ -237,7 +251,33 @@ document.addEventListener("DOMContentLoaded", async () => {
 		<iframe width="100%" height="100%" style="margin: 0" src="${window.location.origin}"></iframe>
 	</body>
 </html>`);
-			window.location.href = "https://classroom.google.com";
+					window.location.href = "https://classroom.google.com";
+				}
+			} else {
+				const privateWindow = window.open(
+					"",
+					"privateWindow",
+					"scrollbars=1,height=" +
+						screen.availHeight +
+						",width=" +
+						screen.availWidth,
+				);
+				if (privateWindow) {
+					privateWindow.document.write(`
+<!DOCTYPE html>
+<html lang="en" style="margin: 0; padding: 0; height: 100vh">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Untitled</title>
+	</head>
+	<body style="margin: 0; padding: 0; height: 100vh; overflow: hidden">
+		<iframe width="100%" height="100%" style="margin: 0" src="${window.location.origin}"></iframe>
+	</body>
+</html>`);
+					window.location.href = "https://classroom.google.com";
+				}
+			}
 		}
 	}
 

@@ -2237,5 +2237,12 @@
 		"path": "/webgl/jm/",
 		"img": "/jm.webp",
 		"category": ["Platformer", "Webport"]
+	},
+	{
+		"name": "Shift at Midnight",
+		"id": "shiftatmidnight",
+		"path": "/webgl/shiftatmidnight/",
+		"img": "/shiftatmidnight.webp",
+		"category": ["Horror", "Webport"]
 	}
 ]
