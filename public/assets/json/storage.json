@@ -2241,7 +2241,7 @@
 	{
 		"name": "Shift at Midnight",
 		"id": "shiftatmidnight",
-		"path": "/webgl/shiftatmidnight/",
+		"path": "/webgl/sam/",
 		"img": "/shiftatmidnight.webp",
 		"category": ["Horror", "Webport"]
 	}
