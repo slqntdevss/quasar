@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="598.1" height="400.1" preserveAspectRatio="none" version="1.1" viewBox="0 0 598.1 400.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <linearGradient id="a" x1="6.35" x2="278.35" y1="105.65" y2="377.65" gradientUnits="userSpaceOnUse">
+            <stop stop-color="#fff" offset="0"/>
+            <stop stop-color="#E9DCC9" offset="1"/>
+        </linearGradient>
+        <g id="Layer0_0_FILL">
+            <path d="m615.1 88.45h-7.9l-564.2-0.05q-18 0-18 18v312.05q0 18 18 18h554.1q18 0 18-18v-330m-548 56.5h505.95z" fill="url(#a)"/>
+        </g>
+        <g id="Menu_Menu_Back_0_Layer0_0_FILL">
+            <path d="m0 63v-41q0-22-22-22h-265.1q-22 0-22 22v23h-275.35q-13.65 3.7-13.65 21v312.05q0 22 22 22h554.1q22 0 22-22v-312.05q0-1.6359-0.1-3.1-0.054297-0.9082-0.15-1.75l0.25 1.85m-4-17v-24q0-18-18-18h-265.1q-18 0-18 18v23.6h-2v-23.6q0-20 20-20h265.1q20 0 20 20v356.05q0 20-20 20h-554.1q-20 0-20-20v-312.05q0-20 20-20z" fill="#eca779"/>
+            <path d="m-4 22v24h-572.1q-20 0-20 20v312.05q0 20 20 20h554.1q20 0 20-20v-356.05q0-20-20-20h-265.1q-20 0-20 20v23.6h2v-23.6q0-18 18-18h265.1q18 0 18 18m-7.9 26.05h7.9v330q0 18-18 18h-554.1q-18 0-18-18v-312.05q0-18 18-18z" fill="#fff"/>
+            <path d="m-4 48.05h-7.9l-564.2-0.05q-18 0-18 18v312.05q0 18 18 18h554.1q18 0 18-18z" fill="#f4eedf"/>
+        </g>
+        <path id="Layer0_0_1_STROKES" d="m67.1 144.95h505.95" fill="none" stroke="#696668" stroke-linecap="round" stroke-linejoin="round"/>
+        <font id="b" horiz-adv-x="2048" horiz-origin-x="0" horiz-origin-y="0" vert-adv-y="90" vert-origin-x="45" vert-origin-y="90">
+            <font-face font-family="Times_New_Roman_Regular" ascent="1825" descent="443" units-per-em="2048"/>
+            <glyph d=" M 17 916 L 448 916 448 879 420 879 Q 381 879 361 860 340 841 340 809 340 774 361 726 L 574 220 788 745 Q 811 801 811 830 811 844 803 853 792 868 775 873 758 879 706 879 L 706 916 1005 916 1005 879 Q 953 875 933 858 898 828 870 758 L 545 -28 504 -28 177 745 Q 155 799 135 822 115 846 84 862 67 871 17 879 L 17 916 Z" horiz-adv-x="1024" unicode="v"/>
+        </font>
+    </defs>
+    <use transform="matrix(1 0 0 1.0001 598.1 0)" width="100%" height="100%" xlink:href="#Menu_Menu_Back_0_Layer0_0_FILL"/>
+    <g transform="translate(-20.95,-39.95)">
+        <use width="100%" height="100%" xlink:href="#Layer0_0_FILL"/>
+        <use width="100%" height="100%" xlink:href="#Layer0_0_1_STROKES"/>
+    </g>
+</svg>

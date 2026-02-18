@@ -1,0 +1,501 @@
+{
+    "meta": {
+        "width": 1024,
+        "height": 1024,
+        "image": "game.png"
+    },
+    "frames": {
+        "game/post.png": {
+            "sourceSize": {
+                "h": 630,
+                "w": 105
+            },
+            "frame": {
+                "h": 630,
+                "w": 105,
+                "x": 2,
+                "y": 2
+            }
+        },
+        "game/bubbles/bubble1.png": {
+            "sourceSize": {
+                "h": 178,
+                "w": 239
+            },
+            "frame": {
+                "h": 178,
+                "w": 239,
+                "x": 109,
+                "y": 2
+            }
+        },
+        "game/bubbles/bubble2.png": {
+            "sourceSize": {
+                "h": 171,
+                "w": 243
+            },
+            "frame": {
+                "h": 171,
+                "w": 243,
+                "x": 350,
+                "y": 2
+            }
+        },
+        "game/bubbles/1_green.png": {
+            "sourceSize": {
+                "h": 170,
+                "w": 120
+            },
+            "frame": {
+                "h": 170,
+                "w": 120,
+                "x": 595,
+                "y": 2
+            }
+        },
+        "game/bubbles/1_red.png": {
+            "sourceSize": {
+                "h": 170,
+                "w": 120
+            },
+            "frame": {
+                "h": 170,
+                "w": 120,
+                "x": 717,
+                "y": 2
+            }
+        },
+        "game/bubbles/2_green.png": {
+            "sourceSize": {
+                "h": 163,
+                "w": 120
+            },
+            "frame": {
+                "h": 163,
+                "w": 120,
+                "x": 839,
+                "y": 2
+            }
+        },
+        "game/bubbles/2_red.png": {
+            "sourceSize": {
+                "h": 163,
+                "w": 120
+            },
+            "frame": {
+                "h": 163,
+                "w": 120,
+                "x": 109,
+                "y": 182
+            }
+        },
+        "game/sold_out.png": {
+            "sourceSize": {
+                "h": 97,
+                "w": 125
+            },
+            "frame": {
+                "h": 97,
+                "w": 125,
+                "x": 231,
+                "y": 182
+            }
+        },
+        "game/bubbles/price.png": {
+            "sourceSize": {
+                "h": 64,
+                "w": 50
+            },
+            "frame": {
+                "h": 64,
+                "w": 50,
+                "x": 961,
+                "y": 2
+            }
+        },
+        "game/bubbles/weather.png": {
+            "sourceSize": {
+                "h": 61,
+                "w": 61
+            },
+            "frame": {
+                "h": 61,
+                "w": 61,
+                "x": 961,
+                "y": 68
+            }
+        },
+        "game/bubbles/weather_cold.png": {
+            "sourceSize": {
+                "h": 60,
+                "w": 60
+            },
+            "frame": {
+                "h": 60,
+                "w": 60,
+                "x": 358,
+                "y": 182
+            }
+        },
+        "game/bubbles/reputation.png": {
+            "sourceSize": {
+                "h": 57,
+                "w": 55
+            },
+            "frame": {
+                "h": 57,
+                "w": 55,
+                "x": 420,
+                "y": 182
+            }
+        },
+        "game/bubbles/sugar.png": {
+            "sourceSize": {
+                "h": 53,
+                "w": 57
+            },
+            "frame": {
+                "h": 53,
+                "w": 57,
+                "x": 477,
+                "y": 182
+            }
+        },
+        "game/bubbles/milk.png": {
+            "sourceSize": {
+                "h": 50,
+                "w": 45
+            },
+            "frame": {
+                "h": 50,
+                "w": 45,
+                "x": 536,
+                "y": 182
+            }
+        },
+        "game/tooltips/8.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 594
+            },
+            "frame": {
+                "h": 47,
+                "w": 594,
+                "x": 231,
+                "y": 281
+            }
+        },
+        "game/tooltips/10.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 533
+            },
+            "frame": {
+                "h": 47,
+                "w": 533,
+                "x": 109,
+                "y": 347
+            }
+        },
+        "game/tooltips/22.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 528
+            },
+            "frame": {
+                "h": 47,
+                "w": 528,
+                "x": 109,
+                "y": 396
+            }
+        },
+        "game/tooltips/1.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 524
+            },
+            "frame": {
+                "h": 47,
+                "w": 524,
+                "x": 109,
+                "y": 445
+            }
+        },
+        "game/tooltips/12.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 513
+            },
+            "frame": {
+                "h": 47,
+                "w": 513,
+                "x": 109,
+                "y": 494
+            }
+        },
+        "game/tooltips/20.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 506
+            },
+            "frame": {
+                "h": 47,
+                "w": 506,
+                "x": 109,
+                "y": 543
+            }
+        },
+        "game/tooltips/14.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 499
+            },
+            "frame": {
+                "h": 47,
+                "w": 499,
+                "x": 2,
+                "y": 634
+            }
+        },
+        "game/tooltips/16.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 496
+            },
+            "frame": {
+                "h": 47,
+                "w": 496,
+                "x": 503,
+                "y": 634
+            }
+        },
+        "game/tooltips/0.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 462
+            },
+            "frame": {
+                "h": 47,
+                "w": 462,
+                "x": 2,
+                "y": 683
+            }
+        },
+        "game/tooltips/11.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 456
+            },
+            "frame": {
+                "h": 47,
+                "w": 456,
+                "x": 466,
+                "y": 683
+            }
+        },
+        "game/tooltips/18.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 407
+            },
+            "frame": {
+                "h": 47,
+                "w": 407,
+                "x": 583,
+                "y": 182
+            }
+        },
+        "game/tooltips/19.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 393
+            },
+            "frame": {
+                "h": 47,
+                "w": 393,
+                "x": 624,
+                "y": 494
+            }
+        },
+        "game/tooltips/3.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 384
+            },
+            "frame": {
+                "h": 47,
+                "w": 384,
+                "x": 635,
+                "y": 445
+            }
+        },
+        "game/tooltips/6.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 382
+            },
+            "frame": {
+                "h": 47,
+                "w": 382,
+                "x": 639,
+                "y": 396
+            }
+        },
+        "game/tooltips/5.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 379
+            },
+            "frame": {
+                "h": 47,
+                "w": 379,
+                "x": 617,
+                "y": 543
+            }
+        },
+        "game/tooltips/7.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 359
+            },
+            "frame": {
+                "h": 47,
+                "w": 359,
+                "x": 644,
+                "y": 347
+            }
+        },
+        "game/tooltips/4.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 332
+            },
+            "frame": {
+                "h": 47,
+                "w": 332,
+                "x": 2,
+                "y": 732
+            }
+        },
+        "game/tooltips/15.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 320
+            },
+            "frame": {
+                "h": 47,
+                "w": 320,
+                "x": 336,
+                "y": 732
+            }
+        },
+        "game/tooltips/2.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 293
+            },
+            "frame": {
+                "h": 47,
+                "w": 293,
+                "x": 658,
+                "y": 732
+            }
+        },
+        "game/tooltips/9.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 249
+            },
+            "frame": {
+                "h": 47,
+                "w": 249,
+                "x": 2,
+                "y": 781
+            }
+        },
+        "game/tooltips/13.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 239
+            },
+            "frame": {
+                "h": 47,
+                "w": 239,
+                "x": 253,
+                "y": 781
+            }
+        },
+        "game/tooltips/17.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 225
+            },
+            "frame": {
+                "h": 47,
+                "w": 225,
+                "x": 494,
+                "y": 781
+            }
+        },
+        "game/tooltips/21.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 192
+            },
+            "frame": {
+                "h": 47,
+                "w": 192,
+                "x": 827,
+                "y": 281
+            }
+        },
+        "game/tooltips/23.png": {
+            "sourceSize": {
+                "h": 47,
+                "w": 168
+            },
+            "frame": {
+                "h": 47,
+                "w": 168,
+                "x": 721,
+                "y": 781
+            }
+        },
+        "game/bubbles/coffee.png": {
+            "sourceSize": {
+                "h": 46,
+                "w": 49
+            },
+            "frame": {
+                "h": 46,
+                "w": 49,
+                "x": 924,
+                "y": 683
+            }
+        },
+        "game/bubbles/decrease.png": {
+            "sourceSize": {
+                "h": 34,
+                "w": 37
+            },
+            "frame": {
+                "h": 34,
+                "w": 37,
+                "x": 961,
+                "y": 131
+            }
+        },
+        "game/bubbles/increase.png": {
+            "sourceSize": {
+                "h": 34,
+                "w": 37
+            },
+            "frame": {
+                "h": 34,
+                "w": 37,
+                "x": 358,
+                "y": 244
+            }
+        }
+    }
+}

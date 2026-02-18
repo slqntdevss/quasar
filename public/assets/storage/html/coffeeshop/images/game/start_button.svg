@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="604" height="50" preserveAspectRatio="none" version="1.1" viewBox="0 0 604 50" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <defs>
+        <path id="background" d="m395.5 233.5q0-18-18-18h-115q-18 0-18 18v14q0 18 18 18h115q18 0 18-18v-14m-18-16q16 0 16 16v14q0 16-16 16h-115q-16 0-16-16v-14q0-16 16-16h115m14 16q0-14-14-14h-115q-14 0-14 14v14q0 14 14 14h115q14 0 14-14v-14m-17.35-5.5 9.05 12.35-9.05 12.4 9.05-12.4z" fill="#333" fill-opacity=".9"/>
+        <path id="border" d="m393.5 233.5q0-16-16-16h-115q-16 0-16 16v14q0 16 16 16h115q16 0 16-16v-14m-16-14q14 0 14 14v14q0 14-14 14h-115q-14 0-14-14v-14q0-14 14-14z"/>
+        <path id="arrow" d="m374.15 228 9.05 12.35-9.05 12.4" fill="none" stroke-linecap="square" stroke-linejoin="round" stroke-width="4"/>
+    </defs>
+    <use id="background-disabled" transform="translate(-244.5,-215.5)" width="100%" height="100%" xlink:href="#background"/>
+    <use id="border-disabled" transform="translate(-244.5,-215.5)" width="100%" height="100%" xlink:href="#border" fill="#1e1e1e"/>
+    <use id="arrow-disabled" transform="translate(-244.5,-215.5)" width="100%" height="100%" xlink:href="#arrow" stroke="#1e1e1e"/>
+
+    <use id="background-normal" transform="translate(-93.5,-215.5)" width="100%" height="100%" xlink:href="#background"/>
+    <use id="border-normal" transform="translate(-93.5,-215.5)" width="100%" height="100%" xlink:href="#border" fill="#666"/>
+    <use id="arrow-normal" transform="translate(-93.5,-215.5)" width="100%" height="100%" xlink:href="#arrow" stroke="#0f0"/>
+
+    <use id="background-hover" transform="translate(57.5,-215.5)" width="100%" height="100%" xlink:href="#background"/>
+    <use id="border-hover" transform="translate(57.5,-215.5)" width="100%" height="100%" xlink:href="#border" fill="#ccc"/>
+    <use id="arrow-hover" transform="translate(57.5,-215.5)" width="100%" height="100%" xlink:href="#arrow" stroke="#0f0"/>
+
+    <use id="background-down" transform="translate(208.5,-215.5)" width="100%" height="100%" xlink:href="#background"/>
+    <use id="border-down" transform="translate(208.5,-215.5)" width="100%" height="100%" xlink:href="#border" fill="#fff"/>
+    <use id="arrow-down" transform="translate(208.5,-215.5)" width="100%" height="100%" xlink:href="#arrow" stroke="#fff"/>
+</svg>

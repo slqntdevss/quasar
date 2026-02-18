@@ -1,0 +1,382 @@
+/*
+ * Generic styles
+ */
+html {overflow: hidden; width: 100%; height: 99.9%; -webkit-text-size-adjust: none}
+
+body {
+    overflow: hidden;
+    width: 100%;
+    height: 99.9%;
+    background: #000;
+    color: #fff;
+    font: normal normal 400 18px/24px 'Calibri', sans-serif;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: default;
+    touch-action: none;
+}
+
+* {box-sizing: border-box; margin: 0; padding: 0; font: inherit; -webkit-touch-callout: none; list-style: none}
+
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {-webkit-appearance: none; margin: 0}
+/* Firefox */
+input[type=number] {-moz-appearance: textfield}
+
+a, button, input[type=submit], input[type=button], input[type=reset], input:focus, select, label, option {
+    cursor: pointer;
+    outline: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+[disabled] {cursor: auto}
+
+button {padding: 0; border: none; background: transparent; font: inherit}
+button::-moz-focus-inner {border: 0}
+
+button.small-gray {padding: 1px; color: #999; background: #333; border-radius: 10px; font: 400 14px/18px 'Glass Antiqua', cursive}
+button.small-gray>span {display: inline-block; vertical-align: top; width: 100px; border: 1px solid #999; border-radius: 10px}
+button.small-gray:hover {color: #ccc}
+button.small-gray:hover>span {border-color: #ccc}
+button.small-gray:active {color: #fff}
+button.small-gray:active>span {border-color: #fff}
+button.small-gray[disabled] {color: #000}
+button.small-gray[disabled]>span {border-color: #000}
+
+img {pointer-events: none}
+
+.tooltip {display: inline-block; margin: 2px 0; padding: 0 5px; border: 2px solid #000; background: #ffffcc; color: #000; font-size: 30px; font-family: 'Calibri'; line-height: 43px; white-space: nowrap}
+.tooltip+#game {display: none}
+
+#game {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 640px;
+    height: 480px;
+    margin: -240px 0 0 -320px;
+    z-index: 1;
+    opacity: 1;
+    transition: left 0.5s ease;
+    overflow: hidden;
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+    color: #000;
+}
+
+/* .loaded #game {background: #f9f0e3} */
+
+canvas {position: absolute; left: 0; top: 0; z-index: -1; width: 100% !important; height: 100% !important; background: transparent url('../images/game/preload.png') no-repeat 50% 50%; background-size: contain}
+
+section {position: absolute; z-index: 1; width: 100%; height: 100%}
+
+section#screen-main {z-index: 20; opacity: 0; background: #f9f0e3; font-family: 'Glass Antiqua', cursive}
+button.coffee {overflow: hidden; position: relative; vertical-align: top; width: 200px; height: 40px; margin: 0; padding: 0; border: none; border-radius: 20px; background: #f9f0e3 url('../images/button.svg') no-repeat 100% 100%; color: #666; font-family: 'Glass Antiqua', cursive; font-size: 18px; box-shadow: 0 0 20px rgba(163, 41, 11, 0.25);}
+button.coffee span {content: ''; box-sizing: border-box; position: absolute; left: 2px; top: 2px; right: 2px; bottom: 2px; border-radius: 20px; border: 2px solid #fff; line-height: 32px}
+button.coffee.big {height: 48px; border: none; border-radius: 24px; font-size: 30px}
+button.coffee.big span {border-radius: 24px; line-height: 40px}
+
+/* @media (hover: hover) { */
+    button.coffee:hover {color: #333}
+    button.coffee:hover span {border-color: #eba272}
+/* } */
+
+button.coffee:active span {border-color: #333}
+
+section#screen-main h1 {position: absolute; left: 0px; top: 150px; z-index: 3; width: 380px; color: #4f2f0f; font-size: 64px; text-shadow: 3px 3px 9px rgba(79, 47, 15, 0.54); text-align: center; transform-origin: 0 100%; transform: translate(-100px, 0) rotate(-90deg)}
+section#screen-main .logo {position: absolute; z-index: 0; left: 225px; z-index: 3; top: 0; width: 190px}
+section#screen-main .logo img {display: block; width: 100%}
+section#screen-main .menu {position: absolute; left: 380px; top: 135px; z-index: 1}
+section#screen-main .menu li {transform: translate(0, 370px)}
+section#screen-main .menu li.separated {margin-top: 45px; transform: translate(0, 370px)}
+section#screen-main .caption {position: absolute; left: 0; top: 310px; width: 380px; z-index: -1; color: #c30; font-size: 20px; text-align: center; opacity: 0}
+section#screen-main .caption i {color: #930; font-style: normal}
+section#screen-main .status {position: absolute; left: 0; right: 0; bottom: -25px; z-index: 3; color: #c30; font-size: 16px; line-height: 25px; text-align: center}
+section#screen-main .decor-top {position: absolute; left: 0; right: 0; top: 0}
+section#screen-main .decor-bottom {position: absolute; left: 0; right: 0; bottom: 0; z-index: 2}
+section#screen-main .back {position: absolute; right: -60px; top: 10px; transition: right 0.5s ease-in-out}
+section#screen-main .back button {vertical-align: top; width: 54px; height: 42px; background: transparent url('../images/main/back.svg') no-repeat 0 0}
+section#screen-main .back button:hover {background-position: -54px 0}
+section#screen-main .back button:active {background-position: -108px 0}
+
+section#screen-main.hidden {visibility: hidden}
+section#screen-main.show {opacity: 1; transition: opacity 1s ease-out 0.25s}
+section#screen-main.show h1 {transform: rotate(0) translate(0, 0); transition: transform 1s cubic-bezier(0, 0, 0, 1) 2.5s}
+section#screen-main.show .caption {opacity: 1; transition: opacity 0.75s ease-out 4.25s}
+section#screen-main.show .status {bottom: 0; transition: bottom 1s ease-out 4.5s}
+section#screen-main.show .logo {animation: 1.25s ease-in-out 1.5s 1 forwards logo-appear}
+section#screen-main.show .menu li {transform: translate(0, 0); transition: transform 0.75s 3.25s cubic-bezier(0, 0, 0, 1)}
+section#screen-main.show .menu li.separated {transition-delay: 3.5s}
+section#screen-main.show .menu li.highscore {color: #777; text-align: center; transition-delay: 4s}
+section#screen-main.show .menu li.highscore b {display: block; font-size: 24px}
+
+.loaded section#screen-main.credits-visible h1 {transform: translate(-2px, -134px) scale(0.5); transition: transform 0.75s ease-in-out}
+.loaded section#screen-main.credits-visible .logo {transform: translate(-92px, -160px) scale(0.5); transition: transform 0.75s ease-in-out}
+.loaded section#screen-main.credits-visible .caption {opacity: 0; transition: opacity 0.5s ease-out}
+.loaded section#screen-main.credits-visible .status {bottom: -25px; transition: bottom 0.5s ease-in-out}
+.loaded section#screen-main.credits-visible .menu {pointer-events: none}
+.loaded section#screen-main.credits-visible .menu li {transform: translate(300px, 0); transition: transform 0.5s ease-in-out}
+.loaded section#screen-main.credits-visible .menu li.separated {transition-delay: 0.25s}
+.loaded section#screen-main.credits-visible .back {right: 20px}
+
+.loaded section#screen-main.credits-hidden h1 {transform: none; transition: transform 0.75s ease-in-out}
+.loaded section#screen-main.credits-hidden .logo {transform: none; transition: transform 0.75s ease-in-out}
+.loaded section#screen-main.credits-hidden .caption {opacity: 1; transition: opacity 0.5s ease-out 1s}
+.loaded section#screen-main.credits-hidden .status {bottom: 0; transition: bottom 0.5s ease-in-out 1s}
+.loaded section#screen-main.credits-hidden .menu li {transform: translate(0, 0); transition: transform 0.5s ease-in-out}
+.loaded section#screen-main.credits-hidden .menu li.separated {transition-delay: 0.25s}
+.loaded section#screen-main.credits-hidden .back {right: -60px}
+
+.loaded section#screen-main.play {opacity: 0; transition: opacity 0.75s ease-in-out 3s}
+.loaded section#screen-main.play h1 {transform: translate(-100px, 0) rotate(-90deg); transition: transform 0.75s ease-in-out}
+.loaded section#screen-main.play .logo {animation: 2.5s ease-in-out 1 forwards logo-center}
+.loaded section#screen-main.play .caption {opacity: 0; transition: opacity 0.5s ease-out}
+.loaded section#screen-main.play .status {bottom: -25px; transition: bottom 0.5s ease-in-out}
+.loaded section#screen-main.play .menu li {transform: translate(300px, 0); transition: transform 0.5s ease-in-out}
+.loaded section#screen-main.play .menu li.separated {transition-delay: 0.25s}
+.loaded section#screen-main.play .decor-top {top: -64px; transition: top 1.25s ease-in-out}
+.loaded section#screen-main.play .decor-bottom {bottom: -64px; transition: bottom 1.25s ease-in-out}
+
+@keyframes logo-appear {
+    0% {left: 225px; top: 0; width: 190px}
+    100% {left: 120px; top: 50px; width: 120px}
+}
+@keyframes logo-center {
+    0% {left: 120px; top: 50px; width: 120px}
+    50% {left: 225px; top: 0; width: 190px; opacity: 1}
+    100% {opacity: 0}
+}
+
+#screen-credits {position: absolute; left: 20px; bottom: 20px; z-index: 21; width: 600px; height: 400px; background: transparent url('../images/main/credits.svg') no-repeat 50% 0; color: #666; transition: bottom 1s ease-in-out}
+#screen-credits.hidden {bottom: -400px}
+#screen-credits h2 {position: absolute; top: 5px; right: 5px; width: 300px; color: #333; font-family: 'Glass Antiqua', cursive; font-size: 36px; font-weight: 400; line-height: 40px; text-align: center; text-shadow: 3px 3px 5px rgba(0, 0, 0, 0.25)}
+#screen-credits h3 {position: absolute; top: 51px; left: 45px; right: 45px; font-size: 24px; font-weight: 400; line-height: 50px; text-align: center}
+#screen-credits h3 i {font-style: normal; font-size: 32px}
+#screen-credits ul {position: absolute; left: 45px; right: 45px; top: 110px; font-size: 20px; line-height: 44px}
+#screen-credits ul li {position: relative}
+#screen-credits ul b {position: absolute; right: 0; font-weight: 400; font-size: 24px}
+
+#screen-game {overflow: hidden; z-index: 1}
+#screen-game .unit {display: inline-block; vertical-align: top; width: 58px; margin-top: 14px; color: #999; text-align: center; font-size: 16px; font-weight: 700; line-height: 1}
+#screen-game .unit b {display: block; color: #ebebeb; font-size: 28px; line-height: 18px}
+#screen-game.hidden {visibility: hidden}
+#screen-game .balance {position: absolute; left: -1px; top: -1px; width: 232px; height: 45px; padding-right: 30px; background: transparent url('../images/game/balance.svg') no-repeat 0 0; color: #51C898; font: 30px/40px 'Abril Fatface', cursive; text-align: right; text-shadow: 2px 2px 1px #000; font-variant-numeric: tabular-nums lining-nums}
+#screen-game .reputation {position: absolute; left: -1px; bottom: -1px; width: 381px; height: 43px; padding-left: 45px; background: transparent url('../images/game/reputation.svg') no-repeat 0 100%; color: #999; font: 15px/43px 'Abril Fatface', cursive}
+#screen-game .reputation::before {content: 'REPUTATION'}
+#screen-game .reputation span {position: absolute; top: 19px; width: 100px; height: 8px;}
+#screen-game .reputation span.good {left: 255px; width: 0; background: #0f0}
+#screen-game .reputation span.bad {right: 127px; width: 0; background: #f00}
+
+#screen-game .weather {position: absolute; right: -1px; top: -1px; padding: 0 0 2px 2px; border-radius: 0 0 0 35px; background: rgba(51, 51, 51, 0.9); color: #ccc; font: 12px/25px 'Calibri', sans-serif; transition: top 1s ease}
+#screen-game .weather>p {overflow: hidden; padding: 0 10px; border-radius: 0 0 0 35px; border-left: 2px solid rgba(102, 102, 102, 0.9); border-bottom: 2px solid rgba(102, 102, 102, 0.9)}
+
+#screen-game .weather.small.hidden {top: -30px}
+#screen-game .weather.small>p {padding-left: 20px; padding-top: 4px; padding-bottom: 3px; line-height: 16px}
+
+#screen-game .weather.small .day {padding-right: 1px; color: #fff; font-size: 15px}
+#screen-game .weather.small .temp {margin-left: 4px; padding-left: 6px; border-left: 1px solid #666; color: #fff; font-size: 15px}
+
+#screen-game .weather.big {font-size: 14px; text-align: center; line-height: 1}
+#screen-game .weather.big.hidden {top: -105px}
+#screen-game .weather.big>p {padding-top: 5px; padding-bottom: 5px}
+#screen-game .weather.big span {display: block; width: 100px; padding-right: 10px}
+#screen-game .weather.big .day {position: relative; color: #fff; font-size: 24px}
+#screen-game .weather.big .day:after {content: 'time'; position: absolute; top: 10px; right: -7px; color: #999; font-weight: 700; font-size: 14px; transform: rotate(90deg)}
+#screen-game .weather.big .temp {position: relative; margin-top: 5px; padding-top: 3px; border-top: 1px solid #616161; color: #fff; font-size: 28px}
+#screen-game .weather.big .temp:after {content: 'temp.'; position: absolute; top: 16px; right: -9px; color: #999; font-weight: 700; font-size: 14px; transform: rotate(90deg)}
+
+#screen-game .prepare {position: absolute; left: 26px; top: 55px; width: 587px; height: 366px; background: transparent url('../images/game/bg.svg') no-repeat 0 0; color: #fff}
+#screen-game .prepare.hidden {display: none}
+#screen-game button.start-day {position: absolute; top: 425px; left: 460px; width: 151px; height: 50px; padding-right: 15px; background: transparent url('../images/game/start_button.svg') no-repeat -151px 0; color: #999; line-height: 50px; font-size: 19px; font-weight: 700;}
+#screen-game button.start-day[disabled] {background-position: 0 0; color: #1e1e1e}
+#screen-game button.start-day:enabled:hover {background-position: -302px 0; color: #ccc}
+#screen-game button.start-day:enabled:active {background-position: -453px 0; color: #fff}
+#screen-game .prepare h4 {font-size: 26px; font-family: 'Glass Antiqua', cursive}
+#screen-game .prepare h4.side {position: absolute; left: 18px; top: 48px; color: #ebebeb; line-height: 58px}
+#screen-game .prepare div.row {position: relative; z-index: 2; overflow: hidden; height: 58px; border-top: 1px solid #999}
+#screen-game .prepare div.inventory {position: absolute; left: 100px; top: 18px; overflow: hidden; width: 100px; height: 274px; padding: 5px 10px; border: 1px solid #999; border-radius: 12px; background: rgba(51, 51, 51, 0.75); transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1)}
+#screen-game .prepare div.inventory.expanded {width: 380px}
+#screen-game .prepare div.inventory>div {overflow: hidden; width: 100%}
+#screen-game .prepare div.inventory .row {width: 358px}
+#screen-game .prepare div.inventory h5 {padding-bottom: 5px; color: #ccc; font-size: 20px; font-family: 'Glass Antiqua', cursive}
+#screen-game .prepare div.inventory h6 {position: absolute; top: 14px; left: 110px; z-index: 0; width: 249px; height: 254px; border-radius: 3px; color: #efefef; background: #616161; text-align: center; font-size: 16px; font-weight: 700; line-height: 20px}
+#screen-game .prepare div.inventory .unit {float: left; width: 70px; margin-right: 30px}
+#screen-game .prepare div.inventory .buy {float: left; width: 83px; text-align: center; color: #efefef; font-size: 12px; font-weight: 700; line-height: 16px}
+#screen-game .prepare div.inventory .buy button {overflow: hidden; display: block; width: 54px; height: 26px; margin: 0 auto; border: 2px solid #c6c6c6; border-radius: 3px; background: #939393; color: #3d3d3d; font-size: 26px; font-weight: 700; line-height: 23px}
+#screen-game .prepare div.inventory .buy small {color: #b3b3b3}
+@media (hover: hover) {
+    #screen-game .prepare div.inventory .buy span,
+    #screen-game .prepare div.inventory .buy small {visibility: hidden}
+    #screen-game .prepare div.inventory .buy button:hover {color: #fff}
+    #screen-game .prepare div.inventory .buy:hover span,
+    #screen-game .prepare div.inventory .buy:hover small {visibility: visible}
+}
+#screen-game .prepare div.inventory .buy button:active {border-color: #fff; color: #fff}
+#screen-game .prepare div.inventory .buy button[disabled] {border-color: #858585; color: #6b6b6b}
+#screen-game .prepare div.recipe {position: absolute; right: 18px; top: 18px; overflow: hidden; width: 80px; height: 274px; padding: 5px 10px; border: 1px solid #999; border-radius: 12px; background: rgba(51, 51, 51, 0.75); transition: width 0.5s cubic-bezier(0.65, 0, 0.35, 1)}
+#screen-game .prepare div.recipe.expanded {width: 360px}
+#screen-game .prepare div.recipe>div {position: relative; overflow: hidden; width: 100%; height: 240px}
+#screen-game .prepare div.recipe>div>div {position: absolute; right: 0; width: 338px}
+#screen-game .prepare div.recipe h5 {padding-bottom: 5px; color: #ccc; font-size: 20px; font-family: 'Glass Antiqua', cursive; text-align: right}
+#screen-game .prepare div.recipe .unit {position: absolute; right: 0}
+#screen-game .prepare div.price {position: absolute; right: 18px; bottom: 12px; width: 325px; height: 56px; padding: 0 0 0 10px; border: 1px solid #999; border-radius: 8px; background: rgba(51, 51, 51, 0.5)}
+#screen-game .prepare div.price h4 {float: left; line-height: 56px}
+#screen-game .prepare button.quit {position: absolute; left: 18px; bottom: 12px}
+#screen-game .prepare button.undo {position: absolute; left: 128px; bottom: 12px}
+#screen-game .prepare .servings {position: absolute; left: 18px; bottom: 45px; font-size: 12px; font-weight: 700}
+#screen-game .prepare .servings span {font-size: 14px}
+#screen-game .prepare .limited {position: absolute; left: 118px; bottom: 45px; font-size: 12px; font-weight: 700}
+#screen-game .prepare .limited span {font-size: 14px}
+
+#screen-game .stats {position: absolute; left: 26px; top: 55px; width: 587px; height: 366px; padding: 25px; background: transparent url('../images/game/bg.svg') no-repeat 0 0; color: #fff}
+#screen-game .stats.hidden {display: none}
+#screen-game .stats .legend {float: left}
+#screen-game .stats .chart {float: left; margin-left: 20px}
+#screen-game .stats .chart svg {width: 360px; height: auto}
+#screen-game .stats .extra-legend {position: absolute; top: 305px; right: 27px; width: 360px; text-align: center}
+
+.prepare-outer {transition: transform 0.75s ease; transform: translateY(0px)}
+.play .prepare-outer {transform: translateY(480px)}
+
+#screen-game .tabs {position: absolute; left: 230px; top: 21px}
+#screen-game .tabs li {position: relative; z-index: 1; float: left; margin-right: -30px}
+#screen-game .tabs li.active {z-index: 2}
+#screen-game .tabs li.hidden {visibility: hidden}
+#screen-game .tabs button {float: left; width: 130px; height: 36px; background: transparent url('../images/game/tab.svg') no-repeat -130px 100%; background-size: 520px auto; color: #aaa; font: 400 16px/32px 'Glass Antiqua', cursive}
+#screen-game .tabs button[disabled] {background-position: 0 100%}
+#screen-game .tabs button:hover {background-position: -260px 100%; color: #ccc}
+#screen-game .tabs button:active {background-position: -390px 100%; color: #fff}
+
+p.slider {position: relative; float: left; width: 261px; height: 60px; background: transparent url('../images/game/slider.svg') no-repeat 50% 50%; color: #ccc; font-size: 14px; font-weight: 700; line-height: 1;}
+p.slider button {position: absolute; left: 0; top: 12px; width: 48px; height: 33px; border: 2px solid #ccc; border-radius: 8px; background: url('../images/game/slider_handle.svg') no-repeat 50% 50%, linear-gradient(0, rgba(255, 255, 255, 0.7) 25%, rgba(255, 255, 255, 0.4) 60%); color: #fff; font-size: 22px; font-weight: 700; text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.34); line-height: 1;}
+p.slider button:hover {background: url('../images/game/slider_handle.svg') no-repeat 50% 50%, linear-gradient(0, rgba(255, 255, 255, 0.8) 25%, rgba(255, 255, 255, 0.6) 60%)}
+p.slider button:active {border-color: #fff}
+p.slider .min-label {position: absolute; left: 24px; top: 7px; transform: translateX(-50%)}
+p.slider .max-label {position: absolute; right: 24px; top: 7px; transform: translateX(50%)}
+p.slider .min-value {position: absolute; left: 24px; bottom: 7px; transform: translateX(-50%)}
+p.slider .max-value {position: absolute; right: 24px; bottom: 7px; transform: translateX(50%)}
+
+#screen-game .prepare div.price p.slider {float: right; margin-top: -4px; transform: scale(0.9, 0.9); transform-origin: 50% 50%;}
+#screen-game .prepare div.price p.slider button {font-size: 16px}
+
+
+#screen-confirm-quit {position: absolute; left: 20px; top: 60px; z-index: 10; overflow: hidden; width: 600px; height: 400px; border: 2px solid #999; border-radius: 15px; color: #333; font-size: 24px; line-height: 1.5;}
+#screen-confirm-quit.hidden {display: none}
+#screen-confirm-quit h5 {padding: 0 20px; background: rgba(255, 255, 255, 0.9); color: #999; font-size: 36px; font-weight: 700; line-height: 37px; letter-spacing: 7px}
+#screen-confirm-quit>div {height: 360px; padding: 20px; border-top: 2px solid #999; background: linear-gradient(to right, rgba(255, 255, 255, 0.9), rgba(244, 228, 206, 0.9));}
+#screen-confirm-quit p {padding-bottom: 20px}
+#screen-confirm-quit button {float: left; margin: 20px}
+#screen-confirm-quit button+button {float: right}
+
+
+.serve-inventory {position: absolute; right: -1px; bottom: -1px; overflow: hidden; width: 210px; height: 125px; padding: 2px 0 0 2px; border-radius: 40px 0 0 0; background: rgba(51, 51, 51, 0.9); transition: bottom 1s ease}
+.serve-inventory.hidden {bottom: -126px}
+.serve-inventory>div {height: 100%; padding: 0 24px; border: 2px solid #666; border-radius: 40px 0 0 0; border-width: 2px 0 0 2px;}
+.serve-inventory h5 {margin-bottom: 3px; padding-top: 5px; border-bottom: 1px solid #909090; color: #bebebe; font: 400 20px/24px 'Glass Antiqua', cursive; text-align: center}
+.serve-inventory dt {float: left; clear: left; width: 42px; color: #8f8f8f; font: 400 16px/20px 'Glass Antiqua', cursive}
+.serve-inventory dd {float: left; width: 90px; padding-top: 1px; color: #ececec; font-size: 14px; font-weight: 700; line-height: 19px; white-space: nowrap; transition: width 0.25s ease, color 0.25s ease, border-color 0.25s ease}
+.serve-inventory dd:before {content: ''; vertical-align: top; display: inline-block; width: 100%; height: 0; margin: 7px 5px 0 0; border: 3px solid #fff; border-color: inherit; background: #fff}
+
+
+#screen-day-stats {position: absolute; left: 26px; top: 55px; width: 587px; height: 366px; padding: 4px; background: transparent url('../images/game/bg.svg') no-repeat 0 0; color: #fff; text-align: center; transition: top 1s ease}
+#screen-day-stats.hidden {top: 480px}
+#screen-day-stats h2 {width: 380px; margin: 0 auto; border-bottom: 1px solid #606060; font-family: 'Glass Antiqua', cursive; font-size: 22px; line-height: 38px}
+#screen-day-stats p.summary {height: 54px; margin: 10px 0; font-size: 16px; font-weight: 300; line-height: 18px}
+#screen-day-stats p.loses {height: 48px; margin: 10px 0 15px; color: #ebe905; font-size: 14px; font-weight: 300; line-height: 16px}
+#screen-day-stats button.gray {position: absolute; bottom: -48px; right: 0}
+#screen-day-stats p.forecast {position: absolute; bottom: 0; right: 70px; font-size: 13px; font-weight: 400; color: #ecbe07}
+#screen-day-stats p.forecast.hidden {display: none}
+#screen-day-stats .legend {float: left; margin-left: 100px}
+#screen-day-stats .chart {float: left; margin-left: 20px}
+
+.chart text {fill: #fff; font-size: 12px}
+.chart polyline {visibility: hidden; stroke-width: 1px}
+.chart polyline.visible {visibility: visible}
+.chart polyline.active {visibility: visible; stroke-width: 2px}
+.chart text.value {visibility: hidden}
+.chart text.value.active {visibility: visible}
+
+button.gray {padding: 2px; color: #999; background: #333; border-radius: 20px; font: 400 18px/28px 'Glass Antiqua', cursive}
+button.gray>span {display: inline-block; vertical-align: top; width: 196px; border: 2px solid #999; border-radius: 20px}
+@media (hover: hover) {
+    button.gray:hover {color: #ccc}
+    button.gray:hover>span {border-color: #ccc}
+}
+button.gray:active {color: #fff}
+button.gray:active>span {border-color: #fff}
+button.gray[disabled] {color: #000}
+button.gray[disabled]>span {border-color: #000}
+
+.legend li {padding: 0 0 5px 0}
+.legend button {display: block; width: 135px; padding: 0 8px; border-radius: 5px; border: 2px solid #999; background: #323232; color: #ccc; font-size: 12px; font-weight: 400; line-height: 20px; text-align: left}
+.legend button.active {background: linear-gradient(to right, #5d5d5d, #3a3a3a)}
+.legend button[disabled] {border-color: #000}
+@media (hover: hover) {
+    .legend button:hover {border-color: #ccc; color: #eee}
+}
+.legend button:active {border-color: #fff}
+.legend button span {float: right; width: 20px; height: 5px; margin-top: 10px}
+
+.legend button.category {width: 155px; line-height: 15px}
+.legend ul {overflow: hidden; padding: 0 0 0 20px}
+.legend ul li {overflow: hidden; height: 0; padding: 0; transition: height 0.25s ease}
+.legend ul li button {margin-top: 5px}
+.legend button.category.active+ul li {height: 30px}
+
+section.tutorial {position: absolute; left: 25px; top: 55px; overflow: hidden; width: 590px; height: 366px; border-radius: 30px; background: #ccc; color: #010101; font-size: 18px}
+section#screen-tutorial2.tutorial {left: 280px; top: 65px; width: 270px; height: 350px}
+section.tutorial.hidden {display: none}
+section.tutorial>div {position: absolute; left: 2px; top: 2px; right: 2px; bottom: 2px; overflow: hidden; padding: 0 30px; border-radius: 28px; border: 2px solid #fff}
+section.tutorial b {font-weight: 700}
+section.tutorial h3 {width: 365px; margin-left: -30px; padding-left: 30px; border-bottom: 2px solid #fff; background: linear-gradient(to right, #e1e1e1, #ccc); font-weight: 700; font-size: 21px; font-family: 'Glass Antiqua', cursive; line-height: 30px}
+section.tutorial p {padding: 10px 0}
+section.tutorial ul {padding: 10px 0 10px 20px}
+section.tutorial .page {position: absolute; top: 0; left: 30px; right: 30px}
+section.tutorial .page.hidden {visibility: hidden}
+section.tutorial .pages {position: absolute; left: 30px; right: 30px; bottom: 0; text-align: right; line-height: 28px}
+section.tutorial .pages .number {margin-right: 20px; color: #999; font-family: 'Glass Antiqua', cursive}
+section.tutorial .pages button.next,
+section.tutorial .pages button.back {vertical-align: top; padding: 2px; background: #ddd; color: #676767; font-family: 'Glass Antiqua', cursive; line-height: 22px}
+section.tutorial .pages button.next>span,
+section.tutorial .pages button.back>span {display: inline-block; vertical-align: top; border: 2px solid #fff}
+section.tutorial .pages button.next {border-radius: 0 15px 15px 0}
+section.tutorial .pages button.back {border-radius: 15px 0 0 15px}
+section.tutorial .pages button.next>span {padding: 0 9px 0 6px; border-radius: 0 13px 13px 0}
+section.tutorial .pages button.back>span {padding: 0 6px 0 9px; border-radius: 13px 0 0 13px}
+section.tutorial .pages button.hidden {visibility: hidden}
+
+@media (hover: hover) {
+    section.tutorial .pages button.next:hover,
+    section.tutorial .pages button.back:hover {color: #000}
+    section.tutorial .pages button.next:hover>span,
+    section.tutorial .pages button.back:hover>span {border-color: #666}
+}
+section.tutorial .pages button.next:active>span,
+section.tutorial .pages button.back:active>span {border-color: #000}
+
+section.tutorial .pages button.show {float: left; color: #676767}
+section.tutorial .pages button.show:before {content: ''; display: inline-block; vertical-align: -2px; width: 15px; height: 15px; margin-right: 5px; background: transparent url('../images/game/checkbox.png') no-repeat 0 0; background-size: auto 100%}
+section.tutorial .pages button.show.active:before {background-position: -30px 0}
+@media (hover: hover) {
+    section.tutorial .pages button.show:hover:before {background-position: -15px 0}
+    section.tutorial .pages button.show.active:hover:before {background-position: -45px 0}
+}
+
+.serve-price {position: absolute; left: -1px; top: 55px; padding: 2px 2px 2px 0; border-radius: 0 42px 42px 0; background: rgba(51, 51, 51, 0.9); color: #ccc; transition: left 1s ease}
+.serve-price.hidden {left: -600px}
+.serve-price>div {overflow: hidden; padding: 0 10px 0 10px; border-radius: 0 40px 40px 0; border: 2px solid rgba(102, 102, 102, 0.9); border-left: none}
+.serve-price h4 {float: left; color: #bcbcbc; font-family: 'Glass Antiqua', cursive; line-height: 34px}
+.serve-price .slider {float: left; margin: -15px -50px; transform: scale(0.6, 0.75); transform-origin: 50% 50%}
+.serve-price .slider button {font-size: 15px}
+.serve-price .slider .min-value,
+.serve-price .slider .max-value {font-weight: 400}
+.serve-price .price {float: left; width: 52px; color: #eaeaea; line-height: 34px}
+
+#screen-game button.skip-day {position: absolute; top: 100px; left: 5px; width: 151px; height: 50px; padding-left: 15px; background: transparent url('../images/game/skip_button.svg') no-repeat -151px 0; color: #999; line-height: 50px; font-size: 15px; font-weight: 700; transition: left 0.5s ease}
+#screen-game button.skip-day.hidden {left: -160px}
+#screen-game button.skip-day:enabled:hover {background-position: -302px 0; color: #ccc}
+#screen-game button.skip-day:enabled:active {background-position: -453px 0; color: #fff}

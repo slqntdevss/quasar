@@ -1,0 +1,759 @@
+{
+	"entries": [
+		{
+			"name": "0",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Clyde"
+				},
+				{
+					"key": "Initial",
+					"value": "Ask me anything my friend! slant was here"
+				},
+				{
+					"key": "Head",
+					"value": "Well done!<br>And don't stress - there's no time<br>limit when questioning customers."
+				},
+				{
+					"key": "Movements",
+					"value": "Well done!<br>And don't stress - there's no time<br>limit when questioning customers."
+				},
+				{
+					"key": "Clothes",
+					"value": "Well done!<br>And don't stress - there's no time<br>limit when questioning customers."
+				},
+				{
+					"key": "Limbs",
+					"value": "Well done!<br>And don't stress - there's no time<br>limit when questioning customers."
+				},
+				{
+					"key": "Clyde Dawson Photo",
+					"value": "I look damn good in my photo,<br>don't I!"
+				},
+				{
+					"key": "Clyde Dawson DESC1",
+					"value": "Great job!<br>Now interact with me to question my appearance."
+				},
+				{
+					"key": "Clyde Dawson DESC2",
+					"value": "In uniform as always!"
+				},
+				{
+					"key": "Clyde Dawson DESC3",
+					"value": "I need to see, after all!"
+				},
+				{
+					"key": "Unknown",
+					"value": "Not sure what to say. Sorry bud."
+				},
+				{
+					"key": "Shot",
+					"value": "AARGH!! SHIT"
+				}
+			]
+		},
+		{
+			"name": "1",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Julietta"
+				},
+				{
+					"key": "Julietta Granger Photo",
+					"value": "That old photo?<br>Ugh, I’ve changed so much since then!"
+				},
+				{
+					"key": "Initial",
+					"value": "Hey there, cutie."
+				},
+				{
+					"key": "Head",
+					"value": "You like what you see?<br> Careful, staring too long might make me blush."
+				},
+				{
+					"key": "Movements",
+					"value": "I’m just feeling a little stiff—been standing too long, I guess."
+				},
+				{
+					"key": "Clothes",
+					"value": "My airline likes us to look our best. But<br>between us, I can’t wait to get out of my work uniform."
+				},
+				{
+					"key": "Limbs",
+					"value": "All accounted for. Wouldn’t<br>make it through flight training otherwise."
+				},
+				{
+					"key": "Photo",
+					"value": " I hate that picture! The lighting at the airport<br>was awful. You think I look better in person, right?"
+				},
+				{
+					"key": "Julietta Granger DESC1",
+					"value": "WRONGI’ve been a flight attendant for three<br>years. It’s a steady job, keeps me busy."
+				},
+				{
+					"key": "Julietta Granger DESC2",
+					"value": "Ahaha... I'm a flight attendant.<br>Why would I be dirty..?"
+				},
+				{
+					"key": "Julietta Granger DESC3",
+					"value": "I guess I'm just used to the hair from work."
+				},
+				{
+					"key": "Unknown",
+					"value": "Sorry, I don't have<br>anything to say about that."
+				},
+				{
+					"key": "Shot",
+					"value": "YOU CREATURES WILL PAY FOR THIS"
+				}
+			]
+		},
+		{
+			"name": "2",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Roger"
+				},
+				{
+					"key": "Roger Conroy Photo",
+					"value": "Shut up and *hic* ring me up already."
+				},
+				{
+					"key": "Initial",
+					"value": "F*ck ya want? Huh? *Hic*"
+				},
+				{
+					"key": "Head",
+					"value": "What, somethin’ *Hic* wrong<br>with my face? You wanna get smacked?"
+				},
+				{
+					"key": "Movements",
+					"value": "Ain’t nothin’ wrong with m’walkin’!<br>*Hic* You got a problem, huh?"
+				},
+				{
+					"key": "Clothes",
+					"value": "Plaid’s classic! Wore it yesterday<br>too *hic* and the day before!"
+				},
+				{
+					"key": "Limbs",
+					"value": "*Hic* What’re ya talkin’ about? My arms<br>are workin’ just fine! Ya wanna test me?"
+				},
+				{
+					"key": "Roger Conroy DESC1",
+					"value": "Retired 'n' livin' the dream."
+				},
+				{
+					"key": "Roger Conroy DESC2",
+					"value": "Shut up and *hic* ring me up already."
+				},
+				{
+					"key": "Roger Conroy DESC3",
+					"value": "Don’t like the shirt? *Hic*<br>Ain’t here to impress nobody!"
+				},
+				{
+					"key": "Unknown",
+					"value": "Shut up and *hic* ring me up already."
+				},
+				{
+					"key": "Shot",
+					"value": "AHH YOU F*CKER"
+				}
+			]
+		},
+		{
+			"name": "3",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Bonnie"
+				},
+				{
+					"key": "Initial",
+					"value": "Hey there. Long night at the hospital — just<br>need to grab a few things and head home. "
+				},
+				{
+					"key": "Head",
+					"value": "Yeah, I keep it shaved. easier that way.No time<br>to fuss with hair when you're running around a hospital."
+				},
+				{
+					"key": "Movements",
+					"value": "Am I moving weird? I think I'm just a bit tired, sorry."
+				},
+				{
+					"key": "Clothes",
+					"value": "These are my scrubs. Long shift at the hospital,<br>and I didn’t have time to change before stopping by."
+				},
+				{
+					"key": "Limbs",
+					"value": "Still got both my arms and legs last I checked.<br>You need me to wiggle my fingers or something?"
+				},
+				{
+					"key": "Bonnie McCree Photo",
+					"value": "That’s me, alright. Taken a<br>couple years ago, but I don’t change much."
+				},
+				{
+					"key": "Bonnie McCree DESC1",
+					"value": "Nurse over at County General.<br>It’s been a long night."
+				},
+				{
+					"key": "Bonnie McCree DESC2",
+					"value": "Yeah, I keep it shaved. easier that way.No time<br>to fuss with hair when you're running around a hospital."
+				},
+				{
+					"key": "Bonnie McCree DESC3",
+					"value": "Oh yeah, I took my glasses off before heading in here."
+				},
+				{
+					"key": "Unknown",
+					"value": "I don't have anything to say about this."
+				},
+				{
+					"key": "Shot",
+					"value": "NO PLEASE, WHY"
+				}
+			]
+		},
+		{
+			"name": "4",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Tommy"
+				},
+				{
+					"key": "Initial",
+					"value": "Hey, man. Just pickin' up<br>something for my sister, Catherine."
+				},
+				{
+					"key": "Head",
+					"value": "My hair? yeah, same as always.<br>Short and clean. I don’t mind it that way."
+				},
+				{
+					"key": "Clothes",
+					"value": "Yeah, I know, it’s just really hot. Let me<br>grab something for Catherine quickly so I can head home."
+				},
+				{
+					"key": "Limbs",
+					"value": "All intact I hope."
+				},
+				{
+					"key": "Tommy Delgado Photo",
+					"value": "That's me, but it’s from a while ago.<br>You know how it is with photos, right?"
+				},
+				{
+					"key": "Shot",
+					"value": "YOUR RACE WILL PERISH"
+				},
+				{
+					"key": "Movements",
+					"value": "I don't think I'm moving too weird, man."
+				},
+				{
+					"key": "Tommy Delgado DESC1",
+					"value": "Ah, I'm kinda between jobs right now."
+				},
+				{
+					"key": "Catherine Delgado STATUS",
+					"value": "WRONGYeah, she's just chilling back home right now."
+				},
+				{
+					"key": "Catherine Delgado DOB",
+					"value": "WRONGYeah, she's a little younger."
+				},
+				{
+					"key": "Catherine Delgado Photo",
+					"value": "WRONGYeah, she's always changing how she looks.<br>You know how girls are."
+				},
+				{
+					"key": "Unknown",
+					"value": "Got nothing to say about that."
+				}
+			]
+		},
+		{
+			"name": "5",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Tommy"
+				},
+				{
+					"key": "Initial",
+					"value": "Gotta be careful, man. They’re everywhere. Ever<br>feel like someone’s watchin’ you? ‘Cuz they are."
+				},
+				{
+					"key": "Head",
+					"value": "Still mine! No weird lumps, no scars that<br>ain't supposed to be there. Checked this morning!"
+				},
+				{
+					"key": "Eyes",
+					"value": "Wide open, man! Gotta stay sharp!<br>You ever see their eyes? They’re wrong."
+				},
+				{
+					"key": "Clothes",
+					"value": "I don’t do shirts, man.<br>They got tracking fibers in ‘em."
+				},
+				{
+					"key": "Limbs",
+					"value": "All attached, all real! Not like them.<br>You ever see one up close? They got seams."
+				},
+				{
+					"key": "Tommy Delgado Photo",
+					"value": "Looks like me, right?<br>Right? It better."
+				},
+				{
+					"key": "Occupation",
+					"value": "Job? I got a mission, man.<br>Someone’s gotta keep people informed!"
+				},
+				{
+					"key": "Shot",
+					"value": "AH F*CK YOU'RE ONE OF THEM!"
+				},
+				{
+					"key": "Tommy Delgado DESC1",
+					"value": "Jobs keep you blind from<br>the truth, man."
+				},
+				{
+					"key": "Catherine Delgado STATUS",
+					"value": "How do you know about her?<br> SH*T, you're one of them aren't you?"
+				},
+				{
+					"key": "Catherine Delgado DOB",
+					"value": "How do you know about her?<br> SH*T, you're one of them aren't you?"
+				},
+				{
+					"key": "Catherine Delgado Photo",
+					"value": "How do you know about her?<br> SH*T, you're one of them aren't you?"
+				},
+				{
+					"key": "Tommy Delgado STATUS",
+					"value": "I would say I'm alive,<br>but it's all about perspective."
+				},
+				{
+					"key": "Unknown",
+					"value": "I don't know what<br>to say about this."
+				}
+			]
+		},
+		{
+			"name": "6",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Kevin"
+				},
+				{
+					"key": "Initial",
+					"value": "Good evening. Just grabbing a few<br>things before heading back on the road."
+				},
+				{
+					"key": "Head",
+					"value": "No issues up here. Everything’s fine"
+				},
+				{
+					"key": "Movements",
+					"value": "I’m a little tired, that’s all.<br>Long day at the office."
+				},
+				{
+					"key": "Clothes",
+					"value": "Dress shirt and tie. Always professional."
+				},
+				{
+					"key": "Limbs",
+					"value": "I’ve just been at work all day.<br>My arms are fine, thanks."
+				},
+				{
+					"key": "Kevin Larson Photo",
+					"value": "That’s me. Haven’t updated it in a while."
+				},
+				{
+					"key": "Kevin Larson DESC1",
+					"value": "I work in insurance. Claims, mostly.<br>It’s not exactly exciting, but it pays the bills."
+				},
+				{
+					"key": "Kevin Larson DESC2",
+					"value": "Dress shirt and tie. Always professional."
+				},
+				{
+					"key": "Kevin Larson DESC3",
+					"value": "Just blessed with good genes I suppose."
+				},
+				{
+					"key": "Kevin Larson STATUS",
+					"value": "I'm standing right here aren't I?"
+				},
+				{
+					"key": "Kevin Larson DOB",
+					"value": "It should show 21st of April, right?"
+				},
+				{
+					"key": "Kevin Larson Photo",
+					"value": "Yeah, that's me."
+				},
+				{
+					"key": "Clyde Dawson DESC1",
+					"value": "Yeah he's a good sheriff."
+				},
+				{
+					"key": "Shot",
+					"value": "SH*T, MAN"
+				},
+				{
+					"key": "Unknown",
+					"value": "I don't have anything to say about that."
+				}
+			]
+		},
+		{
+			"name": "7",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Ryan"
+				},
+				{
+					"key": "Initial",
+					"value": "Make it quick,<br>I've got N.E.T. business to deal with."
+				},
+				{
+					"key": "Head",
+					"value": "What, you think I got something wrong with me?<br>I’d be the first to know."
+				},
+				{
+					"key": "Eyes",
+					"value": "Still sharp. Unlike half the people in this town."
+				},
+				{
+					"key": "Clothes",
+					"value": "Standard issue. You don’t<br>need to know more than that."
+				},
+				{
+					"key": "Limbs",
+					"value": "All in place. Not that it’s any of your business."
+				},
+				{
+					"key": "Ryan Holt Photo",
+					"value": "Yeah, that’s me. What, you think<br>I wouldn’t pass my own checks?"
+				},
+				{
+					"key": "Expiry",
+					"value": "Do you honestly think I wouldn't<br>update the expiry of my own N.E.T. card?"
+				},
+				{
+					"key": "Shot",
+					"value": "F*CK, I NEED REINFORCEMENTS!!"
+				},
+				{
+					"key": "Movements",
+					"value": "It's fine."
+				},
+				{
+					"key": "Ryan Holt DESC1",
+					"value": "We're the reason those doppelgangers haven't ripped<br>you apart yet. You should be grateful."
+				},
+				{
+					"key": "Ryan Holt STATUS",
+					"value": "I'm one of N.E.T's best. Do you seriously<br>think I'd die to one of those creatures?"
+				},
+				{
+					"key": "Ryan Holt Photo",
+					"value": "Yeah, that's me."
+				},
+				{
+					"key": "Clyde Dawson DESC1",
+					"value": "Let’s just say Clyde’s handling the...<br>simpler issues."
+				},
+				{
+					"key": "Unknown",
+					"value": "Got nothing to say about that."
+				}
+			]
+		},
+		{
+			"name": "8",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Ryan"
+				},
+				{
+					"key": "Initial",
+					"value": "You again. Look, something happened last night,<br>but I don’t have time for small talk, so make it quick."
+				},
+				{
+					"key": "Head",
+					"value": "Everything’s fine. My head’s just a little...<br>off. You don't need to worry about it."
+				},
+				{
+					"key": "Movements",
+					"value": "Look, I'm a little shaky alright?<br>Can we just hurry it up?"
+				},
+				{
+					"key": "Clothes",
+					"value": "Same as before. N.E.T. standard.<br>You’re not gonna find anything strange."
+				},
+				{
+					"key": "Limbs",
+					"value": "No issues with my limbs, I hope."
+				},
+				{
+					"key": "Ryan Holt Photo",
+					"value": "It’s still me. I’m still good.<br>Don't start questioning everything."
+				},
+				{
+					"key": "Ryan Holt DESC1",
+					"value": "I need to quit this sh*t."
+				},
+				{
+					"key": "Clyde Dawson DESC1",
+					"value": "I owe him my life."
+				},
+				{
+					"key": "Shot",
+					"value": "F*CK, NO NOT AGAIN"
+				},
+				{
+					"key": "Unknown",
+					"value": "I've got nothing to say about that.<br>Can we just hurry this up please?"
+				}
+			]
+		},
+		{
+			"name": "9",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Jade"
+				},
+				{
+					"key": "Initial",
+					"value": "Hello. I am Jade."
+				},
+				{
+					"key": "Head",
+					"value": "My facial proportions are average."
+				},
+				{
+					"key": "Movements",
+					"value": "I move fine."
+				},
+				{
+					"key": "Clothes",
+					"value": "I wear clothes."
+				},
+				{
+					"key": "Limbs",
+					"value": "I own arms and legs."
+				},
+				{
+					"key": "Jade Sinclair Photo",
+					"value": "WRONGYou needn't be suspicious. I merely underwent<br>human puberty since that camera captured me."
+				},
+				{
+					"key": "Jade Sinclair DESC1",
+					"value": "That is me."
+				},
+				{
+					"key": "Jade Sinclair STATUS",
+					"value": "I am alive."
+				},
+				{
+					"key": "Jade Sinclair DOB",
+					"value": "I was born into earth recently."
+				},
+				{
+					"key": "Shot",
+					"value": "YOU CREATURES WILL PAY FOR THIS."
+				},
+				{
+					"key": "Unknown",
+					"value": "That is unknown information."
+				}
+			]
+		},
+		{
+			"name": "10",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Nate"
+				},
+				{
+					"key": "Initial",
+					"value": "Hey, man. Just grabbing some<br>stuff real quick, no big deal."
+				},
+				{
+					"key": "Head",
+					"value": "There something on my face?"
+				},
+				{
+					"key": "Movement",
+					"value": "Okay, yeah, the ID's fake.<br>But c’mon, man, I forgot it at home<br>so please just let me through super quick. Please."
+				},
+				{
+					"key": "Clothes",
+					"value": "I just got these clothes, why?"
+				},
+				{
+					"key": "Limbs",
+					"value": "My limbs? Heh, is something wrong with my limbs..?"
+				},
+				{
+					"key": "Nathan Calloway Photo",
+					"value": "Okay, yeah, the ID's fake.<br>But c’mon, man, I forgot it at home<br>so please just let me through super quick. Please."
+				},
+				{
+					"key": "Nathan Calloway STATUS",
+					"value": "WRONGHuh?"
+				},
+				{
+					"key": "Shot",
+					"value": "YOU MONSTERS WILL ALL DIE"
+				},
+				{
+					"key": "Unknown",
+					"value": "Sorry bro, don't<br>have anything to say about that."
+				}
+			]
+		},
+		{
+			"name": "-5",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Robber"
+				},
+				{
+					"key": "Shot",
+					"value": "SH*T MAN IT'S A FAKE GUN I'M SORRY"
+				}
+			]
+		},
+		{
+			"name": "11",
+			"values": [
+				{
+					"key": "Name",
+					"value": "???"
+				},
+				{
+					"key": "Initial",
+					"value": "Hello. Where is your gasoline?"
+				},
+				{
+					"key": "Shot",
+					"value": "..."
+				},
+				{
+					"key": "Unknown",
+					"value": "WRONGHello. Where is your gasoline?"
+				}
+			]
+		},
+		{
+			"name": "12",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Clyde"
+				},
+				{
+					"key": "Head",
+					"value": "My head? I haven't lost it again have I? <br>Haw haw haw!"
+				},
+				{
+					"key": "Movement",
+					"value": "Still springy for my age, don't you reckon?"
+				},
+				{
+					"key": "Clothes",
+					"value": "Just washed em last night,<br>good luck finding me outta uniform!"
+				},
+				{
+					"key": "Limbs",
+					"value": "My limbs? 250 pounds of pure muscle!<br>Haw haw haw!"
+				},
+				{
+					"key": "Shot",
+					"value": "AARGH!! SH*T"
+				},
+				{
+					"key": "Initial",
+					"value": "Ask me anything my friend!"
+				},
+				{
+					"key": "Clyde Dawson Photo",
+					"value": "I look damn good in my photo,<br>don't I!"
+				},
+				{
+					"key": "Clyde Dawson DESC1",
+					"value": "My occupation?<br>Sheriff of the best town in the west!"
+				},
+				{
+					"key": "Clyde Dawson DESC2",
+					"value": "Just washed em last night,<br>good luck finding me outta uniform!"
+				},
+				{
+					"key": "Clyde Dawson DESC3",
+					"value": "Got 'em on, don't I?"
+				},
+				{
+					"key": "Unknown",
+					"value": "Not sure what to say. Sorry bud."
+				}
+			]
+		},
+		{
+			"name": "13",
+			"values": [
+				{
+					"key": "Name",
+					"value": "Danny"
+				},
+				{
+					"key": "Initial",
+					"value": "Hey there, pal! Cold night, huh? Thought<br>I’d swing by for a little pick-me-up."
+				},
+				{
+					"key": "Head",
+					"value": "What’s wrong with my head?<br>It’s just fine, isn’t it? You got a<br>thing against bald spots or something?"
+				},
+				{
+					"key": "Eyes",
+					"value": "My eyes? Yeah, they’re<br>perfect, same as they’ve always been.<br>What are you getting at, exactly?"
+				},
+				{
+					"key": "Clothes",
+					"value": "I'm just coming back from work, my man!"
+				},
+				{
+					"key": "Limbs",
+					"value": "Limbs? What’s that even supposed to mean?<br>You trying to say I don’t look right?"
+				},
+				{
+					"key": "Photo",
+					"value": "Photo? Yeah, that's me, dude.<br>I’m just... I don’t know,<br>changed a little, I guess."
+				},
+				{
+					"key": "Description",
+					"value": "I guess I’ve bulked up a bit over the<br>years, but that’s about it."
+				},
+				{
+					"key": "Expiry",
+					"value": "Expiry? Oh, well, that’s just<br>some paperwork stuff. I’ll be fine—no need<br>to worry about it."
+				},
+				{
+					"key": "Occupation",
+					"value": "Occupation? Nah, I’m not working<br>anything formal right now. Just<br>trying to get by, you know?"
+				},
+				{
+					"key": "Shot",
+					"value": "*SCREECHES*"
+				}
+			]
+		}
+	]
+}
