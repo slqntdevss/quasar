@@ -29,10 +29,8 @@ function injectHtml(html, pathname, host) {
 const routes = {
 	...getRoutes(),
 	"/assets/js/dda.js": new Response("Not Found", { status: 404 }),
-	"/ads.txt": (req) => {
-		const host = req.headers.get("host") || "";
-		const hostname = host.split(":")[0];
-		return Response.redirect(`https://rev.iq/aptutorfinder.com/ads.txt`, 302);
+	"/ads.txt": () => {
+		return Response.redirect("https://rev.iq/aptutorfinder.com/ads.txt", 302);
 	},
 };
 
