@@ -32,7 +32,7 @@ const routes = {
 	"/ads.txt": (req) => {
 		const host = req.headers.get("host") || "";
 		const hostname = host.split(":")[0];
-		return Response.redirect(`https://rev.iq/${hostname}/ads.txt`, 302);
+		return Response.redirect(`https://rev.iq/aptutorfinder.com/ads.txt`, 302);
 	},
 };
 
