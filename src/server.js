@@ -120,7 +120,8 @@ export function createFetchHandler(injectHtml) {
 		if (resolvedPath.endsWith(".html")) {
 			try {
 				const content = await Bun.file(resolvedPath).text();
-				const modified = injectHtml(content, pathname);
+				const host = req.headers.get("host") || "";
+				const modified = injectHtml(content, pathname, host);
 				return new Response(modified, {
 					headers: {
 						...headers,
@@ -140,7 +141,8 @@ export function createFetchHandler(injectHtml) {
 			for (const candidate of [dirIndexPath, htmlPath]) {
 				try {
 					const content = await Bun.file(candidate).text();
-					const modified = injectHtml(content, pathname);
+					const host = req.headers.get("host") || "";
+					const modified = injectHtml(content, pathname, host);
 					return new Response(modified, {
 						headers: {
 							...headers,
@@ -155,7 +157,8 @@ export function createFetchHandler(injectHtml) {
 			const notFoundHtml = await Bun.file(
 				path.join(publicDir, "404.html"),
 			).text();
-			const modified = injectHtml(notFoundHtml, pathname);
+			const host = req.headers.get("host") || "";
+			const modified = injectHtml(notFoundHtml, pathname, host);
 			return new Response(modified, {
 				status: 404,
 				headers: {

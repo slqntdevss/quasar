@@ -7,17 +7,25 @@ const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?i
       gtag("js", new Date());
       gtag("config", "G-7JPJ866MG9");</script>`;
 
-const adScript = `<script src="//js.rev.iq/aptutorfinder.com"></script>`;
-const videoAd = `<div data-ad="video"></div>`;
-const videoAdHome = `<div data-ad="video"></div>`;
-const railAds = `<div data-ad="left-rail-1" style="position: fixed; top: 1rem; left: 1rem; z-index: 50;"></div><div data-ad="left-rail-2" style="position: fixed; top: 280px; left: 1rem; z-index: 50;"></div><div data-ad="right-rail-1" style="position: fixed; top: 1rem; right: 1rem; z-index: 50;"></div><div data-ad="right-rail-2" style="position: fixed; top: 280px; right: 1rem; z-index: 50;"></div>`;
+function getAdScript(host) {
+	const hostname = host.split(":")[0];
+	return `<script src="//js.rev.iq/${hostname}"></script>`;
+}
 
-function injectHtml(html, pathname) {
+const videoAd = `<div data-ad="video" />`;
+const railAds = `<style>.q-rail-ads{display:none}@media(min-width:1300px){.q-rail-ads{display:block}}</style><div class="q-rail-ads"><div data-ad="left-rail-1" style="position: fixed; top: 1rem; left: 1rem; z-index: 50;"></div><div data-ad="left-rail-2" style="position: fixed; top: 280px; left: 1rem; z-index: 50;"></div><div data-ad="video" /><div data-ad="right-rail-1" style="position: fixed; top: 1rem; right: 1rem; z-index: 50;"></div></div>`;
+const mobileAdScript = `<script>(function(){var m=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);if(!m)return;var r=document.querySelector(".q-rail-ads");if(r)r.remove();var v=document.querySelector('[data-ad="video"]');if(v)v.remove();setTimeout(function(){var d=document.createElement("div");d.setAttribute("data-ad","video");document.body.appendChild(d)},30000)})();</script>`;
+
+function injectHtml(html, pathname, host) {
+	const adScript = getAdScript(host);
 	let modified = html.replace(/<\/head>/i, `${analytics}\n${adScript}\n</head>`);
 
 	const isIndex = pathname === "/" || pathname === "/index.html";
-	const bodyInject = isIndex ? `${railAds}${videoAdHome}` : videoAd;
-	modified = modified.replace(/<\/body>/i, `${bodyInject}\n</body>`);
+	if (isIndex) {
+		modified = modified.replace(/<\/body>/i, `${railAds}\n${mobileAdScript}\n</body>`);
+	} else {
+		modified = modified.replace(/<\/body>/i, `${videoAd}\n${mobileAdScript}\n</body>`);
+	}
 
 	return modified;
 }
@@ -25,7 +33,9 @@ function injectHtml(html, pathname) {
 const routes = {
 	...getRoutes(),
 	"/assets/js/dda.js": new Response("Not Found", { status: 404 }),
-	"/ads.txt": Response.redirect("https://rev.iq/aptutorfinder.com/ads.txt", 302),
+	"/ads.txt": () => {
+		return Response.redirect("https://rev.iq/aptutorfinder.com/ads.txt", 302);
+	},
 };
 
 const PORT = process.env.PROXY_PORT || 3001;
