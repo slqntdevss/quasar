@@ -42,7 +42,7 @@
 				margin-top: 20px;
 			"
 		>
-			Parts downloaded (0/7)
+			Parts downloaded (0/5)
 		</div>
 		<div id="unity-container">
 			<canvas id="unity-canvas" tabindex="-1"></canvas>
@@ -65,7 +65,7 @@
 							.then((data) => {
 								buffers.push(data);
 								document.getElementById("loading-text").textContent =
-									`Parts downloaded (${index + 1}/7)`;
+									`Parts downloaded (${index + 1}/5)`;
 								fetchPart(index + 1);
 							})
 							.catch(reject);

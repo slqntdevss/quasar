@@ -2244,5 +2244,12 @@
 		"path": "/webgl/sam/",
 		"img": "/shiftatmidnight.webp",
 		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Sandtris",
+		"id": "sandtris",
+		"path": "/html/sandtris/",
+		"img": "/sandtris.webp",
+		"category": ["Puzzle", "Strategy"]
 	}
 ]
