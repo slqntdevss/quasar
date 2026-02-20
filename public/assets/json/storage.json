@@ -2251,6 +2251,12 @@
 		"path": "/html/sandtris/",
 		"img": "/sandtris.webp",
 		"category": ["Puzzle", "Strategy"]
+	},
+	{
+		"name": "Space Waves",
+		"id": "spacewaves",
+		"path": "/html/spacewaves/",
+		"img": "/spacewaves.webp",
+		"category": ["Arcade", "Strategy"]
 	}
 ]
-
