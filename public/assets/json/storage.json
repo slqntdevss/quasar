@@ -452,7 +452,7 @@
 		"name": "GBA Emulator",
 		"description": "Upload your own file",
 		"img": "/gba.webp",
-		"path": "/emulator/gba/custom",
+		"path": "/emulator/gba/custom/",
 		"category": ["Arcade"]
 	},
 	{
@@ -460,497 +460,497 @@
 		"name": "DS Emulator",
 		"description": "Upload your own file",
 		"img": "/customds.webp",
-		"path": "/emulator/ds/custom",
+		"path": "/emulator/ds/custom/",
 		"category": ["Arcade"]
 	},
 	{
 		"id": "customn64",
 		"name": "N64 Emulator",
 		"img": "/n64.webp",
-		"path": "/emulator/n64/custom",
+		"path": "/emulator/n64/custom/",
 		"category": ["Arcade"]
 	},
 	{
 		"id": "mariokart",
 		"name": "Mario Kart 64",
 		"img": "/mariokart.webp",
-		"path": "/emulator/n64/mariokart",
+		"path": "/emulator/n64/mariokart/",
 		"category": ["Arcade"]
 	},
 	{
 		"id": "sm64",
 		"name": "Super Mario 64",
 		"img": "/sm64.webp",
-		"path": "/emulator/n64/sm64",
+		"path": "/emulator/n64/sm64/",
 		"category": ["Arcade"]
 	},
 	{
 		"id": "ssb64",
 		"name": "Super Smash Bros 64",
 		"img": "/ssb64.webp",
-		"path": "/emulator/n64/ssb64",
+		"path": "/emulator/n64/ssb64/",
 		"category": ["Arcade"]
 	},
 	{
 		"id": "tlozalttp",
 		"name": "The Legend of Zelda: A Link to the Past",
 		"img": "/tlozalttp.webp",
-		"path": "/emulator/n64/tlozalttp",
+		"path": "/emulator/n64/tlozalttp/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "tlozmm",
 		"name": "The Legend of Zelda: Majora's Mask",
 		"img": "/tlozmm.webp",
-		"path": "/emulator/n64/tlozmm",
+		"path": "/emulator/n64/tlozmm/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "tlozoot",
 		"name": "The Legend of Zelda: Ocarina of Time",
 		"img": "/tlozoot.webp",
-		"path": "/emulator/n64/tlozoot",
+		"path": "/emulator/n64/tlozoot/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "tloztmc",
 		"name": "The Legend of Zelda: The Minish Cap",
 		"img": "/tloztmc.webp",
-		"path": "/emulator/n64/tloztmc",
+		"path": "/emulator/n64/tloztmc/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "hsbtb",
 		"name": "Henry Stickmin: Breaking the Bank",
 		"img": "/btb.webp",
-		"path": "/flash/btb",
+		"path": "/flash/btb/",
 		"category": ["Puzzle", "Flash"]
 	},
 	{
 		"id": "hsetp",
 		"name": "Henry Stickmin: Escaping the Prison",
 		"img": "/etp.webp",
-		"path": "/flash/etp",
+		"path": "/flash/etp/",
 		"category": ["Puzzle", "Flash"]
 	},
 	{
 		"id": "hsstd",
 		"name": "Henry Stickmin: Stealing the Diamond",
 		"img": "/std.webp",
-		"path": "/flash/std",
+		"path": "/flash/std/",
 		"category": ["Puzzle", "Flash"]
 	},
 	{
 		"id": "hsita",
 		"name": "Henry Stickmin: Infiltrating the Airship",
 		"img": "/ita.webp",
-		"path": "/flash/ita",
+		"path": "/flash/ita/",
 		"category": ["Puzzle", "Flash"]
 	},
 	{
 		"id": "hsftc",
 		"name": "Henry Stickmin: Fleeing the Complex",
 		"img": "/ftc.webp",
-		"path": "/flash/ftc",
+		"path": "/flash/ftc/",
 		"category": ["Puzzle", "Flash"]
 	},
 	{
 		"id": "tomoc",
 		"name": "Tomodachi Collection",
 		"img": "/tomoc.webp",
-		"path": "/emulator/ds/tomoc",
+		"path": "/emulator/ds/tomoc/",
 		"category": ["Simulation"]
 	},
 	{
 		"id": "acww",
 		"name": "Animal Crossing: Wild World",
 		"img": "/acww.webp",
-		"path": "/emulator/ds/acww",
+		"path": "/emulator/ds/acww/",
 		"category": ["Simulation"]
 	},
 	{
 		"id": "mkds",
 		"name": "Mario Kart DS",
 		"img": "/mkds.webp",
-		"path": "/emulator/ds/mkds",
+		"path": "/emulator/ds/mkds/",
 		"category": ["Simulation"]
 	},
 	{
 		"id": "nsmb",
 		"name": "New Super Mario Bros",
 		"img": "/nsmb.webp",
-		"path": "/emulator/ds/nsmb",
+		"path": "/emulator/ds/nsmb/",
 		"category": ["Simulation"]
 	},
 	{
 		"id": "cookmama",
 		"name": "Cooking Mama",
 		"img": "/cookmama.webp",
-		"path": "/emulator/ds/cookingmama",
+		"path": "/emulator/ds/cookingmama/",
 		"category": ["Simulation"]
 	},
 	{
 		"id": "tlozst",
 		"name": "The Legend of Zelda: Spirit Tracks",
 		"img": "/tlozst.webp",
-		"path": "/emulator/ds/tlozst",
+		"path": "/emulator/ds/tlozst/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "tlozph",
 		"name": "The Legend of Zelda: Phantom Hourglass",
 		"img": "/tlozph.webp",
-		"path": "/emulator/ds/tlozph",
+		"path": "/emulator/ds/tlozph/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "kssu",
 		"name": "Kirby Super Star Ultra",
 		"img": "/kssu.webp",
-		"path": "/emulator/ds/kssu",
+		"path": "/emulator/ds/kssu/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "assessexam",
 		"name": "Assessment Examination",
 		"img": "/assessexam.webp",
-		"path": "/webgl/assessexam",
+		"path": "/webgl/assessexam/",
 		"category": ["Horror", "Webport"]
 	},
 	{
 		"id": "efr",
 		"name": "Egg Fried Rice",
 		"img": "/efr.webp",
-		"path": "/webgl/EggFriedRicePort",
+		"path": "/webgl/EggFriedRicePort/",
 		"category": ["Horror", "Webport"]
 	},
 	{
 		"id": "ptr",
 		"name": "Parappa the Rapper",
 		"img": "/ptr.webp",
-		"path": "/emulator/psx/ptr",
+		"path": "/emulator/psx/ptr/",
 		"category": ["Puzzle", "Adventure"]
 	},
 	{
 		"id": "re3nem",
 		"name": "Resident Evil 3: Nemesis",
 		"img": "/re3nem.webp",
-		"path": "/emulator/psx/re3nem",
+		"path": "/emulator/psx/re3nem/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "ffs",
 		"name": "Flash Flight Simulator",
 		"img": "/ffs.webp",
-		"path": "/flash/ffs",
+		"path": "/flash/ffs/",
 		"category": ["Simulation", "Flash"]
 	},
 	{
 		"id": "sth2",
 		"name": "Storm the House 2",
 		"img": "/sth2.webp",
-		"path": "/flash/sth2",
+		"path": "/flash/sth2/",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"id": "soccran",
 		"name": "Soccer Random",
 		"img": "/soccran.webp",
-		"path": "/html/soccerrandom",
+		"path": "/html/soccerrandom/",
 		"category": ["Sports"]
 	},
 	{
 		"id": "boxingran",
 		"name": "Boxing Random",
 		"img": "/boxingran.webp",
-		"path": "/html/boxingrandom",
+		"path": "/html/boxingrandom/",
 		"category": ["Sports"]
 	},
 	{
 		"id": "roofsnip",
 		"name": "Rooftop Snipers",
 		"img": "/roofsnip.webp",
-		"path": "/html/rooftopsnipers",
+		"path": "/html/rooftopsnipers/",
 		"category": ["Arcade"]
 	},
 	{
 		"id": "vex3",
 		"name": "Vex 3",
 		"img": "/vex3.webp",
-		"path": "/html/vex3",
+		"path": "/html/vex3/",
 		"category": ["Platformer"]
 	},
 	{
 		"id": "vex4",
 		"name": "Vex 4",
 		"img": "/vex4.webp",
-		"path": "/html/vex4",
+		"path": "/html/vex4/",
 		"category": ["Platformer"]
 	},
 	{
 		"id": "vex5",
 		"name": "Vex 5",
 		"img": "/vex5.webp",
-		"path": "/html/vex5",
+		"path": "/html/vex5/",
 		"category": ["Platformer"]
 	},
 	{
 		"id": "vex6",
 		"name": "Vex 6",
 		"img": "/vex6.webp",
-		"path": "/html/vex6",
+		"path": "/html/vex6/",
 		"category": ["Platformer"]
 	},
 	{
 		"id": "vex7",
 		"name": "Vex 7",
 		"img": "/vex7.webp",
-		"path": "/html/vex7",
+		"path": "/html/vex7/",
 		"category": ["Platformer"]
 	},
 	{
 		"id": "lbp",
 		"name": "LittleBigPlanet",
 		"img": "/lbp.webp",
-		"path": "/emulator/psp/lbp",
+		"path": "/emulator/psp/lbp/",
 		"category": ["Platformer"]
 	},
 	{
 		"id": "2048cup",
 		"name": "2048 Cupcakes",
 		"img": "/2048cup.webp",
-		"path": "/html/2048cup",
+		"path": "/html/2048cup/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "angrybirds",
 		"name": "Angry Birds",
 		"img": "/angrybirds.webp",
-		"path": "/html/angrybirds",
+		"path": "/html/angrybirds/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "angrybirdsshowdown",
 		"name": "Angry Birds Showdown",
 		"img": "/angrybirdsshowdown.webp",
-		"path": "/html/angrybirdsshowdown",
+		"path": "/html/angrybirdsshowdown/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "angrybirdsspace",
 		"name": "Angry Birds Space",
 		"img": "/angrybirdsspace.webp",
-		"path": "/html/angrybirdsspace",
+		"path": "/html/angrybirdsspace/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "aquapark",
 		"name": "Aquapark.io",
 		"img": "/aquapark.webp",
-		"path": "/html/aquapark",
+		"path": "/html/aquapark/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "bottlejump",
 		"name": "Bottle Jump 3D",
 		"img": "/bottlejump.webp",
-		"path": "/html/bottlejump",
+		"path": "/html/bottlejump/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "bouncemasters",
 		"name": "Bouncemasters",
 		"img": "/bouncemasters.webp",
-		"path": "/html/bouncemasters",
+		"path": "/html/bouncemasters/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "bowmasters",
 		"name": "Bowmasters",
 		"img": "/bowmasters.webp",
-		"path": "/html/bowmasters",
+		"path": "/html/bowmasters/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "rs1",
 		"name": "Riddle School",
 		"img": "/rs1.webp",
-		"path": "/flash/rs1",
+		"path": "/flash/rs1/",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"id": "rs2",
 		"name": "Riddle School 2",
 		"img": "/rs2.webp",
-		"path": "/flash/rs2",
+		"path": "/flash/rs2/",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"id": "rs3",
 		"name": "Riddle School 3",
 		"img": "/rs3.webp",
-		"path": "/flash/rs3",
+		"path": "/flash/rs3/",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"id": "rs4",
 		"name": "Riddle School 4",
 		"img": "/rs4.webp",
-		"path": "/flash/rs4",
+		"path": "/flash/rs4/",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"id": "rs5",
 		"name": "Riddle School 5",
 		"img": "/rs5.webp",
-		"path": "/flash/rs5",
+		"path": "/flash/rs5/",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"id": "rt1",
 		"name": "Riddle Transfer",
 		"img": "/rt1.webp",
-		"path": "/flash/rt1",
+		"path": "/flash/rt1/",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"id": "rt2",
 		"name": "Riddle Transfer 2",
 		"img": "/rt2.webp",
-		"path": "/flash/rt2",
+		"path": "/flash/rt2/",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"id": "stm",
 		"name": "Spank the Monkey",
 		"img": "/stm.webp",
-		"path": "/flash/stm",
+		"path": "/flash/stm/",
 		"category": ["Casual", "Flash"]
 	},
 	{
 		"id": "fnaf",
 		"name": "Five Nights at Freddy's",
 		"img": "/fnaf.webp",
-		"path": "/html/fnaf/1",
+		"path": "/html/fnaf/1/",
 		"category": ["Horror"]
 	},
 	{
 		"id": "fnaf2",
 		"name": "Five Nights at Freddy's 2",
 		"img": "/fnaf2.webp",
-		"path": "/html/fnaf/2",
+		"path": "/html/fnaf/2/",
 		"category": ["Horror"]
 	},
 	{
 		"id": "fnaf3",
 		"name": "Five Nights at Freddy's 3",
 		"img": "/fnaf3.webp",
-		"path": "/html/fnaf/3",
+		"path": "/html/fnaf/3/",
 		"category": ["Horror"]
 	},
 	{
 		"id": "fnaf4",
 		"name": "Five Nights at Freddy's 4",
 		"img": "/fnaf4.webp",
-		"path": "/html/fnaf/4",
+		"path": "/html/fnaf/4/",
 		"category": ["Horror"]
 	},
 	{
 		"id": "fnafps",
 		"name": "FNAF Pizzeria Simulator",
 		"img": "/fnafps.webp",
-		"path": "/html/fnaf/ps",
+		"path": "/html/fnaf/ps/",
 		"category": ["Horror"]
 	},
 	{
 		"id": "fnafsl",
 		"name": "FNAF Sister Locataion",
 		"img": "/fnafsl.webp",
-		"path": "/html/fnaf/sl",
+		"path": "/html/fnaf/sl/",
 		"category": ["Horror"]
 	},
 	{
 		"id": "fnafucn",
 		"name": "FNAF Ultimate Custom Night",
 		"img": "/fnafucn.webp",
-		"path": "/html/fnaf/ucn",
+		"path": "/html/fnaf/ucn/",
 		"category": ["Horror"]
 	},
 	{
 		"id": "fnafworld",
 		"name": "FNAF World",
 		"img": "/fnafworld.webp",
-		"path": "/html/fnaf/world",
+		"path": "/html/fnaf/world/",
 		"category": ["Horror"]
 	},
 	{
 		"id": "sc",
 		"name": "Space Company",
 		"img": "/sc.webp",
-		"path": "/html/spacecompany",
+		"path": "/html/spacecompany/",
 		"category": ["Clicker"]
 	},
 	{
 		"id": "goi",
 		"name": "Getting over It",
 		"img": "/goi.webp",
-		"path": "/webgl/goi",
+		"path": "/webgl/goi/",
 		"category": ["Strategy", "Webport"]
 	},
 	{
 		"id": "bitlife",
 		"name": "Bitlife",
 		"img": "/bitlife.webp",
-		"path": "/webgl/bitlife",
+		"path": "/webgl/bitlife/",
 		"category": ["Simulation", "Webport"]
 	},
 	{
 		"id": "retrobowl",
 		"name": "Retro Bowl",
 		"img": "/retrobowl.webp",
-		"path": "/html/retrobowl",
+		"path": "/html/retrobowl/",
 		"category": ["Simulation"]
 	},
 	{
 		"id": "granny",
 		"name": "Granny",
 		"img": "/granny.webp",
-		"path": "/webgl/granny/1",
+		"path": "/webgl/granny/1/",
 		"category": ["Horror", "Webport"]
 	},
 	{
 		"id": "granny2",
 		"name": "Granny 2",
 		"img": "/granny2.webp",
-		"path": "/webgl/granny/2",
+		"path": "/webgl/granny/2/",
 		"category": ["Horror", "Webport"]
 	},
 	{
 		"id": "granny3",
 		"name": "Granny 3",
 		"img": "/granny3.webp",
-		"path": "/webgl/granny/3",
+		"path": "/webgl/granny/3/",
 		"category": ["Horror", "Webport"]
 	},
 	{
 		"id": "bp",
 		"name": "Bad Piggies",
 		"img": "/badpiggies.webp",
-		"path": "/flash/bp",
+		"path": "/flash/bp/",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"id": "4ag",
 		"name": "4th And Goal",
 		"img": "/4ag.webp",
-		"path": "/html/4thandgoal",
+		"path": "/html/4thandgoal/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "awdy",
 		"name": "Are We There Yet",
 		"img": "/awdy.webp",
-		"path": "/webgl/awdy",
+		"path": "/webgl/awdy/",
 		"category": ["Strategy", "Webport"]
 	},
 	{
@@ -964,56 +964,56 @@
 		"id": "at2",
 		"name": "Awesome Tanks 2",
 		"img": "/awet2.webp",
-		"path": "/flash/at/2",
+		"path": "/flash/at/2/",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"id": "bgt",
 		"name": "BERGENTRUCK 201x",
 		"img": "/bg201.webp",
-		"path": "/webgl/bg201",
+		"path": "/webgl/bg201/",
 		"category": ["Strategy", "Webport"]
 	},
 	{
 		"id": "bsb",
 		"name": "Big Shot Boxing",
 		"img": "/bsb.webp",
-		"path": "/html/bsb",
+		"path": "/html/bsb/",
 		"category": ["Sports"]
 	},
 	{
 		"id": "bb",
 		"name": "Block Blast",
 		"img": "/bblast.webp",
-		"path": "/webgl/bb",
+		"path": "/webgl/bb/",
 		"category": ["Strategy", "Webport"]
 	},
 	{
 		"id": "boitssotuff",
 		"name": "Binding Of Issac; Wrath of the lamb",
 		"img": "/boi.webp",
-		"path": "/html/boi",
+		"path": "/html/boi/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "btts",
 		"name": "Big Tower Tiny Square",
 		"img": "/btts.webp",
-		"path": "/html/btts",
+		"path": "/html/btts/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "btts2",
 		"name": "Big Tower Tiny Square 2",
 		"img": "/btts2.webp",
-		"path": "/html/btts/2",
+		"path": "/html/btts/2/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "co09",
 		"name": "Class of '09",
 		"img": "/co09.webp",
-		"path": "/html/co09",
+		"path": "/html/co09/",
 		"category": ["Action"]
 	},
 	{
@@ -1027,133 +1027,133 @@
 		"id": "hk",
 		"name": "Hollow Knight",
 		"img": "/hk.webp",
-		"path": "/webgl/hk",
+		"path": "/webgl/hk/",
 		"category": ["Action", "Webport"]
 	},
 	{
 		"id": "fifa2k",
 		"name": "FIFA 2000",
 		"img": "/fifa2k.webp",
-		"path": "/emulator/gba/fifa2k",
+		"path": "/emulator/gba/fifa2k/",
 		"category": ["Sports"]
 	},
 	{
 		"id": "mnfl",
 		"name": "Madden NFL '06",
 		"img": "/mnfl.webp",
-		"path": "/emulator/gba/mnfl",
+		"path": "/emulator/gba/mnfl/",
 		"category": ["Sports"]
 	},
 	{
 		"id": "pkw",
 		"name": "Pokemon White",
 		"img": "/pkw.webp",
-		"path": "/emulator/ds/pkw",
+		"path": "/emulator/ds/pkw/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "pks",
 		"name": "Pokemon Sapphire",
 		"img": "/pks.webp",
-		"path": "/emulator/gba/pks",
+		"path": "/emulator/gba/pks/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "pkr",
 		"name": "Pokemon Ruby",
 		"img": "/pkr.webp",
-		"path": "/emulator/gba/pkr",
+		"path": "/emulator/gba/pkr/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "pkp",
 		"name": "Pokemon Platinum",
 		"img": "/pkp.webp",
-		"path": "/emulator/ds/pkp",
+		"path": "/emulator/ds/pkp/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "pkfr",
 		"name": "Pokemon FireRed",
 		"img": "/pkfr.webp",
-		"path": "/emulator/gba/pkfr",
+		"path": "/emulator/gba/pkfr/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "pke",
 		"name": "Pokemon Emerald",
 		"img": "/pke.webp",
-		"path": "/emulator/gba/pke",
+		"path": "/emulator/gba/pke/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "pkd",
 		"name": "Pokemon Diamond",
 		"img": "/pkd.webp",
-		"path": "/emulator/ds/pkd",
+		"path": "/emulator/ds/pkd/",
 		"category": ["Adventure"]
 	},
 	{
 		"id": "pvz",
 		"name": "Plants VS Zombies",
 		"img": "/pvz.webp",
-		"path": "/emulator/ds/pvz",
+		"path": "/emulator/ds/pvz/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "cm2",
 		"name": "Cooking Mama 2: Dinner with Friends",
 		"img": "/cm2.webp",
-		"path": "/emulator/ds/cm2",
+		"path": "/emulator/ds/cm2/",
 		"category": ["Simulation"]
 	},
 	{
 		"id": "csgoc",
 		"name": "CSGO Clicker",
 		"img": "/csgoc.webp",
-		"path": "/html/csgoc",
+		"path": "/html/csgoc/",
 		"category": ["Clicker"]
 	},
 	{
 		"id": "ting",
 		"name": "There Is No Game",
 		"img": "/ting.webp",
-		"path": "/html/ting",
+		"path": "/html/ting/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "gag",
 		"name": "Grow a Garden",
 		"img": "/gag.webp",
-		"path": "/webgl/gag",
+		"path": "/webgl/gag/",
 		"category": ["Simulation", "Webport"]
 	},
 	{
 		"id": "blackjack",
 		"name": "Blackjack",
 		"img": "/blackjack.webp",
-		"path": "/html/blackjack",
+		"path": "/html/blackjack/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "mpds",
 		"name": "Mario Party DS",
 		"img": "/mpds.webp",
-		"path": "/emulator/ds/mpds",
+		"path": "/emulator/ds/mpds/",
 		"category": ["Strategy"]
 	},
 	{
 		"id": "ss",
 		"name": "Solar Smash",
 		"img": "/ss.webp",
-		"path": "/html/ss",
+		"path": "/html/ss/",
 		"category": ["Simulation"]
 	},
 	{
 		"id": "sr3d",
 		"name": "Snow Rider 3D",
 		"img": "/sr3d.webp",
-		"path": "/webgl/sr3d",
+		"path": "/webgl/sr3d/",
 		"category": ["Arcade", "Webport"]
 	},
 	{
@@ -1201,28 +1201,28 @@
 	{
 		"name": "Dad N' Me",
 		"id": "dadnme",
-		"path": "/flash/dadnme",
+		"path": "/flash/dadnme/",
 		"img": "/dadnme.webp",
 		"category": ["Arcade", "Flash"]
 	},
 	{
 		"name": "Football Legends",
 		"id": "ftbl",
-		"path": "/html/ftbl",
+		"path": "/html/ftbl/",
 		"img": "/ftbl.webp",
 		"category": ["Sports"]
 	},
 	{
 		"name": "Friday Night Funkin'",
 		"id": "fnf",
-		"path": "/html/fnf",
+		"path": "/html/fnf/",
 		"img": "/fnftfag.webp",
 		"category": ["Strategy"]
 	},
 	{
 		"name": "Fruit Ninja",
 		"id": "fnga",
-		"path": "/html/fruitnja",
+		"path": "/html/fruitnja/",
 		"img": "/fruitninja.webp",
 		"category": ["Strategy"]
 	},
@@ -1243,49 +1243,49 @@
 	{
 		"name": "Hobo 2",
 		"id": "h2",
-		"path": "/flash/hobo/2",
+		"path": "/flash/hobo/2/",
 		"img": "/h2.webp",
 		"category": ["Action", "Flash"]
 	},
 	{
 		"name": "Hobo 3",
 		"id": "h3",
-		"path": "/flash/hobo/3",
+		"path": "/flash/hobo/3/",
 		"img": "/h3.webp",
 		"category": ["Action", "Flash"]
 	},
 	{
 		"name": "Hobo 4",
 		"id": "h4",
-		"path": "/flash/hobo/4",
+		"path": "/flash/hobo/4/",
 		"img": "/h4.webp",
 		"category": ["Action", "Flash"]
 	},
 	{
 		"name": "Hobo 5",
 		"id": "h5",
-		"path": "/flash/hobo/5",
+		"path": "/flash/hobo/5/",
 		"img": "/h5.webp",
 		"category": ["Action", "Flash"]
 	},
 	{
 		"name": "Hobo 6",
 		"id": "h6",
-		"path": "/flash/hobo/6",
+		"path": "/flash/hobo/6/",
 		"img": "/h6.webp",
 		"category": ["Action", "Flash"]
 	},
 	{
 		"name": "Hobo 7",
 		"id": "h7",
-		"path": "/flash/hobo/7",
+		"path": "/flash/hobo/7/",
 		"img": "/h7.webp",
 		"category": ["Action", "Flash"]
 	},
 	{
 		"name": "Hobo Vs Zombies",
 		"id": "hvz",
-		"path": "/flash/hobo/zombies",
+		"path": "/flash/hobo/zombies/",
 		"img": "/hvz.webp",
 		"category": ["Simulation", "Flash"]
 	},
@@ -1320,35 +1320,35 @@
 	{
 		"name": "Basket Bros",
 		"id": "bbs",
-		"path": "/html/basketbros",
+		"path": "/html/basketbros/",
 		"img": "/bbs.webp",
 		"category": ["Sports"]
 	},
 	{
 		"name": "Battle Karts",
 		"id": "bk",
-		"path": "/html/bk",
+		"path": "/html/bk/",
 		"img": "/bk.webp",
 		"category": ["Sports"]
 	},
 	{
 		"name": "Funny Mad Racing",
 		"id": "fmh",
-		"path": "/webgl/fmh",
+		"path": "/webgl/fmh/",
 		"img": "/fmh.webp",
 		"category": ["Sports", "Webport"]
 	},
 	{
 		"name": "Gold Digger FRVR",
 		"id": "gdfrvr",
-		"path": "/html/gdfrvr",
+		"path": "/html/gdfrvr/",
 		"img": "/gdfrvr.webp",
 		"category": ["Clicker"]
 	},
 	{
 		"name": "Google Baseball",
 		"id": "foodsball",
-		"path": "/html/gb",
+		"path": "/html/gb/",
 		"img": "/gb.webp",
 		"category": ["Strategy"]
 	},
@@ -1404,504 +1404,504 @@
 	{
 		"name": "Moto X3M",
 		"id": "mx3m",
-		"path": "/html/motox3m/1",
+		"path": "/html/motox3m/1/",
 		"img": "/mx3m.webp",
 		"category": ["Simulation"]
 	},
 	{
 		"name": "Moto X3M 2",
 		"id": "mx3m2",
-		"path": "/html/motox3m/2",
+		"path": "/html/motox3m/2/",
 		"img": "/mx3m2.webp",
 		"category": ["Simulation"]
 	},
 	{
 		"name": "Moto X3M 3",
 		"id": "mx3m3",
-		"path": "/html/motox3m/3",
+		"path": "/html/motox3m/3/",
 		"img": "/mx3m3.webp",
 		"category": ["Simulation"]
 	},
 	{
 		"name": "Moto X3M Pool Party",
 		"id": "mx3mpp",
-		"path": "/html/motox3m/pp",
+		"path": "/html/motox3m/pp/",
 		"img": "/mx3mpp.webp",
 		"category": ["Simulation"]
 	},
 	{
 		"name": "Moto X3M Spooky Land",
 		"id": "mx3msl",
-		"path": "/html/motox3m/sl",
+		"path": "/html/motox3m/sl/",
 		"img": "/mx3msl.webp",
 		"category": ["Simulation"]
 	},
 	{
 		"name": "Moto X3M Winter",
 		"id": "mx3mw",
-		"path": "/html/motox3m/winter",
+		"path": "/html/motox3m/winter/",
 		"img": "/mx3mw.webp",
 		"category": ["Simulation"]
 	},
 	{
 		"name": "Paper.io 2",
 		"id": "pio2",
-		"path": "/html/pio2",
+		"path": "/html/pio2/",
 		"img": "/pio2.webp",
 		"category": ["Simulation"]
 	},
 	{
 		"name": "Sugar Sugar",
 		"id": "sugasuga",
-		"path": "/flash/ss",
+		"path": "/flash/ss/",
 		"img": "/sugarsugar.webp",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"name": "Karlson 2D",
 		"id": "k2d",
-		"path": "/webgl/k2d",
+		"path": "/webgl/k2d/",
 		"img": "/k2d.webp",
 		"category": ["Action", "Webport"]
 	},
 	{
 		"name": "Sandboxels",
 		"id": "sandb",
-		"path": "/html/sandb",
+		"path": "/html/sandb/",
 		"img": "/sandb.webp",
 		"category": ["Simulation"]
 	},
 	{
 		"name": "Hotline Miami",
 		"id": "hlm",
-		"path": "/webgl/hlm",
+		"path": "/webgl/hlm/",
 		"img": "/hlm.webp",
 		"category": ["Action", "Webport"]
 	},
 	{
 		"name": "Buckshot Roulette",
 		"id": "bsrl",
-		"path": "/webgl/bsrl",
+		"path": "/webgl/bsrl/",
 		"img": "/bsrl.webp",
 		"category": ["Action", "Webport"]
 	},
 	{
 		"name": "Run 3",
 		"id": "r3",
-		"path": "/flash/r3",
+		"path": "/flash/r3/",
 		"img": "/run3.webp",
 		"category": ["Platformer", "Flash"]
 	},
 	{
 		"name": "Core Ball",
 		"id": "cb",
-		"path": "/html/cb",
+		"path": "/html/cb/",
 		"img": "/cb.webp",
 		"category": ["Arcade"]
 	},
 	{
 		"name": "Ragdoll Archer",
 		"id": "ragarch",
-		"path": "/html/ragarch",
+		"path": "/html/ragarch/",
 		"img": "/ragarch.webp",
 		"category": ["Action"]
 	},
 	{
 		"name": "Learn to Fly",
 		"id": "ltf",
-		"path": "/flash/ltf",
+		"path": "/flash/ltf/",
 		"img": "/ltf.webp",
 		"category": ["Arcade", "Flash"]
 	},
 	{
 		"name": "Learn to Fly 2",
 		"id": "ltf2",
-		"path": "/flash/ltf2",
+		"path": "/flash/ltf2/",
 		"img": "/ltf2.webp",
 		"category": ["Arcade", "Flash"]
 	},
 	{
 		"name": "I Don't Even Know",
 		"id": "idek",
-		"path": "/flash/idek",
+		"path": "/flash/idek/",
 		"img": "/idek.webp",
 		"category": ["Arcade", "Flash"]
 	},
 	{
 		"name": "Cut the rope",
 		"id": "ctr",
-		"path": "/flash/ctr",
+		"path": "/flash/ctr/",
 		"img": "/ctr.webp",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"name": "This is the only level",
 		"id": "ol",
-		"path": "/flash/ol",
+		"path": "/flash/ol/",
 		"img": "/ol.webp",
 		"category": ["Arcade", "Flash"]
 	},
 	{
 		"name": "Interactive Buddy 2",
 		"id": "ib2",
-		"path": "/flash/ib2",
+		"path": "/flash/ib2/",
 		"img": "/ib2.webp",
 		"category": ["Arcade", "Flash"]
 	},
 	{
 		"name": "Fancy Pants Adventure",
 		"id": "fpa",
-		"path": "/flash/fpa",
+		"path": "/flash/fpa/",
 		"img": "/fpa.webp",
 		"category": ["Platformer", "Flash"]
 	},
 	{
 		"name": "Fancy Pants Adventure 2",
 		"id": "fpw2",
-		"path": "/flash/fpw2",
+		"path": "/flash/fpw2/",
 		"img": "/fpw2.webp",
 		"category": ["Platformer", "Flash"]
 	},
 	{
 		"name": "Portal (flash)",
 		"id": "portalflash",
-		"path": "/flash/portal",
+		"path": "/flash/portal/",
 		"img": "/portalflash.webp",
 		"category": ["Platformer", "Flash"]
 	},
 	{
 		"name": "The Impossible Quiz",
 		"id": "tiq",
-		"path": "/flash/tiq",
+		"path": "/flash/tiq/",
 		"img": "/tiq.webp",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"name": "The Impossible Quiz 2",
 		"id": "tiq2",
-		"path": "/flash/tiq2",
+		"path": "/flash/tiq2/",
 		"img": "/tiq2.webp",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"name": "Pretend It's not There",
 		"id": "pint",
-		"path": "/webgl/pint",
+		"path": "/webgl/pint/",
 		"img": "/pint.webp",
 		"category": ["Horror", "Webport"]
 	},
 	{
 		"name": "Karlson",
 		"id": "karlson",
-		"path": "/webgl/karlson",
+		"path": "/webgl/karlson/",
 		"img": "/karlson.webp",
 		"category": ["Horror", "Webport"]
 	},
 	{
 		"name": "Superhot",
 		"id": "hot",
-		"path": "/webgl/superhot",
+		"path": "/webgl/superhot/",
 		"img": "/hot.webp",
 		"category": ["Shooter", "Webport"]
 	},
 	{
 		"name": "Happy Wheels",
 		"id": "hw",
-		"path": "/flash/hw",
+		"path": "/flash/hw/",
 		"img": "/hw.webp",
 		"category": ["Action", "Flash"]
 	},
 	{
 		"name": "Red Ball 4",
 		"id": "rb4",
-		"path": "/flash/rb4",
+		"path": "/flash/rb4/",
 		"img": "/rb4.webp",
 		"category": ["Platformer", "Flash"]
 	},
 	{
 		"name": "Bad Time Simulator",
 		"id": "bts",
-		"path": "/html/bts",
+		"path": "/html/bts/",
 		"img": "/bts.webp",
 		"category": ["Strategy", "Action"]
 	},
 	{
 		"name": "Factory Balls",
 		"id": "fb",
-		"path": "/flash/fb",
+		"path": "/flash/fb/",
 		"img": "/fb.webp",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"name": "Factory Balls 2",
 		"id": "fb2",
-		"path": "/flash/fb2",
+		"path": "/flash/fb2/",
 		"img": "/fb2.webp",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"name": "Factory Balls 3",
 		"id": "fb3",
-		"path": "/flash/fb3",
+		"path": "/flash/fb3/",
 		"img": "/fb3.webp",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"name": "Factory Balls 4",
 		"id": "fb4",
-		"path": "/flash/fb4",
+		"path": "/flash/fb4/",
 		"img": "/fb4.webp",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"name": "Sugar Sugar 2",
 		"id": "ss2",
-		"path": "/flash/ss2",
+		"path": "/flash/ss2/",
 		"img": "/ss2.webp",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"name": "Basketball Stars",
 		"id": "bbs",
-		"path": "/html/bbs",
+		"path": "/html/bbs/",
 		"img": "/bbs.webp",
 		"category": ["Strategy", "Sports", "Arcade"]
 	},
 	{
 		"name": "Bloxorz",
 		"id": "bloxorz",
-		"path": "/flash/bloxorz",
+		"path": "/flash/bloxorz/",
 		"img": "/bloxorz.webp",
 		"category": ["Flash", "Strategy", "Arcade"]
 	},
 	{
 		"name": "Wordle",
 		"id": "wordle",
-		"path": "/html/wordle",
+		"path": "/html/wordle/",
 		"img": "/wordle.webp",
 		"category": ["Puzzle", "Strategy"]
 	},
 	{
 		"name": "Roblox",
 		"id": "rbx",
-		"path": "/html/ngg/rbx",
+		"path": "/html/ngg/rbx/",
 		"img": "/rbx.webp",
 		"category": ["Sandbox"]
 	},
 	{
 		"name": "Stumble Guys",
 		"id": "stg",
-		"path": "/html/ngg/stg",
+		"path": "/html/ngg/stg/",
 		"img": "/stg.webp",
 		"category": ["Platformer", "Arcade"]
 	},
 	{
 		"name": "Fortnite",
 		"id": "fn",
-		"path": "/html/ngg/fn",
+		"path": "/html/ngg/fn/",
 		"img": "/fn.webp",
 		"category": ["Shooter", "Arcade"]
 	},
 	{
 		"name": "Cookie Run Kingdom",
 		"id": "crk",
-		"path": "/html/ngg/crk",
+		"path": "/html/ngg/crk/",
 		"img": "/crk.webp",
 		"category": ["Strategy", "Arcade"]
 	},
 	{
 		"name": "Sims 3",
 		"id": "sims3",
-		"path": "/emulator/ds/sims3",
+		"path": "/emulator/ds/sims3/",
 		"img": "/sims3.webp",
 		"category": ["Simulation", "Arcade"]
 	},
 	{
 		"name": "Kirby: Nightmare in Dream Land",
 		"id": "knidl",
-		"path": "/emulator/gba/knidl",
+		"path": "/emulator/gba/knidl/",
 		"img": "/knidl.webp",
 		"category": ["Platformer", "Arcade"]
 	},
 	{
 		"name": "Drift Hunters",
 		"id": "dhunters",
-		"path": "/html/dhunters",
+		"path": "/html/dhunters/",
 		"img": "/dhunters.webp",
 		"category": ["Sandbox", "Arcade"]
 	},
 	{
 		"name": "Drift Boss",
 		"id": "dboss",
-		"path": "/html/dboss",
+		"path": "/html/dboss/",
 		"img": "/dboss.webp",
 		"category": ["Sandbox", "Arcade"]
 	},
 	{
 		"name": "Escape Road",
 		"id": "eroad",
-		"path": "/html/eroad",
+		"path": "/html/eroad/",
 		"img": "/eroad.webp",
 		"category": ["Sandbox", "Arcade"]
 	},
 	{
 		"name": "Escape Road 2",
 		"id": "eroad2",
-		"path": "/html/eroad2",
+		"path": "/html/eroad2/",
 		"img": "/eroad2.webp",
 		"category": ["Sandbox", "Arcade"]
 	},
 	{
 		"name": "Ragdoll Hit",
 		"id": "raghit",
-		"path": "/html/raghit",
+		"path": "/html/raghit/",
 		"img": "/raghit.webp",
 		"category": ["Action"]
 	},
 	{
 		"name": "Skate It",
 		"id": "skit",
-		"path": "/emulator/ds/skit",
+		"path": "/emulator/ds/skit/",
 		"img": "/skit.webp",
 		"category": ["Arcade", "Simulation"]
 	},
 	{
 		"name": "Plants VS Zombies 2",
 		"id": "pvz2",
-		"path": "/html/pvz2",
+		"path": "/html/pvz2/",
 		"img": "/pvz2.webp",
 		"category": ["Arcade", "Simulation"]
 	},
 	{
 		"name": "CS 1.6",
 		"id": "cs",
-		"path": "/html/cs",
+		"path": "/html/cs/",
 		"img": "/cso.webp",
 		"category": ["Action", "Shooter"]
 	},
 	{
 		"name": "Polytrack",
 		"id": "pt",
-		"path": "/html/pt",
+		"path": "/html/pt/",
 		"img": "/pt.webp",
 		"category": ["Action", "Arcade"]
 	},
 	{
 		"name": "Half-Life",
 		"id": "hl",
-		"path": "/html/hl",
+		"path": "/html/hl/",
 		"img": "/hl.webp",
 		"category": ["Action", "Shooter"]
 	},
 	{
 		"name": "Bloons Tower Defense 5",
 		"id": "btd5",
-		"path": "/flash/btd5",
+		"path": "/flash/btd5/",
 		"img": "/btd5.webp",
 		"category": ["Strategy", "Flash"]
 	},
 	{
 		"name": "Cluster Rush",
 		"id": "crush",
-		"path": "/webgl/crush",
+		"path": "/webgl/crush/",
 		"img": "/crush.webp",
 		"category": ["Action", "Webport"]
 	},
 	{
 		"name": "Slime Rancher",
 		"id": "sr",
-		"path": "/webgl/sr",
+		"path": "/webgl/sr/",
 		"img": "/sr.webp",
 		"category": ["Action", "Webport"]
 	},
 	{
 		"name": "Portal",
 		"id": "portal",
-		"path": "/webgl/portal/portal-wrapper.html",
+		"path": "/webgl/portal/portal-wrapper.html/",
 		"img": "/portal.webp",
 		"category": ["Strategy", "Webport"]
 	},
 	{
 		"name": "Retro Bowl 26",
 		"id": "rb26",
-		"path": "/html/rb26",
+		"path": "/html/rb26/",
 		"img": "/rb26.webp",
 		"category": ["Strategy", "Arcade"]
 	},
 	{
 		"name": "Sonic EXE",
 		"id": "sonicexe",
-		"path": "/webgl/sonicexe",
+		"path": "/webgl/sonicexe/",
 		"img": "/sonicexe.webp",
 		"category": ["Horror", "Webport"]
 	},
 	{
 		"name": "Bloons Tower Defense 6",
 		"id": "btd6",
-		"path": "/html/btd6",
+		"path": "/html/btd6/",
 		"img": "/btd6.webp",
 		"category": ["Strategy", "Simulation"]
 	},
 	{
 		"name": "Oneshot",
 		"id": "os",
-		"path": "/webgl/os",
+		"path": "/webgl/os/",
 		"img": "/os.webp",
 		"category": ["Puzzle", "Adventure", "Webport"]
 	},
 	{
 		"name": "Celeste",
 		"id": "celeste",
-		"path": "/webgl/celeste",
+		"path": "/webgl/celeste/",
 		"img": "/celeste.webp",
 		"category": ["Platformer", "Adventure", "Webport"]
 	},
 	{
 		"name": "Terraria",
 		"id": "terraria",
-		"path": "/webgl/terraria/terraria-wrapper.html",
+		"path": "/webgl/terraria/terraria-wrapper.html/",
 		"img": "/terraria.webp",
 		"category": ["Survival", "Adventure", "Webport"]
 	},
 	{
 		"name": "CS Online",
 		"id": "cso",
-		"path": "/webgl/cs_online",
+		"path": "/webgl/cs_online/",
 		"img": "/cs.webp",
 		"category": ["Shooter", "Webport"]
 	},
 	{
 		"name": "Duck Life Space",
 		"id": "dls",
-		"path": "/html/dls",
+		"path": "/html/dls/",
 		"img": "/dls.webp",
 		"category": ["Adventure", "Strategy"]
 	},
 	{
 		"name": "Duck Life Battle",
 		"id": "dlb",
-		"path": "/html/dlb",
+		"path": "/html/dlb/",
 		"img": "/dlb.webp",
 		"category": ["Adventure", "Strategy"]
 	},
 	{
 		"name": "Gunspin",
 		"id": "gs",
-		"path": "/webgl/gs",
+		"path": "/webgl/gs/",
 		"img": "/gs.webp",
 		"category": ["Clicker", "Webport"]
 	},
 	{
 		"name": "Bacon May Die",
 		"id": "bmd",
-		"path": "/webgl/bmd",
+		"path": "/webgl/bmd/",
 		"img": "/bmd.webp",
 		"category": ["Sandbox", "Webport"]
 	},
 	{
 		"name": "ULTRAKILL",
 		"id": "uk",
-		"path": "/webgl/uk",
+		"path": "/webgl/uk/",
 		"img": "/uk.webp",
 		"category": ["Action", "Webport"]
 	},
@@ -1910,7 +1910,7 @@
 		"name": "NES Emulator",
 		"description": "Upload your own file",
 		"img": "/customnes.webp",
-		"path": "/emulator/nes/custom",
+		"path": "/emulator/nes/custom/",
 		"category": ["Arcade"]
 	},
 	{
@@ -1918,7 +1918,7 @@
 		"name": "PSP Emulator",
 		"description": "Upload your own file",
 		"img": "/custompsp.webp",
-		"path": "/emulator/psp/custom",
+		"path": "/emulator/psp/custom/",
 		"category": ["Arcade"]
 	},
 	{
@@ -1926,7 +1926,7 @@
 		"name": "PSX Emulator",
 		"description": "Upload your own file",
 		"img": "/custompsx.webp",
-		"path": "/emulator/psx/custom",
+		"path": "/emulator/psx/custom/",
 		"category": ["Arcade"]
 	},
 	{
@@ -1934,251 +1934,251 @@
 		"name": "SNES Emulator",
 		"description": "Upload your own file",
 		"img": "/customsnes.webp",
-		"path": "/emulator/snes/custom",
+		"path": "/emulator/snes/custom/",
 		"category": ["Arcade"]
 	},
 	{
 		"name": "Flying Gorilla",
 		"id": "fg",
-		"path": "/webgl/fg",
+		"path": "/webgl/fg/",
 		"img": "/fg.webp",
 		"category": ["Action", "Webport"]
 	},
 	{
 		"name": "Pixel Gun 3D (old)",
 		"id": "pg3d",
-		"path": "/webgl/pg3d",
+		"path": "/webgl/pg3d/",
 		"img": "/pg3d.webp",
 		"category": ["Action", "Webport"]
 	},
 	{
 		"name": "Slendytubbies remake",
 		"id": "st",
-		"path": "/webgl/st",
+		"path": "/webgl/st/",
 		"img": "/st.webp",
 		"category": ["Horror", "Webport"]
 	},
 	{
 		"name": "To The Core",
 		"id": "ttc",
-		"path": "/webgl/ttc",
+		"path": "/webgl/ttc/",
 		"img": "/ttc.webp",
 		"category": ["Clicker", "Webport"]
 	},
 	{
 		"name": "Metal Gear Solid",
 		"id": "mgs",
-		"path": "/emualtor/psx/mgs",
+		"path": "/emualtor/psx/mgs/",
 		"img": "/mgs.webp",
 		"category": ["Action"]
 	},
 	{
 		"name": "Doom",
 		"id": "doom",
-		"path": "/emulator/gba/doom",
+		"path": "/emulator/gba/doom/",
 		"img": "/doom.webp",
 		"category": ["Action", "Shooter"]
 	},
 	{
 		"name": "Doom II",
 		"id": "doom2",
-		"path": "/emulator/gba/doom2",
+		"path": "/emulator/gba/doom2/",
 		"img": "/doom2.webp",
 		"category": ["Action", "Shooter"]
 	},
 	{
 		"name": "Jetpack Joyride",
 		"id": "jj",
-		"path": "/html/jj",
+		"path": "/html/jj/",
 		"img": "/jj.webp",
 		"category": ["Action", "Platformer", "Webport"]
 	},
 	{
 		"name": "Helix Jump",
 		"id": "hj",
-		"path": "/html/hj",
+		"path": "/html/hj/",
 		"img": "/hj.webp",
 		"category": ["Arcade"]
 	},
 	{
 		"name": "Ball Blast",
 		"id": "bb",
-		"path": "/html/bb",
+		"path": "/html/bb/",
 		"img": "/bb.webp",
 		"category": ["Arcade"]
 	},
 	{
 		"name": "Genshin Impact",
 		"id": "gi",
-		"path": "/html/ngg/gi",
+		"path": "/html/ngg/gi/",
 		"img": "/gi.webp",
 		"category": ["Adventure"]
 	},
 	{
 		"name": "COD Mobile",
 		"id": "codm",
-		"path": "/html/ngg/codm",
+		"path": "/html/ngg/codm/",
 		"img": "/codm.webp",
 		"category": ["Action", "Shooter"]
 	},
 	{
 		"name": "Stickman Hook",
 		"id": "smh",
-		"path": "/html/smh",
+		"path": "/html/smh/",
 		"img": "/smh.webp",
 		"category": ["Platformer", "Casual"]
 	},
 	{
 		"name": "Among Us",
 		"id": "amongus",
-		"path": "/html/ngg/au",
+		"path": "/html/ngg/au/",
 		"img": "/amongus.webp",
 		"category": ["Action", "Strategy"]
 	},
 	{
 		"name": "Gorilla Tag",
 		"id": "gtag",
-		"path": "/webgl/gtag",
+		"path": "/webgl/gtag/",
 		"img": "/gtag.webp",
 		"category": ["Platformer", "Strategy", "Webport"]
 	},
 	{
 		"name": "Learn to Fly 3",
 		"id": "ltf3",
-		"path": "/flash/ltf3",
+		"path": "/flash/ltf3/",
 		"img": "/ltf3.webp",
 		"category": ["Arcade", "Strategy", "Flash"]
 	},
 	{
 		"name": "Please, Don't Touch Anything",
 		"id": "pdta",
-		"path": "/webgl/pdta",
+		"path": "/webgl/pdta/",
 		"img": "/pdta.webp",
 		"category": ["Puzzle", "Strategy", "Webport"]
 	},
 	{
 		"name": "We Become What We Behold",
 		"id": "wbwwb",
-		"path": "/webgl/wbwwb",
+		"path": "/webgl/wbwwb/",
 		"img": "/wbwwb.webp",
 		"category": ["Puzzle", "Webport"]
 	},
 	{
 		"name": "Iron Snout",
 		"id": "is",
-		"path": "/html/is",
+		"path": "/html/is/",
 		"img": "/is.webp",
 		"category": ["Action", "Adventure"]
 	},
 	{
 		"name": "R.E.P.O.",
 		"id": "repo",
-		"path": "/webgl/repo",
+		"path": "/webgl/repo/",
 		"img": "/repo.webp",
 		"category": ["Puzzle", "Webport"]
 	},
 	{
 		"name": "Replicate",
 		"id": "rep",
-		"path": "/webgl/rep",
+		"path": "/webgl/rep/",
 		"img": "/rep.webp",
 		"category": ["Puzzle", "Webport"]
 	},
 	{
 		"name": "Sort the Court",
 		"id": "stc",
-		"path": "/webgl/stc",
+		"path": "/webgl/stc/",
 		"img": "/stc.webp",
 		"category": ["Simulation", "Webport"]
 	},
 	{
 		"name": "Balatro",
 		"id": "balatro",
-		"path": "/webgl/balatro",
+		"path": "/webgl/balatro/",
 		"img": "/balatro.webp",
 		"category": ["Arcade", "Webport"]
 	},
 	{
 		"name": "Schoolboy Runaway",
 		"id": "sbrunaway",
-		"path": "/webgl/sbrunaway",
+		"path": "/webgl/sbrunaway/",
 		"img": "/sbrunaway.webp",
 		"category": ["Strategy", "Webport"]
 	},
 	{
 		"name": "A Difficult Game About Climbing",
 		"id": "adgac",
-		"path": "/webgl/adgac",
+		"path": "/webgl/adgac/",
 		"img": "/adgac.webp",
 		"category": ["Strategy", "Webport"]
 	},
 	{
 		"name": "Monkey Mart",
 		"id": "mm",
-		"path": "/html/mm",
+		"path": "/html/mm/",
 		"img": "/mm.webp",
 		"category": ["Strategy", "Simulation"]
 	},
 	{
 		"name": "FeedVid Live",
 		"id": "fvl",
-		"path": "/webgl/fvl",
+		"path": "/webgl/fvl/",
 		"img": "/fvl.webp",
 		"category": ["Horror", "Webport"]
 	},
 	{
 		"name": "Battle Cats",
 		"id": "battlecats",
-		"path": "/html/astra/battle-cats",
+		"path": "/html/astra/battle-cats/",
 		"img": "/battlecats.webp",
 		"category": ["Strategy"]
 	},
 	{
 		"name": "Brawl Stars",
 		"id": "brawlstars",
-		"path": "/html/astra/brawl-stars",
+		"path": "/html/astra/brawl-stars/",
 		"img": "/brawlstars.webp",
 		"category": ["Action", "Arcade"]
 	},
 	{
 		"name": "Clash of Clans",
 		"id": "coc",
-		"path": "/html/astra/coc",
+		"path": "/html/astra/coc/",
 		"img": "/coc.webp",
 		"category": ["Action", "Arcade"]
 	},
 	{
 		"name": "Clash Royale",
 		"id": "cr",
-		"path": "/html/astra/cr",
+		"path": "/html/astra/cr/",
 		"img": "/cr.webp",
 		"category": ["Action", "Arcade"]
 	},
 	{
 		"name": "FC Mobile",
 		"id": "fcm",
-		"path": "/html/astra/fcm",
+		"path": "/html/astra/fcm/",
 		"img": "/fcm.webp",
 		"category": ["Sports", "Arcade"]
 	},
 	{
 		"name": "Madden",
 		"id": "madden",
-		"path": "/html/astra/madden",
+		"path": "/html/astra/madden/",
 		"img": "/madden.webp",
 		"category": ["Sports", "Arcade"]
 	},
 	{
 		"name": "MojoLauncher (Minecraft)",
 		"id": "mojo",
-		"path": "/html/astra/mojo",
+		"path": "/html/astra/mojo/",
 		"img": "/mojo.webp",
 		"category": ["Sandbox", "Arcade"]
 	},
 	{
 		"name": "PUBG",
 		"id": "pubg",
-		"path": "/html/astra/pubg",
+		"path": "/html/astra/pubg/",
 		"img": "/pubg.webp",
 		"category": ["Shooter", "Action"]
 	},
@@ -2244,5 +2244,19 @@
 		"path": "/webgl/sam/",
 		"img": "/shiftatmidnight.webp",
 		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Sandtris",
+		"id": "sandtris",
+		"path": "/html/sandtris/",
+		"img": "/sandtris.webp",
+		"category": ["Puzzle", "Strategy"]
+	},
+	{
+		"name": "Space Waves",
+		"id": "spacewaves",
+		"path": "/html/spacewaves/",
+		"img": "/spacewaves.webp",
+		"category": ["Arcade", "Strategy"]
 	}
 ]
