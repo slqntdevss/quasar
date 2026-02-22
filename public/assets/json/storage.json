@@ -1859,7 +1859,7 @@
 	{
 		"name": "Terraria",
 		"id": "terraria",
-		"path": "/webgl/terraria/terraria-wrapper.html/",
+		"path": "/webgl/terraria/terraria-wrapper.html",
 		"img": "/terraria.webp",
 		"category": ["Survival", "Adventure", "Webport"]
 	},
