@@ -1817,7 +1817,7 @@
 	{
 		"name": "Portal",
 		"id": "portal",
-		"path": "/webgl/portal/portal-wrapper.html/",
+		"path": "/webgl/portal/portal-wrapper.html",
 		"img": "/portal.webp",
 		"category": ["Strategy", "Webport"]
 	},
