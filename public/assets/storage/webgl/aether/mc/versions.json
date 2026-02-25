@@ -1,0 +1,71 @@
+[
+  {
+    "id": "1.2.5",
+    "name": "Minecraft 1.2.5 Forge",
+    "jar": "jars/1.2.5.jar",
+    "type": "jar-zip"
+  },
+  {
+    "id": "1.5.2",
+    "name": "Minecraft 1.5.2 Forge",
+    "jar": "jars/1.5.2.jar",
+    "type": "jar-zip"
+  },
+  {
+    "id": "1.6.2",
+    "name": "Minecraft 1.6.2 Forge",
+    "jar": "jars/1.6.2.jar",
+    "type": "jar-zip",
+    "class": "net.minecraft.client.main.Main",
+    "libraries": [
+      {
+        "url": "libs/jopt-simple-4.5.jar",
+        "path": "/app/libs/jopt-simple-4.5.jar"
+      },
+      {
+        "url": "libs/log4j-api-2.8.2.jar",
+        "path": "/app/libs/log4j-api-2.8.2.jar"
+      },
+      {
+        "url": "libs/log4j-core-2.8.2.jar",
+        "path": "/app/libs/log4j-core-2.8.2.jar"
+      },
+      {
+        "url": "libs/commons-lang3-3.17.0.jar",
+        "path": "/app/libs/commons-lang3-3.17.0.jar"
+      },
+      {
+        "url": "libs/guava-18.0.jar",
+        "path": "/app/libs/guava-18.0.jar"
+      },
+      {
+        "url": "libs/gson-2.2.4.jar",
+        "path": "/app/libs/gson-2.2.4.jar"
+      },
+      {
+        "url": "libs/authlib-1.5.21.jar",
+        "path": "/app/libs/authlib-1.5.21.jar"
+      },
+      {
+        "url": "libs/commons-io-2.5.jar",
+        "path": "/app/libs/commons-io-2.5.jar"
+      }
+    ],
+    "jvmArgs": [
+      "--version",
+      "1.8.8",
+      "--tweakClass",
+      "cpw.mods.fml.common.launcher.FMLTweaker",
+      "--accessToken",
+      "FML",
+      "--userProperties",
+      "{}",
+      "--username",
+      "ExampleUser",
+      "--uuid",
+      "00000000-0000-0000-0000-000000000000",
+      "--versionType",
+      "Forge"
+    ]
+  }
+]

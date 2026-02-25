@@ -1,0 +1,14 @@
+/libraries/*
+  Content-Type: application/octet-stream
+/style.css
+  Content-Type: text/css
+/*.css
+  Content-Type: text/css
+/*.js
+  Content-Type: application/javascript
+/browserforge.js
+  Content-Type: application/javascript
+/minecraftClient.js
+  Content-Type: application/javascript
+/modManager.js
+  Content-Type: application/javascript
