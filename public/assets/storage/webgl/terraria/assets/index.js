@@ -2154,7 +2154,7 @@ async function preInit() {
 						j = async () => {
 							let q = await realFetch(v + T);
 							if ((T++, !q.body)) throw new Error("no body in fetch response");
-							return q.status === 200 && !q.headers.get("content-type")
+							return q.status === 200
 								? q.body.getReader()
 								: null;
 						},
