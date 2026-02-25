@@ -294,13 +294,6 @@
 		"category": ["Platformer", "Webport"]
 	},
 	{
-		"name": "Bendy and the Ink Machine",
-		"id": "batim",
-		"path": "/webgl/bendy/",
-		"img": "/batim.webp",
-		"category": ["Horror", "Webport"]
-	},
-	{
 		"name": "Stick With It",
 		"id": "swi",
 		"path": "/webgl/stickwithit/",
@@ -1857,13 +1850,6 @@
 		"category": ["Platformer", "Adventure", "Webport"]
 	},
 	{
-		"name": "Terraria",
-		"id": "terraria",
-		"path": "/webgl/terraria/terraria-wrapper.html",
-		"img": "/terraria.webp",
-		"category": ["Survival", "Adventure", "Webport"]
-	},
-	{
 		"name": "CS Online",
 		"id": "cso",
 		"path": "/webgl/cs_online/",
@@ -2258,5 +2244,33 @@
 		"path": "/html/spacewaves/",
 		"img": "/spacewaves.webp",
 		"category": ["Arcade", "Strategy"]
+	},
+	{
+		"name": "The Aether",
+		"id": "aether",
+		"path": "/webgl/aether/",
+		"img": "/aether.webp",
+		"category": ["Sandbox", "Simulation"]
+	},
+	{
+		"name": "Terraria 1.4.5.5",
+		"id": "terraria",
+		"path": "/webgl/terraria/terraria-wrapper.html",
+		"img": "/terraria.webp",
+		"category": ["Survival", "Adventure", "Webport"]
+	},
+	{
+		"name": "Bendy and the Ink Machine",
+		"id": "batim",
+		"path": "/webgl/bendy/",
+		"img": "/batim.webp",
+		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Amanda The Adventurer",
+		"id": "ata",
+		"path": "/webgl/ata/",
+		"img": "/ata.webp",
+		"category": ["Horror", "Webport"]
 	}
 ]

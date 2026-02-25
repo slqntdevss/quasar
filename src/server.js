@@ -17,15 +17,60 @@ export const staticMappings = [
 	{ prefix: "/ep/", dir: epoxyPath },
 	{ prefix: "/lc/", dir: libcurlPath },
 ];
-
-export function serveStaticFile(filePath, headers = {}) {
+export function serveStaticFile(req, filePath, headers = {}) {
 	try {
 		const stat = fs.statSync(filePath);
-		if (stat.isFile()) {
-			return new Response(Bun.file(filePath), { headers });
+		if (!stat.isFile()) return null;
+
+		const size = stat.size;
+		const range = req.headers.get("range");
+
+		const outHeaders = new Headers({
+			...headers,
+			"Accept-Ranges": "bytes",
+		});
+
+		const file = Bun.file(filePath);
+
+		if (!range) {
+			outHeaders.set("Content-Length", String(size));
+			return new Response(file, { status: 200, headers: outHeaders });
 		}
-	} catch {}
-	return null;
+
+		const m = /^bytes=(\d+)-(\d+)?$/i.exec(range);
+		if (!m) {
+			outHeaders.set("Content-Range", `bytes */${size}`);
+			return new Response(null, { status: 416, headers: outHeaders });
+		}
+
+		let start = Number(m[1]);
+		let end = m[2] ? Number(m[2]) : size - 1;
+
+		if (
+			Number.isNaN(start) ||
+			Number.isNaN(end) ||
+			start < 0 ||
+			end < 0 ||
+			start > end ||
+			start >= size
+		) {
+			outHeaders.set("Content-Range", `bytes */${size}`);
+			return new Response(null, { status: 416, headers: outHeaders });
+		}
+
+		end = Math.min(end, size - 1);
+		const chunkSize = end - start + 1;
+
+		outHeaders.set("Content-Range", `bytes ${start}-${end}/${size}`);
+		outHeaders.set("Content-Length", String(chunkSize));
+
+		return new Response(file.slice(start, end + 1), {
+			status: 206,
+			headers: outHeaders,
+		});
+	} catch {
+		return null;
+	}
 }
 
 export function getCrossOriginHeaders(pathname) {
@@ -107,7 +152,7 @@ export function createFetchHandler(injectHtml) {
 			if (pathname.startsWith(prefix)) {
 				const relativePath = pathname.slice(prefix.length);
 				const filePath = path.join(dir, relativePath);
-				const res = serveStaticFile(filePath, headers);
+				const res = serveStaticFile(req, filePath, headers);
 				if (res) return res;
 			}
 		}
@@ -131,7 +176,7 @@ export function createFetchHandler(injectHtml) {
 			} catch {}
 		}
 
-		const staticRes = serveStaticFile(resolvedPath, headers);
+		const staticRes = serveStaticFile(req, resolvedPath, headers);
 		if (staticRes) return staticRes;
 
 		if (!path.extname(pathname)) {

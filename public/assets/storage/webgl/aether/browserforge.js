@@ -254,8 +254,6 @@ async function playModpack(mp) {
 		document.getElementById("gc-select").value = mp.config.gc || "";
 		document.getElementById("aggressive-opts").checked =
 			mp.config.aggressive || false;
-		document.getElementById("res-width").value = mp.config.width || 854;
-		document.getElementById("res-height").value = mp.config.height || 480;
 		document.getElementById("custom-args").value = mp.config.flags || "";
 		updateArgsPreview();
 	}
@@ -306,13 +304,11 @@ function syncVersionConfig() {
 		} else if (arg === "--width") {
 			const val = args[i + 1];
 			if (val) {
-				document.getElementById("res-width").value = val;
 				i++;
 			}
 		} else if (arg === "--height") {
 			const val = args[i + 1];
 			if (val) {
-				document.getElementById("res-height").value = val;
 				i++;
 			}
 		} else if (arg.startsWith("-Xmx")) {
@@ -503,7 +499,9 @@ playBtn.addEventListener("click", async () => {
 		progress.value = 1;
 
 		const customArgsInput = document.getElementById("custom-args");
-		let javaProps = ["java.library.path=/app/libraries/"];
+		let javaProps = [
+			"java.library.path=/app/assets/storage/webgl/aether/libraries/",
+		];
 		let runArgs = [];
 
 		if (customArgsInput && customArgsInput.value.trim()) {
@@ -534,11 +532,7 @@ playBtn.addEventListener("click", async () => {
 		}
 
 		let libs = {
-			"libGL.so.1": "/app/libraries/gl4es.wasm",
-			"liblwjgl.so": "/app/libraries/liblwjgl.so",
-			"libopenal.so": "builtin",
-			"libopenal.so.1": "builtin",
-			"libjawt.so": "builtin",
+			"libGL.so.1": "/app/assets/storage/webgl/aether/libraries/gl4es.wasm",
 		};
 
 		if (initStatus) initStatus.textContent = "Initializing CheerpJ...";
@@ -642,8 +636,8 @@ modUpload.addEventListener("change", async (e) => {
 		console.error(err);
 	}
 });
-const AETHER_URL = "/demo/aether.zip";
-const PLAYER_API_URL = "/demo/player-api.zip";
+const AETHER_URL = "demo/aether.zip";
+const PLAYER_API_URL = "demo/player-api.zip";
 const loadAetherBtn = document.getElementById("load-aether-demo-btn");
 const aetherStatus = document.getElementById("aether-demo-status");
 loadAetherBtn.addEventListener("click", async () => {

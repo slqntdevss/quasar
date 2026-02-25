@@ -12,12 +12,15 @@ html {
 #app {
 	width: 100%;
 	height: 100%;
-	--font-body: "Andy Bold", -apple-system, system-ui, BlinkMacSystemFont,
+	--font-body:
+		"Andy Bold", -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI",
+		Roboto, "Helvetica Neue", Arial, sans-serif;
+	--font-display:
+		"Inter Tight", "Inter", -apple-system, system-ui, BlinkMacSystemFont,
 		"Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-	--font-display: "Inter Tight", "Inter", -apple-system, system-ui,
-		BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
-	--font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco,
-		Consolas, "Liberation Mono", "Courier New", monospace;
+	--font-mono:
+		"IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+		"Liberation Mono", "Courier New", monospace;
 	font-family: var(--font-body);
 }
 .tcontainer {

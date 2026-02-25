@@ -13,9 +13,7 @@
 			<div class="desktop-only">
 				<div class="container">
 					<div class="intro">
-						<div>
-							<h1>loading aether mod for 1.2.5...</h1>
-						</div>
+						<h1>loading aether 1.2.5...</h1>
 						<div style="display: none">
 							<label for="version-select">Select Version:</label>
 							<select id="version-select"></select>
@@ -158,155 +156,158 @@
 								>View this project on Github</a
 							>
 						</div>
-					</div>
-					<div
-						id="modpack-modal"
-						class="modal"
-						style="
-							display: none;
-							position: fixed;
-							top: 0;
-							left: 0;
-							width: 100%;
-							height: 100%;
-							background: rgba(0, 0, 0, 0.8);
-							z-index: 1000;
-							align-items: center;
-							justify-content: center;
-						"
-					>
 						<div
-							class="modal-content"
+							id="modpack-modal"
+							class="modal"
 							style="
-								background: #222;
-								padding: 20px;
-								border-radius: 8px;
-								max-width: 500px;
-								width: 90%;
-								color: #fff;
-								border: 1px solid #444;
+								display: none;
+								position: fixed;
+								top: 0;
+								left: 0;
+								width: 100%;
+								height: 100%;
+								background: rgba(0, 0, 0, 0.8);
+								z-index: 1000;
+								align-items: center;
+								justify-content: center;
 							"
 						>
-							<h3 id="modal-title">Create Modpack</h3>
-							<label>Name:</label>
-							<input
-								type="text"
-								id="mp-name"
-								style="width: 100%; margin-bottom: 10px; padding: 5px"
-							/>
-
-							<label>Description:</label>
-							<textarea
-								id="mp-desc"
+							<div
+								class="modal-content"
 								style="
-									width: 100%;
-									margin-bottom: 10px;
-									padding: 5px;
-									height: 60px;
+									background: #222;
+									padding: 20px;
+									border-radius: 8px;
+									max-width: 500px;
+									width: 90%;
+									color: #fff;
+									border: 1px solid #444;
 								"
-							></textarea>
+							>
+								<h3 id="modal-title">Create Modpack</h3>
+								<label>Name:</label>
+								<input
+									type="text"
+									id="mp-name"
+									style="width: 100%; margin-bottom: 10px; padding: 5px"
+								/>
 
-							<div style="display: flex; gap: 10px; margin-bottom: 10px">
-								<div style="flex: 1">
-									<label>Memory:</label>
-									<select id="mp-memory" style="width: 100%; padding: 5px">
-										<option value="default">Default</option>
-										<option value="512M">512 MB</option>
-										<option value="1024M">1 GB</option>
-										<option value="2048M">2 GB</option>
-										<option value="4096M">4 GB</option>
-									</select>
+								<label>Description:</label>
+								<textarea
+									id="mp-desc"
+									style="
+										width: 100%;
+										margin-bottom: 10px;
+										padding: 5px;
+										height: 60px;
+									"
+								></textarea>
+
+								<div style="display: flex; gap: 10px; margin-bottom: 10px">
+									<div style="flex: 1">
+										<label>Memory:</label>
+										<select id="mp-memory" style="width: 100%; padding: 5px">
+											<option value="default">Default</option>
+											<option value="512M">512 MB</option>
+											<option value="1024M">1 GB</option>
+											<option value="2048M">2 GB</option>
+											<option value="4096M">4 GB</option>
+										</select>
+									</div>
+									<div style="flex: 1; display: flex; align-items: flex-end">
+										<label style="cursor: pointer">
+											<input type="checkbox" id="mp-opengl" /> Enable OpenGL
+										</label>
+									</div>
 								</div>
-								<div style="flex: 1; display: flex; align-items: flex-end">
-									<label style="cursor: pointer">
-										<input type="checkbox" id="mp-opengl" /> Enable OpenGL
-									</label>
+
+								<div style="display: flex; gap: 10px; margin-bottom: 10px">
+									<div style="flex: 1">
+										<label>GC:</label>
+										<select id="mp-gc" style="width: 100%; padding: 5px">
+											<option value="">Default</option>
+											<option value="-XX:+UseG1GC">G1GC</option>
+											<option value="-XX:+UseParallelGC">Parallel</option>
+											<option value="-XX:+UseConcMarkSweepGC">CMS</option>
+										</select>
+									</div>
+									<div style="flex: 1; display: flex; align-items: flex-end">
+										<label style="cursor: pointer">
+											<input type="checkbox" id="mp-aggressive" /> Aggressive
+											Opts
+										</label>
+									</div>
 								</div>
-							</div>
 
-							<div style="display: flex; gap: 10px; margin-bottom: 10px">
-								<div style="flex: 1">
-									<label>GC:</label>
-									<select id="mp-gc" style="width: 100%; padding: 5px">
-										<option value="">Default</option>
-										<option value="-XX:+UseG1GC">G1GC</option>
-										<option value="-XX:+UseParallelGC">Parallel</option>
-										<option value="-XX:+UseConcMarkSweepGC">CMS</option>
-									</select>
+								<div style="display: flex; gap: 10px; margin-bottom: 10px">
+									<div style="flex: 1">
+										<label>Width:</label>
+										<input
+											type="number"
+											id="mp-width"
+											value="854"
+											style="width: 100%; padding: 5px"
+										/>
+									</div>
+									<div style="flex: 1">
+										<label>Height:</label>
+										<input
+											type="number"
+											id="mp-height"
+											value="480"
+											style="width: 100%; padding: 5px"
+										/>
+									</div>
 								</div>
-								<div style="flex: 1; display: flex; align-items: flex-end">
-									<label style="cursor: pointer">
-										<input type="checkbox" id="mp-aggressive" /> Aggressive Opts
-									</label>
+
+								<label>Custom JVM Flags:</label>
+								<input
+									type="text"
+									id="mp-flags"
+									placeholder="-Dfoo=bar"
+									style="width: 100%; margin-bottom: 10px; padding: 5px"
+								/>
+
+								<label>Icon (Optional):</label>
+								<input
+									type="file"
+									id="mp-icon"
+									accept="image/*"
+									style="margin-bottom: 10px"
+								/>
+
+								<label>Mods (.zip or .jar):</label>
+								<input
+									type="file"
+									id="mp-files"
+									multiple
+									accept=".zip,.jar"
+									style="margin-bottom: 10px"
+								/>
+								<ul
+									id="mp-file-list"
+									style="
+										margin-bottom: 15px;
+										font-size: 0.9em;
+										color: #ccc;
+										max-height: 100px;
+										overflow-y: auto;
+									"
+								></ul>
+
+								<div
+									style="display: flex; justify-content: flex-end; gap: 10px"
+								>
+									<button id="mp-cancel-btn" style="background: #555">
+										Cancel
+									</button>
+									<button id="mp-save-btn">Save Modpack</button>
 								</div>
-							</div>
-
-							<div style="display: flex; gap: 10px; margin-bottom: 10px">
-								<div style="flex: 1">
-									<label>Width:</label>
-									<input
-										type="number"
-										id="mp-width"
-										value="854"
-										style="width: 100%; padding: 5px"
-									/>
-								</div>
-								<div style="flex: 1">
-									<label>Height:</label>
-									<input
-										type="number"
-										id="mp-height"
-										value="480"
-										style="width: 100%; padding: 5px"
-									/>
-								</div>
-							</div>
-
-							<label>Custom JVM Flags:</label>
-							<input
-								type="text"
-								id="mp-flags"
-								placeholder="-Dfoo=bar"
-								style="width: 100%; margin-bottom: 10px; padding: 5px"
-							/>
-
-							<label>Icon (Optional):</label>
-							<input
-								type="file"
-								id="mp-icon"
-								accept="image/*"
-								style="margin-bottom: 10px"
-							/>
-
-							<label>Mods (.zip or .jar):</label>
-							<input
-								type="file"
-								id="mp-files"
-								multiple
-								accept=".zip,.jar"
-								style="margin-bottom: 10px"
-							/>
-							<ul
-								id="mp-file-list"
-								style="
-									margin-bottom: 15px;
-									font-size: 0.9em;
-									color: #ccc;
-									max-height: 100px;
-									overflow-y: auto;
-								"
-							></ul>
-
-							<div style="display: flex; justify-content: flex-end; gap: 10px">
-								<button id="mp-cancel-btn" style="background: #555">
-									Cancel
-								</button>
-								<button id="mp-save-btn">Save Modpack</button>
 							</div>
 						</div>
-					</div>
 
-					<progress style="display: none"></progress>
+						<progress style="display: none"></progress>
+					</div>
 					<div class="display"></div>
 				</div>
 			</div>

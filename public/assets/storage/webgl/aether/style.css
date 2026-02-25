@@ -4,22 +4,15 @@ body {
 	padding: 0;
 	width: 100%;
 	height: 100%;
-	overflow: hidden;
-	font-family: Arial, Helvetica, sans-serif;
-	background-color: black;
+	background: black;
 	color: white;
+	overflow: hidden;
 	text-align: center;
+	font-family: Arial, Helvetica, sans-serif;
 }
 .display {
-	width: 100vw;
-	height: 100vh;
-	inset: 0;
-	left: 0;
-	position: fixed;
+	width: 100%;
+	height: 120%;
+	position: absolute;
 	display: none;
-}
-.display canvas,
-.display > * {
-	width: 100% !important;
-	height: 100% !important;
 }
