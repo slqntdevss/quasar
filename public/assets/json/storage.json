@@ -2272,5 +2272,12 @@
 		"path": "/webgl/ata/",
 		"img": "/ata.webp",
 		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "CloverPit",
+		"id": "cloverpit",
+		"path": "/webgl/cloverpit/",
+		"img": "/cloverpit.webp",
+		"category": ["Horror", "Webport"]
 	}
 ]
