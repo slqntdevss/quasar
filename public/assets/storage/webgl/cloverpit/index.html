@@ -140,6 +140,7 @@
 					})
 						.then((unityInstance) => {
 							loadingBar.style.display = "none";
+							loadingText.remove();
 						})
 						.catch((message) => {});
 				};
