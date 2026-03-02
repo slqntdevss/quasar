@@ -2279,5 +2279,12 @@
 		"path": "/webgl/cloverpit/",
 		"img": "/cloverpit.webp",
 		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Kick The Buddy",
+		"id": "ktb",
+		"path": "/webgl/ktb/",
+		"img": "/ktb.webp",
+		"category": ["Casual", "Clicker"]
 	}
 ]
