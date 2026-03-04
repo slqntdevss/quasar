@@ -849,7 +849,7 @@
 			function S() {
 				try {
 					var e = new URL(document.referrer).hostname;
-					return A.indexOf(e) > -1 ? "poki" : e;
+					return "poki.com";
 				} catch (e) {}
 				return "";
 			}
@@ -1196,13 +1196,15 @@
 					creative_id: e.creativeId || t.creativeId,
 					experiment: U.experiment,
 				};
-				fetch("https://t.poki.io/adserver", {
-					method: "POST",
-					mode: "no-cors",
-					body: JSON.stringify(o),
-				}).catch((e) => {
-					console.warn("%cPOKI:%c adserver error", "font-weight: bold", "", e);
-				});
+			/* Removed poki.com fetch
+			fetch("https://t.poki.io/adserver", {
+				method: "POST",
+				mode: "no-cors",
+				body: JSON.stringify(o),
+			}).catch((e) => {
+				console.warn("%cPOKI:%c adserver error", "font-weight: bold", "", e);
+			});
+			*/
 			};
 			function W(e, ...t) {
 				console.warn(
@@ -1822,10 +1824,12 @@
 							p4d_game_id: U.gameID,
 							user_id: Ae,
 						};
-						fetch("https://t.poki.io/game-cookies", {
-							method: "post",
-							body: JSON.stringify(e),
-						}).catch();
+					/* Removed poki.com fetch
+					fetch("https://t.poki.io/game-cookies", {
+						method: "post",
+						body: JSON.stringify(e),
+					}).catch();
+					*/
 					} catch {}
 				}
 				static trackSavegames() {
@@ -4388,10 +4392,14 @@
 				"/" !== e[0] && (e = `/${e}`);
 				let t = "";
 				window.top !== window && (t = encodeURIComponent(document.referrer));
-				return vt(
-					`https://devs-api.poki.com/gameinfo/@sdk?href=${encodeURIComponent(`${window.location.protocol}//${window.location.host}${e}${window.location.search}`)}&referrer=${t}`,
-					{ method: "GET", headers: { "Content-Type": "text/plain" } },
-				)
+			/* Removed poki.com fetch - return empty promise */
+			return Promise.resolve({ status: 404 })
+			/* Original code:
+			return vt(
+				`https://devs-api.poki.com/gameinfo/@sdk?href=${encodeURIComponent(`${window.location.protocol}//${window.location.host}${e}${window.location.search}`)}&referrer=${t}`,
+				{ method: "GET", headers: { "Content-Type": "text/plain" } },
+			)
+			*/
 					.then(async (e) => {
 						if (e.status >= 200 && e.status < 400) {
 							const t = await e.json();
@@ -4565,11 +4573,13 @@
 			}
 			const Jn = window.requestAnimationFrame;
 			function Qn(e) {
-				fetch("https://mystery-game-tile.poki.io/v0/metric", {
-					method: "POST",
-					headers: { "Content-Type": "application/json" },
-					body: JSON.stringify(e),
-				});
+		/* Removed poki.com fetch
+		fetch("https://mystery-game-tile.poki.io/v0/metric", {
+			method: "POST",
+			headers: { "Content-Type": "application/json" },
+			body: JSON.stringify(e),
+		});
+		*/
 			}
 			function $n(e) {
 				const t = Math.random().toString(36).substring(2);
@@ -4713,8 +4723,11 @@
 				const r = In(t, () => {
 					no?.close(1e3, "Playtest recording stopped");
 				});
-				r &&
-					((no = new WebSocket("wss://playtest-recorder.poki.io/ws")),
+			/* Removed poki.com WebSocket
+			r &&
+				((no = new WebSocket("wss://playtest-recorder.poki.io/ws")),
+			*/
+			r && false && ((no = null),
 					no.addEventListener("error", () => {
 						(X.track(e.tracking.playtest.error, { message: "websocket error" }),
 							console.info(

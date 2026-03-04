@@ -200,21 +200,24 @@
 								{ type: "pokiMessageSendGameEvent", content: { payload: s } },
 								"*",
 							)
-						: fetch("https://t.poki.io/game-event", {
-								method: "POST",
-								headers: { "Content-Type": "text/plain" },
-								body: JSON.stringify(s),
-								mode: "no-cors",
-								keepalive: !0,
-								credentials: "omit",
-							}).catch((e) => {
-								console.warn(
-									"%cPOKI:%c failed to measure",
-									"font-weight: bold",
-									"",
-									e,
-								);
-							});
+						: /* Removed poki.com fetch */ void 0;
+					/* Original code:
+					: fetch("https://t.poki.io/game-event", {
+							method: "POST",
+							headers: { "Content-Type": "text/plain" },
+							body: JSON.stringify(s),
+							mode: "no-cors",
+							keepalive: !0,
+							credentials: "omit",
+						}).catch((e) => {
+							console.warn(
+								"%cPOKI:%c failed to measure",
+								"font-weight: bold",
+								"",
+								e,
+							);
+						});
+					*/
 				}
 			}),
 				window.PokiSDK.measure("game", "loading", "start"),

@@ -769,11 +769,11 @@
 					0,
 					window.location.pathname.lastIndexOf("/"),
 				),
-				$ =
-					window.location.hostname.endsWith("game-cdn.poki.com") ||
-					window.location.hostname.endsWith(".poki-gdn.com")
-						? `/cdn-cgi/image/f=auto,quality=78${I}/`
-						: "";
+			$ =
+				/* Removed poki.com hostname check */
+				false
+					? `/cdn-cgi/image/f=auto,quality=78${I}/`
+					: "";
 			async function T() {
 				const n = 1e3 * p.slideshowInterval,
 					e = y.querySelector("#slideshow-images .right"),
