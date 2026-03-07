@@ -1,14 +1,20 @@
 [
 	{
-		"extensionName": "KaHack",
-		"description": "Auto answer for Kahoot",
-		"site": "kahoot.it",
-		"code": "var s=document.createElement('script');fetch('https://cdn.jsdelivr.net/gh/KRWCLASSIC/KaHoax@main/KaHoax.user.js').then(r=>r.text()).then(t=>{s.innerHTML=t;document.head.appendChild(s)})"
-	},
-	{
 		"extensionName": "Example addon",
 		"description": "showcase for addon feature",
 		"site": "example.com",
 		"code": "alert('goat quasar technology 2064')"
+	},
+	{
+		"extensionName": "Universal Ad Blocker",
+		"description": "global ad blocker",
+		"site": "*",
+		"code": "(function() { 'use strict'; if (window.location.href.includes('youtube.com')) return; function blockAds() { const adSelectors = ['iframe[src*=\"doubleclick\"]', 'iframe[src*=\"googlesyndication\"]', 'iframe[src*=\"advertising\"]', 'div[id^=\"google_ads\"]', 'div[id^=\"ad-container\"]', 'div[class^=\"ad-container\"]', 'ins.adsbygoogle', '[data-ad-slot]', '[data-ad-client]', 'div[id*=\"-ad-\"][id*=\"banner\"]', 'div[class*=\"advertisement\"]']; adSelectors.forEach(selector => { try { const ads = document.querySelectorAll(selector); ads.forEach(ad => { if (ad.parentElement && !ad.closest('form') && !ad.id.includes('search') && !ad.className.includes('search')) { ad.style.display = 'none'; ad.remove(); } }); } catch(e) {} }); } setInterval(blockAds, 2000); const observer = new MutationObserver(() => blockAds()); observer.observe(document.body, { childList: true, subtree: true }); blockAds(); })();"
+	},
+	{
+		"extensionName": "YouTube Ad Blocker v4",
+		"description": "yotuube ad blocker",
+		"site": "youtube.com",
+		"code": "(function() { 'use strict'; var cssArrObject = ['#masthead-ad', 'ytd-rich-item-renderer.style-scope.ytd-rich-grid-row #content:has(.ytd-display-ad-renderer)', '.video-ads.ytp-ad-module', 'tp-yt-paper-dialog:has(yt-mealbar-promo-renderer)', 'ytd-engagement-panel-section-list-renderer[target-id=\"engagement-panel-ads\"]', '#related #player-ads', '#related ytd-ad-slot-renderer', 'ytd-ad-slot-renderer', 'yt-mealbar-promo-renderer', 'ytd-popup-container:has(a[href=\"/premium\"])', 'ad-slot-renderer', 'ytm-companion-ad-renderer', '#related #-ad-']; function removeNonVideoAds(arry) { arry.forEach((selector, index) => { arry[index] = `${selector}{display:none!important}`; }); const premiumContainers = [...document.querySelectorAll('ytd-popup-container')]; const matchingContainers = premiumContainers.filter(container => container.querySelector('a[href=\"/premium\"]')); if (matchingContainers.length > 0) { matchingContainers.forEach(container => container.remove()); } const backdrops = document.querySelectorAll('tp-yt-iron-overlay-backdrop'); const targetBackdrop = Array.from(backdrops).find((backdrop) => backdrop.style.zIndex === '2201'); if (targetBackdrop) { targetBackdrop.className = ''; targetBackdrop.removeAttribute('opened'); } let style = document.createElement('style'); (document.head || document.body).appendChild(style); style.appendChild(document.createTextNode(arry.join(' '))); } function skipAd(video) { const adIndicator = document.querySelector('.ytp-ad-skip-button, .ytp-skip-ad-button, .ytp-ad-skip-button-modern, .video-ads.ytp-ad-module .ytp-ad-player-overlay, .ytp-ad-button-icon'); if (adIndicator && !window.location.href.includes('https://m.youtube.com/')) { video.muted = true; video.currentTime = video.duration - 0.1; } } function removeAdblockWarning() { var warningInterval = setInterval(function() { var popupExists = document.getElementsByClassName('style-scope ytd-popup-container').length > 0; var dismissButton = document.getElementById('dismiss-button'); var divider = document.getElementById('divider'); if (popupExists && dismissButton && divider) { setTimeout(function() { dismissButton.click(); const playButton = document.getElementsByClassName('ytp-play-button ytp-button')[0]; if (playButton) playButton.click(); clearInterval(warningInterval); }, Math.random() * 3000); } }, Math.random() * 500); } setInterval(() => { if (document.readyState !== 'loading') { removeNonVideoAds(cssArrObject); removeAdblockWarning(); var adsVideo = document.querySelector('.ad-showing video'); var mainVideo = document.querySelector('video'); if (mainVideo) { var playerStatus = { currentTime: mainVideo.currentTime, isPaused: mainVideo.paused, speed: mainVideo.playbackRate }; if (playerStatus.currentTime <= 5 && playerStatus.isPaused == true) { mainVideo.play().catch(error => { console.error('Failed to play video:', error); }); } } if (adsVideo) { skipAd(adsVideo); } } }, 500); })();"
 	}
 ]

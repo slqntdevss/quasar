@@ -17,7 +17,6 @@ async function loadExtensions() {
 	extensions = await (await fetch("/assets/json/extensions.json")).json();
 }
 loadExtensions();
-/** @type {HTMLIFrameElement} */ // im so used to typescript i NEED types
 const frame = document.getElementById("frame");
 let timeout;
 async function searchSJ(url) {
@@ -27,11 +26,12 @@ async function searchSJ(url) {
 		cleanedUrl = "https://nowgg.fun";
 	}
 	frame.style.display = "block";
-	let wispUrl =
+	/*let wispUrl =
 		(location.protocol === "https:" ? "wss" : "ws") +
 		"://" +
 		location.host +
-		"/wisp/";
+		"/wisp/";*/
+	let wispUrl = "ws://localhost:3001";
 
 	if ((await connection.getTransport()) !== "/ep/index.mjs") {
 		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
@@ -70,7 +70,12 @@ form.addEventListener("submit", async (event) => {
 	searchSJ(address.value);
 });
 
-function showAddonPopup(addonData) {
+const activatedExtensions = new Set();
+function showAddonPopup(addonData, url) {
+	const extensionKey = `${addonData.extensionName}_${new URL(url).hostname}`;
+	if (activatedExtensions.has(extensionKey)) {
+		return;
+	}
 	const popup = document.querySelector(".addon-popup");
 	popup.classList.add("visible");
 	const title = popup.querySelector(".addon-popup-title");
@@ -79,30 +84,63 @@ function showAddonPopup(addonData) {
 	const closeAddon = document.getElementById("addon-cancel");
 	const activateAddon = document.getElementById("addon-inject");
 
-	title.textContent = `Addon available for ${addonData.site}`;
+	title.textContent = `Extension available for ${addonData.site}`;
 	name.textContent = addonData.extensionName + ":";
 	description.textContent = addonData.description;
+	const newCloseBtn = closeAddon.cloneNode(true);
+	const newActivateBtn = activateAddon.cloneNode(true);
+	closeAddon.parentNode.replaceChild(newCloseBtn, closeAddon);
+	activateAddon.parentNode.replaceChild(newActivateBtn, activateAddon);
 
-	closeAddon.addEventListener("click", (e) => {
+	newCloseBtn.addEventListener("click", (e) => {
 		popup.classList.remove("visible");
+		activatedExtensions.add(extensionKey);
 	});
-	activateAddon.addEventListener("click", (e) => {
+	newActivateBtn.addEventListener("click", (e) => {
 		const scriptEl = document.createElement("script");
 		scriptEl.innerHTML = addonData.code;
 		frame.contentDocument.body.insertAdjacentElement("afterbegin", scriptEl);
 		popup.classList.remove("visible");
+		activatedExtensions.add(extensionKey);
 	});
 }
 
-frame.addEventListener("load", () => {
+let lastIframeUrl = "";
+
+function injectExtensions() {
+	if (!frame.contentDocument || !frame.contentDocument.body) return;
+
 	const url = scramjet.decodeUrl(frame.contentWindow.location.href);
 	document.getElementById("urlInput").value = url;
+
 	for (const ext of extensions) {
-		if (url.includes(ext.site)) {
-			showAddonPopup(ext);
+		if (ext.site === "*") {
+			const scriptEl = document.createElement("script");
+			scriptEl.innerHTML = ext.code;
+			frame.contentDocument.body.insertAdjacentElement("afterbegin", scriptEl);
+		} else if (url.includes(ext.site)) {
+			showAddonPopup(ext, url);
 			break;
 		}
 	}
+}
+
+frame.addEventListener("load", () => {
+	injectExtensions();
+	const checkUrlChange = setInterval(() => {
+		if (!frame.contentWindow) {
+			clearInterval(checkUrlChange);
+			return;
+		}
+		try {
+			const currentUrl = scramjet.decodeUrl(frame.contentWindow.location.href);
+			if (currentUrl !== lastIframeUrl && lastIframeUrl !== "") {
+				lastIframeUrl = currentUrl;
+				injectExtensions();
+			}
+			lastIframeUrl = currentUrl;
+		} catch (e) {}
+	}, 500);
 });
 
 address.addEventListener("input", (e) => {
