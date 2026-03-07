@@ -6,7 +6,7 @@ work in progress UBG site because school is soon 😨
 
 UGS - about 20 - 30 games on here
 
-NPA(me, breadbb, bog/aukak, 98corbins) - most of the webports
+NPA/webport.ing (me, breadbb, bog/aukak, 98corbins) - most of the webports
 
 JustJxrdanWasDefinetlyTaken - CDN switching option, game quantity additions
 
