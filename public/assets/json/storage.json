@@ -2286,5 +2286,68 @@
 		"path": "/webgl/ktb/",
 		"img": "/ktb.webp",
 		"category": ["Casual", "Clicker"]
+	},
+	{
+		"name": "Cell Machine",
+		"id": "cm",
+		"path": "/webgl/cm/",
+		"img": "/cm.webp",
+		"category": ["Simulation", "Webport"]
+	},
+	{
+		"name": "Christmas Massacre",
+		"id": "christmasmassacre",
+		"path": "/webgl/christmasmassacre/",
+		"img": "/christmasmassacre.webp",
+		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Peggle",
+		"id": "peggle",
+		"path": "/flash/peggle/",
+		"img": "/peggle.webp",
+		"category": ["Simulation", "Webport"]
+	},
+	{
+		"name": "Brotato",
+		"id": "brotato",
+		"path": "/webgl/brotato/",
+		"img": "/brotato.webp",
+		"category": ["Shooter", "Webport"]
+	},
+	{
+		"name": "Game Inside a Game Inside a Game",
+		"id": "giag",
+		"path": "/webgl/giag/",
+		"img": "/giag.webp",
+		"category": ["Strategy", "Webport"]
+	},
+	{
+		"name": "Midnight Shift",
+		"id": "ms",
+		"path": "/webgl/ms/",
+		"img": "/ms.webp",
+		"category": ["Horror", "Webport"]
+	},
+	{
+		"name": "Survivor IO",
+		"id": "sio",
+		"path": "/webgl/sio/",
+		"img": "/sio.webp",
+		"category": ["Shooter", "Webport"]
+	},
+	{
+		"name": "Untitled Goose Game",
+		"id": "ugg",
+		"path": "/webgl/ugg/",
+		"img": "/ugg.webp",
+		"category": ["Simulation", "Webport"]
+	},
+	{
+		"name": "Microsoft Flight Simulator",
+		"id": "mfs",
+		"path": "/html/mfs/",
+		"img": "/mfs.webp",
+		"category": ["Simulation", "Casual"]
 	}
 ]
