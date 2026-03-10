@@ -26,12 +26,12 @@ async function searchSJ(url) {
 		cleanedUrl = "https://nowgg.fun";
 	}
 	frame.style.display = "block";
-	/*let wispUrl =
+	let wispUrl =
 		(location.protocol === "https:" ? "wss" : "ws") +
 		"://" +
 		location.host +
-		"/wisp/";*/
-	let wispUrl = "ws://localhost:3001";
+		"/wisp/";
+	//let wispUrl = "ws://localhost:3001";
 
 	if ((await connection.getTransport()) !== "/ep/index.mjs") {
 		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
