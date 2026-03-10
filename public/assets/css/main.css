@@ -840,8 +840,7 @@ p {
 
 .addon-popup {
 	position: fixed;
-	left: 84%;
-	transform: translateX(-50%);
+	right: 20px;
 	width: 90%;
 	max-width: 450px;
 	border: var(--main-border);

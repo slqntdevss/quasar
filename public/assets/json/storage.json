@@ -2349,5 +2349,12 @@
 		"path": "/html/mfs/",
 		"img": "/mfs.webp",
 		"category": ["Simulation", "Casual"]
+	},
+	{
+		"name": "Little Alchemy 2",
+		"id": "la2",
+		"path": "/html/la2/",
+		"img": "/la2.webp",
+		"category": ["Simulation", "Casual"]
 	}
 ]
