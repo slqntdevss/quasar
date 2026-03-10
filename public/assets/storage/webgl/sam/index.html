@@ -42,7 +42,7 @@
 				margin-top: 20px;
 			"
 		>
-			Parts downloaded (0/5)
+			Parts downloaded (0/6)
 		</div>
 		<div id="unity-container">
 			<canvas id="unity-canvas" tabindex="-1"></canvas>
@@ -65,7 +65,7 @@
 							.then((data) => {
 								buffers.push(data);
 								document.getElementById("loading-text").textContent =
-									`Parts downloaded (${index + 1}/5)`;
+									`Parts downloaded (${index + 1}/6)`;
 								fetchPart(index + 1);
 							})
 							.catch(reject);
@@ -82,7 +82,7 @@
 				return parts;
 			}
 			Promise.all([
-				mergeFiles(getParts("Build/ShiftAtMidnightPort.data", 1, 5)),
+				mergeFiles(getParts("Build/ShiftAtMidnightPort.data", 1, 6)),
 				mergeFiles(getParts("Build/ShiftAtMidnightPort.wasm", 1, 2)),
 			]).then(([dataUrl, wasmUrl]) => {
 				var buildUrl = "Build";
