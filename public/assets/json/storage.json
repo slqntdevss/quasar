@@ -2356,5 +2356,26 @@
 		"path": "/html/la2/",
 		"img": "/la2.webp",
 		"category": ["Simulation", "Casual"]
+	},
+	{
+		"name": "Undertale",
+		"id": "undertale",
+		"path": "/webgl/undertale/",
+		"img": "/undertale.webp",
+		"category": ["Adventure", "RPG"]
+	},
+	{
+		"name": "Undertale Yellow",
+		"id": "uty",
+		"path": "/webgl/undertaleyellow/",
+		"img": "/uty.webp",
+		"category": ["Adventure", "RPG"]
+	},
+	{
+		"name": "Deltarune",
+		"id": "deltarune",
+		"path": "/webgl/deltarune/",
+		"img": "/deltarune.webp",
+		"category": ["Adventure", "RPG"]
 	}
 ]
