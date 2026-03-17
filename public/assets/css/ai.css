@@ -1,3 +1,12 @@
+html:has(.ai-root),
+html:has(.ai-root) body {
+	height: 100%;
+	max-height: 100%;
+	overflow: hidden;
+	position: fixed;
+	width: 100%;
+}
+
 .ai-root {
 	--main-bg: rgba(22, 25, 30, 0.82);
 	--main-border: 1px solid rgba(255, 255, 255, 0.12);
