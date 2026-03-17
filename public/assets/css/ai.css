@@ -7,6 +7,13 @@ html:has(.ai-root) body {
 	width: 100%;
 }
 
+html:has(.ai-root) [data-ad="video"] {
+	position: fixed;
+	top: 1rem;
+	right: 1rem;
+	z-index: 50;
+}
+
 .ai-root {
 	--main-bg: rgba(22, 25, 30, 0.82);
 	--main-border: 1px solid rgba(255, 255, 255, 0.12);
