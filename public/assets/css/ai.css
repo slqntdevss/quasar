@@ -14,9 +14,11 @@ html:has(.ai-root) body > *:not(.ai-root) {
 
 html:has(.ai-root) [data-ad="video"] {
 	position: fixed !important;
-	top: 1rem;
-	right: 1rem;
-	z-index: 50;
+	top: 1rem !important;
+	right: 1rem !important;
+	bottom: auto !important;
+	left: auto !important;
+	z-index: 50 !important;
 }
 
 .ai-root {
