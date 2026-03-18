@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Davidson Academy | AI Assistant</title>
+		<meta
+			name="description"
+			content="Located in Nashville, Tennessee, Davidson Academy is a college-preparatory, interdenominational school for preschool through grade 12."
+		/>
+		<meta http-equiv="Content-Language" content="en" />
+		<meta name="robots" content="index, follow" />
+		<link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" />
+		<link href="/assets/css/main.css" rel="stylesheet" />
+		<link href="/assets/css/ai.css" rel="stylesheet" />
+		<link
+			rel="stylesheet"
+			href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/styles/github-dark-dimmed.min.css"
+		/>
+	</head>
+	<body class="theme-classic" style="overflow: hidden">
+		<img
+			class="cursor"
+			src="/assets/img/cursor.webp"
+			width="32px"
+			alt="cursor"
+			height="32px"
+		/>
+		<canvas class="glslCanvas"></canvas>
+
+		<div class="ai-root">
+			<div class="ai-drag-overlay">
+				<div class="ai-drag-box">
+					<svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5h6"/><path d="M19 2v6"/><path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/><circle cx="9" cy="9" r="2"/></svg>
+					<p>Drop images here</p>
+					<p class="ai-drag-sub">PNG, JPEG, GIF, WebP</p>
+				</div>
+			</div>
+
+			<div class="ai-sidebar-overlay"></div>
+
+			<aside class="ai-sidebar">
+				<div class="ai-sidebar-header">
+					<a href="/" class="ai-sidebar-brand">Quasar AI</a>
+					<button class="ai-sidebar-close">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+					</button>
+				</div>
+
+				<div class="ai-new-chat-wrap">
+					<button class="ai-new-chat-btn">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+						New Chat
+					</button>
+				</div>
+
+				<div class="ai-session-list"></div>
+
+				<div class="ai-stats-panel" style="display: none"></div>
+
+				<div class="ai-sidebar-footer">
+					<a href="/">&larr; Back to Quasar</a>
+				</div>
+			</aside>
+
+			<main class="ai-main">
+				<header class="ai-header">
+					<button class="ai-hamburger">
+						<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+					</button>
+
+					<div class="ai-model-picker">
+						<button class="ai-model-btn"></button>
+
+						<div class="ai-model-dropdown">
+							<div class="ai-model-search-wrap">
+								<svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/></svg>
+								<input class="ai-model-search" placeholder="Search models..." />
+							</div>
+							<div class="ai-model-list"></div>
+						</div>
+
+						<div class="ai-model-backdrop"></div>
+					</div>
+
+					<div class="ai-header-spacer"></div>
+				</header>
+
+				<div class="ai-messages"></div>
+
+				<div class="ai-input-area">
+					<div class="ai-input-inner">
+						<div class="ai-image-previews" style="display: none"></div>
+						<div class="ai-input-row">
+							<input type="file" accept="image/*" multiple class="ai-file-input" />
+							<button class="ai-attach-btn" title="Attach images">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 5h6"/><path d="M19 2v6"/><path d="M21 11.5V19a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h7.5"/><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21"/><circle cx="9" cy="9" r="2"/></svg>
+							</button>
+							<textarea class="ai-textarea" placeholder="Message Quasar AI... (paste or drop images)" rows="1"></textarea>
+							<button class="ai-send-btn disabled" title="Send message">
+								<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"/><path d="m21.854 2.147-10.94 10.939"/></svg>
+							</button>
+						</div>
+						<p class="ai-disclaimer">AI can make mistakes. Verify important information.</p>
+					</div>
+				</div>
+			</main>
+		</div>
+
+		<div style="display: none">
+			<section>
+				<h2>What Davidson Academy Is</h2>
+				<p>
+					Davidson Academy is a free public school for profoundly gifted
+					students. It offers a challenging academic experience designed for
+					young people who score at or above the 99.9th percentile on
+					approved intelligence or achievement tests. Admission is competitive
+					and based on demonstrated advanced ability rather than age or grade
+					level.
+				</p>
+			</section>
+
+			<section>
+				<h2>How the Curriculum Works</h2>
+				<p>
+					The curriculum is flexible and ability-based. Students progress not by
+					age, but by demonstrated mastery. Courses cover advanced mathematics,
+					sciences, humanities, and interdisciplinary projects designed to
+					challenge and stimulate high-level thinkers.
+				</p>
+			</section>
+
+			<section>
+				<h2>Locations and Options</h2>
+				<p>
+					There are two main offerings: the on-campus school in Reno, Nevada,
+					and the online Davidson Academy Online program. Both provide rigorous
+					academic environments but differ in format and daily structure.
+				</p>
+			</section>
+
+			<section>
+				<h2>Why It's Not a Typical School</h2>
+				<p>
+					The Academy emphasizes deep inquiry, self-direction, and intellectual
+					community. Students often take university-level courses, engage in
+					advanced research, and develop skills needed for high-level academic
+					and professional paths.
+				</p>
+			</section>
+		</div>
+	</body>
+	<script src="https://cdn.socket.io/4.8.1/socket.io.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/npm/marked/lib/marked.umd.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.11.1/highlight.min.js"></script>
+	<script src="/assets/js/ai.js"></script>
+	<script src="/assets/js/cursor.js"></script>
+	<script src="/assets/js/settings.js"></script>
+	<script type="text/javascript" src="/assets/js/dda.js"></script>
+	<script type="text/javascript">
+		aclib.runPop({
+			zoneId: '10602038',
+		});
+	</script>
+	<script type="text/javascript">
+		aclib.runInterstitial({
+			zoneId: '10602046',
+		});
+	</script>
+	<script type="text/javascript">
+		aclib.runVideoSlider({
+			zoneId: '10601494',
+		});
+	</script>
+</html>
