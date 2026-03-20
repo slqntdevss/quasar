@@ -2377,5 +2377,19 @@
 		"path": "/webgl/deltarune/",
 		"img": "/deltarune.webp",
 		"category": ["Adventure", "Webport"]
+	},
+	{
+		"name": "Minecraft: Pocket Edition",
+		"id": "mcpe",
+		"path": "/html/mcpe/",
+		"img": "/mcpe.webp",
+		"category": ["Adventure", "Webport"]
+	},
+	{
+		"name": "Dumb Ways to Die",
+		"id": "dwtd",
+		"path": "/html/dwtd/",
+		"img": "/dwtd.webp",
+		"category": ["Strategy", "Webport"]
 	}
 ]
