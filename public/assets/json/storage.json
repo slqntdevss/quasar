@@ -2391,5 +2391,12 @@
 		"path": "/html/dwtd/",
 		"img": "/dwtd.webp",
 		"category": ["Strategy", "Webport"]
+	},
+	{
+		"name": "NextBots",
+		"id": "nextbots",
+		"path": "/html/nextbots/",
+		"img": "/nextbots.webp",
+		"category": ["Action", "Webport"]
 	}
 ]
