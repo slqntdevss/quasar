@@ -220,39 +220,10 @@ document.getElementById("urlForm").addEventListener("submit", async (e) => {
 	searchSJ(document.getElementById("urlInput").value);
 });
 
-(async function () {
-	const grid = document.getElementById("quick-apps-grid");
-	if (!grid) return;
-	try {
-		const resp = await fetch("/assets/json/apps.json");
-		if (!resp.ok) {
-			grid.innerHTML =
-				'<div style="color: var(--main-text, white); text-align:center;">No apps found.</div>';
-			return;
-		}
-		const apps = await resp.json();
-		const gridHTML = `<div class="apps-grid-container">
-		${apps
-			.slice(0, 6)
-			.map(
-				(app, idx) => `
-			<div class="apps-grid-tile" tabindex="0" data-url="${app.url}">
-				<img src="/assets/img${app.img}" alt="${app.name}" />
-				<span class="apps-grid-label">${app.name}</span>
-			</div>
-		`,
-			)
-			.join("")}
-		</div>`;
-		grid.innerHTML = gridHTML;
-		Array.from(grid.querySelectorAll(".apps-grid-tile")).forEach((tile) => {
-			tile.addEventListener("click", async () => {
-				let url = tile.getAttribute("data-url");
-				searchSJ(url);
-			});
-		});
-	} catch (e) {
-		grid.innerHTML =
-			'<div style="color: var(--main-text, white); text-align:center;">Error loading apps.</div>';
-	}
-})();
+const grid = document.getElementById("quick-apps-grid");
+if (grid) {
+	grid.addEventListener("click", (e) => {
+		const tile = e.target.closest(".apps-grid-tile");
+		if (tile) searchSJ(tile.getAttribute("data-url"));
+	});
+}
