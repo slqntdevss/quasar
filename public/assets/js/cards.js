@@ -66,6 +66,7 @@ async function renderGames() {
 		const img = document.createElement("img");
 		img.src = `/assets/img${game.img}`;
 		img.alt = game.name;
+		img.loading = "lazy";
 		card.appendChild(img);
 		const p = document.createElement("p");
 		p.textContent = game.name;
