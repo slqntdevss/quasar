@@ -12,7 +12,7 @@ export const publicDir = path.join(__dirname, "../public");
 
 export const STARTUP_TIME = Date.now();
 export const CDN_BASE =
-  "https://cdn.jsdelivr.net/gh/slqntdevss/quasar@main/public";
+  "https://cdn.jsdelivr.net/gh/slqntdevss/quasar@latest/public";
 
 export const staticMappings = [
   { prefix: "/vu/", dir: uvPath },
