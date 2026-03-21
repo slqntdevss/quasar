@@ -24,7 +24,7 @@ const mobileAdScript = `<script>(function(){var m=/Android|webOS|iPhone|iPad|iPo
 
 function rewriteAssetsToCdn(html) {
   return html.replace(
-    /(src|href)=(["'])(\/?assets\/(?:js|css|json)\/[^"']+)(["'])/gi,
+    /(src|href)=(["'])(\/?assets\/(?:js|css|json|img)\/[^"']+)(["'])/gi,
     (_match, attr, q1, assetPath, q2) => {
       if (assetPath.endsWith("dda.js")) return _match;
       const cleanPath = assetPath.startsWith("/")

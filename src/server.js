@@ -175,7 +175,8 @@ export function createFetchHandler(injectHtml, { useCdn = false } = {}) {
       useCdn &&
       (pathname.startsWith("/assets/js/") ||
         pathname.startsWith("/assets/css/") ||
-        pathname.startsWith("/assets/json/"))
+        pathname.startsWith("/assets/json/") ||
+        pathname.startsWith("/assets/img/"))
     ) {
       return Response.redirect(
         `${CDN_BASE}${pathname}?t=${STARTUP_TIME}`,
