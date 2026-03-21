@@ -10,6 +10,10 @@ import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 export const publicDir = path.join(__dirname, "../public");
 
+export const STARTUP_TIME = Date.now();
+export const CDN_BASE =
+  "https://cdn.jsdelivr.net/gh/slqntdevss/quasar@main/public";
+
 export const staticMappings = [
   { prefix: "/vu/", dir: uvPath },
   { prefix: "/marcs/", dir: scramjetPath },
@@ -158,13 +162,25 @@ export function getRoutes() {
   };
 }
 
-export function createFetchHandler(injectHtml) {
+export function createFetchHandler(injectHtml, { useCdn = false } = {}) {
   return async function fetch(req) {
     const url = new URL(req.url);
     const pathname = url.pathname;
 
     if (pathname === "/g" || pathname === "/g/") {
       return redirectToWork(req);
+    }
+
+    if (
+      useCdn &&
+      (pathname.startsWith("/assets/js/") ||
+        pathname.startsWith("/assets/css/") ||
+        pathname.startsWith("/assets/json/"))
+    ) {
+      return Response.redirect(
+        `${CDN_BASE}${pathname}?t=${STARTUP_TIME}`,
+        302,
+      );
     }
 
     const headers = getCrossOriginHeaders(pathname);

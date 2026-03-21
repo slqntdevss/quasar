@@ -1,5 +1,10 @@
 import "dotenv/config";
-import { getRoutes, createFetchHandler } from "./server.js";
+import {
+  getRoutes,
+  createFetchHandler,
+  CDN_BASE,
+  STARTUP_TIME,
+} from "./server.js";
 
 const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JPJ866MG9"></script>
       <script>window.dataLayer = window.dataLayer || [];
@@ -17,9 +22,22 @@ const videoAdAi = `<div data-ad="video" style="position:fixed!important;top:1rem
 const railAds = `<style>.q-rail-ads{display:none}@media(min-width:1300px){.q-rail-ads{display:block}}</style><div class="q-rail-ads"><div data-ad="left-rail-1" style="position: fixed; top: 1rem; left: 1rem; z-index: 50;"></div><div data-ad="left-rail-2" style="position: fixed; top: 280px; left: 1rem; z-index: 50;"></div><div data-ad="video" /><div data-ad="right-rail-1" style="position: fixed; top: 1rem; right: 1rem; z-index: 50;"></div></div>`;
 const mobileAdScript = `<script>(function(){var m=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);if(!m)return;var r=document.querySelector(".q-rail-ads");if(r)r.remove();var v=document.querySelector('[data-ad="video"]');if(v)v.remove();setTimeout(function(){var d=document.createElement("div");d.setAttribute("data-ad","video");document.body.appendChild(d)},30000)})();</script>`;
 
+function rewriteAssetsToCdn(html) {
+  return html.replace(
+    /(src|href)=(["'])(\/?assets\/(?:js|css|json)\/[^"']+)(["'])/gi,
+    (_match, attr, q1, assetPath, q2) => {
+      const cleanPath = assetPath.startsWith("/")
+        ? assetPath
+        : "/" + assetPath;
+      return `${attr}=${q1}${CDN_BASE}${cleanPath}?t=${STARTUP_TIME}${q2}`;
+    },
+  );
+}
+
 function injectHtml(html, pathname, host) {
   const adScript = getAdScript(host);
-  let modified = html.replace(/<\/head>/i, `${analytics}\n${adScript}\n</head>`);
+  let modified = rewriteAssetsToCdn(html);
+  modified = modified.replace(/<\/head>/i, `${analytics}\n${adScript}\n</head>`);
 
   const isIndex = pathname === "/" || pathname === "/index.html";
   const isAi = pathname === "/ai/" || pathname === "/ai" || pathname === "/ai/index.html";
@@ -63,7 +81,7 @@ const server = Bun.serve({
   port: PORT,
   hostname: "0.0.0.0",
   routes,
-  fetch: createFetchHandler(injectHtml),
+  fetch: createFetchHandler(injectHtml, { useCdn: true }),
 
   error(error) {
     console.error(error);
