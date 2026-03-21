@@ -22,18 +22,18 @@ html:has(.ai-root) [data-ad="video"] {
 }
 
 .ai-root {
-	--main-bg: rgba(22, 25, 30, 0.82);
-	--main-border: 1px solid rgba(255, 255, 255, 0.12);
-	--main-radius: 8px;
+	--main-bg: rgba(15, 20, 28, 0.95);
+	--main-border: 1px solid rgba(255, 255, 255, 0.06);
+	--main-radius: 12px;
 	--main-text: rgba(255, 255, 255, 0.92);
-	--accent-border: 1px solid rgba(255, 255, 255, 0.35);
+	--accent-border: 1px solid #4a9ead;
 	--settings-radius: 14px;
 	display: flex;
 	height: 100vh;
 	width: 100%;
 	overflow: hidden;
 	position: relative;
-	font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+	font-family: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
@@ -42,9 +42,8 @@ html:has(.ai-root) [data-ad="video"] {
 	display: none;
 	position: fixed;
 	inset: 0;
-	background: rgba(0, 0, 0, 0.6);
+	background: rgba(0, 0, 0, 0.7);
 	z-index: 30;
-	backdrop-filter: blur(2px);
 }
 
 .ai-sidebar-overlay.show {
@@ -58,9 +57,8 @@ html:has(.ai-root) [data-ad="video"] {
 	width: 280px;
 	min-width: 280px;
 	flex-shrink: 0;
-	border-right: 1px solid rgba(255, 255, 255, 0.08);
-	background: rgba(15, 17, 21, 0.92);
-	backdrop-filter: blur(24px);
+	border-right: 1px solid rgba(255, 255, 255, 0.06);
+	background: rgba(10, 13, 18, 0.98);
 	display: flex;
 	flex-direction: column;
 	transform: translateX(-100%);
@@ -317,8 +315,9 @@ html:has(.ai-root) [data-ad="video"] {
 	font-weight: 600;
 	text-transform: uppercase;
 	letter-spacing: 0.08em;
-	opacity: 0.45;
+	opacity: 0.5;
 	color: var(--main-text);
+	font-family: "SF Mono", "Fira Code", monospace;
 }
 
 .ai-stats-header svg {
@@ -339,6 +338,7 @@ html:has(.ai-root) [data-ad="video"] {
 	font-size: 0.75rem;
 	opacity: 0.55;
 	color: var(--main-text);
+	font-family: "SF Mono", "Fira Code", monospace;
 }
 
 .ai-stat-row svg {
@@ -387,8 +387,7 @@ html:has(.ai-root) [data-ad="video"] {
 	align-items: center;
 	gap: 12px;
 	padding: 14px 24px;
-	background: rgba(15, 17, 21, 0.6);
-	backdrop-filter: blur(12px);
+	background: rgba(10, 13, 18, 0.95);
 	flex-shrink: 0;
 	border-bottom: 1px solid rgba(255, 255, 255, 0.06);
 }
@@ -462,10 +461,9 @@ html:has(.ai-root) [data-ad="video"] {
 	z-index: 50;
 	width: 280px;
 	border-radius: 14px;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	background: rgba(20, 22, 28, 0.95);
-	backdrop-filter: blur(24px);
-	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	background: rgba(15, 18, 24, 0.98);
+	box-shadow: none;
 	overflow: hidden;
 }
 
@@ -719,7 +717,7 @@ html:has(.ai-root) [data-ad="video"] {
 
 .ai-msg-bubble {
 	max-width: 80%;
-	border-radius: 18px;
+	border-radius: 12px;
 	padding: 8px 16px;
 	font-size: 0.9375rem;
 	line-height: 1.5;
@@ -728,9 +726,9 @@ html:has(.ai-root) [data-ad="video"] {
 }
 
 .ai-msg.user .ai-msg-bubble {
-	background: linear-gradient(135deg, rgba(99, 140, 200, 0.3), rgba(70, 110, 170, 0.2));
-	border: 1px solid rgba(120, 160, 220, 0.2);
-	border-bottom-right-radius: 6px;
+	background: rgba(255, 255, 255, 0.06);
+	border: none;
+	border-bottom-right-radius: 4px;
 }
 
 .ai-msg-content {
@@ -902,8 +900,7 @@ html:has(.ai-root) [data-ad="video"] {
 
 .ai-input-area {
 	padding: 16px 24px 20px;
-	background: linear-gradient(to top, rgba(15, 17, 21, 0.9) 0%, rgba(15, 17, 21, 0.4) 100%);
-	backdrop-filter: blur(12px);
+	background: rgba(10, 13, 18, 0.95);
 	position: relative;
 }
 
@@ -982,20 +979,20 @@ html:has(.ai-root) [data-ad="video"] {
 	display: flex;
 	gap: 4px;
 	align-items: center;
-	border-radius: 16px;
-	border: 1px solid rgba(255, 255, 255, 0.1);
+	border-radius: 24px;
+	border: 1px solid rgba(255, 255, 255, 0.06);
 	background: rgba(255, 255, 255, 0.04);
 	padding: 6px 8px;
 	transition: all 0.2s ease;
 	width: 100%;
 	box-sizing: border-box;
-	box-shadow: 0 2px 12px rgba(0, 0, 0, 0.15);
+	box-shadow: none;
 }
 
 .ai-input-row:focus-within {
-	border-color: rgba(255, 255, 255, 0.2);
-	background: rgba(255, 255, 255, 0.06);
-	box-shadow: 0 2px 20px rgba(0, 0, 0, 0.2), 0 0 0 1px rgba(255, 255, 255, 0.05);
+	border-color: #4a9ead;
+	background: rgba(255, 255, 255, 0.04);
+	box-shadow: none;
 }
 
 .ai-attach-btn {
@@ -1067,7 +1064,7 @@ html:has(.ai-root) [data-ad="video"] {
 .ai-send-btn.ready {
 	background: rgba(255, 255, 255, 0.2);
 	color: var(--main-text);
-	box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+	box-shadow: none;
 }
 
 .ai-send-btn.ready:hover {
@@ -1108,8 +1105,7 @@ html:has(.ai-root) [data-ad="video"] {
 	position: fixed;
 	inset: 0;
 	z-index: 50;
-	background: rgba(0, 0, 0, 0.4);
-	backdrop-filter: blur(8px);
+	background: rgba(0, 0, 0, 0.6);
 	align-items: center;
 	justify-content: center;
 	pointer-events: none;
@@ -1125,7 +1121,7 @@ html:has(.ai-root) [data-ad="video"] {
 	background: rgba(20, 22, 28, 0.9);
 	padding: 32px 40px;
 	text-align: center;
-	box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+	box-shadow: none;
 }
 
 .ai-drag-box svg {
@@ -1159,10 +1155,9 @@ html:has(.ai-root) [data-ad="video"] {
 	z-index: 9999;
 	min-width: 200px;
 	border-radius: 14px;
-	border: 1px solid rgba(255, 255, 255, 0.1);
-	background: rgba(20, 22, 28, 0.95);
-	backdrop-filter: blur(24px);
-	box-shadow: 0 12px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+	border: 1px solid rgba(255, 255, 255, 0.06);
+	background: rgba(15, 18, 24, 0.98);
+	box-shadow: none;
 	overflow: hidden;
 	padding: 6px;
 	animation: ai-dropdown-in 0.12s ease-out;
@@ -1445,6 +1440,6 @@ html:has(.ai-root) [data-ad="video"] {
 	}
 
 	.ai-input-row {
-		border-radius: 14px;
+		border-radius: 24px;
 	}
 }

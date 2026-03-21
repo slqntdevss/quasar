@@ -309,8 +309,15 @@ document.addEventListener("DOMContentLoaded", async () => {
 		);
 	}
 
+	const activeThemeName = localStorage.getItem("activeTheme") || "theme-classic";
+	allThemes.forEach((opt) => {
+		opt.classList.toggle("active", opt.getAttribute("data-theme-class") === activeThemeName);
+	});
+
 	allThemes.forEach((option) => {
 		option.addEventListener("click", () => {
+			allThemes.forEach((o) => o.classList.remove("active"));
+			option.classList.add("active");
 			document.body.classList.remove(...document.body.classList);
 			const theme = option.getAttribute("data-theme-class");
 			const canvas = document.querySelector(".glslCanvas");

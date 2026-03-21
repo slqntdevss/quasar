@@ -1,20 +1,17 @@
 .theme-classic {
-	--background-gradient: linear-gradient(
-		90deg,
-		rgb(53, 81, 114) 0%,
-		rgb(73, 153, 219) 100%
-	);
-	--main-bg: rgba(58, 58, 58, 0.404);
-	--main-border: 1px solid white;
-	--main-radius: 6px;
-	--main-text: white;
-	--accent-border: 2px solid rgb(255, 255, 255);
-	--header-border: 1px solid rgba(255, 255, 255, 0.3);
-	--search-border: 1px solid rgb(185, 185, 185);
-	--notfound-bg: rgba(49, 49, 49, 0.322);
-	--notfound-border: 2px solid rgb(185, 185, 185);
-	--option-bg: transparent;
-	--option-text: black;
+	--background-gradient: linear-gradient(135deg, #0f1923 0%, #1a2a3a 100%);
+	--main-bg: rgba(255, 255, 255, 0.04);
+	--main-border: 1px solid rgba(255, 255, 255, 0.06);
+	--main-radius: 12px;
+	--main-text: rgba(255, 255, 255, 0.92);
+	--accent-border: 1px solid #4a9ead;
+	--accent-color: #4a9ead;
+	--header-border: 1px solid rgba(255, 255, 255, 0.06);
+	--search-border: 1px solid rgba(255, 255, 255, 0.06);
+	--notfound-bg: rgba(15, 25, 35, 0.9);
+	--notfound-border: 1px solid rgba(255, 255, 255, 0.06);
+	--option-bg: #1a2a3a;
+	--option-text: rgba(255, 255, 255, 0.92);
 	--card-radius: 12px;
 	--settings-radius: 12px;
 }
@@ -23,7 +20,7 @@
 	--background-gradient: linear-gradient(90deg, #232526 0%, #414345 100%);
 	--main-bg: rgba(30, 32, 34, 0.85);
 	--main-border: 1px solid #8ecae6;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #caf0f8;
 	--accent-border: 2px solid #8ecae6;
 	--header-border: 1px solid #8ecae6;
@@ -40,7 +37,7 @@
 	--background-gradient: linear-gradient(90deg, #c24a2c 0%, #322299 100%);
 	--main-bg: rgba(255, 153, 102, 0.2);
 	--main-border: 1px solid #6b5bf3;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #fff0e6;
 	--accent-border: 2px solid #5642db;
 	--header-border: 1px solid #5642db;
@@ -57,7 +54,7 @@
 	--background-gradient: linear-gradient(90deg, #11998e 0%, #38ef7d 100%);
 	--main-bg: rgba(17, 153, 142, 0.2);
 	--main-border: 1px solid #38ef7d;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #eafff5;
 	--accent-border: 2px solid #38ef7d;
 	--header-border: 1px solid #11998e;
@@ -74,7 +71,7 @@
 	--background-gradient: linear-gradient(90deg, #ff6a88 0%, #ff99ac 100%);
 	--main-bg: rgba(255, 106, 136, 0.2);
 	--main-border: 1px solid #ff99ac;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #fff0f6;
 	--accent-border: 2px solid #ff99ac;
 	--header-border: 1px solid #ff6a88;
@@ -91,7 +88,7 @@
 	--background-gradient: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
 	--main-bg: rgba(33, 147, 176, 0.2);
 	--main-border: 1px solid #6dd5ed;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #e0f7fa;
 	--accent-border: 2px solid #6dd5ed;
 	--header-border: 1px solid #2193b0;
@@ -108,7 +105,7 @@
 	--background-gradient: linear-gradient(90deg, #a8ff78 0%, #78ffd6 100%);
 	--main-bg: rgba(168, 255, 120, 0.2);
 	--main-border: 1px solid #377563;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #2e4d1c;
 	--accent-border: 2px solid #78ffd6;
 	--header-border: 1px solid #a8ff78;
@@ -125,7 +122,7 @@
 	--background-gradient: linear-gradient(90deg, #f857a6 0%, #ff5858 100%);
 	--main-bg: rgba(248, 87, 166, 0.2);
 	--main-border: 1px solid rgb(78, 38, 57);
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #fff0f6;
 	--accent-border: 2px solid rgb(78, 38, 57);
 	--header-border: 1px solid rgb(78, 38, 57);
@@ -142,7 +139,7 @@
 	--background-gradient: linear-gradient(90deg, #43cea2 0%, #185a9d 100%);
 	--main-bg: rgba(67, 206, 162, 0.2);
 	--main-border: 1px solid #185a9d;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #e0f7fa;
 	--accent-border: 2px solid #43cea2;
 	--header-border: 1px solid #43cea2;
@@ -159,7 +156,7 @@
 	--background-gradient: linear-gradient(90deg, #f7971e 0%, #ffd200 100%);
 	--main-bg: rgba(247, 151, 30, 0.2);
 	--main-border: 1px solid #ffd200;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #fffbe6;
 	--accent-border: 2px solid #ffd200;
 	--header-border: 1px solid #f7971e;
@@ -176,7 +173,7 @@
 	--background-gradient: linear-gradient(90deg, #232526 0%, #414345 100%);
 	--main-bg: rgba(30, 30, 30, 0.95);
 	--main-border: 1px solid #444;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #e0e0e0;
 	--accent-border: 2px solid #444;
 	--header-border: 1px solid #444;
@@ -192,7 +189,7 @@
 	--background-gradient: linear-gradient(90deg, #182830 0%, #0f2027 100%);
 	--main-bg: rgba(15, 32, 39, 0.95);
 	--main-border: 1px solid #00fff7;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #00fff7;
 	--accent-border: 2px solid #00fff7;
 	--header-border: 1px solid #00fff7;
@@ -208,7 +205,7 @@
 	--background-gradient: linear-gradient(90deg, #0c0028 0%, #6a3093 100%);
 	--main-bg: rgba(106, 48, 147, 0.2);
 	--main-border: 1px solid #a044ff;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #e0d7ff;
 	--accent-border: 2px solid #a044ff;
 	--header-border: 1px solid #6a3093;
@@ -224,7 +221,7 @@
 	--background-gradient: linear-gradient(90deg, #000428 0%, #004e92 100%);
 	--main-bg: rgba(0, 4, 40, 0.95);
 	--main-border: 1px solid #1976d2;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #b3cfff;
 	--accent-border: 2px solid #1976d2;
 	--header-border: 1px solid #1976d2;
@@ -240,7 +237,7 @@
 	--background-gradient: linear-gradient(90deg, #232526 0%, #393939 100%);
 	--main-bg: rgba(57, 57, 57, 0.95);
 	--main-border: 1px solid #888;
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: #eaeaea;
 	--accent-border: 2px solid #888;
 	--header-border: 1px solid #888;
@@ -254,7 +251,7 @@
 }
 .theme-glsl {
 	--main-border: 1px solid rgba(255, 255, 255, 0.28);
-	--main-radius: 6px;
+	--main-radius: 12px;
 	--main-text: rgba(255, 255, 255, 0.92);
 	--accent-border: 2px solid rgba(255, 255, 255, 0.35);
 	--header-border: 1px solid rgba(255, 255, 255, 0.28);
@@ -286,21 +283,14 @@
 	width: 64px;
 	height: 40px;
 	border-radius: 8px;
-	border: 2px solid #fff;
+	border: 1px solid rgba(255, 255, 255, 0.12);
 	margin-bottom: 4px;
 	box-sizing: border-box;
 }
 
 .theme-preview.theme-classic {
-	background: var(
-		--background-gradient,
-		linear-gradient(
-			90deg,
-			hsla(254, 100%, 73%, 1) 0%,
-			hsla(226, 100%, 64%, 1) 100%
-		)
-	);
-	border: var(--main-border, 1px solid white);
+	background: linear-gradient(135deg, #0f1923 0%, #1a2a3a 100%);
+	border: 1px solid rgba(255, 255, 255, 0.12);
 }
 .theme-preview.theme-midnight {
 	background: linear-gradient(90deg, #232526 0%, #414345 100%);
@@ -361,4 +351,9 @@
 .theme-preview.theme-glsl {
 	background: linear-gradient(90deg, #000000 0%, #1f1f1f 100%);
 	border: 1px solid #888;
+}
+
+.theme-option.active .theme-preview {
+	outline: 2px solid #4a9ead;
+	outline-offset: 2px;
 }

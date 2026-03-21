@@ -1,10 +1,28 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap");
 @import url("themes.css");
 
 * {
-	font-family: "Inter", sans-serif;
-	scrollbar-width: none;
+	font-family: "DM Sans", sans-serif;
+	scrollbar-width: thin;
+	scrollbar-color: rgba(255, 255, 255, 0.08) transparent;
 	color: var(--main-text);
+}
+::selection {
+	background: rgba(74, 158, 173, 0.3);
+}
+::-webkit-scrollbar {
+	width: 6px;
+	height: 6px;
+}
+::-webkit-scrollbar-track {
+	background: transparent;
+}
+::-webkit-scrollbar-thumb {
+	background: rgba(255, 255, 255, 0.08);
+	border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+	background: rgba(255, 255, 255, 0.15);
 }
 html {
 	min-height: 100%;
@@ -21,9 +39,6 @@ body {
 	overflow-x: hidden;
 	cursor: none;
 	background-repeat: no-repeat;
-}
-body::-webkit-scrollbar {
-	display: none;
 }
 .nav-container {
 	width: 100%;
@@ -51,7 +66,6 @@ body::-webkit-scrollbar {
 	display: flex;
 	align-items: center;
 	z-index: 9999;
-	backdrop-filter: blur(6px);
 }
 .nav h1 {
 	margin: 0;
@@ -71,7 +85,7 @@ body::-webkit-scrollbar {
 	border: var(--main-border);
 	border-radius: var(--main-radius);
 	color: var(--main-text);
-	transition: 0.4s ease-in-out;
+	transition: all 0.2s ease;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -82,12 +96,13 @@ body::-webkit-scrollbar {
 	background: var(--button-hover-bg, rgba(255, 255, 255, 0.3));
 	border: var(--main-border);
 	border-radius: var(--main-radius);
+	transition: all 0.2s ease;
 }
 .container {
 	position: relative;
 	margin: 1% auto 0 auto;
 	display: grid;
-	gap: 7.5px;
+	gap: 14px;
 	width: 90%;
 	grid-template-columns: repeat(auto-fill, minmax(150px, max-content));
 	justify-content: center;
@@ -101,12 +116,12 @@ body::-webkit-scrollbar {
 	border-radius: var(--card-radius, 12px);
 	text-align: center;
 	box-sizing: border-box;
-	transition: 0.2s ease-in-out;
+	transition: all 0.2s ease;
 	font-size: 0.75rem;
-	outline: 2px solid transparent;
 }
 .card:hover {
-	outline: var(--accent-border);
+	opacity: 0.85;
+	transform: scale(1.02);
 }
 
 .card img {
@@ -152,7 +167,7 @@ select {
 	height: 30px;
 	text-align: center;
 	box-sizing: border-box;
-	transition: 0.3s ease-in-out;
+	transition: all 0.2s ease;
 	appearance: none;
 }
 select:hover {
@@ -188,13 +203,13 @@ p {
 	padding: 24px;
 	background: var(--main-bg);
 	border: var(--main-border);
-	backdrop-filter: blur(6px);
 	box-sizing: border-box;
 }
 .settings-category h2 {
 	margin: 0 0 20px 0;
-	font-size: 1.5rem;
-	font-weight: 600;
+	font-size: 1.6rem;
+	font-weight: 400;
+	opacity: 0.7;
 	text-align: center;
 	width: 100%;
 	border-bottom: var(--header-border);
@@ -230,7 +245,10 @@ p {
 .gameframe {
 	position: fixed;
 	top: 50%;
-	transform: translateY(-50%);
+	left: 50%;
+	transform: translate(-50%, -50%);
+	width: 99vw;
+	height: 98vh;
 	z-index: 99999;
 }
 .controls button {
@@ -239,7 +257,6 @@ p {
 	padding: 4px;
 	border-radius: 4px;
 	background: rgba(0, 0, 0, 0.5);
-	backdrop-filter: blur(6px);
 	border: none;
 	width: 38px;
 	height: 38px;
@@ -251,13 +268,12 @@ p {
 	cursor: pointer;
 }
 .gameframe iframe {
-	width: 99vw;
-	height: 98vh;
-	border: 2px solid white;
+	width: 100%;
+	height: 100%;
+	border: 1px solid rgba(255, 255, 255, 0.06);
 	border-radius: 6px;
 	overflow: hidden;
 	background: rgba(3, 3, 3, 0.418);
-	backdrop-filter: blur(6px);
 }
 
 .controls {
@@ -286,17 +302,17 @@ p {
 	height: 100%;
 	object-fit: contain;
 	border-radius: 4px;
-	box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+	box-shadow: none;
 }
 .search-container {
 	width: 100%;
 	display: flex;
 	justify-content: center;
-	margin: 75px 0;
+	margin: 100px 0;
 }
 .search-controls {
 	background: var(--main-bg);
-	border-radius: 10px;
+	border-radius: 24px;
 	width: 500px;
 	gap: 10px;
 	height: 90px;
@@ -305,15 +321,19 @@ p {
 	border: var(--main-border);
 }
 .search-bar {
-	border-radius: 10px;
-	height: 50px;
+	border-radius: 24px;
+	height: 56px;
 	width: 320px;
 	margin: 10px;
 	background: var(--main-bg);
 	border: var(--search-border);
 	text-align: center;
-	transition: 0.7s ease-in-out;
+	transition: all 0.2s ease;
 	transform-origin: center;
+}
+.search-bar:focus {
+	border-color: #4a9ead;
+	outline: none;
 }
 .search-bar::placeholder {
 	color: var(--main-text);
@@ -322,12 +342,12 @@ p {
 .settings-category button {
 	background: var(--main-bg);
 	border: var(--search-border);
-	border-radius: var(--main-radius);
+	border-radius: 24px;
 	width: 150px;
 	height: 32px;
 	text-align: left;
 	padding: 0 12px;
-	transition: 0.3s ease-in-out;
+	transition: all 0.2s ease;
 	color: var(--main-text);
 }
 .settings-category button:hover {
@@ -341,7 +361,7 @@ p {
 	padding: 10px 12px;
 	width: 100%;
 	max-width: 350px;
-	transition: 0.3s ease-in-out;
+	transition: all 0.2s ease;
 	color: var(--main-text);
 }
 #panicURL:hover,
@@ -376,7 +396,7 @@ p {
 	background: var(--main-bg);
 	border: var(--main-border);
 	border-radius: 13px;
-	transition: all 0.3s ease-in-out;
+	transition: all 0.2s ease;
 	align-self: flex-start;
 }
 
@@ -393,22 +413,22 @@ p {
 	height: 18px;
 	background: var(--main-text);
 	border-radius: 50%;
-	transition: all 0.3s ease-in-out;
-	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+	transition: all 0.2s ease;
+	box-shadow: none;
 }
 
 .toggle-switch.active {
-	background: var(--button-hover-bg, rgba(255, 255, 255, 0.1));
+	background: #4a9ead;
+	border-color: #4a9ead;
 }
 
 .toggle-switch.active .toggle-slider {
 	left: 26px;
-	background: var(--button-hover-bg, rgba(212, 212, 212, 0.753));
+	background: white;
 }
 .w-container {
 	position: absolute;
-	background: rgba(44, 44, 44, 0.521);
-	backdrop-filter: blur(6px);
+	background: rgba(20, 20, 20, 0.85);
 	width: 99vw;
 	height: 98vh;
 	border: var(--main-border);
@@ -438,7 +458,6 @@ p {
 	border-bottom-right-radius: 6px;
 	bottom: 0;
 	background: var(--main-bg);
-	backdrop-filter: blur(10px);
 	display: flex;
 	align-items: center;
 	gap: 10px;
@@ -465,7 +484,7 @@ p {
 	background: var(--main-bg);
 	color: var(--main-text);
 	font-size: 14px;
-	transition: 0.3s ease-in-out;
+	transition: all 0.2s ease;
 }
 
 .wcontrols .url-bar input:hover {
@@ -493,7 +512,7 @@ p {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: 0.4s ease-in-out;
+	transition: all 0.2s ease;
 }
 
 .wcontrols button:hover {
@@ -517,7 +536,6 @@ p {
 	padding: 10px;
 	gap: 8px;
 	flex-direction: column;
-	backdrop-filter: blur(6px);
 	z-index: 1000;
 	min-width: 200px;
 }
@@ -536,7 +554,7 @@ p {
 	border-radius: var(--main-radius);
 	color: var(--main-text);
 	font-size: 14px;
-	transition: 0.4s ease-in-out;
+	transition: all 0.2s ease;
 	white-space: nowrap;
 	width: 100%;
 	height: auto;
@@ -561,19 +579,23 @@ p {
 .wsearch input {
 	background: var(--main-bg);
 	border: var(--main-border);
-	border-radius: 8px;
+	border-radius: 24px;
 	display: flex;
 	align-items: center;
 	margin-top: 15px;
 	width: 35vw;
 	min-width: 350px;
 	text-align: center;
-	height: 60px;
+	height: 56px;
 	font-size: 20px;
-	transition: 0.3s ease;
+	transition: all 0.2s ease;
 }
 .wsearch input:hover {
-	scale: 1.05;
+	border-color: rgba(255, 255, 255, 0.12);
+}
+.wsearch input:focus {
+	border-color: #4a9ead;
+	outline: none;
 }
 .autoc {
 	position: absolute;
@@ -583,17 +605,18 @@ p {
 	width: 35vw;
 	min-width: 350px;
 	background: var(--main-bg);
-	border: 1px solid var(--main-border);
+	border: none;
 	border-radius: 12px;
 	margin-top: 0rem;
 	max-height: 0;
 	overflow: hidden;
-	transition: 0.3s ease;
+	transition: all 0.2s ease;
 	z-index: 1000;
 }
 .autoc.show {
 	max-height: 400px;
-	transition: 0.3s ease;
+	border: var(--main-border);
+	transition: all 0.2s ease;
 }
 .autoc-item {
 	padding: 0.75rem 1rem;
@@ -619,7 +642,7 @@ p {
 }
 .center h1 {
 	font-size: 4rem;
-	font-weight: 700;
+	font-weight: 400;
 	margin: 0;
 	user-select: none;
 	letter-spacing: 2px;
@@ -640,25 +663,22 @@ p {
 }
 .apps-grid-tile {
 	background: var(--main-bg, #232526);
-	border: var(--main-border, 1px solid #fff);
+	border: var(--main-border, 1px solid rgba(255, 255, 255, 0.06));
 	border-radius: var(--card-radius, 12px);
-	box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.15);
+	box-shadow: none;
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	transition:
-		box-shadow 0.18s,
-		transform 0.18s;
+	transition: all 0.2s ease;
 	cursor: pointer;
-	padding: 10px 6px 12px 6px;
+	padding: 12px 8px 14px 8px;
 	text-align: center;
 	outline: none;
 }
 .apps-grid-tile:hover,
 .apps-grid-tile:focus {
-	box-shadow: 0 4px 12px 0 rgba(0, 0, 0, 0.25);
-	transform: translateY(-2px) scale(1.04);
-	border: var(--accent-border, 2px solid #88f);
+	background: rgba(255, 255, 255, 0.04);
+	border-color: rgba(255, 255, 255, 0.12);
 }
 .apps-grid-tile img {
 	width: 44px;
@@ -667,7 +687,7 @@ p {
 	object-fit: cover;
 	background: #2222;
 	margin-bottom: 6px;
-	border: 1px solid #19191955;
+	border: 1px solid rgba(255, 255, 255, 0.06);
 }
 .apps-grid-label {
 	color: var(--main-text, #fff);
@@ -697,8 +717,7 @@ p {
 	left: 0;
 	width: 100%;
 	height: 100%;
-	background: rgba(0, 0, 0, 0.7);
-	backdrop-filter: blur(4px);
+	background: rgba(0, 0, 0, 0.8);
 	z-index: 999999;
 	justify-content: center;
 	align-items: center;
@@ -742,7 +761,7 @@ p {
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	transition: 0.3s ease;
+	transition: all 0.2s ease;
 }
 
 .close-modal:hover {
@@ -767,7 +786,7 @@ p {
 	border-radius: var(--main-radius);
 	padding: 32px 24px;
 	text-align: center;
-	transition: 0.3s ease;
+	transition: all 0.2s ease;
 	cursor: pointer;
 }
 
@@ -820,7 +839,7 @@ p {
 	border-radius: var(--main-radius);
 	font-size: 1rem;
 	cursor: pointer;
-	transition: 0.3s ease;
+	transition: all 0.2s ease;
 	border: var(--main-border);
 }
 
@@ -848,15 +867,14 @@ p {
 	border: var(--main-border);
 	border-radius: var(--main-radius);
 	background: var(--main-bg);
-	backdrop-filter: blur(6px);
 	color: var(--main-text);
 	padding: 20px 24px;
 	bottom: -300px;
 	transition:
-		bottom 0.4s ease-in-out,
-		opacity 0.4s ease-in-out;
+		bottom 0.2s ease,
+		opacity 0.2s ease;
 	opacity: 0;
-	box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+	box-shadow: none;
 	z-index: 100000;
 }
 .addon-popup.visible {
@@ -920,7 +938,7 @@ p {
 	font-size: 0.9rem;
 	font-weight: 500;
 	cursor: pointer;
-	transition: 0.3s ease-in-out;
+	transition: all 0.2s ease;
 	border: var(--main-border);
 }
 
@@ -937,7 +955,7 @@ p {
 	background: var(--button-hover-bg, rgba(255, 255, 255, 0.1));
 	border: var(--main-border);
 	color: var(--main-text);
-	transition: 0.3s ease-in-out;
+	transition: all 0.2s ease;
 }
 .addon-popup-button.inject:hover {
 	background: var(--button-hover-bg, rgba(255, 255, 255, 0.3));
