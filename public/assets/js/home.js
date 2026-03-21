@@ -1,6 +1,6 @@
 //testing for secuirly
 
-async function addScript(src, defer = false) {
+function addScript(src) {
 	return new Promise((resolve, reject) => {
 		const s = document.createElement("script");
 		s.src = src;
@@ -11,12 +11,12 @@ async function addScript(src, defer = false) {
 }
 
 (async () => {
-	await addScript("/marcs/scramjet.all.js");
-	await addScript("mux/index.js");
-	await addScript("ep/index.js");
-	await addScript("lc/index.js");
-
-	await new Promise((r) => setTimeout(r, 100));
+	await Promise.all([
+		addScript("/marcs/scramjet.all.js"),
+		addScript("mux/index.js"),
+		addScript("ep/index.js"),
+		addScript("lc/index.js"),
+	]);
 
 	await addScript("/assets/js/pre.js");
 })();
