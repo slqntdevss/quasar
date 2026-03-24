@@ -2,146 +2,149 @@
 <html lang="en-us">
 	<head>
 		<meta charset="utf-8" />
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 		<title>Unity WebGL Player | Bendy and the Ink Machine</title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+				box-sizing: border-box;
+			}
+
+			body {
+				background: #000;
+				overflow: hidden;
+			}
+
+			#loading-text {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: #fff;
+				font: 24px Arial;
+			}
+
+			#unity-canvas {
+				width: 100vw;
+				height: 100vh;
+				display: block;
+			}
+
+			#unity-mobile-warning {
+				display: none;
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				transform: translate(-50%, -50%);
+				color: #fff;
+				background: rgba(0, 0, 0, 0.9);
+				padding: 20px;
+				border-radius: 8px;
+				font: 14px Arial;
+			}
+		</style>
 	</head>
-	<body
-		style="
-			text-align: center;
-			padding: 0;
-			border: 0;
-			width: 100vw;
-			height: 100vh;
-			margin: 0;
-			overflow: hidden;
-			background-color: black;
-		"
-	>
-		<div
-			id="loading-text"
-			style="
-				color: white;
-				font-size: 48px;
-				font-family: cursive;
-				text-align: center;
-				margin-top: 20px;
-			"
-		>
-			LOADING...
-		</div>
-		<canvas
-			id="unity-canvas"
-			width="100%"
-			height="100%"
-			tabindex="-1"
-			style="width: 100%; height: 100%; background: #808080"
-		></canvas>
-		<script src="Build/BATIMFullPort.loader.js"></script>
+	<body>
+		<div id="unity-mobile-warning">WebGL not supported on mobile</div>
+		<div id="loading-text">Loading...</div>
+		<canvas id="unity-canvas"></canvas>
+
 		<script>
-			var loadingText = document.querySelector("#loading-text");
-			let totalBytes = 0;
-			let loadedBytes = 0;
+			alert(
+				"this web port was made by slant + crackers (woahhcrackers) dont take credit for it",
+			);
 
-			async function fetchWithProgress(url) {
-				const response = await fetch(url);
-				const reader = response.body.getReader();
-				let chunks = [];
-				let received = 0;
+			const lt = document.getElementById("loading-text"),
+				cv = document.getElementById("unity-canvas"),
+				mw = document.getElementById("unity-mobile-warning");
+
+			let lb = 0;
+			const tm = "576.24";
+
+			if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
+				const m = document.createElement("meta");
+				m.name = "viewport";
+				m.content =
+					"width=device-width,height=device-height,initial-scale=1,user-scalable=no,shrink-to-fit=yes";
+				document.head.appendChild(m);
+				mw.style.display = "block";
+				setTimeout(() => (mw.style.display = "none"), 5000);
+			}
+
+			async function fwp(u) {
+				const r = await fetch(u),
+					rd = r.body.getReader(),
+					ch = [];
+
 				while (true) {
-					const { done, value } = await reader.read();
+					const { done, value } = await rd.read();
 					if (done) break;
-					received += value.length;
-					loadedBytes += value.length;
-					chunks.push(value);
-					let mbDone = (loadedBytes / (1024 * 1024)).toFixed(2);
-					let mbTotal = "684.84";
-					loadingText.textContent = `LOADING... ${mbDone} MB / ${mbTotal} MB`;
+					lb += value.length;
+					ch.push(value);
+					lt.textContent = `${(lb / 1048576).toFixed(2)} MB / ${tm} MB`;
 				}
-				let fullBuffer = new Uint8Array(received);
-				let offset = 0;
-				for (let chunk of chunks) {
-					fullBuffer.set(chunk, offset);
-					offset += chunk.length;
-				}
-				return fullBuffer.buffer;
+
+				return URL.createObjectURL(new Blob(ch));
 			}
 
-			async function mergeFiles(fileParts, cacheKey) {
-				const buffers = await Promise.all(
-					fileParts.map((part) => fetchWithProgress(part)),
-				);
-				const mergedBlob = new Blob(buffers);
-				return URL.createObjectURL(mergedBlob);
+			async function mf(p) {
+				const b = await Promise.all(p.map(fwp)),
+					bl = await Promise.all(b.map((u) => fetch(u).then((r) => r.blob())));
+				return URL.createObjectURL(new Blob(bl));
 			}
 
-			function getParts(file, start, end) {
-				let parts = [];
-				for (let i = start; i <= end; i++) {
-					parts.push(file + ".part" + i);
-				}
-				return parts;
+			function gp(base, start, end) {
+				return Array.from({ length: end - start + 1 }, (_, i) => {
+					const n = String(start + i).padStart(3, "0");
+					return `${base}.${n}`;
+				});
 			}
 
 			(async () => {
-				const [dataUrl, wasmUrl] = await Promise.all([
-					mergeFiles(
-						getParts("Build/BATIMFullPort.data", 1, 33),
-						"BATIMFullPort.data",
-					),
-					mergeFiles(
-						getParts("Build/BATIMFullPort.wasm", 1, 2),
-						"BATIMFullPort.wasm",
-					),
-				]);
-				var canvas = document.querySelector("#unity-canvas");
-
-				function unityShowBanner(msg, type) {}
-
-				var buildUrl = "Build";
-				var loaderUrl = buildUrl + "/BATIMFullPort.loader.js";
-				var config = {
-					dataUrl: dataUrl,
-					frameworkUrl: buildUrl + "/BATIMFullPort.framework.js",
-					codeUrl: wasmUrl,
-					streamingAssetsUrl: "StreamingAssets",
-					companyName: "Joey Drew Studios",
-					productName: "Bendy and the Ink Machine",
-					productVersion: "1.0",
-					showBanner: unityShowBanner,
-				};
-
-				if (/iPhone|iPad|iPod|Android/i.test(navigator.userAgent)) {
-					var meta = document.createElement("meta");
-					meta.name = "viewport";
-					meta.content =
-						"width=device-width, height=device-height, initial-scale=1.0, user-scalable=no, shrink-to-fit=yes";
-					document.getElementsByTagName("head")[0].appendChild(meta);
-					container.className = "unity-mobile";
-					canvas.className = "unity-mobile";
-				} else {
-					function resizeCanvas() {
-						canvas.width = window.innerWidth;
-						canvas.height = window.innerHeight;
-						canvas.style.width = window.innerWidth + "px";
-						canvas.style.height = window.innerHeight + "px";
+				async function autoChunks(base, max = 200) {
+					const urls = [];
+					for (let i = 1; i <= max; i++) {
+						const n = String(i).padStart(3, "0");
+						const url = `${base}.${n}`;
+						const r = await fetch(url, { method: "HEAD" });
+						if (!r.ok) break;
+						urls.push(url);
 					}
-					window.addEventListener("resize", resizeCanvas);
-					resizeCanvas();
+					return urls;
 				}
 
-				var script = document.createElement("script");
-				script.src = loaderUrl;
-				script.onload = () => {
-					createUnityInstance(canvas, config, (progress) => {})
-						.then((unityInstance) => {
-							loadingText.remove();
+				const dc = await autoChunks(
+					"https://cdn.jsdelivr.net/gh/woahhcrackers/BATIMWeb@f22381b/Build/BATIM.data",
+				);
+				const du = await mf(dc);
+				const wu = "BATIM.wasm";
+
+				sc = document.createElement("script");
+				sc.src =
+					"https://cdn.jsdelivr.net/gh/woahhcrackers/BATIMWeb@f22381b/Build/BATIM.loader.js";
+
+				sc.onload = () => {
+					createUnityInstance(cv, {
+						dataUrl: du,
+						frameworkUrl:
+							"https://cdn.jsdelivr.net/gh/woahhcrackers/BATIMWeb@f22381b/Build/BATIM.framework.js",
+						codeUrl: wu,
+						streamingAssetsUrl:
+							"https://cdn.jsdelivr.net/gh/woahhcrackers/BATIMWeb@f22381b/StreamingAssets",
+						companyName: "crackers",
+						productName: "BATIM",
+						productVersion: "1.0",
+					})
+						.then(() => {
+							lt.remove();
 						})
-						.catch((message) => {
-							alert(message);
-						});
+						.catch(alert);
 				};
 
-				document.body.appendChild(script);
+				document.body.appendChild(sc);
+				alert(
+					"this web port was made by slant + crackers (woahhcrackers) dont take credit for it",
+				);
 			})();
 		</script>
 	</body>
