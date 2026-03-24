@@ -2395,8 +2395,43 @@
 	{
 		"name": "NextBots",
 		"id": "nextbots",
-		"path": "/html/nextbots/",
+		"path": "/html/nextbots/inde",
 		"img": "/nextbots.webp",
 		"category": ["Action", "Webport"]
+	},
+	{
+		"name": "Hollow Knight: Silksong",
+		"id": "silk",
+		"path": "/html/silk/",
+		"img": "/silk.webp",
+		"category": ["Action", "Platformer", "Webport"]
+	},
+	{
+		"id": "catz",
+		"name": "Catz",
+		"img": "/catz.webp",
+		"path": "/emulator/ds/catz/",
+		"category": ["Adventure"]
+	},
+	{
+		"id": "scc",
+		"name": "Sonic Classic Collection",
+		"img": "/scc.webp",
+		"path": "/emulator/ds/scc/",
+		"category": ["Adventure"]
+	},
+	{
+		"id": "suika",
+		"name": "Suika Game",
+		"img": "/suika.webp",
+		"path": "/html/suika/",
+		"category": ["Strategy"]
+	},
+	{
+		"id": "crossyroad",
+		"name": "Crossy Road",
+		"img": "/crossyroad.webp",
+		"path": "/webgl/crossyroad/",
+		"category": ["Arcade", "Webport"]
 	}
 ]
