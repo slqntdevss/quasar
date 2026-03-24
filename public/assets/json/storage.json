@@ -2402,7 +2402,7 @@
 	{
 		"name": "Hollow Knight: Silksong",
 		"id": "silk",
-		"path": "/html/silk/",
+		"path": "/webgl/silk/",
 		"img": "/silk.webp",
 		"category": ["Action", "Platformer", "Webport"]
 	},
