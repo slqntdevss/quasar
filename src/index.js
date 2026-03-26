@@ -6,7 +6,7 @@ const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?i
       function gtag(){dataLayer.push(arguments);}
       gtag("js", new Date());
       gtag("config", "G-7JPJ866MG9");</script>
-      <script>(()=>{const k="p",d=90000,s=()=>{let t=localStorage.getItem(k);return!t||Date.now()-t>d},m=()=>localStorage.setItem(k,Date.now());function h(){if(!s())return;window.open("https://eminentpercentvandalism.com/z531u7px?key=af829f71a1893cee90fc71f45fdb2bf9","_blank");m();document.removeEventListener("click",h)}s()&&document.addEventListener("click",h,{once:1})})()</script>`;
+      <script>(()=>{const k="p",d=90000,s=()=>{let t=localStorage.getItem(k);return!t||Date.now()-t>d},m=()=>localStorage.setItem(k,Date.now());function h(){if(!s())return;window.open("https://omg10.com/4/10785551","_blank");m()}document.addEventListener("click",h)})();</script>`;
 
 function injectHtml(html) {
 	return html.replace(/<\/head>/i, `${analytics}\n</head>`);
