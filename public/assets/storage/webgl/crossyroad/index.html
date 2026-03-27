@@ -22,10 +22,12 @@
 	</head>
 
 	<body>
+		<h1 id="loading">loading...</h1>
 		<canvas id="unity-canvas"></canvas>
 
 		<script>
 			const canvas = document.getElementById("unity-canvas");
+			const loadingText = document.getElementById("loading");
 
 			const config = {
 				dataUrl: "Build/2411071.data.unityweb",
@@ -41,7 +43,11 @@
 			script.src = "Build/2411071.loader.js";
 
 			script.onload = () => {
-				createUnityInstance(canvas, config).catch((err) => console.error(err));
+				createUnityInstance(canvas, config)
+					.then(() => {
+						loadingText.remove();
+					})
+					.catch((err) => console.error(err));
 			};
 			function resizeCanvas() {
 				canvas.width = window.innerWidth;
