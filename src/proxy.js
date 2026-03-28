@@ -37,10 +37,18 @@ function rewriteAssetsToCdn(html) {
   );
 }
 
+const AD_PAGES = new Set(["/", "/index.html", "/work", "/work/", "/ai", "/ai/", "/ai/index.html", "/settings", "/settings/"]);
+
 function injectHtml(html, pathname, host) {
-  const adScript = getAdScript(host);
+  const isAdPage = AD_PAGES.has(pathname);
+  const adScript = isAdPage ? getAdScript(host) : "";
+  let headInject = analytics;
+  if (adScript) headInject += "\n" + adScript;
+
   let modified = rewriteAssetsToCdn(html);
-  modified = modified.replace(/<\/head>/i, `${analytics}\n${adScript}\n</head>`);
+  modified = modified.replace(/<\/head>/i, `${headInject}\n</head>`);
+
+  if (!isAdPage) return modified;
 
   const isIndex = pathname === "/" || pathname === "/index.html";
   const isAi = pathname === "/ai/" || pathname === "/ai" || pathname === "/ai/index.html";

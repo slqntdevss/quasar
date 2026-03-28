@@ -5,12 +5,17 @@ const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?i
       <script>window.dataLayer = window.dataLayer || [];
       function gtag(){dataLayer.push(arguments);}
       gtag("js", new Date());
-      gtag("config", "G-7JPJ866MG9");</script>
-      <script src="/assets/js/dda.js" async></script>
+      gtag("config", "G-7JPJ866MG9");</script>`;
+
+const adScripts = `<script src="/assets/js/dda.js" async></script>
       <script>window.addEventListener("load",function(){if(typeof aclib!=="undefined"){aclib.runPop({zoneId:"10602038"});aclib.runInterstitial({zoneId:"10602046"})}});</script>`;
 
-function injectHtml(html) {
-	return html.replace(/<\/head>/i, `${analytics}\n</head>`);
+function injectHtml(html, pathname) {
+	let injected = analytics;
+	if (pathname === "/" || pathname === "/work" || pathname === "/work/" || pathname === "/ai" || pathname === "/ai/" || pathname === "/settings" || pathname === "/settings/") {
+		injected += "\n" + adScripts;
+	}
+	return html.replace(/<\/head>/i, `${injected}\n</head>`);
 }
 
 const PORT = process.env.PORT || 3000;
