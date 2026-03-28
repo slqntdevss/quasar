@@ -22,20 +22,73 @@ export const staticMappings = [
   { prefix: "/lc/", dir: libcurlPath },
 ];
 
+const MIME_TYPES = {
+  ".html": "text/html; charset=utf-8",
+  ".js": "application/javascript",
+  ".mjs": "application/javascript",
+  ".css": "text/css",
+  ".json": "application/json",
+  ".png": "image/png",
+  ".jpg": "image/jpeg",
+  ".jpeg": "image/jpeg",
+  ".gif": "image/gif",
+  ".svg": "image/svg+xml",
+  ".webp": "image/webp",
+  ".ico": "image/x-icon",
+  ".woff": "font/woff",
+  ".woff2": "font/woff2",
+  ".ttf": "font/ttf",
+  ".otf": "font/otf",
+  ".wasm": "application/wasm",
+  ".mp3": "audio/mpeg",
+  ".ogg": "audio/ogg",
+  ".wav": "audio/wav",
+  ".mp4": "video/mp4",
+  ".webm": "video/webm",
+  ".zip": "application/zip",
+  ".pdf": "application/pdf",
+};
+
+function getMimeType(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  return MIME_TYPES[ext] || "application/octet-stream";
+}
+
+function getCacheControl(filePath) {
+  const ext = path.extname(filePath).toLowerCase();
+  if (ext === ".html") return "no-cache";
+  if ([".js", ".mjs", ".css", ".wasm"].includes(ext)) {
+    return "public, max-age=86400, stale-while-revalidate=3600";
+  }
+  if ([".png", ".jpg", ".jpeg", ".gif", ".svg", ".webp", ".ico", ".woff", ".woff2", ".ttf", ".otf"].includes(ext)) {
+    return "public, max-age=604800, stale-while-revalidate=86400";
+  }
+  return "public, max-age=3600";
+}
+
+let cached404Html = null;
+try {
+  cached404Html = await Bun.file(path.join(publicDir, "404.html")).text();
+} catch {}
+
 export function serveStaticFile(req, filePath, headers = {}) {
   try {
     const stat = fs.statSync(filePath);
     if (!stat.isFile()) return null;
 
+    const file = Bun.file(filePath);
     const size = stat.size;
     const range = req.headers.get("range");
+
+    const contentType = getMimeType(filePath);
+    const cacheControl = getCacheControl(filePath);
 
     const outHeaders = new Headers({
       ...headers,
       "Accept-Ranges": "bytes",
+      "Content-Type": contentType,
+      "Cache-Control": cacheControl,
     });
-
-    const file = Bun.file(filePath);
 
     if (!range) {
       outHeaders.set("Content-Length", String(size));
@@ -78,20 +131,19 @@ export function serveStaticFile(req, filePath, headers = {}) {
   }
 }
 
+const COOP_FRAGMENTS = ["psp", "emulator", "portal", "portal-wrapper", "terraria"];
+
 export function getCrossOriginHeaders(pathname) {
   const headers = {
     "Cross-Origin-Resource-Policy": "cross-origin",
   };
 
-  if (
-    pathname.includes("psp") ||
-    pathname.includes("emulator") ||
-    pathname.includes("portal") ||
-    pathname.includes("portal-wrapper") ||
-    pathname.includes("terraria")
-  ) {
-    headers["Cross-Origin-Opener-Policy"] = "same-origin";
-    headers["Cross-Origin-Embedder-Policy"] = "require-corp";
+  for (const frag of COOP_FRAGMENTS) {
+    if (pathname.includes(frag)) {
+      headers["Cross-Origin-Opener-Policy"] = "same-origin";
+      headers["Cross-Origin-Embedder-Policy"] = "require-corp";
+      break;
+    }
   }
 
   return headers;
@@ -118,6 +170,7 @@ export function getRoutes() {
         headers: {
           ...getCrossOriginHeaders("/vu/vu.config.js"),
           "Content-Type": "application/javascript",
+          "Cache-Control": "public, max-age=86400",
         },
       });
     },
@@ -128,6 +181,7 @@ export function getRoutes() {
         headers: {
           ...getCrossOriginHeaders("/vu/vu.bundle.js"),
           "Content-Type": "application/javascript",
+          "Cache-Control": "public, max-age=86400",
         },
       });
     },
@@ -146,10 +200,12 @@ export function getRoutes() {
 
         try {
           const result = await fetch(
-            `https://duckduckgo.com/ac/?q=${q}&format=json`,
+            `https://duckduckgo.com/ac/?q=${encodeURIComponent(q)}&format=json`,
           );
           const data = await result.json();
-          return Response.json(data);
+          return Response.json(data, {
+            headers: { "Cache-Control": "public, max-age=60" },
+          });
         } catch (err) {
           console.log(err);
           return Response.json(
@@ -210,6 +266,7 @@ export function createFetchHandler(injectHtml, { useCdn = false } = {}) {
           headers: {
             ...headers,
             "Content-Type": "text/html; charset=utf-8",
+            "Cache-Control": "no-cache",
           },
         });
       } catch {}
@@ -232,26 +289,27 @@ export function createFetchHandler(injectHtml, { useCdn = false } = {}) {
             headers: {
               ...headers,
               "Content-Type": "text/html; charset=utf-8",
+              "Cache-Control": "no-cache",
             },
           });
         } catch {}
       }
     }
 
-    try {
-      const notFoundHtml = await Bun.file(path.join(publicDir, "404.html")).text();
+    if (cached404Html) {
       const host = req.headers.get("host") || "";
-      const modified = injectHtml(notFoundHtml, pathname, host);
+      const modified = injectHtml(cached404Html, pathname, host);
 
       return new Response(modified, {
         status: 404,
         headers: {
           ...headers,
           "Content-Type": "text/html; charset=utf-8",
+          "Cache-Control": "no-cache",
         },
       });
-    } catch {
-      return new Response("Not Found", { status: 404, headers });
     }
+
+    return new Response("Not Found", { status: 404, headers });
   };
 }

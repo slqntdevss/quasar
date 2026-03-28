@@ -59,10 +59,12 @@ async function renderGames() {
 		return categoryMatch && searchMatch;
 	});
 	container.innerHTML = "";
+	const fragment = document.createDocumentFragment();
 	for (const game of activeGames) {
 		const card = document.createElement("div");
 		card.id = game.id;
 		card.classList.add("card");
+		card.setAttribute("data-path", game.path);
 		const img = document.createElement("img");
 		img.src = `/assets/img${game.img}`;
 		img.alt = game.name;
@@ -71,12 +73,17 @@ async function renderGames() {
 		const p = document.createElement("p");
 		p.textContent = game.name;
 		card.appendChild(p);
-		container.appendChild(card);
-		card.addEventListener("click", () => {
-			loadIframe(game.path);
-		});
+		fragment.appendChild(card);
 	}
+	container.appendChild(fragment);
 }
+
+container.addEventListener("click", (e) => {
+	const card = e.target.closest(".card");
+	if (card && card.dataset.path) {
+		loadIframe(card.dataset.path);
+	}
+});
 
 document.addEventListener("DOMContentLoaded", async () => {
 	await renderGames();

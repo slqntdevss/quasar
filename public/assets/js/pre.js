@@ -178,7 +178,7 @@ address.addEventListener("input", (e) => {
 		} else {
 			autoc.classList.remove("show");
 		}
-	});
+	}, 250);
 });
 backBtn.addEventListener("click", () => {
 	if (frame.contentWindow) {
@@ -216,7 +216,7 @@ closeBtn.addEventListener("click", () => {
 	}
 });
 document.getElementById("urlForm").addEventListener("submit", async (e) => {
-	event.preventDefault();
+	e.preventDefault();
 	searchSJ(document.getElementById("urlInput").value);
 });
 

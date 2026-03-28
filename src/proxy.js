@@ -22,9 +22,11 @@ const videoAdAi = `<div data-ad="video" style="position:fixed!important;top:1rem
 const railAds = `<style>.q-rail-ads{display:none}@media(min-width:1300px){.q-rail-ads{display:block}}</style><div class="q-rail-ads"><div data-ad="left-rail-1" style="position: fixed; top: 1rem; left: 1rem; z-index: 50;"></div><div data-ad="left-rail-2" style="position: fixed; top: 280px; left: 1rem; z-index: 50;"></div><div data-ad="video" /><div data-ad="right-rail-1" style="position: fixed; top: 1rem; right: 1rem; z-index: 50;"></div></div>`;
 const mobileAdScript = `<script>(function(){var m=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);if(!m)return;var r=document.querySelector(".q-rail-ads");if(r)r.remove();var v=document.querySelector('[data-ad="video"]');if(v)v.remove();setTimeout(function(){var d=document.createElement("div");d.setAttribute("data-ad","video");document.body.appendChild(d)},30000)})();</script>`;
 
+const CDN_REWRITE_RE = /(src|href)=(["'])(\/?assets\/(?:js|css|json|img)\/[^"']+)(["'])/gi;
+
 function rewriteAssetsToCdn(html) {
   return html.replace(
-    /(src|href)=(["'])(\/?assets\/(?:js|css|json|img)\/[^"']+)(["'])/gi,
+    CDN_REWRITE_RE,
     (_match, attr, q1, assetPath, q2) => {
       if (assetPath.endsWith("dda.js")) return _match;
       const cleanPath = assetPath.startsWith("/")

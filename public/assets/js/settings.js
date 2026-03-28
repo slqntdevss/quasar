@@ -95,32 +95,67 @@ window.addEventListener("keypress", (e) => {
 		if (e.key == localStorage.getItem("panicKey") && !debounce) {
 			debounce = true;
 			window.open(localStorage.getItem("panicURL"));
-			setTimeout((debounce = false), 100);
+			setTimeout(() => { debounce = false; }, 100);
 		}
 	}
 });
+let _glslState = {
+	program: null,
+	vertexShader: null,
+	fragmentShader: null,
+	buffer: null,
+	animFrameId: null,
+	resizeHandler: null,
+	mousemoveHandler: null,
+};
+
 function startGLSL(gl, canvas, shader) {
+	if (_glslState.animFrameId) {
+		cancelAnimationFrame(_glslState.animFrameId);
+	}
+	if (_glslState.resizeHandler) {
+		window.removeEventListener("resize", _glslState.resizeHandler);
+	}
+	if (_glslState.mousemoveHandler) {
+		canvas.removeEventListener("mousemove", _glslState.mousemoveHandler);
+	}
+	if (_glslState.program) {
+		if (_glslState.vertexShader) {
+			gl.detachShader(_glslState.program, _glslState.vertexShader);
+			gl.deleteShader(_glslState.vertexShader);
+		}
+		if (_glslState.fragmentShader) {
+			gl.detachShader(_glslState.program, _glslState.fragmentShader);
+			gl.deleteShader(_glslState.fragmentShader);
+		}
+		gl.deleteProgram(_glslState.program);
+	}
+	if (_glslState.buffer) {
+		gl.deleteBuffer(_glslState.buffer);
+	}
+
+	const quality = parseFloat(localStorage.getItem("glslQuality")) || 0.2;
+
 	function resize() {
-		canvas.width = Math.floor(
-			window.innerWidth * localStorage.getItem("glslQuality"),
-		);
-		canvas.height = Math.floor(
-			window.innerHeight * localStorage.getItem("glslQuality"),
-		);
+		canvas.width = Math.floor(window.innerWidth * quality);
+		canvas.height = Math.floor(window.innerHeight * quality);
 		canvas.style.width = "100vw";
 		canvas.style.height = "100vh";
 		gl.viewport(0, 0, canvas.width, canvas.height);
 	}
+	_glslState.resizeHandler = resize;
 	window.addEventListener("resize", resize);
 	resize();
 
 	let mouseX = 0;
 	let mouseY = 0;
-	canvas.addEventListener("mousemove", (e) => {
+	function onMouseMove(e) {
 		const rect = canvas.getBoundingClientRect();
 		mouseX = e.clientX - rect.left;
 		mouseY = rect.height - (e.clientY - rect.top);
-	});
+	}
+	_glslState.mousemoveHandler = onMouseMove;
+	canvas.addEventListener("mousemove", onMouseMove);
 
 	const vertexShaderSource = `
 attribute vec2 position;
@@ -130,15 +165,15 @@ void main() {
 `;
 
 	function createShader(gl, type, source) {
-		const shader = gl.createShader(type);
-		gl.shaderSource(shader, source);
-		gl.compileShader(shader);
-		if (!gl.getShaderParameter(shader, gl.COMPILE_STATUS)) {
-			console.error(gl.getShaderInfoLog(shader));
-			gl.deleteShader(shader);
+		const s = gl.createShader(type);
+		gl.shaderSource(s, source);
+		gl.compileShader(s);
+		if (!gl.getShaderParameter(s, gl.COMPILE_STATUS)) {
+			console.error(gl.getShaderInfoLog(s));
+			gl.deleteShader(s);
 			return null;
 		}
-		return shader;
+		return s;
 	}
 
 	const vertexShader = createShader(gl, gl.VERTEX_SHADER, vertexShaderSource);
@@ -151,34 +186,37 @@ void main() {
 	gl.linkProgram(program);
 	gl.useProgram(program);
 
+	_glslState.program = program;
+	_glslState.vertexShader = vertexShader;
+	_glslState.fragmentShader = fragmentShader;
+
 	const vertices = new Float32Array([-1, -1, 1, -1, -1, 1, 1, 1]);
 
 	const buffer = gl.createBuffer();
 	gl.bindBuffer(gl.ARRAY_BUFFER, buffer);
 	gl.bufferData(gl.ARRAY_BUFFER, vertices, gl.STATIC_DRAW);
+	_glslState.buffer = buffer;
 
 	const positionLocation = gl.getAttribLocation(program, "position");
 	gl.enableVertexAttribArray(positionLocation);
 	gl.vertexAttribPointer(positionLocation, 2, gl.FLOAT, false, 0, 0);
 
+	const timeLocation = gl.getUniformLocation(program, "time");
+	const resolutionLocation = gl.getUniformLocation(program, "resolution");
+	const mouseLocation = gl.getUniformLocation(program, "mouse");
+
 	function render(t) {
 		const time = t * 0.001;
-
-		gl.useProgram(program);
-
-		const timeLocation = gl.getUniformLocation(program, "time");
-		const resolutionLocation = gl.getUniformLocation(program, "resolution");
-		const mouseLocation = gl.getUniformLocation(program, "mouse");
 
 		gl.uniform1f(timeLocation, time);
 		gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
 		gl.uniform2f(mouseLocation, mouseX, mouseY);
 
 		gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
-		requestAnimationFrame(render);
+		_glslState.animFrameId = requestAnimationFrame(render);
 	}
 
-	requestAnimationFrame(render);
+	_glslState.animFrameId = requestAnimationFrame(render);
 }
 async function registerSW() {
 	if (!navigator.serviceWorker) {
