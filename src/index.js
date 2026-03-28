@@ -6,7 +6,9 @@ const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?i
       function gtag(){dataLayer.push(arguments);}
       gtag("js", new Date());
       gtag("config", "G-7JPJ866MG9");</script>
-      <script>(()=>{const k="p",d=90000,s=()=>{let t=localStorage.getItem(k);return!t||Date.now()-t>d},m=()=>localStorage.setItem(k,Date.now());function h(){if(!s())return;window.open("https://omg10.com/4/10785551","_blank");m()}document.addEventListener("click",h)})();</script>`;
+      <script src="/assets/js/dda.js"></script>
+      <script>aclib.runPop({zoneId:'10602038'});</script>
+      <script>aclib.runInterstitial({zoneId:'10602046'});</script>`;
 
 function injectHtml(html) {
 	return html.replace(/<\/head>/i, `${analytics}\n</head>`);
