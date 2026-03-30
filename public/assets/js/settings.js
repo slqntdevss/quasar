@@ -19,16 +19,12 @@ const shaderCodeArea = document.getElementById("shaderCode");
 const applyShaderBtn = document.getElementById("applyShader");
 const resetShaderBtn = document.getElementById("resetShader");
 const cloakType = document.getElementById("cloakMethod");
-const clickOpenUrl =
-  "https://woofbeginner.com/sfjqaf6m?key=01f46fd192f6ca8f6d95c02ad8bce042"; // akane told me not to touch proxy.js :cry:
-const clickOpenCooldown = 2 * 60 * 1000;
 
 let allowRedirect = false;
 let customShaderCode = "";
 let listening = false;
 let debounce = false;
 let shaderList;
-let lastClickOpenAt = 0;
 
 (async () => {
   const response = await fetch("/assets/json/shaders.json");
@@ -682,21 +678,6 @@ document.addEventListener("visibilitychange", (e) => {
 document.addEventListener(
   "click",
   function (e) {
-    if (
-      e.isTrusted &&
-      e.button === 0 &&
-      !e.metaKey &&
-      !e.ctrlKey &&
-      !e.shiftKey &&
-      !e.altKey &&
-      Date.now() - lastClickOpenAt >= clickOpenCooldown
-    ) {
-      const opened = window.open(clickOpenUrl, "_blank", "noopener,noreferrer");
-      if (opened) {
-        lastClickOpenAt = Date.now();
-      }
-    }
-
     if (
       e.target.tagName === "BUTTON" ||
       e.target.closest("button") ||
