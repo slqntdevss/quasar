@@ -40,7 +40,7 @@ async function handleRequest(event) {
 
 self.addEventListener("fetch", (event) => {
 	const path = new URL(event.request.url).pathname;
-	if (path.startsWith("/scramjet/") || path.startsWith("/qsr/")) {
+	if (path.includes("/scramjet/") || path.includes("/qsr/")) {
 		event.respondWith(handleRequest(event));
 	}
 });

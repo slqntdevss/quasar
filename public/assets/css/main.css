@@ -258,8 +258,8 @@ p {
 	border-radius: 4px;
 	background: rgba(0, 0, 0, 0.5);
 	border: none;
-	width: 38px;
-	height: 38px;
+	width: 34px;
+	height: 34px;
 	cursor: pointer;
 	mix-blend-mode: difference;
 	isolation: isolate;
