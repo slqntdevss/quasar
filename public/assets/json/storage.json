@@ -2433,5 +2433,19 @@
 		"img": "/crossyroad.webp",
 		"path": "/webgl/crossyroad/",
 		"category": ["Arcade", "Webport"]
+	},
+	{
+		"id": "yomih",
+		"name": "Your Only Move is HUSTLE",
+		"img": "/yomih.webp",
+		"path": "/webgl/yomih/",
+		"category": ["Arcade", "Webport"]
+	},
+	{
+		"id": "tmtd",
+		"name": "10 Minutes Till Dawn",
+		"img": "/tmtd.webp",
+		"path": "/webgl/tmtd/",
+		"category": ["Arcade", "Webport"]
 	}
 ]
