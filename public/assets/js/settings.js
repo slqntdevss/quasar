@@ -233,12 +233,15 @@ async function registerSW() {
 
 	await navigator.serviceWorker.register("/sw.js");
 }
-document.addEventListener("DOMContentLoaded", async () => {
-	try {
-		await registerSW();
-	} catch (err) {
-		throw err;
+window.addEventListener("load", () => {
+	if ("requestIdleCallback" in window) {
+		requestIdleCallback(() => registerSW().catch(() => {}));
+	} else {
+		setTimeout(() => registerSW().catch(() => {}), 1000);
 	}
+});
+
+document.addEventListener("DOMContentLoaded", async () => {
 	if (
 		localStorage.getItem("cursorSpeed") != null &&
 		currentSpeed != null &&

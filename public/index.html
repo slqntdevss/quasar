@@ -8,10 +8,17 @@
 		/>
 		<meta http-equiv="Content-Language" content="en" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<script src="assets/js/home.js" async></script>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+		<link rel="dns-prefetch" href="https://js.rev.iq" />
+		<link rel="dns-prefetch" href="https://duckduckgo.com" />
 		<title>Davidson Academy | College Preparatory School | Nashville, TN</title>
 		<link rel="shortcut icon" type="image/png" href="/assets/img/favicon.png" />
+		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+		<link href="assets/css/themes.css" rel="stylesheet" />
 		<link href="assets/css/main.css" rel="stylesheet" />
+		<script src="assets/js/home.js" defer></script>
 	</head>
 
 	<body style="overflow: hidden !important" class="theme-classic">
@@ -249,9 +256,9 @@
 			<div id="quick-apps-grid" class="quick-apps-grid"></div>
 		</div>
 		<script src="assets/js/quick-apps.js" async></script>
-		<script src="assets/js/cursor.js"></script>
-		<script src="assets/js/foxy.js"></script>
-		<script src="assets/js/settings.js"></script>
+		<script src="assets/js/cursor.js" defer></script>
+		<script src="assets/js/foxy.js" defer></script>
+		<script src="assets/js/settings.js" defer></script>
 
 		<div style="display: none">
 			<section>
@@ -303,6 +310,10 @@
 				</p>
 			</section>
 		</div>
+		<script>
+		document.title = "Quasar";
+		document.querySelectorAll("#title").forEach(function(t) { t.textContent = "Quasar"; });
+		document.getElementById("address").placeholder = "browse the internet";
+		</script>
 	</body>
-	<script src="assets/js/post.js"></script>
 </html>
