@@ -9,7 +9,7 @@ const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?i
 
 const popunderScript = `<script>!function(){document.addEventListener("click",function(e){const t=sessionStorage.getItem("last_pop_time"),n=Date.now();!(!e.isTrusted||0!==e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||t&&n-t<12e4)&&(window.open("https://woofbeginner.com/sfjqaf6m?key=01f46fd192f6ca8f6d95c02ad8bce042","_blank","noopener,noreferrer"),sessionStorage.setItem("last_pop_time",n))},!0)}();</script>`;
 function injectHtml(html, pathname) {
-	let injected = analytics;
+	let bodyInject = analytics;
 	if (
 		pathname === "/" ||
 		pathname === "/index.html" ||
@@ -21,9 +21,9 @@ function injectHtml(html, pathname) {
 		pathname === "/settings/" ||
 		pathname === "/404.html"
 	) {
-		injected += "\n" + popunderScript;
+		bodyInject += "\n" + popunderScript;
 	}
-	return html.replace(/<\/head>/i, `${injected}\n</head>`);
+	return html.replace(/<\/body>/i, `${bodyInject}\n</body>`);
 }
 
 const PORT = process.env.PORT || 3000;

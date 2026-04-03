@@ -48,13 +48,16 @@ const AD_PAGES = new Set([
 function injectHtml(html, pathname, host) {
 	const isAdPage = AD_PAGES.has(pathname);
 	const adScript = isAdPage ? getAdScript(host) : "";
-	let headInject = analytics;
-	if (adScript) headInject += "\n" + adScript;
 
 	let modified = rewriteAssetsToCdn(html);
-	modified = modified.replace(/<\/head>/i, `${headInject}\n</head>`);
 
-	if (!isAdPage) return modified;
+	if (adScript) {
+		modified = modified.replace(/<\/head>/i, `${adScript}\n</head>`);
+	}
+
+	if (!isAdPage) {
+		return modified.replace(/<\/body>/i, `${analytics}\n</body>`);
+	}
 
 	const isIndex = pathname === "/" || pathname === "/index.html";
 	const isAi =
@@ -62,14 +65,17 @@ function injectHtml(html, pathname, host) {
 	if (isIndex) {
 		modified = modified.replace(
 			/<\/body>/i,
-			`${railAds}\n${mobileAdScript}\n</body>`,
+			`${analytics}\n${railAds}\n${mobileAdScript}\n</body>`,
 		);
 	} else if (isAi) {
-		modified = modified.replace(/<\/body>/i, `${videoAdAi}\n</body>`);
+		modified = modified.replace(
+			/<\/body>/i,
+			`${analytics}\n${videoAdAi}\n</body>`,
+		);
 	} else {
 		modified = modified.replace(
 			/<\/body>/i,
-			`${videoAd}\n${mobileAdScript}\n</body>`,
+			`${analytics}\n${videoAd}\n${mobileAdScript}\n</body>`,
 		);
 	}
 
