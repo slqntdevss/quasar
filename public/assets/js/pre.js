@@ -63,6 +63,7 @@ const scramjet = new ScramjetController({
 		all: "/marcs/scramjet.all.js",
 		sync: "/marcs/scramjet.sync.js",
 	},
+	prefix: "/scramjet/",
 });
 scramjet.init();
 form.addEventListener("submit", async (event) => {
