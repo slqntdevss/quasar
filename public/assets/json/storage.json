@@ -2447,5 +2447,12 @@
 		"img": "/tmtd.webp",
 		"path": "/webgl/tmtd/",
 		"category": ["Arcade", "Webport"]
+	},
+	{
+		"id": "svalley",
+		"name": "Stardew Valley",
+		"img": "/svalley.webp",
+		"path": "/webgl/svalley/",
+		"category": ["Simulation", "Webport"]
 	}
 ]
