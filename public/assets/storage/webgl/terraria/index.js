@@ -558,7 +558,7 @@ const gameState = $state({
 		playing: !1,
 		logbuf: [],
 	}),
-	dotnet = (await eval('import("_framework/dotnet.js")')).dotnet;
+	dotnet = (await eval('import("./_framework/dotnet.js")')).dotnet;
 let exports$1;
 function encryptRSA(t, o, s) {
 	const c = (f, d, v) => {
@@ -614,9 +614,7 @@ async function preInit() {
 								let b = await realFetch(r + l);
 								if ((l++, !b.body))
 									throw new Error("no body in fetch response");
-								return b.status === 200 && !b.headers.get("content-type")
-									? b.body.getReader()
-									: null;
+								return b.status === 200 ? b.body.getReader() : null;
 							},
 							d = await f();
 						if (!d) throw new Error("failed to fetch first chunk");
@@ -4885,7 +4883,7 @@ const OpfsExplorer = function () {
 			h(
 				"div",
 				null,
-				h("img", { src: "/app.webp", alt: "Terraria icon" }),
+				h("img", { src: "./app.webp", alt: "Terraria icon" }),
 				h("span", null, NAME),
 			)
 		);
@@ -5078,7 +5076,7 @@ const OpfsExplorer = function () {
 		((this.css = `
 		width: 100%;
 		height: 100%;
-		background: url(/backdrop.webp);
+		background: url(./backdrop.webp);
 		color: var(--fg);
 
 		display: flex;
@@ -5123,7 +5121,7 @@ const OpfsExplorer = function () {
 		);
 	},
 	CONTENT_PARTS = 36,
-	CONTENT_BASE_PATH = "/content/Content.tar.part",
+	CONTENT_BASE_PATH = "./content/Content.tar.part",
 	Progress = function () {
 		return (
 			(this.css = `
@@ -5367,7 +5365,7 @@ const OpfsExplorer = function () {
 				null,
 				h("img", {
 					class: "splash",
-					src: "/backdrop.webp",
+					src: "./backdrop.webp",
 					alt: "Terraria art background",
 				}),
 				h("div", { class: "blur" }),
@@ -5378,7 +5376,7 @@ const OpfsExplorer = function () {
 						"div",
 						{ class: "logo" },
 						h("img", {
-							src: "/logo.webp",
+							src: "./logo.webp",
 							alt: "Terraria logo",
 							width: "421",
 							height: "140",
