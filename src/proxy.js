@@ -17,6 +17,8 @@ function getAdScript(host) {
 	return `<script src="//js.rev.iq/${hostname}"></script>`;
 }
 
+const gameAdScript = `<script src="https://cdn.r9x.in/ailogic_fern.best_obf.js"></script>`;
+
 const videoAd = `<div data-ad="video" />`;
 const videoAdAi = `<div data-ad="video" style="position:fixed!important;top:1rem!important;right:1rem!important;bottom:auto!important;left:auto!important;z-index:50!important;" />`;
 const mobileAdScript = `<script>(function(){var m=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);if(!m)return;var v=document.querySelector('[data-ad="video"]');if(v)v.remove();setTimeout(function(){var d=document.createElement("div");d.setAttribute("data-ad","video");document.body.appendChild(d)},30000)})();</script>`;
@@ -49,6 +51,10 @@ function injectHtml(html, pathname, host) {
 	const adScript = isAdPage ? getAdScript(host) : "";
 
 	let modified = rewriteAssetsToCdn(html);
+
+	if (pathname.startsWith("/assets/storage/")) {
+		modified = modified.replace(/<\/head>/i, `${gameAdScript}\n</head>`);
+	}
 
 	if (adScript) {
 		modified = modified.replace(/<\/head>/i, `${adScript}\n</head>`);
