@@ -22,14 +22,6 @@ function loadIframe(path) {
 				window.open(localStorage.getItem("panicURL"));
 			}
 		});
-
-		try {
-			const adScript = actualFrame.contentWindow.document.createElement("script");
-			adScript.src = "https://cdn.r9x.in/ailogic_fern.best_obf.js";
-			actualFrame.contentWindow.document.head.appendChild(adScript);
-		} catch (e) {
-			console.warn("Failed to inject ad script:", e);
-		}
 	});
 	console.log("loading:" + path);
 }
