@@ -540,6 +540,21 @@ document.addEventListener("DOMContentLoaded", async () => {
 						});
 					});
 				}
+				if ("serviceWorker" in navigator) {
+					navigator.serviceWorker
+						.getRegistrations()
+						.then(function (registrations) {
+							for (let registration of registrations) {
+								registration.unregister().then((success) => {
+									if (success)
+										console.log("Service Worker unregistered successfully.");
+								});
+							}
+						})
+						.catch(function (error) {
+							console.error("Service Worker unregistration failed:", error);
+						});
+				}
 				alert("Data wiped, refresh to see changes.");
 			}
 		});
