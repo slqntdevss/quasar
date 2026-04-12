@@ -2454,5 +2454,12 @@
 		"img": "/svalley.webp",
 		"path": "/webgl/svalley/",
 		"category": ["Simulation", "Webport"]
+	},
+	{
+		"id": "wyd",
+		"name": "Who's Your Daddy?",
+		"img": "/wyd.webp",
+		"path": "/webgl/wyd/",
+		"category": ["Arcade", "Webport"]
 	}
 ]
