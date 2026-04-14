@@ -44,7 +44,7 @@ export default defineConfig(({ mode }) => {
 				name: "html-transform",
 				transformIndexHtml(html) {
 					let transformed = html
-						.replace(/%VITE_WISP_URL%/g, wispUrl)
+						.replace(/"%VITE_WISP_URL%"/g, wispUrl ? `"${wispUrl}"` : "null")
 						.replace(/%VITE_GAME_MODE%/g, gameMode);
 					
 					if (gameMode === "static") {
