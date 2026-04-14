@@ -29,16 +29,17 @@ const scramjet = new ScramjetController({
 
 scramjet.init();
 
+const GAME_MODE = import.meta.env.VITE_GAME_MODE || "selfhosted";
+const WISP_URL = import.meta.env.VITE_WISP_URL;
+
 function getWispUrl() {
-	const config = window.__QUASAR_CONFIG__ || {};
-	return (
-		config.wispUrl ||
-		import.meta.env.VITE_WISP_URL ||
-		(location.protocol === "https:" ? "wss" : "ws") +
+	if (GAME_MODE === "static" && WISP_URL) {
+		return WISP_URL;
+	}
+	return (location.protocol === "https:" ? "wss" : "ws") +
 		"://" +
 		location.host +
-		"/wisp/"
-	);
+		"/wisp/";
 }
 
 async function registerSW() {

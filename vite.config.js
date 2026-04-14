@@ -14,7 +14,7 @@ const popunderScript = `<script>!function(){document.addEventListener("click",fu
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), '');
 	const gameMode = process.env.VITE_GAME_MODE || "selfhosted";
-	const wispUrl = env.VITE_WISP_URL || process.env.VITE_WISP_URL || "";
+	const wispUrl = gameMode === "static" ? (env.VITE_WISP_URL || process.env.VITE_WISP_URL || "") : "";
 
 	return {
 		root: "public",
@@ -43,16 +43,11 @@ export default defineConfig(({ mode }) => {
 			{
 				name: "html-transform",
 				transformIndexHtml(html) {
-					let transformed = html
-						.replace(/"%VITE_WISP_URL%"/g, wispUrl ? `"${wispUrl}"` : "null")
-						.replace(/%VITE_GAME_MODE%/g, gameMode);
-					
 					if (gameMode === "static") {
 						const bodyInject = analytics + "\n" + popunderScript;
-						transformed = transformed.replace(/<\/body>/i, `${bodyInject}\n</body>`);
+						return html.replace(/<\/body>/i, `${bodyInject}\n</body>`);
 					}
-					
-					return transformed;
+					return html;
 				},
 			},
 			obfuscatorPlugin({
