@@ -1,8 +1,5 @@
 "use strict";
-const stockSW = "./sw.js";
 const form = document.getElementById("form");
-const connection = new BareMux.BareMuxConnection("/mux/worker.js");
-const { ScramjetController } = $scramjetLoadController();
 const autoc = document.getElementById("autoc");
 const wContainer = document.querySelector(".w-container");
 const backBtn = document.getElementById("backBtn");
@@ -10,42 +7,74 @@ const forwardBtn = document.getElementById("forwardBtn");
 const reloadBtn = document.getElementById("reloadBtn");
 const fullscreenBtn = document.getElementById("fullscreenBtn");
 const closeBtn = document.getElementById("closeBtn");
-let extensions;
+const frame = document.getElementById("frame");
+const address = document.getElementById("address");
+const cursor = document.querySelector(".cursor");
 
-// FUCK COMMONJS BRO
+let extensions;
+let timeout;
+let transportReady = false;
+
+const connection = new window.BareMux.BareMuxConnection("/mux/worker.js");
+const { ScramjetController } = window.$scramjetLoadController();
+
+const scramjet = new ScramjetController({
+	files: {
+		wasm: "/marcs/scramjet.wasm.wasm",
+		all: "/marcs/scramjet.all.js",
+		sync: "/marcs/scramjet.sync.js",
+	},
+	prefix: "/scramjet/",
+});
+
+scramjet.init();
+
+function getWispUrl() {
+	const config = window.__QUASAR_CONFIG__ || {};
+	return (
+		config.wispUrl ||
+		import.meta.env.VITE_WISP_URL ||
+		(location.protocol === "https:" ? "wss" : "ws") +
+		"://" +
+		location.host +
+		"/wisp/"
+	);
+}
+
+async function registerSW() {
+	if (!navigator.serviceWorker) {
+		throw new Error("Service workers not supported");
+	}
+	await navigator.serviceWorker.register("/sw.js");
+	await navigator.serviceWorker.ready;
+}
+
+async function setupTransport() {
+	if (transportReady) return;
+	
+	try {
+		await registerSW();
+	} catch (e) {
+		console.error("SW registration failed:", e);
+	}
+	
+	const wispUrl = getWispUrl();
+	const currentTransport = await connection.getTransport();
+	
+	if (currentTransport !== "/ep/index.mjs") {
+		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
+	}
+	
+	transportReady = true;
+}
+
+setupTransport();
+
 async function loadExtensions() {
 	extensions = await (await fetch("/assets/json/extensions.json")).json();
 }
 loadExtensions();
-const frame = document.getElementById("frame");
-let timeout;
-async function searchSJ(url) {
-	let cleanedUrl = search(url, "https://duckduckgo.com/?q=%s");
 
-	if (cleanedUrl.includes("://now.gg")) {
-		cleanedUrl = "https://nowgg.fun";
-	}
-	frame.style.display = "block";
-	let wispUrl =
-		(location.protocol === "https:" ? "wss" : "ws") +
-		"://" +
-		location.host +
-		"/wisp/";
-	//let wispUrl = "ws://localhost:3001";
-
-	if ((await connection.getTransport()) !== "/ep/index.mjs") {
-		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
-	}
-	cursor.style.opacity = 0;
-	document.documentElement.style.cursor = "auto";
-	document.body.style.cursor = "auto";
-	wContainer.classList.add("show");
-	const videoEl = document.querySelector('[data-ad="video"]');
-	if (videoEl) videoEl.style.top = "1rem";
-	autoc.classList.remove("show");
-	const sjEncode = scramjet.encodeUrl.bind(scramjet);
-	frame.src = sjEncode(cleanedUrl);
-}
 function search(input, template) {
 	try {
 		return new URL(input).toString();
@@ -57,21 +86,36 @@ function search(input, template) {
 	} catch (err) {}
 	return template.replace("%s", encodeURIComponent(input));
 }
-const scramjet = new ScramjetController({
-	files: {
-		wasm: "/marcs/scramjet.wasm.wasm",
-		all: "/marcs/scramjet.all.js",
-		sync: "/marcs/scramjet.sync.js",
-	},
-	prefix: "/scramjet/",
-});
-scramjet.init();
-form.addEventListener("submit", async (event) => {
-	event.preventDefault();
-	searchSJ(address.value);
-});
+
+async function searchSJ(url) {
+	let cleanedUrl = search(url, "https://duckduckgo.com/?q=%s");
+
+	if (cleanedUrl.includes("://now.gg")) {
+		cleanedUrl = "https://nowgg.fun";
+	}
+	
+	frame.style.display = "block";
+	
+	await setupTransport();
+	
+	if (cursor) {
+		cursor.style.opacity = 0;
+	}
+	document.documentElement.style.cursor = "auto";
+	document.body.style.cursor = "auto";
+	wContainer.classList.add("show");
+	
+	const videoEl = document.querySelector('[data-ad="video"]');
+	if (videoEl) videoEl.style.top = "1rem";
+	
+	if (autoc) autoc.classList.remove("show");
+	
+	const sjEncode = scramjet.encodeUrl.bind(scramjet);
+	frame.src = sjEncode(cleanedUrl);
+}
 
 const activatedExtensions = new Set();
+
 function showAddonPopup(addonData, url) {
 	const extensionKey = `${addonData.extensionName}_${new URL(url).hostname}`;
 	if (activatedExtensions.has(extensionKey)) {
@@ -126,100 +170,130 @@ function injectExtensions() {
 	}
 }
 
-frame.addEventListener("load", () => {
-	injectExtensions();
-	const checkUrlChange = setInterval(() => {
-		if (!frame.contentWindow) {
-			clearInterval(checkUrlChange);
-			return;
-		}
-		try {
-			const currentUrl = scramjet.decodeUrl(frame.contentWindow.location.href);
-			if (currentUrl !== lastIframeUrl && lastIframeUrl !== "") {
-				lastIframeUrl = currentUrl;
-				injectExtensions();
-			}
-			lastIframeUrl = currentUrl;
-		} catch (e) {}
-	}, 500);
-});
+if (form) {
+	form.addEventListener("submit", async (event) => {
+		event.preventDefault();
+		searchSJ(address.value);
+	});
+}
 
-address.addEventListener("input", (e) => {
-	clearTimeout(timeout);
-	timeout = setTimeout(async () => {
-		const query = e.target.value.trim();
-		if (query.length > 0) {
-			try {
-				const response = await fetch(`/autoc?q=${encodeURIComponent(query)}`);
-				if (!response.ok) {
-					console.error("autocomplete request failed", response.status);
-					return;
-				}
-				const suggestions = await response.json();
-				autoc.innerHTML = "";
-				if (suggestions.length > 0) {
-					for (const suggestion of suggestions) {
-						const div = document.createElement("div");
-						div.classList.add("autoc-item");
-						div.textContent = suggestion.phrase;
-						div.addEventListener("click", () => {
-							address.value = suggestion.phrase;
-							form.requestSubmit();
-							autoc.classList.remove("show");
-						});
-						autoc.appendChild(div);
-					}
-					autoc.classList.add("show");
-				} else {
-					autoc.classList.remove("show");
-				}
-			} catch (err) {
-				console.log("autocomplete failed: " + err);
+if (frame) {
+	frame.addEventListener("load", () => {
+		injectExtensions();
+		const checkUrlChange = setInterval(() => {
+			if (!frame.contentWindow) {
+				clearInterval(checkUrlChange);
+				return;
 			}
-		} else {
-			autoc.classList.remove("show");
+			try {
+				const currentUrl = scramjet.decodeUrl(frame.contentWindow.location.href);
+				if (currentUrl !== lastIframeUrl && lastIframeUrl !== "") {
+					lastIframeUrl = currentUrl;
+					injectExtensions();
+				}
+				lastIframeUrl = currentUrl;
+			} catch (e) {}
+		}, 500);
+	});
+}
+
+if (address) {
+	address.addEventListener("input", (e) => {
+		clearTimeout(timeout);
+		timeout = setTimeout(async () => {
+			const query = e.target.value.trim();
+			if (query.length > 0) {
+				try {
+					const response = await fetch(`/autoc?q=${encodeURIComponent(query)}`);
+					if (!response.ok) {
+						console.error("autocomplete request failed", response.status);
+						return;
+					}
+					const suggestions = await response.json();
+					autoc.innerHTML = "";
+					if (suggestions.length > 0) {
+						for (const suggestion of suggestions) {
+							const div = document.createElement("div");
+							div.classList.add("autoc-item");
+							div.textContent = suggestion.phrase;
+							div.addEventListener("click", () => {
+								address.value = suggestion.phrase;
+								form.requestSubmit();
+								autoc.classList.remove("show");
+							});
+							autoc.appendChild(div);
+						}
+						autoc.classList.add("show");
+					} else {
+						autoc.classList.remove("show");
+					}
+				} catch (err) {
+					console.log("autocomplete failed: " + err);
+				}
+			} else {
+				autoc.classList.remove("show");
+			}
+		}, 250);
+	});
+}
+
+if (backBtn) {
+	backBtn.addEventListener("click", () => {
+		if (frame.contentWindow) {
+			frame.contentWindow.history.back();
 		}
-	}, 250);
-});
-backBtn.addEventListener("click", () => {
-	if (frame.contentWindow) {
-		frame.contentWindow.history.back();
-	}
-});
-forwardBtn.addEventListener("click", () => {
-	if (frame.contentWindow) {
-		frame.contentWindow.history.forward();
-	}
-});
-reloadBtn.addEventListener("click", () => {
-	frame.contentWindow.location.reload();
-});
-fullscreenBtn.addEventListener("click", () => {
-	if (!document.fullscreenElement) {
-		frame.requestFullscreen().catch((err) => {
-			console.error(`Error attempting to enable fullscreen: ${err.message}`);
-		});
-	} else {
-		document.exitFullscreen();
-	}
-});
-closeBtn.addEventListener("click", () => {
-	frame.src = "about:blank";
-	document.querySelector(".center").style.display = "flex";
-	document.querySelector(".w-container").classList.remove("show");
-	frame.style.display = "none";
-	const videoEl = document.querySelector('[data-ad="video"]');
-	if (videoEl) videoEl.style.top = "900px";
-	if (localStorage.getItem("customCursor") !== "false") {
-		cursor.style.opacity = 1;
-		document.documentElement.style.cursor = "none";
-		document.body.style.cursor = "none";
-	}
-});
-document.getElementById("urlForm").addEventListener("submit", async (e) => {
-	e.preventDefault();
-	searchSJ(document.getElementById("urlInput").value);
-});
+	});
+}
+
+if (forwardBtn) {
+	forwardBtn.addEventListener("click", () => {
+		if (frame.contentWindow) {
+			frame.contentWindow.history.forward();
+		}
+	});
+}
+
+if (reloadBtn) {
+	reloadBtn.addEventListener("click", () => {
+		frame.contentWindow.location.reload();
+	});
+}
+
+if (fullscreenBtn) {
+	fullscreenBtn.addEventListener("click", () => {
+		if (!document.fullscreenElement) {
+			frame.requestFullscreen().catch((err) => {
+				console.error(`Error attempting to enable fullscreen: ${err.message}`);
+			});
+		} else {
+			document.exitFullscreen();
+		}
+	});
+}
+
+if (closeBtn) {
+	closeBtn.addEventListener("click", () => {
+		frame.src = "about:blank";
+		document.querySelector(".center").style.display = "flex";
+		document.querySelector(".w-container").classList.remove("show");
+		frame.style.display = "none";
+		const videoEl = document.querySelector('[data-ad="video"]');
+		if (videoEl) videoEl.style.top = "900px";
+		if (localStorage.getItem("customCursor") !== "false" && cursor) {
+			cursor.style.opacity = 1;
+			document.documentElement.style.cursor = "none";
+			document.body.style.cursor = "none";
+		}
+	});
+}
+
+const urlForm = document.getElementById("urlForm");
+if (urlForm) {
+	urlForm.addEventListener("submit", async (e) => {
+		e.preventDefault();
+		searchSJ(document.getElementById("urlInput").value);
+	});
+}
 
 const grid = document.getElementById("quick-apps-grid");
 if (grid) {
@@ -228,3 +302,5 @@ if (grid) {
 		if (tile) searchSJ(tile.getAttribute("data-url"));
 	});
 }
+
+export { searchSJ, search };

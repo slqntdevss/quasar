@@ -3,3 +3,4 @@
 package-lock.json
 Caddyfile
 /public/assets/js/ai-unobf.js
+dist

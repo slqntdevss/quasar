@@ -6,7 +6,11 @@
 	"scripts": {
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "bun --watch src/index.js",
+		"dev:vite": "vite",
+		"build:static": "VITE_GAME_MODE=static vite build",
+		"build:selfhosted": "VITE_GAME_MODE=selfhosted vite build",
 		"start": "bun src/index.js",
+		"preview": "vite preview",
 		"proxy": "bun src/proxy.js",
 		"proxy:dev": "bun --watch src/proxy.js"
 	},
@@ -28,6 +32,8 @@
 		"helmet": "^8.1.0"
 	},
 	"devDependencies": {
-		"nodemon": "^3.1.10"
+		"nodemon": "^3.1.10",
+		"vite": "^6.3.3",
+		"vite-plugin-bundle-obfuscator": "^1.11.0"
 	}
 }

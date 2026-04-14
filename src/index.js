@@ -17,8 +17,6 @@ function injectHtml(html, pathname) {
 		pathname === "/index.html" ||
 		pathname === "/work" ||
 		pathname === "/work/" ||
-		pathname === "/ai" ||
-		pathname === "/ai/" ||
 		pathname === "/settings" ||
 		pathname === "/settings/" ||
 		pathname === "/404.html"

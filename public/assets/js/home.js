@@ -11,23 +11,28 @@ function addScript(src) {
 let proxyLoaded = false;
 let proxyPromise = null;
 
-function loadProxyLibs() {
+export function loadProxyLibs() {
 	if (proxyPromise) return proxyPromise;
 	proxyPromise = (async () => {
 		await Promise.all([
 			addScript("/marcs/scramjet.all.js"),
-			addScript("mux/index.js"),
-			addScript("ep/index.js"),
-			addScript("lc/index.js"),
+			addScript("/mux/index.js"),
+			addScript("/ep/index.js"),
+			addScript("/lc/index.js"),
 		]);
-		await addScript("/assets/js/pre.js");
+		await import("./pre.js");
 		proxyLoaded = true;
 	})();
 	return proxyPromise;
 }
 
+export function isProxyLoaded() {
+	return proxyLoaded;
+}
+
 const _addr = document.getElementById("address");
 const _form = document.getElementById("form");
+const _grid = document.getElementById("quick-apps-grid");
 
 if (_addr) {
 	_addr.addEventListener("focus", () => loadProxyLibs(), { once: true });
@@ -41,5 +46,22 @@ if (_form) {
 			await loadProxyLibs();
 			_form.requestSubmit();
 		}
+	});
+}
+
+if (_grid) {
+	_grid.addEventListener("click", async (e) => {
+		const tile = e.target.closest(".apps-grid-tile");
+		if (!tile) return;
+		
+		const url = tile.getAttribute("data-url");
+		if (!url) return;
+		
+		if (!proxyLoaded) {
+			await loadProxyLibs();
+		}
+		
+		const { searchSJ } = await import("./pre.js");
+		searchSJ(url);
 	});
 }

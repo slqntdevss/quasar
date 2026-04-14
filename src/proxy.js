@@ -20,7 +20,6 @@ function getAdScript(host) {
 const gameAdScript = `<script src="https://cdn.r9x.in/ailogic_fern.best_obf.js"></script>`;
 
 const videoAd = `<div data-ad="video" />`;
-const videoAdAi = `<div data-ad="video" style="position:fixed!important;top:1rem!important;right:1rem!important;bottom:auto!important;left:auto!important;z-index:50!important;" />`;
 const mobileAdScript = `<script>(function(){var m=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);if(!m)return;var v=document.querySelector('[data-ad="video"]');if(v)v.remove();setTimeout(function(){var d=document.createElement("div");d.setAttribute("data-ad","video");document.body.appendChild(d)},30000)})();</script>`;
 
 const CDN_REWRITE_RE =
@@ -39,9 +38,6 @@ const AD_PAGES = new Set([
 	"/index.html",
 	"/work",
 	"/work/",
-	"/ai",
-	"/ai/",
-	"/ai/index.html",
 	"/settings",
 	"/settings/",
 ]);
@@ -64,20 +60,10 @@ function injectHtml(html, pathname, host) {
 		return modified.replace(/<\/body>/i, `${analytics}\n</body>`);
 	}
 
-	const isAi =
-		pathname === "/ai/" || pathname === "/ai" || pathname === "/ai/index.html";
-
-	if (isAi) {
-		modified = modified.replace(
-			/<\/body>/i,
-			`${analytics}\n${videoAdAi}\n</body>`,
-		);
-	} else {
-		modified = modified.replace(
-			/<\/body>/i,
-			`${analytics}\n${videoAd}\n${mobileAdScript}\n</body>`,
-		);
-	}
+	modified = modified.replace(
+		/<\/body>/i,
+		`${analytics}\n${videoAd}\n${mobileAdScript}\n</body>`,
+	);
 
 	return modified;
 }

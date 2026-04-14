@@ -962,3 +962,45 @@ p {
 .apply-shader-btn:hover {
 	filter: brightness(1.2);
 }
+
+.pagination {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 8px;
+	padding: 20px 0 40px 0;
+	flex-wrap: wrap;
+}
+
+.pagination-btn {
+	padding: 8px 14px;
+	border-radius: var(--main-radius, 8px);
+	border: var(--main-border, 1px solid rgba(255, 255, 255, 0.1));
+	background: var(--main-bg, rgba(255, 255, 255, 0.05));
+	color: var(--main-text, #fff);
+	font-size: 14px;
+	cursor: pointer;
+	transition: all 0.2s ease;
+}
+
+.pagination-btn:hover:not(:disabled) {
+	background: var(--button-hover-bg, rgba(255, 255, 255, 0.15));
+	border: var(--accent-border, 1px solid rgba(255, 255, 255, 0.2));
+}
+
+.pagination-btn.active {
+	background: var(--accent-color, #4a9ead);
+	color: #000;
+	border-color: var(--accent-color, #4a9ead);
+}
+
+.pagination-btn:disabled {
+	opacity: 0.4;
+	cursor: not-allowed;
+}
+
+.pagination-ellipsis {
+	color: var(--main-text, #fff);
+	padding: 0 4px;
+	opacity: 0.6;
+}

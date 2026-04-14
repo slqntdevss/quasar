@@ -16,7 +16,13 @@
 		<link href="assets/css/main.css" rel="stylesheet" />
 		<link href="assets/css/themes.css" rel="stylesheet" media="print" onload="this.media='all'" />
 		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
-		<script src="assets/js/home.js" defer></script>
+		<script>
+			window.__QUASAR_CONFIG__ = {
+				wispUrl: "%VITE_WISP_URL%",
+				gameMode: "%VITE_GAME_MODE%"
+			};
+		</script>
+		<script type="module" src="assets/js/home.js"></script>
 	</head>
 
 	<body style="overflow: hidden !important" class="theme-classic">
@@ -52,27 +58,6 @@
 							<path
 								d="M17.32 5H6.68a4 4 0 0 0-3.978 3.59c-.006.052-.01.101-.017.152C2.604 9.416 2 14.456 2 16a3 3 0 0 0 3 3c1 0 1.5-.5 2-1l1.414-1.414A2 2 0 0 1 9.828 16h4.344a2 2 0 0 1 1.414.586L17 18c.5.5 1 1 2 1a3 3 0 0 0 3-3c0-1.545-.604-6.584-.685-7.258-.007-.05-.011-.1-.017-.151A4 4 0 0 0 17.32 5z"
 							/>
-						</svg>
-					</button>
-					<button onclick="window.location.href = '/ai'">
-						<svg
-							xmlns="http://www.w3.org/2000/svg"
-							width="24"
-							height="24"
-							viewBox="0 0 24 24"
-							fill="none"
-							stroke="currentColor"
-							stroke-width="2"
-							stroke-linecap="round"
-							stroke-linejoin="round"
-							class="lucide lucide-bot-icon lucide-bot"
-						>
-							<path d="M12 8V4H8" />
-							<rect width="16" height="12" x="4" y="8" rx="2" />
-							<path d="M2 14h2" />
-							<path d="M20 14h2" />
-							<path d="M15 13v2" />
-							<path d="M9 13v2" />
 						</svg>
 					</button>
 					<button onclick="window.location.href = '/settings'">
@@ -253,10 +238,10 @@
 			</form>
 			<div id="quick-apps-grid" class="quick-apps-grid"></div>
 		</div>
-		<script src="assets/js/quick-apps.js" async></script>
-		<script src="assets/js/cursor.js" defer></script>
-		<script src="assets/js/foxy.js" defer></script>
-		<script src="assets/js/settings.js" defer></script>
+		<script type="module" src="assets/js/quick-apps.js"></script>
+		<script type="module" src="assets/js/cursor.js"></script>
+		<script type="module" src="assets/js/foxy.js"></script>
+		<script type="module" src="assets/js/settings.js"></script>
 
 		<div style="display: none">
 			<section>

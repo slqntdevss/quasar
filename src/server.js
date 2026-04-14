@@ -8,7 +8,14 @@ import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
 import { uvPath } from "@titaniumnetwork-dev/ultraviolet";
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
-export const publicDir = path.join(__dirname, "../public");
+
+// Check if dist/ exists (production build), otherwise use public/ (development)
+const distDir = path.join(__dirname, "../dist");
+const publicDirPath = path.join(__dirname, "../public");
+export const publicDir = fs.existsSync(distDir) ? distDir : publicDirPath;
+
+// Log which directory we're serving from
+console.log(`Serving static files from: ${publicDir}`);
 
 export const STARTUP_TIME = Date.now();
 export const CDN_BASE =
