@@ -158,6 +158,7 @@ const COOP_FRAGMENTS = [
 	"portal",
 	"portal-wrapper",
 	"terraria",
+	"hl2",
 ];
 
 export function getCrossOriginHeaders(pathname) {

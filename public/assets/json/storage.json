@@ -2461,5 +2461,12 @@
 		"img": "/wyd.webp",
 		"path": "/webgl/wyd/",
 		"category": ["Arcade", "Webport"]
+	},
+	{
+		"id": "hl2",
+		"name": "Half-Life 2",
+		"img": "/hl2.webp",
+		"path": "/webgl/hl2/",
+		"category": ["Action", "Webport", "Shooter", "Adventure"]
 	}
 ]
