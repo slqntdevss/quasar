@@ -61,6 +61,10 @@ export default defineConfig(({ mode }) => {
 							(m) => `${m}\n\t\t<meta name="qsr-base" content="${baseRel}">`,
 						);
 						html = html.replace(/<div class="game-options">[\s\S]*?<\/div>/i, "");
+						html = html.replace(
+							/<\/head>/i,
+							`<style>.search-controls{width:auto!important;justify-content:center}.search-bar{margin:10px auto!important}</style></head>`,
+						);
 						const bodyInject = analytics + "\n" + popunderScript;
 						return html.replace(/<\/body>/i, `${bodyInject}\n</body>`);
 					}
