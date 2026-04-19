@@ -337,13 +337,13 @@ searchBar.addEventListener("input", (e) => {
 	}, 300);
 });
 
-categoriesSwitcher.addEventListener("change", async (e) => {
+categoriesSwitcher?.addEventListener("change", async (e) => {
 	activeCategory = e.target.value.toLowerCase();
 	currentPage = 1;
 	await renderGames();
 });
 
-sortMethodSwitcher.addEventListener("change", async (e) => {
+sortMethodSwitcher?.addEventListener("change", async (e) => {
 	sortMethod = e.target.value.toLowerCase();
 	currentPage = 1;
 	await renderGames();

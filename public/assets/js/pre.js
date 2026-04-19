@@ -1,33 +1,14 @@
 "use strict";
-const form = document.getElementById("form");
-const autoc = document.getElementById("autoc");
-const wContainer = document.querySelector(".w-container");
-const backBtn = document.getElementById("backBtn");
-const forwardBtn = document.getElementById("forwardBtn");
-const reloadBtn = document.getElementById("reloadBtn");
-const fullscreenBtn = document.getElementById("fullscreenBtn");
-const closeBtn = document.getElementById("closeBtn");
-const frame = document.getElementById("frame");
-const address = document.getElementById("address");
-const cursor = document.querySelector(".cursor");
+import extensionsData from "../json/extensions.json";
+import { qsrPath } from "./qsr-base.js";
 
-let extensions;
+let extensions = extensionsData;
 let timeout;
 let transportReady = false;
 
-const connection = new window.BareMux.BareMuxConnection("/mux/worker.js");
-const { ScramjetController } = window.$scramjetLoadController();
-
-const scramjet = new ScramjetController({
-	files: {
-		wasm: "/marcs/scramjet.wasm.wasm",
-		all: "/marcs/scramjet.all.js",
-		sync: "/marcs/scramjet.sync.js",
-	},
-	prefix: "/scramjet/",
-});
-
-scramjet.init();
+let connection;
+let scramjet;
+let initialized = false;
 
 const GAME_MODE = import.meta.env.VITE_GAME_MODE || "selfhosted";
 const WISP_URL = import.meta.env.VITE_WISP_URL;
@@ -39,48 +20,38 @@ function getWispUrl() {
 	return (location.protocol === "https:" ? "wss" : "ws") +
 		"://" +
 		location.host +
-		"/wisp/";
+		qsrPath("wisp/");
 }
 
 async function registerSW() {
 	if (!navigator.serviceWorker) {
 		throw new Error("Service workers not supported");
 	}
-	await navigator.serviceWorker.register("/sw.js");
+	await navigator.serviceWorker.register(qsrPath("sw.js"), {
+		scope: qsrPath(""),
+	});
 	await navigator.serviceWorker.ready;
 }
 
 async function setupTransport() {
 	if (transportReady) return;
-	
 	try {
 		await registerSW();
 	} catch (e) {
 		console.error("SW registration failed:", e);
 	}
-	
 	const wispUrl = getWispUrl();
 	const currentTransport = await connection.getTransport();
-	
-	if (currentTransport !== "/ep/index.mjs") {
-		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
+	if (currentTransport !== qsrPath("ep/index.mjs")) {
+		await connection.setTransport(qsrPath("ep/index.mjs"), [{ wisp: wispUrl }]);
 	}
-	
 	transportReady = true;
 }
-
-setupTransport();
-
-async function loadExtensions() {
-	extensions = await (await fetch("/assets/json/extensions.json")).json();
-}
-loadExtensions();
 
 function search(input, template) {
 	try {
 		return new URL(input).toString();
 	} catch (err) {}
-
 	try {
 		const url = new URL(`https://${input}`);
 		if (url.hostname.includes(".")) return url.toString();
@@ -88,29 +59,25 @@ function search(input, template) {
 	return template.replace("%s", encodeURIComponent(input));
 }
 
-async function searchSJ(url) {
-	let cleanedUrl = search(url, "https://duckduckgo.com/?q=%s");
+let frame, autoc, wContainer, cursor, address, form;
 
+async function searchSJ(url) {
+	if (!initialized) initPre();
+	let cleanedUrl = search(url, "https://duckduckgo.com/?q=%s");
 	if (cleanedUrl.includes("://now.gg")) {
 		cleanedUrl = "https://nowgg.fun";
 	}
-	
 	frame.style.display = "block";
-	
 	await setupTransport();
-	
 	if (cursor) {
 		cursor.style.opacity = 0;
 	}
 	document.documentElement.style.cursor = "auto";
 	document.body.style.cursor = "auto";
 	wContainer.classList.add("show");
-	
 	const videoEl = document.querySelector('[data-ad="video"]');
 	if (videoEl) videoEl.style.top = "1rem";
-	
 	if (autoc) autoc.classList.remove("show");
-	
 	const sjEncode = scramjet.encodeUrl.bind(scramjet);
 	frame.src = sjEncode(cleanedUrl);
 }
@@ -138,11 +105,11 @@ function showAddonPopup(addonData, url) {
 	closeAddon.parentNode.replaceChild(newCloseBtn, closeAddon);
 	activateAddon.parentNode.replaceChild(newActivateBtn, activateAddon);
 
-	newCloseBtn.addEventListener("click", (e) => {
+	newCloseBtn.addEventListener("click", () => {
 		popup.classList.remove("visible");
 		activatedExtensions.add(extensionKey);
 	});
-	newActivateBtn.addEventListener("click", (e) => {
+	newActivateBtn.addEventListener("click", () => {
 		const scriptEl = document.createElement("script");
 		scriptEl.innerHTML = addonData.code;
 		frame.contentDocument.body.insertAdjacentElement("afterbegin", scriptEl);
@@ -171,137 +138,164 @@ function injectExtensions() {
 	}
 }
 
-if (form) {
-	form.addEventListener("submit", async (event) => {
-		event.preventDefault();
-		searchSJ(address.value);
-	});
-}
+function initPre() {
+	if (initialized) return;
+	initialized = true;
 
-if (frame) {
-	frame.addEventListener("load", () => {
-		injectExtensions();
-		const checkUrlChange = setInterval(() => {
-			if (!frame.contentWindow) {
-				clearInterval(checkUrlChange);
-				return;
-			}
-			try {
-				const currentUrl = scramjet.decodeUrl(frame.contentWindow.location.href);
-				if (currentUrl !== lastIframeUrl && lastIframeUrl !== "") {
-					lastIframeUrl = currentUrl;
-					injectExtensions();
+	form = document.getElementById("form");
+	autoc = document.getElementById("autoc");
+	wContainer = document.querySelector(".w-container");
+	const backBtn = document.getElementById("backBtn");
+	const forwardBtn = document.getElementById("forwardBtn");
+	const reloadBtn = document.getElementById("reloadBtn");
+	const fullscreenBtn = document.getElementById("fullscreenBtn");
+	const closeBtn = document.getElementById("closeBtn");
+	frame = document.getElementById("frame");
+	address = document.getElementById("address");
+	cursor = document.querySelector(".cursor");
+
+	connection = new window.BareMux.BareMuxConnection(qsrPath("mux/worker.js"));
+	const { ScramjetController } = window.$scramjetLoadController();
+	scramjet = new ScramjetController({
+		files: {
+			wasm: qsrPath("marcs/scramjet.wasm.wasm"),
+			all: qsrPath("marcs/scramjet.all.js"),
+			sync: qsrPath("marcs/scramjet.sync.js"),
+		},
+		prefix: qsrPath("scramjet/"),
+	});
+	scramjet.init();
+
+	setupTransport();
+
+	if (form) {
+		form.addEventListener("submit", async (event) => {
+			event.preventDefault();
+			searchSJ(address.value);
+		});
+	}
+
+	if (frame) {
+		frame.addEventListener("load", () => {
+			injectExtensions();
+			const checkUrlChange = setInterval(() => {
+				if (!frame.contentWindow) {
+					clearInterval(checkUrlChange);
+					return;
 				}
-				lastIframeUrl = currentUrl;
-			} catch (e) {}
-		}, 500);
-	});
-}
-
-if (address) {
-	address.addEventListener("input", (e) => {
-		clearTimeout(timeout);
-		timeout = setTimeout(async () => {
-			const query = e.target.value.trim();
-			if (query.length > 0) {
 				try {
-					const response = await fetch(`/autoc?q=${encodeURIComponent(query)}`);
-					if (!response.ok) {
-						console.error("autocomplete request failed", response.status);
-						return;
+					const currentUrl = scramjet.decodeUrl(frame.contentWindow.location.href);
+					if (currentUrl !== lastIframeUrl && lastIframeUrl !== "") {
+						lastIframeUrl = currentUrl;
+						injectExtensions();
 					}
-					const suggestions = await response.json();
-					autoc.innerHTML = "";
-					if (suggestions.length > 0) {
-						for (const suggestion of suggestions) {
-							const div = document.createElement("div");
-							div.classList.add("autoc-item");
-							div.textContent = suggestion.phrase;
-							div.addEventListener("click", () => {
-								address.value = suggestion.phrase;
-								form.requestSubmit();
-								autoc.classList.remove("show");
-							});
-							autoc.appendChild(div);
+					lastIframeUrl = currentUrl;
+				} catch (e) {}
+			}, 500);
+		});
+	}
+
+	if (address) {
+		address.addEventListener("input", (e) => {
+			clearTimeout(timeout);
+			timeout = setTimeout(async () => {
+				const query = e.target.value.trim();
+				if (query.length > 0) {
+					try {
+						const response = await fetch(qsrPath(`autoc?q=${encodeURIComponent(query)}`));
+						if (!response.ok) {
+							console.error("autocomplete request failed", response.status);
+							return;
 						}
-						autoc.classList.add("show");
-					} else {
-						autoc.classList.remove("show");
+						const suggestions = await response.json();
+						autoc.innerHTML = "";
+						if (suggestions.length > 0) {
+							for (const suggestion of suggestions) {
+								const div = document.createElement("div");
+								div.classList.add("autoc-item");
+								div.textContent = suggestion.phrase;
+								div.addEventListener("click", () => {
+									address.value = suggestion.phrase;
+									form.requestSubmit();
+									autoc.classList.remove("show");
+								});
+								autoc.appendChild(div);
+							}
+							autoc.classList.add("show");
+						} else {
+							autoc.classList.remove("show");
+						}
+					} catch (err) {
+						console.log("autocomplete failed: " + err);
 					}
-				} catch (err) {
-					console.log("autocomplete failed: " + err);
+				} else {
+					autoc.classList.remove("show");
 				}
+			}, 250);
+		});
+	}
+
+	if (backBtn) {
+		backBtn.addEventListener("click", () => {
+			if (frame.contentWindow) frame.contentWindow.history.back();
+		});
+	}
+
+	if (forwardBtn) {
+		forwardBtn.addEventListener("click", () => {
+			if (frame.contentWindow) frame.contentWindow.history.forward();
+		});
+	}
+
+	if (reloadBtn) {
+		reloadBtn.addEventListener("click", () => {
+			frame.contentWindow.location.reload();
+		});
+	}
+
+	if (fullscreenBtn) {
+		fullscreenBtn.addEventListener("click", () => {
+			if (!document.fullscreenElement) {
+				frame.requestFullscreen().catch((err) => {
+					console.error(`Error attempting to enable fullscreen: ${err.message}`);
+				});
 			} else {
-				autoc.classList.remove("show");
+				document.exitFullscreen();
 			}
-		}, 250);
-	});
+		});
+	}
+
+	if (closeBtn) {
+		closeBtn.addEventListener("click", () => {
+			frame.src = "about:blank";
+			document.querySelector(".center").style.display = "flex";
+			document.querySelector(".w-container").classList.remove("show");
+			frame.style.display = "none";
+			const videoEl = document.querySelector('[data-ad="video"]');
+			if (videoEl) videoEl.style.top = "900px";
+			if (localStorage.getItem("customCursor") !== "false" && cursor) {
+				cursor.style.opacity = 1;
+				document.documentElement.style.cursor = "none";
+				document.body.style.cursor = "none";
+			}
+		});
+	}
+
+	const urlForm = document.getElementById("urlForm");
+	if (urlForm) {
+		urlForm.addEventListener("submit", async (e) => {
+			e.preventDefault();
+			searchSJ(document.getElementById("urlInput").value);
+		});
+	}
+
+	const grid = document.getElementById("quick-apps-grid");
+	if (grid) {
+		grid.addEventListener("click", (e) => {
+			const tile = e.target.closest(".apps-grid-tile");
+			if (tile) searchSJ(tile.getAttribute("data-url"));
+		});
+	}
 }
 
-if (backBtn) {
-	backBtn.addEventListener("click", () => {
-		if (frame.contentWindow) {
-			frame.contentWindow.history.back();
-		}
-	});
-}
-
-if (forwardBtn) {
-	forwardBtn.addEventListener("click", () => {
-		if (frame.contentWindow) {
-			frame.contentWindow.history.forward();
-		}
-	});
-}
-
-if (reloadBtn) {
-	reloadBtn.addEventListener("click", () => {
-		frame.contentWindow.location.reload();
-	});
-}
-
-if (fullscreenBtn) {
-	fullscreenBtn.addEventListener("click", () => {
-		if (!document.fullscreenElement) {
-			frame.requestFullscreen().catch((err) => {
-				console.error(`Error attempting to enable fullscreen: ${err.message}`);
-			});
-		} else {
-			document.exitFullscreen();
-		}
-	});
-}
-
-if (closeBtn) {
-	closeBtn.addEventListener("click", () => {
-		frame.src = "about:blank";
-		document.querySelector(".center").style.display = "flex";
-		document.querySelector(".w-container").classList.remove("show");
-		frame.style.display = "none";
-		const videoEl = document.querySelector('[data-ad="video"]');
-		if (videoEl) videoEl.style.top = "900px";
-		if (localStorage.getItem("customCursor") !== "false" && cursor) {
-			cursor.style.opacity = 1;
-			document.documentElement.style.cursor = "none";
-			document.body.style.cursor = "none";
-		}
-	});
-}
-
-const urlForm = document.getElementById("urlForm");
-if (urlForm) {
-	urlForm.addEventListener("submit", async (e) => {
-		e.preventDefault();
-		searchSJ(document.getElementById("urlInput").value);
-	});
-}
-
-const grid = document.getElementById("quick-apps-grid");
-if (grid) {
-	grid.addEventListener("click", (e) => {
-		const tile = e.target.closest(".apps-grid-tile");
-		if (tile) searchSJ(tile.getAttribute("data-url"));
-	});
-}
-
-export { searchSJ, search };
+export { searchSJ, search, initPre };

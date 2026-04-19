@@ -7,7 +7,7 @@
 		"test": "echo \"Error: no test specified\" && exit 1",
 		"dev": "bun --watch src/index.js",
 		"dev:vite": "vite",
-		"build:static": "VITE_GAME_MODE=static vite build",
+		"build:static": "node scripts/build-static.js",
 		"build:selfhosted": "VITE_GAME_MODE=selfhosted vite build",
 		"start": "bun src/index.js",
 		"preview": "vite preview",
@@ -34,6 +34,7 @@
 	"devDependencies": {
 		"nodemon": "^3.1.10",
 		"vite": "^6.3.3",
-		"vite-plugin-bundle-obfuscator": "^1.11.0"
+		"vite-plugin-bundle-obfuscator": "^1.11.0",
+		"vite-plugin-singlefile": "^2.3.3"
 	}
 }

