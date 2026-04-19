@@ -451,6 +451,7 @@ p {
 	width: 100%;
 	position: absolute;
 	height: 75px;
+	backdrop-filter: blur(8px);
 	border-bottom-left-radius: 6px;
 	border-bottom-right-radius: 6px;
 	bottom: 0;
