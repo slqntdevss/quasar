@@ -1,3 +1,8 @@
+import shaderListData from "../json/shaders.json";
+import faviconUrl from "../img/favicon.png";
+import gclassUrl from "../img/gclass.png";
+import { qsrPath } from "./qsr-base.js";
+
 const cursorSpeedSlider = document.getElementById("cursorSpeed");
 const shaderQualitySlider = document.getElementById("glslQuality");
 const currentSpeed = document.getElementById("currentSpeed");
@@ -24,12 +29,7 @@ let allowRedirect = false;
 let customShaderCode = "";
 let listening = false;
 let debounce = false;
-let shaderList;
-
-(async () => {
-	const response = await fetch("/assets/json/shaders.json");
-	shaderList = await response.json();
-})();
+let shaderList = shaderListData;
 
 if (localStorage.getItem("activeTheme") == null) {
 	localStorage.setItem("activeTheme", "theme-classic");
@@ -231,7 +231,9 @@ async function registerSW() {
 		throw new Error("Your browser doesn't support service workers.");
 	}
 
-	await navigator.serviceWorker.register("/sw.js");
+	await navigator.serviceWorker.register(qsrPath("sw.js"), {
+		scope: qsrPath(""),
+	});
 }
 window.addEventListener("load", () => {
 	if ("requestIdleCallback" in window) {
@@ -686,10 +688,10 @@ if (!faviconLink) {
 document.addEventListener("visibilitychange", (e) => {
 	if (document.hidden && localStorage.getItem("focusCloaking") == "true") {
 		document.title = "Home";
-		faviconLink.href = "/assets/img/gclass.png";
+		faviconLink.href = gclassUrl;
 	} else {
 		document.title = "Quasar";
-		faviconLink.href = "/assets/img/favicon.png";
+		faviconLink.href = faviconUrl;
 	}
 });
 

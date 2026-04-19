@@ -2,6 +2,7 @@ import { defineConfig, loadEnv } from "vite";
 import { resolve } from "path";
 import { copyFileSync, cpSync, existsSync, mkdirSync, symlinkSync, readFileSync, writeFileSync } from "fs";
 import obfuscatorPlugin from "vite-plugin-bundle-obfuscator";
+import { viteSingleFile } from "vite-plugin-singlefile";
 
 const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?id=G-7JPJ866MG9"></script>
 <script>window.dataLayer = window.dataLayer || [];
@@ -15,10 +16,11 @@ export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), '');
 	const gameMode = process.env.VITE_GAME_MODE || "selfhosted";
 	const wispUrl = gameMode === "static" ? (env.VITE_WISP_URL || process.env.VITE_WISP_URL || "") : "";
+	const isStatic = gameMode === "static";
 
 	return {
 		root: "public",
-		base: "/",
+		base: isStatic ? "./" : "/",
 
 		define: {
 			"import.meta.env.VITE_GAME_MODE": JSON.stringify(gameMode),
@@ -27,14 +29,21 @@ export default defineConfig(({ mode }) => {
 
 		build: {
 			outDir: "../dist",
-			emptyOutDir: true,
-			rollupOptions: {
-				input: {
-					main: resolve(__dirname, "public/index.html"),
-					work: resolve(__dirname, "public/work/index.html"),
-					settings: resolve(__dirname, "public/settings/index.html"),
-				},
-			},
+			emptyOutDir: !isStatic,
+			assetsInlineLimit: isStatic ? 100_000 : 4096,
+			cssCodeSplit: !isStatic,
+			chunkSizeWarningLimit: isStatic ? 100_000_000 : 500,
+			rollupOptions: isStatic
+				? {
+						output: { inlineDynamicImports: true },
+				  }
+				: {
+						input: {
+							main: resolve(__dirname, "public/index.html"),
+							work: resolve(__dirname, "public/work/index.html"),
+							settings: resolve(__dirname, "public/settings/index.html"),
+						},
+				  },
 			assetsDir: "assets",
 			copyPublicDir: false,
 		},
@@ -42,8 +51,15 @@ export default defineConfig(({ mode }) => {
 		plugins: [
 			{
 				name: "html-transform",
-				transformIndexHtml(html) {
-					if (gameMode === "static") {
+				transformIndexHtml(html, ctx) {
+					if (isStatic) {
+						const inputPath = (ctx && ctx.path) || "/";
+						const depth = inputPath.replace(/^\//, "").split("/").length - 1;
+						const baseRel = depth > 0 ? "../".repeat(depth) : "./";
+						html = html.replace(
+							/<head(\s[^>]*)?>/i,
+							(m) => `${m}\n\t\t<meta name="qsr-base" content="${baseRel}">`,
+						);
 						const bodyInject = analytics + "\n" + popunderScript;
 						return html.replace(/<\/body>/i, `${bodyInject}\n</body>`);
 					}
@@ -51,7 +67,7 @@ export default defineConfig(({ mode }) => {
 				},
 			},
 			obfuscatorPlugin({
-				enable: true,
+				enable: !isStatic,
 				log: false,
 				options: {
 					compact: true,
@@ -66,14 +82,70 @@ export default defineConfig(({ mode }) => {
 					splitStringsChunkLength: 5,
 				},
 			}),
+			...(isStatic
+				? [
+					viteSingleFile({
+						useRecommendedBuildConfig: false,
+						removeViteModuleLoader: true,
+					}),
+					{
+						name: "inline-html-assets",
+						enforce: "post",
+						generateBundle(_options, bundle) {
+							const mimeMap = {
+								".png": "image/png",
+								".jpg": "image/jpeg",
+								".jpeg": "image/jpeg",
+								".gif": "image/gif",
+								".webp": "image/webp",
+								".svg": "image/svg+xml",
+								".ico": "image/x-icon",
+							};
+							const assets = {};
+							const toDelete = [];
+							for (const name of Object.keys(bundle)) {
+								const chunk = bundle[name];
+								if (chunk.type !== "asset") continue;
+								const ext = name.slice(name.lastIndexOf(".")).toLowerCase();
+								const mime = mimeMap[ext];
+								if (!mime) continue;
+								const buf = Buffer.isBuffer(chunk.source)
+									? chunk.source
+									: Buffer.from(chunk.source);
+								if (buf.length > 100_000) continue;
+								assets[chunk.fileName] = `data:${mime};base64,${buf.toString("base64")}`;
+								toDelete.push(name);
+							}
+							for (const name of Object.keys(bundle)) {
+								const chunk = bundle[name];
+								if (chunk.type !== "asset" || typeof chunk.source !== "string") continue;
+								if (!chunk.fileName.endsWith(".html")) continue;
+								let html = chunk.source;
+								for (const [filename, dataUri] of Object.entries(assets)) {
+									for (const prefix of ["./", "/", ""]) {
+										html = html.split(prefix + filename).join(dataUri);
+									}
+								}
+								chunk.source = html;
+							}
+							for (const name of toDelete) {
+								delete bundle[name];
+							}
+						},
+					},
+				  ]
+				: []),
 			{
 				name: "copy-static-assets",
 				closeBundle() {
 					const distDir = resolve(__dirname, "dist");
 					const publicDir = resolve(__dirname, "public");
 
-					const dirs = ["assets/css", "assets/img", "assets/json", "assets/audio", "assets/vendor"];
+					if (isStatic) {
+						return;
+					}
 
+					const dirs = ["assets/css", "assets/img", "assets/json", "assets/audio", "assets/vendor"];
 					for (const dir of dirs) {
 						const targetDir = resolve(distDir, dir);
 						if (!existsSync(targetDir)) {
@@ -94,24 +166,15 @@ export default defineConfig(({ mode }) => {
 					}
 
 					copyFileSync(resolve(publicDir, "sw.js"), resolve(distDir, "sw.js"));
-					
-					let html404 = readFileSync(resolve(publicDir, "404.html"), "utf-8");
-					if (gameMode === "static") {
-						const bodyInject = analytics + "\n" + popunderScript;
-						html404 = html404.replace(/<\/body>/i, `${bodyInject}\n</body>`);
-					}
+
+					const html404 = readFileSync(resolve(publicDir, "404.html"), "utf-8");
 					writeFileSync(resolve(distDir, "404.html"), html404);
 
-					if (gameMode === "selfhosted") {
-						const storageSource = resolve(publicDir, "assets/storage");
-						const storageTarget = resolve(distDir, "assets/storage");
-						
-						if (!existsSync(storageTarget)) {
-							symlinkSync(storageSource, storageTarget, "dir");
-							console.log("Created symlink for game storage");
-						}
-					} else {
-						console.log("Static mode: Skipping game storage (using LuminSDK)");
+					const storageSource = resolve(publicDir, "assets/storage");
+					const storageTarget = resolve(distDir, "assets/storage");
+					if (!existsSync(storageTarget)) {
+						symlinkSync(storageSource, storageTarget, "dir");
+						console.log("Created symlink for game storage");
 					}
 				},
 			},

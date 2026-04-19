@@ -1,3 +1,5 @@
+import { qsrPath } from "./qsr-base.js";
+
 function addScript(src) {
 	return new Promise((resolve, reject) => {
 		const s = document.createElement("script");
@@ -15,12 +17,13 @@ export function loadProxyLibs() {
 	if (proxyPromise) return proxyPromise;
 	proxyPromise = (async () => {
 		await Promise.all([
-			addScript("/marcs/scramjet.all.js"),
-			addScript("/mux/index.js"),
-			addScript("/ep/index.js"),
-			addScript("/lc/index.js"),
+			addScript(qsrPath("marcs/scramjet.all.js")),
+			addScript(qsrPath("mux/index.js")),
+			addScript(qsrPath("ep/index.js")),
+			addScript(qsrPath("lc/index.js")),
 		]);
-		await import("./pre.js");
+		const pre = await import("./pre.js");
+		pre.initPre();
 		proxyLoaded = true;
 	})();
 	return proxyPromise;
