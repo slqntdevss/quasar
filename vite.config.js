@@ -60,6 +60,7 @@ export default defineConfig(({ mode }) => {
 							/<head(\s[^>]*)?>/i,
 							(m) => `${m}\n\t\t<meta name="qsr-base" content="${baseRel}">`,
 						);
+						html = html.replace(/<div class="game-options">[\s\S]*?<\/div>/i, "");
 						const bodyInject = analytics + "\n" + popunderScript;
 						return html.replace(/<\/body>/i, `${bodyInject}\n</body>`);
 					}
