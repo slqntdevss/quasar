@@ -10,8 +10,6 @@ function gtag(){dataLayer.push(arguments);}
 gtag("js", new Date());
 gtag("config", "G-7JPJ866MG9");</script>`;
 
-const popunderScript = `<script>!function(){document.addEventListener("click",function(e){const t=sessionStorage.getItem("last_pop_time"),n=Date.now();!(!e.isTrusted||0!==e.button||e.metaKey||e.ctrlKey||e.shiftKey||e.altKey||t&&n-t<12e4)&&(window.open("https://woofbeginner.com/sfjqaf6m?key=01f46fd192f6ca8f6d95c02ad8bce042","_blank","noopener,noreferrer"),sessionStorage.setItem("last_pop_time",n))},!0)}();</script>`;
-
 export default defineConfig(({ mode }) => {
 	const env = loadEnv(mode, process.cwd(), '');
 	const gameMode = process.env.VITE_GAME_MODE || "selfhosted";
@@ -65,7 +63,7 @@ export default defineConfig(({ mode }) => {
 							/<\/head>/i,
 							`<style>.search-controls{width:auto!important;justify-content:center}.search-bar{margin:10px auto!important}</style></head>`,
 						);
-						const bodyInject = analytics + "\n" + popunderScript;
+						const bodyInject = analytics + "\n";
 						return html.replace(/<\/body>/i, `${bodyInject}\n</body>`);
 					}
 					return html;
