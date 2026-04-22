@@ -38,8 +38,10 @@ const AD_PAGES = new Set([
 	"/index.html",
 	"/work",
 	"/work/",
+	"/work/index.html",
 	"/settings",
 	"/settings/",
+	"/settings/index.html",
 ]);
 
 function injectHtml(html, pathname, host) {
