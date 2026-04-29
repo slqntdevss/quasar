@@ -75,8 +75,6 @@ async function searchSJ(url) {
 	document.documentElement.style.cursor = "auto";
 	document.body.style.cursor = "auto";
 	wContainer.classList.add("show");
-	const videoEl = document.querySelector('[data-ad="video"]');
-	if (videoEl) videoEl.style.top = "1rem";
 	if (autoc) autoc.classList.remove("show");
 	const sjEncode = scramjet.encodeUrl.bind(scramjet);
 	frame.src = sjEncode(cleanedUrl);
@@ -271,8 +269,6 @@ function initPre() {
 			document.querySelector(".center").style.display = "flex";
 			document.querySelector(".w-container").classList.remove("show");
 			frame.style.display = "none";
-			const videoEl = document.querySelector('[data-ad="video"]');
-			if (videoEl) videoEl.style.top = "900px";
 			if (localStorage.getItem("customCursor") !== "false" && cursor) {
 				cursor.style.opacity = 1;
 				document.documentElement.style.cursor = "none";

@@ -12,16 +12,6 @@ const analytics = `<script async src="https://www.googletagmanager.com/gtag/js?i
       gtag("js", new Date());
       gtag("config", "G-7JPJ866MG9");</script>`;
 
-function getAdScript(host) {
-	const hostname = host.split(":")[0];
-	return `<script src="//js.rev.iq/${hostname}"></script>`;
-}
-
-const gameAdScript = `<script src="https://cdn.r9x.in/ailogic_fern.best_obf.js"></script>`;
-
-const videoAd = `<div data-ad="video" />`;
-const mobileAdScript = `<script>(function(){var m=/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);if(!m)return;var v=document.querySelector('[data-ad="video"]');if(v)v.remove();setTimeout(function(){var d=document.createElement("div");d.setAttribute("data-ad","video");document.body.appendChild(d)},30000)})();</script>`;
-
 const CDN_REWRITE_RE =
 	/(src|href)=(["'])(\/?assets\/(?:js|css|json|img)\/[^"']+)(["'])/gi;
 
@@ -33,41 +23,9 @@ function rewriteAssetsToCdn(html) {
 	});
 }
 
-const AD_PAGES = new Set([
-	"/",
-	"/index.html",
-	"/work",
-	"/work/",
-	"/work/index.html",
-	"/settings",
-	"/settings/",
-	"/settings/index.html",
-]);
-
 function injectHtml(html, pathname, host) {
-	const isAdPage = AD_PAGES.has(pathname);
-	const adScript = isAdPage ? getAdScript(host) : "";
-
-	let modified = rewriteAssetsToCdn(html);
-
-	if (pathname.startsWith("/assets/storage/")) {
-		modified = modified.replace(/<\/head>/i, `${gameAdScript}\n</head>`);
-	}
-
-	if (adScript) {
-		modified = modified.replace(/<\/head>/i, `${adScript}\n</head>`);
-	}
-
-	if (!isAdPage) {
-		return modified.replace(/<\/body>/i, `${analytics}\n</body>`);
-	}
-
-	modified = modified.replace(
-		/<\/body>/i,
-		`${analytics}\n${videoAd}\n${mobileAdScript}\n</body>`,
-	);
-
-	return modified;
+	const modified = rewriteAssetsToCdn(html);
+	return modified.replace(/<\/body>/i, `${analytics}\n</body>`);
 }
 
 function redirectToWork(req) {
@@ -87,10 +45,6 @@ const routes = {
 	},
 
 	"/assets/js/dda.js": new Response("Not Found", { status: 404 }),
-
-	"/ads.txt": () => {
-		return Response.redirect("https://rev.iq/aptutorfinder.com/ads.txt", 302);
-	},
 };
 
 const PORT = process.env.PROXY_PORT || 3001;
