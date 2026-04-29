@@ -12,7 +12,7 @@ jobs:
           username: slqnt
           password: ${{ secrets.SSH_PASSWORD }}
           script: |
-            export PATH=$PATH:/usr/local/bin:/usr/bin:$HOME/.bun/bin
+            export PATH=$PATH:/usr/local/bin:/usr/bin:$HOME/.bun/bin:$HOME/.nvm/versions/node/$(ls $HOME/.nvm/versions/node | tail -1)/bin
             cd ~/quasar
             git pull
             bun install
