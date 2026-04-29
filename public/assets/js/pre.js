@@ -20,7 +20,7 @@ function getWispUrl() {
 	return (location.protocol === "https:" ? "wss" : "ws") +
 		"://" +
 		location.host +
-		qsrPath("wisp/");
+		qsrPath("ws/");
 }
 
 async function registerSW() {

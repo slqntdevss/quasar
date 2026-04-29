@@ -187,7 +187,7 @@ export default defineConfig(({ mode }) => {
 			port: 3000,
 			proxy: {
 				"/autoc": "http://localhost:8080",
-				"/wisp": { target: "ws://localhost:8080", ws: true },
+				"/ws": { target: "ws://localhost:8080", ws: true },
 				"/marcs": "http://localhost:8080",
 				"/mux": "http://localhost:8080",
 				"/ep": "http://localhost:8080",

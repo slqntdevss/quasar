@@ -18,7 +18,7 @@ document.addEventListener("DOMContentLoaded", async () => {
 		(location.protocol === "https:" ? "wss" : "ws") +
 		"://" +
 		location.host +
-		"/wisp/";
+		"/ws/";
 	if ((await connection.getTransport()) !== "/ep/index.mjs") {
 		await connection.setTransport("/ep/index.mjs", [{ wisp: wispUrl }]);
 	}
