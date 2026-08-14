@@ -11,6 +11,12 @@ importScripts(qsrPath("vu/uv.sw.js"));
 const { ScramjetServiceWorker } = $scramjetLoadWorker();
 const scramjet = new ScramjetServiceWorker();
 
+self.addEventListener("message", ({ data }) => {
+	if (data && data.scramjet$type === "loadConfig") {
+		scramjet.config = null;
+	}
+});
+
 const uvsw = new UVServiceWorker();
 
 self.addEventListener("error", function (event) {
