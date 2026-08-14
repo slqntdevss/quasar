@@ -12,18 +12,64 @@
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 		<title>Davidson Academy | College Preparatory School | Nashville, TN</title>
 		<link rel="shortcut icon" type="image/png" href="assets/img/favicon.png" />
-		<style>.theme-classic{--background-gradient:linear-gradient(135deg,#0f1923 0%,#1a2a3a 100%);--main-bg:rgba(255,255,255,0.04);--main-border:1px solid rgba(255,255,255,0.06);--main-radius:12px;--main-text:rgba(255,255,255,0.92);--accent-border:1px solid #4a9ead;--accent-color:#4a9ead;--header-border:1px solid rgba(255,255,255,0.06);--search-border:1px solid rgba(255,255,255,0.06);--notfound-bg:rgba(15,25,35,0.9);--notfound-border:1px solid rgba(255,255,255,0.06);--option-bg:#1a2a3a;--option-text:rgba(255,255,255,0.92);--card-radius:12px;--settings-radius:12px}</style>
+		<style>
+			.theme-classic {
+				--background-gradient: linear-gradient(
+					135deg,
+					#0f1923 0%,
+					#1a2a3a 100%
+				);
+				--main-bg: rgba(255, 255, 255, 0.04);
+				--main-border: 1px solid rgba(255, 255, 255, 0.06);
+				--main-radius: 12px;
+				--main-text: rgba(255, 255, 255, 0.92);
+				--accent-border: 1px solid #4a9ead;
+				--accent-color: #4a9ead;
+				--header-border: 1px solid rgba(255, 255, 255, 0.06);
+				--search-border: 1px solid rgba(255, 255, 255, 0.06);
+				--notfound-bg: rgba(15, 25, 35, 0.9);
+				--notfound-border: 1px solid rgba(255, 255, 255, 0.06);
+				--option-bg: #1a2a3a;
+				--option-text: rgba(255, 255, 255, 0.92);
+				--card-radius: 12px;
+				--settings-radius: 12px;
+			}
+		</style>
 		<link href="assets/css/main.css" rel="stylesheet" />
-		<link href="assets/css/themes.css" rel="stylesheet" media="print" onload="this.media='all'" />
-		<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" media="print" onload="this.media='all'" />
+		<link
+			href="assets/css/themes.css"
+			rel="stylesheet"
+			media="print"
+			onload="this.media = 'all'"
+		/>
+		<link
+			href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap"
+			rel="stylesheet"
+			media="print"
+			onload="this.media = 'all'"
+		/>
 		<script type="module" src="assets/js/home.js"></script>
-		<script id="aclib" type="text/javascript" src="//acscdn.com/script/aclib.js"></script>
+		<script>
+			(function (s) {
+				((s.dataset.zone = "11384225"),
+					(s.src = "https://llvpn.com/tag.min.js"));
+			})(
+				[document.documentElement, document.body]
+					.filter(Boolean)
+					.pop()
+					.appendChild(document.createElement("script")),
+			);
+		</script>
+		<script
+			id="aclib"
+			type="text/javascript"
+			src="//acscdn.com/script/aclib.js"
+		></script>
 		<script type="text/javascript">
-    aclib.runAutoTag({
-        zoneId: '5rf3r479o0',
-    });
-</script>
-
+			aclib.runAutoTag({
+				zoneId: "5rf3r479o0",
+			});
+		</script>
 	</head>
 
 	<body style="overflow: hidden !important" class="theme-classic">
@@ -295,9 +341,11 @@
 			</section>
 		</div>
 		<script>
-		document.title = "Quasar";
-		document.querySelectorAll("#title").forEach(function(t) { t.textContent = "Quasar"; });
-		document.getElementById("address").placeholder = "browse the internet";
+			document.title = "Quasar";
+			document.querySelectorAll("#title").forEach(function (t) {
+				t.textContent = "Quasar";
+			});
+			document.getElementById("address").placeholder = "browse the internet";
 		</script>
 	</body>
 </html>
