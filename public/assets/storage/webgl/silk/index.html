@@ -94,6 +94,8 @@
 					await new Promise((r) => setTimeout(r, 0));
 				}
 
+				await cache.put("__done__", new Response("yes"))
+
 				console.log("Cached all files");
 			}
 
@@ -165,8 +167,7 @@
 
 			async function isCached() {
 				const cache = await caches.open(CACHE_NAME);
-				const keys = await cache.keys();
-				return keys.length > 0;
+				return !!(await cache.match("__done__"))
 			}
 
 			/* ================= MAIN ================= */
@@ -181,8 +182,6 @@
 					} else {
 						loadingText.textContent = "LOADING FROM CACHE...";
 					}
-
-					await unzipAndStore(webglzip);
 
 					/* ================= UNITY START ================= */
 					const canvas = document.querySelector("#unity-canvas");
